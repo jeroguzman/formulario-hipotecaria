@@ -11,7 +11,6 @@
 @font-face {
     font-family: Gotham-light;
     src: url('/static/fonts/Gotham-Thin.otf');
-
 }
 
 body {
@@ -22,6 +21,7 @@ body {
     text-align: justify;
     color: #1b2c54
 }
+
 
 /*------- Header -------*/
 
@@ -56,7 +56,9 @@ body {
     height: auto;
 }
 
+
 /*------- Body -------*/
+
 .container-fluid {
     padding: 5% 13%;
 }
@@ -114,4 +116,17 @@ strong {
 
 .asesoria-circulo:hover {
     background-color: #9b723c;
+}
+
+
+/** contenido de cuestionario */
+
+.contenido {
+    /*visibility: hidden;*/
+    /* clear: both;
+    margin: 0px;
+    overflow-x: hidden;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;*/
 }
