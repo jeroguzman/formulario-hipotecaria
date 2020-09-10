@@ -1,14 +1,123 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}">
+
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+
     <title>Document</title>
 </head>
 
 <body>
-    <h1>pagina de home</h1>
+    <div>
+
+        <div class="header">
+
+            <div class="img-header-container">
+                <img src="{% static 'img/img-header.jpg'%}" alt="">
+            </div>
+
+            <div class="logo-container">
+                <img src="{% static 'img/logo-header.png'%}" alt="">
+            </div>
+
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                    <img src="{% static 'img/img-hombre.jpg'%}" alt="">
+                </div>
+
+                <div class="col col-lg-8 col-sm-12">
+
+                    <h2><strong>¡HOLA!</strong> Soy,</h2>
+                    <h4><strong>Lic. Alfredo Ontiveros,</strong> tu asesor hipotecario.</h4>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                            <div class="contacto">
+                                <h4><strong>Llámame:</strong></h4>
+                                <h3>(662) 267 85 23</h3>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Eius itaque nisi perspiciatis
+                                obcaecati mollitia vitae id ea, fugiat reprehenderit,
+                                cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
+                        </div>
+                        <div class="col col-lg-6 col-sm-12">
+                            <div class="contacto">
+                                <h4><strong>Envíame un Mensaje:</strong></h4>
+                                <h3>Alfredo@msh.com</h3>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Eius itaque nisi perspiciatis
+                                obcaecati mollitia vitae id ea, fugiat reprehenderit,
+                                cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="asesoria">
+                    <h2><strong>TE ASESORAMOS GRATUITAMENTE EN LO SIGUIENTE:</strong></h2>
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-12 offset-lg-1">
+                            <div class="asesoria-circulo">
+                            </div>
+                            <h5>CAPITAL DE TRABAJO</h5>
+                        </div>
+
+                        <div class="col-lg-2 col-sm-12">
+
+                            <div class="asesoria-circulo">
+                            </div>
+
+                            <h5>CONSOLIDAR DEUDAS</h5>
+
+                        </div>
+
+                        <div class="col-lg-2 col-sm-12">
+                            <div class="asesoria-circulo">
+
+                            </div>
+                            <h5>REMODELAR/ CONSTRUIR</h5>
+
+                        </div>
+
+                        <div class="col-lg-2 col-sm-12">
+
+                            <div class="asesoria-circulo">
+
+                            </div>
+                            <h5>TRASLADO</h5>
+                        </div>
+
+                        <div class="col-lg-2 col-sm-12">
+                            <div class="asesoria-circulo">
+
+                            </div>
+                            <h5>COMPRA</h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
 </body>
 

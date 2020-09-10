@@ -1,0 +1,117 @@
+@font-face {
+    font-family: Gotham;
+    src: url('/static/fonts/GothamBook.ttf');
+}
+
+@font-face {
+    font-family: Gotham-bold;
+    src: url('/static/fonts/GothamMedium.ttf');
+}
+
+@font-face {
+    font-family: Gotham-light;
+    src: url('/static/fonts/Gotham-Thin.otf');
+
+}
+
+body {
+    font-family: Gotham;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-align: justify;
+    color: #1b2c54
+}
+
+/*------- Header -------*/
+
+.header {
+    position: relative;
+}
+
+.img-header-container {
+    margin: 25px 0 25px 0;
+    position: relative;
+    width: 100%;
+}
+
+.img-header-container img {
+    width: 100%;
+    min-height: 100px;
+}
+
+.logo-container {
+    background-color: #1b2c54;
+    padding: 25px 10px 35px 10px;
+    width: 22%;
+    min-width: 250px;
+    height: auto;
+    position: absolute;
+    top: -25px;
+    left: 13%;
+}
+
+.logo-container img {
+    width: 100%;
+    height: auto;
+}
+
+/*------- Body -------*/
+.container-fluid {
+    padding: 5% 13%;
+}
+
+.container-fluid img {
+    width: 95%;
+    min-width: 250px;
+    height: auto;
+}
+
+h2,
+h4 {
+    font-family: Gotham-Light;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-family: Gotham;
+}
+
+strong {
+    font-family: Gotham-bold;
+}
+
+.contacto {
+    margin: 40px 0 50px;
+}
+
+.contacto h4 {
+    margin: 0px;
+}
+
+.asesoria {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.asesoria h2 {
+    margin-bottom: 40px;
+}
+
+.asesoria h5 {
+    color: #9b723c;
+    font-family: Gotham-bold;
+}
+
+.asesoria-circulo {
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color: #1b2c54;
+}
+
+.asesoria-circulo:hover {
+    background-color: #9b723c;
+}
