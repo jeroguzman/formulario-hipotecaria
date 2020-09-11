@@ -1,117 +1,134 @@
+{% extends 'home/base.html'%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}">
+{% block body %}
+<div>
 
-    <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <div class="header">
 
-    <title>Document</title>
-</head>
-
-<body>
-    <div>
-
-        <div class="header">
-
-            <div class="img-header-container">
-                <img src="{% static 'img/img-header.jpg'%}" alt="">
-            </div>
-
-            <div class="logo-container">
-                <img src="{% static 'img/logo-header.png'%}" alt="">
-            </div>
-
+        <div class="img-header-container">
+            <img src="{% static 'img/img-header.jpg'%}" alt="">
         </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4 col-sm-12">
-                    <img src="{% static 'img/img-hombre.jpg'%}" alt="">
+        <div class="logo-container">
+            <img src="{% static 'img/logo-header.png'%}" alt="">
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <img src="{% static 'img/img-hombre.jpg'%}" alt="">
+            </div>
+
+            <div class="col col-lg-8 col-sm-12">
+
+                <h2><strong>¡HOLA!</strong> Soy,</h2>
+                <h4><strong>Lic. Alfredo Ontiveros,</strong> tu asesor hipotecario.</h4>
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="contacto">
+                            <h4><strong>Llámame:</strong></h4>
+                            <h3>(662) 267 85 23</h3>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Eius itaque nisi perspiciatis
+                            obcaecati mollitia vitae id ea, fugiat reprehenderit,
+                            cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
+                    </div>
+                    <div class="col col-lg-6 col-sm-12">
+                        <div class="contacto">
+                            <h4><strong>Envíame un Mensaje:</strong></h4>
+                            <h3>Alfredo@msh.com</h3>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Eius itaque nisi perspiciatis
+                            obcaecati mollitia vitae id ea, fugiat reprehenderit,
+                            cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
+                    </div>
                 </div>
 
-                <div class="col col-lg-8 col-sm-12">
+            </div>
 
-                    <h2><strong>¡HOLA!</strong> Soy,</h2>
-                    <h4><strong>Lic. Alfredo Ontiveros,</strong> tu asesor hipotecario.</h4>
+            <div class="asesoria" id="formulario">
+                <h2><strong>TE ASESORAMOS GRATUITAMENTE EN LO SIGUIENTE:</strong></h2>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12 offset-lg-1">
+                        <a data-toggle="collapse" href="#capitalTrabajo" role="button" aria-expanded="false"
+                            aria-controls="capitalTrabajo">
+                            <div class="asesoria-circulo">
+                            </div>
+                        </a>
+                        <h5 class="texto-asesoria">CAPITAL DE TRABAJO</h5>
+                        <i class="fas fa-caret-down arrow"></i>
 
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="contacto">
-                                <h4><strong>Llámame:</strong></h4>
-                                <h3>(662) 267 85 23</h3>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-12">
+
+                        <a data-toggle="collapse" href="#consolidarDeudas" role="button" aria-expanded="false"
+                            aria-controls="consolidarDeudas" data-parent="#formulario">
+                            <div class="asesoria-circulo">
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eius itaque nisi perspiciatis
-                                obcaecati mollitia vitae id ea, fugiat reprehenderit,
-                                cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
-                        </div>
-                        <div class="col col-lg-6 col-sm-12">
-                            <div class="contacto">
-                                <h4><strong>Envíame un Mensaje:</strong></h4>
-                                <h3>Alfredo@msh.com</h3>
+                        </a>
+
+                        <h5>CONSOLIDAR DEUDAS</h5>
+                        <i class="fas fa-caret-down arrow"></i>
+
+                    </div>
+
+                    <div class="col-lg-2 col-sm-12">
+                        <a data-toggle="collapse" href="#remodelar" role="button" aria-expanded="false"
+                            aria-controls="remodelar" data-parent="#formulario">
+                            <div class="asesoria-circulo">
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eius itaque nisi perspiciatis
-                                obcaecati mollitia vitae id ea, fugiat reprehenderit,
-                                cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
-                        </div>
+                        </a>
+                        <h5>REMODELAR/ CONSTRUIR</h5>
+                        <i class="fas fa-caret-down arrow"></i>
+
+                    </div>
+
+                    <div class="col-lg-2 col-sm-12">
+
+                        <a data-toggle="collapse" href="#traslado" role="button" aria-expanded="false"
+                            aria-controls="traslado" data-parent="#formulario">
+                            <div class="asesoria-circulo">
+                            </div>
+                        </a>
+                        <h5>TRASLADO</h5>
+                        <i class="fas fa-caret-down arrow"></i>
+                    </div>
+
+                    <div class="col-lg-2 col-sm-12">
+                        <a data-toggle="collapse" href="#compra" role="button" aria-expanded="false"
+                            aria-controls="compra" data-parent="#formulario">
+                            <div class="asesoria-circulo">
+                            </div>
+                        </a>
+                        <h5>COMPRA</h5>
+                        <i class="fas fa-caret-down arrow"></i>
+
                     </div>
 
                 </div>
 
-                <div class="asesoria">
-                    <h2><strong>TE ASESORAMOS GRATUITAMENTE EN LO SIGUIENTE:</strong></h2>
-                    <div class="row">
-                        <div class="col-lg-2 col-sm-12 offset-lg-1">
-                            <div class="asesoria-circulo">
-                            </div>
-                            <h5>CAPITAL DE TRABAJO</h5>
-                        </div>
+                {% include 'home/formularios/capitalTrabajo.html'%}
 
-                        <div class="col-lg-2 col-sm-12">
-
-                            <div class="asesoria-circulo">
-                            </div>
-
-                            <h5>CONSOLIDAR DEUDAS</h5>
-
-                        </div>
-
-                        <div class="col-lg-2 col-sm-12">
-                            <div class="asesoria-circulo">
-
-                            </div>
-                            <h5>REMODELAR/ CONSTRUIR</h5>
-
-                        </div>
-
-                        <div class="col-lg-2 col-sm-12">
-
-                            <div class="asesoria-circulo">
-
-                            </div>
-                            <h5>TRASLADO</h5>
-                        </div>
-
-                        <div class="col-lg-2 col-sm-12">
-                            <div class="asesoria-circulo">
-
-                            </div>
-                            <h5>COMPRA</h5>
-
-                        </div>
-
-                    </div>
-
+                <div class="collapse" id="consolidarDeudas" data-parent="#formulario">
+                    Este titulo aparecion con el click del boton para consolidar deudas
                 </div>
-
+                <div class="collapse" id="remodelar" data-parent="#formulario">
+                    Este titulo aparecion con el click del boton para remodelar
+                </div>
+                <div class="collapse" id="traslado" data-parent="#formulario">
+                    Este titulo aparecion con el click del boton para traslado
+                </div>
+                <div class="collapse" id="compra" data-parent="#formulario">
+                    Este titulo aparecion con el click del boton para compra
+                </div>
             </div>
 
         </div>
@@ -119,6 +136,8 @@
     </div>
 
 
-</body>
 
-</html>
+
+</div>
+
+{% endblock body %}

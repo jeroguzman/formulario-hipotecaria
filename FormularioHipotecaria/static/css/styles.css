@@ -98,9 +98,10 @@ strong {
     margin-bottom: 40px;
 }
 
-.asesoria h5 {
+h5 {
     color: #9b723c;
     font-family: Gotham-bold;
+
 }
 
 .asesoria-circulo {
@@ -112,6 +113,39 @@ strong {
     background-color: #1b2c54;
 }
 
-.asesoria-circulo:hover {
+.asesoria-circulo:hover,
+.active {
     background-color: #9b723c;
+}
+
+.currenth5 {
+    color: #1b2c54;
+}
+
+.arrow {
+    font-size: 5rem;
+}
+
+.preguntas label {
+    margin-top: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #9b723c;
+}
+
+.preguntas button {
+    border: none;
+    border-radius: 20px;
+    background-color: #9b723c;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 20px;
+}
+
+.preguntas button:hover {
+    background-color: #1b2c54;
+}
+
+#panel2 {
+    display: none;
 }
