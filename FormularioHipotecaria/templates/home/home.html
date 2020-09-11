@@ -12,6 +12,8 @@
     <!-- CSS stylesheet -->
     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
 
+    
+
     <title>Document</title>
 
 </head>
@@ -72,66 +74,354 @@
                     <div class="row">
                         <div class="col-lg-2 col-sm-12 offset-lg-1">
                             <div class="asesoria-circulo">
+                            <a class="btn btn-link" data-toggle="collapse" href="#collapseRemodelarValor" role="button" aria-expanded="false" aria-controls="collapseRemodelarValor"></a>
+
                             </div>
                             <h5>CAPITAL DE TRABAJO</h5>
+                            
                         </div>
 
                         <div class="col-lg-2 col-sm-12">
 
                             <div class="asesoria-circulo">
+                             <a class="btn btn-link" data-toggle="collapse" href="#collapseRemodelarValor" role="button" aria-expanded="false" aria-controls="collapseRemodelarValor"></a>
+
                             </div>
 
                             <h5>CONSOLIDAR DEUDAS</h5>
-
+                           
                         </div>
 
                         <div class="col-lg-2 col-sm-12">
                             <div class="asesoria-circulo">
+                            <a class="btn btn-link" data-toggle="collapse" href="#collapseRemodelarValor" role="button" aria-expanded="false" aria-controls="collapseRemodelarValor"></a>
 
                             </div>
                             <h5>REMODELAR/ CONSTRUIR</h5>
-
+                            
                         </div>
 
                         <div class="col-lg-2 col-sm-12">
 
                             <div class="asesoria-circulo">
+                            <a class="btn btn-link" data-toggle="collapse" href="#collapseTraslado" role="button" aria-expanded="false" aria-controls="collapseTraslado"></a>
 
                             </div>
                             <h5>TRASLADO</h5>
                         </div>
-
+                        
                         <div class="col-lg-2 col-sm-12">
                             <div class="asesoria-circulo" >
-                            <a href="javascript:desplegar();" id="compra">d</a>
+                            
+                            <a class="btn btn-link" data-toggle="collapse" href="#collapseCompra" role="button" aria-expanded="false" aria-controls="collapseCompra"></a>
 
                             </div>
                             <h5>COMPRA</h5>
 
                         </div>
-
+                        </p>
                     </div>
 
                 </div>
 
-                <!--contenido de compra -->
-                    <div  class="contenido">
-                        <pre>
-                        <h2>Lorem ipsum</h2>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eius itaque nisi perspiciatis obcaecati mollitia vitae 
-                        id ea, fugiat reprehenderit, cum in incidunt laborum
-                        </pre>
-                    </div>
-            </div>
+                <!--contenido de REMODELAR/ CONSTRUIR/cuanto vale la propiedad-->
+                <div class="collapse" id="collapseRemodelarValor">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuánto vale la propiedad que quieres dejar en garantía?
+                        </h3>
+                        <p>
+                        Valor de la propiedad
+                        </p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                                </div>
+                                    <input type="number" id="validationCantidad" name="valor" min="10,000" max="80,000,000" required/>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                    <div id="validationCantidad" class="invalid-feedback">
+                                        El campo valor debe ser $ 500,000 o superior.
+                                    </div> 
+                                    <br>
+                                    <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraComoPercibe" role="button" aria-expanded="false" aria-controls="collapseCompraComoPercibe">Click para continuar ></a>
+                                </div>
+                            </div>
+                        </div>
 
-        </div>
+                <!--contenido de TRASLADO/cuanto vale la propiedad-->
+                <div class="collapse" id="collapseTraslado">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuánto vale la propiedad asociado al crédito hipotecario?
+                        </h3>
+                        <p>
+                        Valor de la propiedad
+                        </p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                                </div>
+                                    <input type="number" id="validationCantidad" name="valor" min="10,000" max="80,000,000" required/>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                    <div id="validationCantidad" class="invalid-feedback">
+                                        El campo valor debe ser $ 500,000 o superior.
+                                    </div> 
+                                    <br>
+                                    <a class="btn btn-success" data-toggle="collapse" href="#collapseTrasladoBanco" role="button" aria-expanded="false" aria-controls="collapseTrasladoBanco">Click para continuar ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                 <!--contenido de TRASLADO/Banco de hipoteca actual-->
+                <div class="collapse" id="collapseTrasladoBanco">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿En qué banco tienes tu hipoteca actual?
+                        </h3>
+                        <p>
+                        En base a estos datos te vamos a mostrar las propuestas de crédito.
+                        </p>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Selecciona un banco</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Afirme</option>
+                            <option>Banamex</option>
+                            <option>Banorte</option>
+                            <option>Banregio</option>
+                            <option>BBVA</option>
+                            <option>HSBC</option>
+                            <option>Santander</option>
+                            </select>
+                        </div>
+                        <br>
+                        <a class="btn btn-success" data-toggle="collapse" href="#collapseTrasladoMensualidad" role="button" aria-expanded="false" aria-controls="collapseTrasladoMensualidad">Click para continuar ></a>
+                            
+                     </div>
+                </div>
+                
+                <!--contenido de TRASLADO/Mensualidad-->
+                <div class="collapse" id="collapseTrasladoMensualidad">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuánto pagas mes a mes? ¿Cuánto es tu mensualidad?
+                        </h3>
+                        <p>
+                        Este monto es el que optimizaremos.
+                        </p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                                </div>
+                                    <input type="number" id="validationCantidad" name="valor" min="2,000" max="80,000" required/>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                    <div id="validationCantidad" class="invalid-feedback">
+                                        El campo valor debe ser $ 2,000 o superior.
+                                    </div> 
+                                    <br>
+                                    <a class="btn btn-success" data-toggle="collapse" href="#collapseTrasladoMontoDeuda" role="button" aria-expanded="false" aria-controls="collapseTrasladoMontoDeuda">Click para continuar ></a>
+                                </div>
+                            </div>
+                        </div>
+                <!--contenido de TRASLADO/Monto de la deuda -->
+                <div class="collapse" id="collapseTrasladoMontoDeuda">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuál es el monto de la deuda a la fecha?
+                        </h3>
+                        <p>
+                        Cuánto es tu deuda hoy día, luego de los pagos que has estado realizando.
+                        </p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                                </div>
+                                    <input type="number" id="validationCantidad" name="valor" min="250,000" max="40,000,000" required/>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                    <div id="validationCantidad" class="invalid-feedback">
+                                        El campo valor debe ser $ 250,000 o superior.
+                                    </div> 
+                                    <br>
+                                    <a class="btn btn-success" data-toggle="collapse" href="#collapseTrasladoTipoMensualidad" role="button" aria-expanded="false" aria-controls="collapseTrasladoTipoMensualidad">Click para continuar ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                <!--contenido de TRASLADO / tipo de mensualidad-->
+                <div class="collapse" id="collapseTrasladoTipoMensualidad">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Qué tipo de mensualidad tienes?
+                        </h3>
+                        <p>
+                        Pagas una mensualidad fija todos los meses o esta se incrementa a lo largo de los años
+                        </p>
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar" role="button" aria-expanded="false" aria-controls="collapseTrasladoPorPagar">Mensualidad Fija</a>
+                        
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar" role="button" aria-expanded="false" aria-controls="collapseTrasladoPorPagar">Mensualidad Creciente</a>
+                        
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar" role="button" aria-expanded="false" aria-controls="collapseTrasladoPorPagar">No lo sé</a>
+                    </div>
+                </div>
+
+                 <!--contenido de TRASLADO / Años faltantes por pagar-->
+                <div class="collapse" id="collapseTrasladoPorPagar">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuál años te faltan por pagar?
+                        </h3>
+                        <p>
+                        Cuántos años te faltan pagar para finalizar el crédito
+                        </p>
+                        <input name="años por pagar" inputmode="numeric" type="number">
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraComoPercibe" role="button" aria-expanded="false" aria-controls="collapseCompraComoPercibe">No lo sé</a>
+                    </div>
+                </div>
+
+                <!--contenido de compra / sustentar ingresos-->
+                <div class="collapse" id="collapseCompra">
+                    <div  class="card card-body">
+                        <h3>
+                        ¡Excelente! Mi nombre es Paola Maria Soto y te voy a guiar en este proceso 👍
+                        </h3>
+                        <p>
+                        Primero es necesario que puedas sustentar ingresos para la evaluación del crédito.
+                        </p>
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraSiingresos" role="button" aria-expanded="false" aria-controls="collapseCompraSiingresos">si</a>
+                        
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraNoingresos" role="button" aria-expanded="false" aria-controls="collapseCompraNoingresos">No</a>
+                    </div>
+                </div>
+                <!--contenido de compra/NO sustento de ingresos -->
+                <div class="collapse" id="collapseCompraNoingresos">
+                    <div  class="card card-body">
+                        <h3>
+                        Si no tienes cómo sustentar ingresos, no vamos a poder ayudarte por el momento 😢
+                        </h3>
+                        <p>
+                        ¿Cómo te gustaríá continuar?
+                        </p>
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompra" role="button" aria-expanded="false" aria-controls="collapseCompra">No</a>
+                        
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompra" role="button" aria-expanded="false" aria-controls="collapseCompra">Leer..</a>
+                    </div>
+                </div>
+                <!--contenido de compra/cuanto vale la propiedad-->
+                <div class="collapse" id="collapseCompraSiingresos">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuánto vale la propiedad que quieres comprar?
+                        </h3>
+                        <p>
+                        Valor de la propiedad
+                        </p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                                </div>
+                                    <input type="number" id="validationCantidad" name="valor" min="10,000" max="80,000,000" required/>
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
+                                    <div id="validationCantidad" class="invalid-feedback">
+                                        El campo valor debe ser $ 500,000 o superior.
+                                    </div> 
+                                    <br>
+                                    <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraComoPercibe" role="button" aria-expanded="false" aria-controls="collapseCompraComoPercibe">Click para continuar ></a>
+                                </div>
+                            </div>
+                        </div>
+                <!--contenido de compra/¿Cómo percibes tus ingresos? -->
+                <div class="collapse" id="collapseCompraComoPercibe">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cómo percibes tus ingresos?
+                        </h3>
+                        <p>
+                        Coloca la categoría principal de cómo percibes tus ingresos.
+                        </p>
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraCorreo" role="button" aria-expanded="false" aria-controls="collapseCompraCorreo">Asalariado</a>
+                        
+                        <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraCorreo" role="button" aria-expanded="false" aria-controls="collapseCompraCorreo">Independiente..</a>
+                    </div>
+                </div>
+                <!--contenido de compra/correo -->
+                <div class="collapse" id="collapseCompraCorreo">
+                    <div  class="card card-body">
+                        <h3>
+                        
+                        ¿A qué correo te enviamos las propuestas de los bancos?
+                        </h3>
+                        <p>
+                        A este correo te enviaremos las propuestas y los resultados de tu pre-calificación
+                        </p>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraCelular" role="button" aria-expanded="false" aria-controls="collapseCompraCelular">Click para continuar ></a>
+                    </div>
+                </div>
+                <!--contenido de compra/celular -->
+                <div class="collapse" id="collapseCompraCelular">
+                    <div  class="card card-body">
+                        <h3>
+                        
+                        ¿A qué correo te enviamos las propuestas de los bancos?
+                        </h3>
+                        <p>
+                        A este correo te enviaremos las propuestas y los resultados de tu pre-calificación
+                        </p>
+                        <input type="text" name="celular" inputmode="numeric" placeholder="Ingresa tu celular" maxlength="12">
+                        <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraRFC" role="button" aria-expanded="false" aria-controls="collapseCompraRFC">Click para continuar ></a>
+                    </div>
+                </div>
+                <!--contenido de compra/RFC -->
+                <div class="collapse" id="collapseCompraRFC">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuál es tu RFC?
+                        </h3>
+                        <p>
+                        Utilizaremos este dato para poder precalificarte
+                        </p>
+                        <input type="text" name="RFC"  placeholder="Ingresa el RFC del titular del credito" maxlength="13">
+                        <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraNombre" role="button" aria-expanded="false" aria-controls="collapseCompraNombre">Click para continuar ></a>
+                    </div>
+                </div>
+                <!--contenido de compra/Nombre -->
+                <div class="collapse" id="collapseCompraNombre">
+                    <div  class="card card-body">
+                        <h3>
+                        ¿Cuál es tu Nombre?
+                        </h3>
+                        <p>
+                        Utilizaremos este dato para poder precalificarte
+                        </p>
+                        <input type="text" name="nombre"  placeholder="Ingresa tu nombre">
+                        <a class="btn btn-success" data-toggle="collapse" href="#collapseCompraRFC" role="button" aria-expanded="false" aria-controls="collapseCompraRFC">Crear cuenta y ver propuestas ></a>
+                    </div>
+                </div>
+
+
+            </div><!-- end row -->
+
+        </div><!-- end container -->
 
     </div>
 
 
 </body>
 
-
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+ 
 
 </html>

@@ -122,7 +122,7 @@ strong {
 /** contenido de cuestionario */
 
 .contenido {
-    /*visibility: hidden;*/
+    visibility: hidden;
     /* clear: both;
     margin: 0px;
     overflow-x: hidden;
