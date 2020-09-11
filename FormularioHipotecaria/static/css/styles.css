@@ -23,6 +23,16 @@ body {
     color: #1b2c54
 }
 
+a,
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+button:focus {
+    outline: none;
+}
+
 /*------- Header -------*/
 
 .header {
@@ -140,12 +150,52 @@ h5 {
     color: white;
     font-size: 1rem;
     padding: 5px 20px;
+    position: absolute;
+    right: 250px;
+
+
 }
 
 .preguntas button:hover {
     background-color: #1b2c54;
 }
 
-#panel2 {
+.preguntas input {
+    max-width: 350px;
+}
+
+.formaIngreso {
+    position: relative;
+    margin: 20px 10px;
+    text-align: left;
+    width: 50%;
+    padding: 14px 22px;
+    border: black 5px;
+    border-radius: 2px;
+}
+
+.formaIngreso p {
+    margin: 0;
+}
+
+.formaIngreso .titulo {
+    font-family: Gotham-bold;
+    font-size: 1.2rem;
+}
+
+.formaIngreso:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#correo {
     display: none;
+}
+
+.ingreso-active {
+    border: solid 1px #008A94;
+    background-color: #EBF6F7;
+}
+
+.form-text {
+    text-align: left;
 }

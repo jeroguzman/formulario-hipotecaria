@@ -18,6 +18,14 @@ $('.col-lg-2').hover(function () {
     });
 });
 
+
 $('.btnNext').click(function () {
-    $('#panel2').show();
+    $(this).fadeOut(100);
+})
+
+$('.formaIngreso').click(function () {
+    $('.formaIngreso').removeClass('ingreso-active');
+    $(this).addClass('ingreso-active');
+
+    $('#correo').fadeIn(500);
 })

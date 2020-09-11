@@ -1,22 +1,90 @@
 <div class="preguntas">
     <div class="collapse" id="capitalTrabajo" data-parent="#formulario">
         <form>
-            <div id="panel1">
+            <div id="propiedadGarantia">
                 <div class="form-group">
                     <label for="valorPropiedad">¿CUÁNTO VALE LA PROPIEDAD QUE QUIERES DEJAR EN GARANTÍA?</label>
-                    <input type="number" class="form-control" id="valorPropiedad" value="0" min="500000">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="number" class="form-control" id="valorPropiedad" value="0" min="500000">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
                 </div>
-                <button type="button" class="btnNext" class="btn btn-primary">SIGUIENTE</button>
+                <button type="button" class="btnNext" class="btn btn-primary" data-toggle="collapse"
+                    data-target="#percibeIngreso" aria-expanded="false"
+                    aria-controls="percibeIngreso">SIGUIENTE</button>
             </div>
 
-            <div id="panel2">
+            <div id="percibeIngreso" class="collapse">
                 <div class="form-group">
                     <label for="valorPropiedad">¿CÓMO PERCIBES TUS INGRESOS?</label>
-                    <input type="number" class="form-control" id="valorPropiedad" value="0" min="500000">
+                    <a href="#correo" role="button">
+                        <div class="formaIngreso">
+                            <p class="titulo">Asalariado</p>
+                            <p>Empleado</p>
+                        </div>
+                    </a>
+
+                    <a href="#correo" role="button">
+                        <div class="formaIngreso">
+                            <p class="titulo">Independiente</p>
+                            <p>Trabajador Independiente, Recibo por Honorarios</p>
+                        </div>
+                    </a>
                 </div>
-                <button type="button" class="btnPrev" class="btn btn-primary">ANTERIOR</button>
-                <button type="button" class="btnNext" class="btn btn-primary">SIGUIENTE</button>
             </div>
+
+            <div id="correo">
+                <div class="form-group">
+                    <label for="correoInput">¿A QUÉ CORREO TE ENVIAMOS LAS PROPUESTAS DE LOS BANCOS?</label>
+                    <input type="email" class="form-control" id="correoInput" aria-describedby="emailHelp"
+                        placeholder="Ingresa tu correo aquí">
+                    <small id="emailHelp" class="form-text text-muted">A este correo te enviaremos las propuestas y los
+                        resultados de tu pre-calificación</small>
+
+                    <button type="button" class="btnNext" class="btn btn-primary" data-toggle="collapse"
+                        data-target="#telefono" aria-expanded="false" aria-controls="telefono">SIGUIENTE</button>
+                </div>
+            </div>
+
+            <div id="telefono" class="collapse">
+                <div class="form-group">
+                    <label for="celularInput">¿CUÁL ES TU NÚMERO DE CELULAR?</label>
+                    <input type="number" class="form-control" id="celularInput" value="0" min="500000">
+                    <small id="telefonoHelp" class="form-text text-muted">¡No te haremos llamadas molestas! Es solo para
+                        que tu asesor te guíe en el proceso
+
+                        <button type="button" class="btnNext" class="btn btn-primary" data-toggle="collapse"
+                            data-target="#rfc" aria-expanded="false" aria-controls="rfc">SIGUIENTE</button>
+                </div>
+            </div>
+
+
+            <div id="rfc" class="collapse">
+                <div class="form-group">
+                    <label for="rfcInput">¿CUÁL ES TU RFC?</label>
+                    <input type="text" class="form-control" id="rfcInput" aria-describedby="rfcHelp">
+                    <small id="rfcHelp" class="form-text text-muted">Utilizaremos este dato para poder
+                        precalificarte</small>
+
+                    <button type="button" class="btnNext" class="btn btn-primary" data-toggle="collapse"
+                        data-target="#nombre" aria-expanded="false" aria-controls="nombre">SIGUIENTE</button>
+                </div>
+            </div>
+
+            <div id="nombre" class="collapse">
+                <div class="form-group">
+                    <label for="nombreInput">POR ÚTLIMO, ¿CUÁL ES TU NOMBRE?</label>
+                    <input type="text" class="form-control" id="nombreInput">
+
+                    <button type="submit" class="btn btn-primary">VER PROPUESTAS</button>
+                </div>
+            </div>
+
         </form>
     </div>
 </div>
