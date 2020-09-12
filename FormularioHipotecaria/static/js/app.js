@@ -2,9 +2,9 @@ $('.arrow').hide();
 
 $('.col-lg-2').hover(function () {
 
-    let circulo = $(this).find('.asesoria-circulo');
-    let currenth5 = $(this).find('h5');
-    let arrow = $(this).find('.arrow');
+    const circulo = $(this).find('.asesoria-circulo');
+    const currenth5 = $(this).find('h5');
+    const arrow = $(this).find('.arrow');
 
     circulo.click(function () {
         $('.asesoria-circulo').not(circulo).removeClass("active");
@@ -15,17 +15,59 @@ $('.col-lg-2').hover(function () {
 
         $('.arrow').not(arrow).hide();
         arrow.toggle();
+
     });
 });
 
 
-$('.btnNext').click(function () {
-    $(this).fadeOut(100);
-})
+// $('.btnNext').click(function () {
+//     $(this).fadeOut(100);
+// })
 
-$('.formaIngreso').click(function () {
-    $('.formaIngreso').removeClass('ingreso-active');
-    $(this).addClass('ingreso-active');
+// $('.formaIngreso').click(function () {
+//     $('.formaIngreso').removeClass('ingreso-active');
+//     $(this).addClass('ingreso-active');
 
-    $('#correo').fadeIn(500);
+//     $('#correo').fadeIn(500);
+// })
+
+$('.preguntas').hover(function () {
+    const btnIngreso = $(this).find('.ingresoNext');
+    const btnTelefono = $(this).find('.telefonoNext');
+    const btnRfc = $(this).find('.rfcNext');
+    const btnNombre = $(this).find('.nombreNext');
+
+    const percibeIngreso = $(this).find('.percibeIngreso')
+    const telefono = $(this).find('.telefono')
+    const rfc = $(this).find('.rfc')
+    const nombre = $(this).find('.nombre')
+    const formaIngreso = $(this).find('.formaIngreso');
+    const correo = $(this).find('#correo');
+
+    btnIngreso.click(function () {
+        percibeIngreso.fadeIn(500);
+        $(this).fadeOut(100);
+    });
+
+    btnTelefono.click(function () {
+        telefono.fadeIn(500);
+        $(this).fadeOut(100);
+    });
+    btnRfc.click(function () {
+        rfc.fadeIn(500);
+        $(this).fadeOut(100);
+    });
+    btnNombre.click(function () {
+        nombre.fadeIn(500);
+        $(this).fadeOut(100);
+    });
+
+    formaIngreso.click(function () {
+        $('.formaIngreso').removeClass('ingreso-active');
+        $(this).addClass('ingreso-active');
+
+        correo.fadeIn(500);
+    });
+
+
 })

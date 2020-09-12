@@ -116,19 +116,10 @@
                 </div>
 
                 {% include 'home/formularios/capitalTrabajo.html'%}
-
-                <div class="collapse" id="consolidarDeudas" data-parent="#formulario">
-                    Este titulo aparecion con el click del boton para consolidar deudas
-                </div>
-                <div class="collapse" id="remodelar" data-parent="#formulario">
-                    Este titulo aparecion con el click del boton para remodelar
-                </div>
-                <div class="collapse" id="traslado" data-parent="#formulario">
-                    Este titulo aparecion con el click del boton para traslado
-                </div>
-                <div class="collapse" id="compra" data-parent="#formulario">
-                    Este titulo aparecion con el click del boton para compra
-                </div>
+                {% include 'home/formularios/consolidarDeudas.html'%}
+                {% include 'home/formularios/remodelar.html'%}
+                {% include 'home/formularios/traslado.html'%}
+                {% include 'home/formularios/compra.html'%}
             </div>
 
         </div>

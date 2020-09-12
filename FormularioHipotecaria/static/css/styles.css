@@ -156,8 +156,21 @@ h5 {
 
 }
 
-.preguntas button:hover {
+.preguntas .btnNext:hover {
     background-color: #1b2c54;
+}
+
+
+.btnNext {
+    border: none;
+    border-radius: 20px;
+    background-color: #9b723c;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 20px;
+    position: absolute;
+    right: 250px;
+
 }
 
 .preguntas input {
@@ -187,7 +200,11 @@ h5 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#correo {
+#correo,
+#percibeIngreso,
+#telefono,
+#rfc,
+#nombre {
     display: none;
 }
 
