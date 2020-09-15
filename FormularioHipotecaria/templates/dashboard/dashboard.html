@@ -1,4 +1,6 @@
+{% extends 'dashboard/base.html' %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,26 +20,29 @@
 
 </head>
 
+
 <body>
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- basic table -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Asesores</h5>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
+{% block content-dashboard %}
+        
+    <div class="row" >
+    <!-- ============================================================== -->
+         <!-- basic table -->
+            <!-- ============================================================== -->
+               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                     <div class="card">
+                        <h5 class="card-header">Asesores</h5>
+                            <div class="card-body">
+                                 <table class="table">
+                                     <thead>
                                         <p>Lorem ipsum dolor sit amet consectetur
                                           adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                            <tr>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Usuario</th>
+                                         <tr>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Usuario</th>
                                                 
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                      <tbody>
                                             <tr>
                                                 <th scope="row">Mark</th>
                                                 <td>@mdo</td>
@@ -102,6 +107,9 @@
                         <!-- end striped table -->
                         <!-- ============================================================== -->
                     </div>
+                
+                 {% endblock %}
+
                     </body>
 
 <!-- Optional JavaScript -->

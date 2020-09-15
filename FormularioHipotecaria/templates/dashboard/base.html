@@ -1,9 +1,6 @@
-<!-- BASE
-HEADER Y SIDEBAR IZQUIERDA -->
 {% load static %}
 <!doctype html>
 <html>
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,113 +8,19 @@ HEADER Y SIDEBAR IZQUIERDA -->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "assets/vendor/fonts/circular-std/style.css" %}" type="text/css">
-    <link rel="stylesheet" href="{% static "assets/libs/css/style.css" %}" type="text/css">
-    <link rel="stylesheet" href="{% static "assets/vendor/fonts/fontawesome/css/fontawesome-all.css" %}"
-        type="text/css">
-    <link rel="stylesheet" href="{% static "assets/vendor/charts/chartist-bundle/chartist.css" %}" type="text/css">
-    <link rel="stylesheet" href="{% static "assets/vendor/charts/morris-bundle/morris.css" %}" type="text/css">
-    <link rel="stylesheet"
-        href="{% static "assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css" %}"
-        type="text/css">
-    <link rel="stylesheet" href="{% static "assets/vendor/charts/c3charts/c3.css" %}" type="text/css">
-    <link rel="stylesheet" href="{% static "assets/vendor/fonts/flag-icon-css/flag-icon.min.css" %}" type="text/css">
-    {% comment %} <link rel="stylesheet" href="{% static "css/custom.css" %}" type="text/css"> {% endcomment %}
-    <link rel="stylesheet" href="{% static "css/admin-custom.css" %}" type="text/css">
-
-
-    <title>{% block content-title %}{% endblock %}</title>
+    
 
 
 </head>
 
-<body>
+{% include 'dashboard/shared/navbar.html' %}
+{% include 'dashboard/shared/sidebar.html' %}
 
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
-        {% include 'dashboard/shared/navbar.html' %}
-        {% include 'dashboard/shared/sidebar.html' %}
+<body>              
 
-        <div class="dashboard-wrapper">
-            <div class="dashboard-ecommerce">
-                <div class="container-fluid dashboard-content ">
+{% block content-dashboard %}
+ {% endblock %}
 
-                    <!-- ============================================================== -->
-                    <!-- pageheader  -->
-                    <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title titulo-admin">
-                                    {% block content-title-header %}{% endblock %} </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus
-                                    vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="../bo-admin-index"
-                                                    class="breadcrumb-link">
-                                                    {% block breadcrumb-title %}{% endblock %}</a>
-                                            </li>
-                                            <li class="breadcrumb-item active" aria-current="page">
-                                                {% block breadcrumb-item %}{% endblock %}</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ============================================================== -->
-                    <!-- end pageheader  -->
-                    
-                    <!-- ========================  {% block content-bo-admin %}
-                    replace me
-                    {% endblock %} ========================= -->
-
-                   
-
-                </div>
-                {% include 'dashboard/shared/footer.html' %}
-
-            </div>
-
-        </div>
-
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% endif %}
-
-
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 -->
-        <script type="text/javascript" src="{% static "assets/vendor/jquery/jquery-3.3.1.min.js" %}"></script>
-        <!-- bootstap bundle js -->
-        <script type="text/javascript" src="{% static "assets/vendor/bootstrap/js/bootstrap.bundle.js" %}"></script>
-        <!-- slimscroll js -->
-        <script type="text/javascript" src="{% static "assets/vendor/slimscroll/jquery.slimscroll.js" %}"></script>
-        <!-- main js -->
-        <script type="text/javascript" src="{% static "assets/libs/js/main-js.js" %}"></script>
-        <!-- chart chartist js -->
-        <script type="text/javascript" src="{% static "assets/vendor/charts/chartist-bundle/chartist.min.js" %}">
-        </script>
-        <!-- sparkline js -->
-        <script type="text/javascript" src="{% static "assets/vendor/charts/sparkline/jquery.sparkline.js" %}"></script>
-        <!-- morris js -->
-        <script type="text/javascript" src="{% static "assets/vendor/charts/morris-bundle/raphael.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "assets/vendor/charts/morris-bundle/morris.js" %}"></script>
-        <!-- chart c3 js -->
-        <script type="text/javascript" src="{% static "assets/vendor/charts/c3charts/c3.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "assets/vendor/charts/c3charts/d3-5.4.0.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "assets/vendor/charts/c3charts/C3chartjs.js" %}"></script>
-        <script type="text/javascript" src="{% static "assets/libs/js/dashboard-ecommerce.js" %}"></script>
-        <script type="text/javascript" src="{% static "assets/libs/js/custom.js" %}"></script>
 
 
 </body>

@@ -1,3 +1,4 @@
+{% extends 'dashboard/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +20,7 @@
 </head>
 
 <body>
+{% block content-dashboard %}
             <div class="row">
                         <!-- ============================================================== -->
                         <!-- basic table -->
@@ -77,6 +79,7 @@
                             </div>
                         </div>
                     </div>
+                        {% endblock %}
                     </body>
 
 <!-- Optional JavaScript -->
