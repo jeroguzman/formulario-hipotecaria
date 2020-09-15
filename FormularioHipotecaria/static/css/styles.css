@@ -11,7 +11,6 @@
 @font-face {
     font-family: Gotham-light;
     src: url('/static/fonts/Gotham-Thin.otf');
-
 }
 
 body {
@@ -66,7 +65,9 @@ button:focus {
     height: auto;
 }
 
+
 /*------- Body -------*/
+
 .container-fluid {
     padding: 5% 13%;
 }

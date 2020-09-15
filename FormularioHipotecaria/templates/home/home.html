@@ -60,6 +60,9 @@
                         <a data-toggle="collapse" href="#capitalTrabajo" role="button" aria-expanded="false"
                             aria-controls="capitalTrabajo">
                             <div class="asesoria-circulo">
+                                <a class="btn btn-link" data-toggle="collapse" href="#collapseRemodelarValor"
+                                    role="button" aria-expanded="false" aria-controls="collapseRemodelarValor"></a>
+
                             </div>
                         </a>
                         <h5 class="texto-asesoria">CAPITAL DE TRABAJO</h5>
@@ -72,6 +75,9 @@
                         <a data-toggle="collapse" href="#consolidarDeudas" role="button" aria-expanded="false"
                             aria-controls="consolidarDeudas" data-parent="#formulario">
                             <div class="asesoria-circulo">
+                                <a class="btn btn-link" data-toggle="collapse" href="#collapseRemodelarValor"
+                                    role="button" aria-expanded="false" aria-controls="collapseRemodelarValor"></a>
+
                             </div>
                         </a>
 
@@ -111,24 +117,63 @@
                         <h5>COMPRA</h5>
                         <i class="fas fa-caret-down arrow"></i>
 
+                        <!--contenido de TRASLADO / tipo de mensualidad-->
+                        <div class="collapse" id="collapseTrasladoTipoMensualidad">
+                            <div class="card card-body">
+                                <h3>
+                                    ¿Qué tipo de mensualidad tienes?
+                                </h3>
+                                <p>
+                                    Pagas una mensualidad fija todos los meses o esta se incrementa a lo largo de los
+                                    años
+                                </p>
+                                <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar"
+                                    role="button" aria-expanded="false"
+                                    aria-controls="collapseTrasladoPorPagar">Mensualidad Fija</a>
+
+                                <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar"
+                                    role="button" aria-expanded="false"
+                                    aria-controls="collapseTrasladoPorPagar">Mensualidad Creciente</a>
+
+                                <a class="btn btn-light" data-toggle="collapse" href="#collapseTrasladoPorPagar"
+                                    role="button" aria-expanded="false" aria-controls="collapseTrasladoPorPagar">No lo
+                                    sé</a>
+                            </div>
+                        </div>
+
+                        <!--contenido de TRASLADO / Años faltantes por pagar-->
+                        <div class="collapse" id="collapseTrasladoPorPagar">
+                            <div class="card card-body">
+                                <h3>
+                                    ¿Cuál años te faltan por pagar?
+                                </h3>
+                                <p>
+                                    Cuántos años te faltan pagar para finalizar el crédito
+                                </p>
+                                <input name="años por pagar" inputmode="numeric" type="number">
+                                <a class="btn btn-light" data-toggle="collapse" href="#collapseCompraComoPercibe"
+                                    role="button" aria-expanded="false" aria-controls="collapseCompraComoPercibe">No lo
+                                    sé</a>
+                            </div>
+                        </div>
+
+                        {% include 'home/formularios/capitalTrabajo.html'%}
+                        {% include 'home/formularios/consolidarDeudas.html'%}
+                        {% include 'home/formularios/remodelar.html'%}
+                        {% include 'home/formularios/traslado.html'%}
+                        {% include 'home/formularios/compra.html'%}
                     </div>
 
-                </div>
 
-                {% include 'home/formularios/capitalTrabajo.html'%}
-                {% include 'home/formularios/consolidarDeudas.html'%}
-                {% include 'home/formularios/remodelar.html'%}
-                {% include 'home/formularios/traslado.html'%}
-                {% include 'home/formularios/compra.html'%}
-            </div>
+                </div><!-- end row -->
+
+            </div><!-- end container -->
 
         </div>
 
+
+
+
     </div>
 
-
-
-
-</div>
-
-{% endblock body %}
+    {% endblock body %}
