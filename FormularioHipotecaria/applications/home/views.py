@@ -13,3 +13,7 @@ class asesoresView(TemplateView):
 
 class clientesView(TemplateView):
     template_name = 'dashboard/clientes.html'
+
+class nuevoAsesorView(TemplateView):
+    template_name = 'dashboard/nuevoAsesor.html'
+
