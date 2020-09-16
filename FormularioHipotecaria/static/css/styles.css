@@ -157,7 +157,12 @@ h5 {
 
 }
 
-.preguntas .btnNext:hover {
+.preguntas .btn:hover,
+.preguntas .btn:focus {
+    background-color: #1b2c54;
+}
+
+.btn:focus {
     background-color: #1b2c54;
 }
 
@@ -169,16 +174,15 @@ h5 {
     color: white;
     font-size: 1rem;
     padding: 5px 20px;
-    position: absolute;
-    right: 250px;
 
 }
 
-.preguntas input {
+.preguntas input,
+.preguntas select {
     max-width: 350px;
 }
 
-.formaIngreso {
+.btnEs {
     position: relative;
     margin: 20px 10px;
     text-align: left;
@@ -188,24 +192,31 @@ h5 {
     border-radius: 2px;
 }
 
-.formaIngreso p {
+.btnEs p {
     margin: 0;
 }
 
-.formaIngreso .titulo {
+.btnEs .titulo {
     font-family: Gotham-bold;
     font-size: 1.2rem;
 }
 
-.formaIngreso:hover {
+.btnEs:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#correo,
-#percibeIngreso,
-#telefono,
-#rfc,
-#nombre {
+.panel2,
+.panel3,
+.panel4,
+.panel5,
+.panel-1,
+.panel-2,
+.panel-3,
+.panel-4,
+.panelEs1,
+.panelEs2,
+.panelEs3,
+.panel {
     display: none;
 }
 

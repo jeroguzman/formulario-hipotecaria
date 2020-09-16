@@ -1,37 +1,15 @@
-<div id="propiedadGarantia">
-    <div class="form-group">
-        <label for="valorPropiedad">¿CUÁNTO VALE LA PROPIEDAD QUE QUIERES DEJAR EN GARANTÍA?</label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">$</span>
-            </div>
-            <input type="number" class="form-control" id="valorPropiedad" value="0" min="500000">
-            <div class="input-group-append">
-                <span class="input-group-text">.00</span>
-            </div>
-        </div>
-    </div>
-
-    <a href="#percibeIngreso" role="button">
-        <div class="btnNext ingresoNext">
-            SIGUIENTE
-        </div>
-    </a>
-</div>
-
-
-<div id="percibeIngreso" class="percibeIngreso">
+<div class="panel2">
     <div class="form-group">
         <label for="valorPropiedad">¿CÓMO PERCIBES TUS INGRESOS?</label>
-        <a href="#correo" role="button">
-            <div class="formaIngreso">
+        <a role="button">
+            <div class="btnPanelEs1 btnEs">
                 <p class="titulo">Asalariado</p>
                 <p>Empleado</p>
             </div>
         </a>
 
-        <a href="#correo" role="button">
-            <div class="formaIngreso">
+        <a role="button">
+            <div class="btnPanelEs1 btnEs">
                 <p class="titulo">Independiente</p>
                 <p>Trabajador Independiente, Recibo por Honorarios</p>
             </div>
@@ -39,57 +17,53 @@
     </div>
 </div>
 
-<div id="correo">
+<div class="panelEs1">
     <div class="form-group">
         <label for="correoInput">¿A QUÉ CORREO TE ENVIAMOS LAS PROPUESTAS DE LOS BANCOS?</label>
-        <input type="email" class="form-control" id="correoInput" aria-describedby="emailHelp"
-            placeholder="Ingresa tu correo aquí">
-        <small id="emailHelp" class="form-text text-muted">A este correo te enviaremos las propuestas y los
-            resultados de tu pre-calificación</small>
+        <input type="email" class="form-control correoInput" aria-describedby="emailHelp"
+            placeholder="Ingresa tu correo aquí" required />
+        <small id="emailHelp" class="form-text text-muted">A este correo te enviaremos las propuestas y los resultados
+            de tu
+            pre-calificación</small>
     </div>
 
-
-    <a href="#telefono" role="button">
-        <div class="btnNext telefonoNext">
-            SIGUIENTE
-        </div>
+    <a role="button">
+        <div class="btnNext btnPanel3 btn">SIGUIENTE</div>
     </a>
 </div>
 
-<div id="telefono" class="telefono">
+<div class="panel3">
     <div class="form-group">
         <label for="celularInput">¿CUÁL ES TU NÚMERO DE CELULAR?</label>
-        <input type="number" class="form-control" id="celularInput" value="0" min="500000">
-        <small id="telefonoHelp" class="form-text text-muted">¡No te haremos llamadas molestas! Es solo para
-            que tu asesor te guíe en el proceso</small>
+        <input type="text" placeholder="(662) 000-0000" class="form-control celularInput" required />
+        <small id="telefonoHelp" class="form-text text-muted">¡No te haremos llamadas molestas! Es solo para que tu
+            asesor te guíe en
+            el proceso</small>
     </div>
 
-    <a href="#rfc" role="button">
-        <div class="btnNext rfcNext">
-            SIGUIENTE
-        </div>
+    <a role="button">
+        <div class="btnNext btnPanel4 btn">SIGUIENTE</div>
     </a>
 </div>
 
-<div id="rfc" class="rfc">
+<div class="panel4">
     <div class="form-group">
         <label for="rfcInput">¿CUÁL ES TU RFC?</label>
-        <input type="text" class="form-control" id="rfcInput" aria-describedby="rfcHelp">
-        <small id="rfcHelp" class="form-text text-muted">Utilizaremos este dato para poder
-            precalificarte</small>
+        <input type="text" class="form-control rfcInput" placeholder="XXXX-00-00-00-X0A" aria-describedby="rfcHelp"
+            required />
+        <small id="rfcHelp" class="form-text text-muted">Utilizaremos este dato para poder precalificarte</small>
     </div>
 
-    <a href="#nombre" role="button">
-        <div class="btnNext nombreNext">
-            SIGUIENTE
-        </div>
+    <a role="button">
+        <div class="btnNext btnPanel5 btn">SIGUIENTE</div>
     </a>
 </div>
 
-<div id="nombre" class="nombre">
+<div class="panel5">
     <div class="form-group">
         <label for="nombreInput">POR ÚTLIMO, ¿CUÁL ES TU NOMBRE?</label>
-        <input type="text" class="form-control" id="nombreInput">
+        <input type="text" class="form-control" id="nombreInput" required />
+        <small id="rfcHelp" class="form-text text-muted">¿Con quién tenemos el gusto?</small>
     </div>
 
     <button type="submit" class="btn btn-primary">VER PROPUESTAS</button>

@@ -1,8 +1,151 @@
 <div class="preguntas">
     <div class="collapse" id="traslado" data-parent="#formulario">
         <form>
+            <div>
+                <div class="form-group">
+                    <label>¿CUÁNTO VALE LA PROPIEDAD ASOCIADO CON EL CRÉDITO HIPOTECARIO?</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control money" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
 
-            <p>esta es la pesta;a de traslado</p>
+                <a role="button">
+                    <div class="btnNext btnPanel-1 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-1">
+                <div class="form-group">
+                    <label for="bancoInput">¿EN QUÉ BANCO TIENES TU HIPOTECA ACTUAL?</label>
+
+                    <div class="input-group mb-3" aria-describedby="bancoHelp">
+                        <div class="input-group-prepend">
+                        </div>
+                        <select class="custom-select" id="bancoInput">
+                            <option selected> </option>
+                            <option value="1">Afirme</option>
+                            <option value="2">Banamex</option>
+                            <option value="3">Banorte</option>
+                            <option value="4">Banregio</option>
+                            <option value="5">BBVA</option>
+                            <option value="6">Bx+</option>
+                            <option value="7">HSBC</option>
+                            <option value="8">Inbursa</option>
+                            <option value="9">Infonavit</option>
+                            <option value="10">Otros</option>
+                            <option value="11">Santander</option>
+                            <option value="12">Scotiabank</option>
+                            <option value="13">Smart Lending</option>
+                        </select>
+                    </div>
+
+
+
+                    <small id="bancoHelp" class="form-text text-muted">En base a estos datos te vamos a mostrar las
+                        propuestas de crédito</small>
+                </div>
+
+
+                <a role="button">
+                    <div class="btnNext btnPanel-2 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-2">
+                <div class="form-group">
+                    <label>¿CUÁNTO PAGAS MES A MES? ¿CUÁNTO ES TU MENSUALIDAD?</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control money" required aria-describedby="mensualidadHelp">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <small id="mensualidadHelp" class="form-text text-muted">Este monto es el que optimizaremos</small>
+                </div>
+
+                <a role="button">
+                    <div class="btnNext btnPanel-3 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-3">
+                <div class="form-group">
+                    <label>¿CUÁL ES EL MONTO DE LA DEUDA A LA FECHA?</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control money">
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a role="button">
+                    <div class="btnNext btnPanel-4 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel-4">
+                <div class="form-group">
+                    <label>¿QUÉ TIPO DE MENSUALIDAD TIENES?</label>
+                    <small class="form-text text-muted">Pagas una mensualidad fija todos los meses
+                        o esta incrementa a lo largo de los años</small>
+                    <a role="button">
+                        <div class="btnPanelEs2 btnEs">
+                            <p>Mensualidad Fija</p>
+                        </div>
+                    </a>
+
+                    <a role="button">
+                        <div class="btnPanelEs2 btnEs">
+                            <p>Mensualidad Creciente</p>
+                        </div>
+                    </a>
+
+                    <a role="button">
+                        <div class="btnPanelEs2 btnEs">
+                            <p>No lo sé</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="panelEs2">
+                <div class="form-group">
+                    <label>¿CUÁNTOS AÑOS TE FALTAN POR PAGAR?</label>
+                    <input type="number" class="form-control">
+                    <small class="form-text text-muted">Cuántos años te faltan pagar para finalizar el crédito</small>
+
+                </div>
+
+                <a role="button">
+                    <div class="btnNext btnPanel2 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            {% include 'home/formularios/common/basicform.html'%}
+
 
         </form>
     </div>

@@ -2,7 +2,52 @@
     <div class="collapse" id="compra" data-parent="#formulario">
         <form>
 
-            <p>esto es la pesta;a de compra</p>
+            <div class="form-group">
+                <label>¡EXCELENTE! MI NOMBRE ES ... Y TE VOY A GUIAR EN ESTE PROCESO 👍</label>
+                <small class="form-text text-muted">Primero es necesario que puedas sustentar ingresos para la
+                    evaluación del crédito</small>
+                <a role="button">
+                    <div class="btnPanelEs3 btnEs">
+                        <p>Si, continuemos</p>
+                    </div>
+                </a>
+
+                <a role="button">
+                    <div class="btnPanelEs3 btnEs no">
+                        <p>No, no tengo cómo sustentar mis ingresos</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="panel alt">
+                <div class="form-group">
+                    <label>SI NO TIENES CÓMO SUSTENTAR INGRESOS, NO VAMOS A PODER AYUDARTE POR EL MOMENTO 😢</label>
+                </div>
+            </div>
+
+
+            <div class="panelEs3">
+                <div class="form-group">
+                    <label>¿CUÁNTO VALE LA PROPIEDAD ASOCIADO CON EL CRÉDITO HIPOTECARIO?</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control money" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a role="button">
+                    <div class="btnNext btnPanel2 btn">
+                        SIGUIENTE
+                    </div>
+                </a>
+            </div>
+
+            {% include 'home/formularios/common/basicform.html'%}
 
         </form>
     </div>
