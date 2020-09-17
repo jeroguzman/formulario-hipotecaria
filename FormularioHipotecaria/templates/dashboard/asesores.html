@@ -21,6 +21,8 @@
 
 <body>
 {% block content-dashboard %}
+<div class="dashboard-wrapper">
+    <div class="container-fluid  dashboard-content">
             <div class="row">
                         <!-- ============================================================== -->
                         <!-- basic table -->
@@ -79,6 +81,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row justify-content-md-center">
+                    <a href='{% url "a-nuevoasesor" %}'>
+                        <div class="d-flex">
+
+                            <button class="btn ml-auto btn-nuevo rounded float-right"><i class="fa fa-plus-circle"></i>
+                            Agregar nuevo</button>
+                        </div>
+                     </a>
+                </div>
+            </div>
+         </div>
+                
                         {% endblock %}
                     </body>
 
