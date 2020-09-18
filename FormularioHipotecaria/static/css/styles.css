@@ -19,7 +19,7 @@ body {
     margin: 0;
     border: 0;
     text-align: justify;
-    color: #1b2c54
+    color: #1b2c54;
 }
 
 a,
@@ -47,14 +47,16 @@ button:focus {
 .img-header-container img {
     width: 100%;
     min-height: 100px;
+
 }
 
 .logo-container {
     background-color: #1b2c54;
-    padding: 25px 10px 35px 10px;
+
     width: 22%;
     min-width: 250px;
-    height: auto;
+    height: 133%;
+    min-height: 150px;
     position: absolute;
     top: -25px;
     left: 13%;
@@ -63,6 +65,12 @@ button:focus {
 .logo-container img {
     width: 100%;
     height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 
@@ -72,7 +80,7 @@ button:focus {
     padding: 5% 13%;
 }
 
-.container-fluid img {
+.hombre {
     width: 95%;
     min-width: 250px;
     height: auto;
@@ -100,6 +108,13 @@ strong {
     margin: 0px;
 }
 
+.icono {
+    width: 15%;
+}
+
+
+/* options*/
+
 .asesoria {
     text-align: center;
     margin-top: 50px;
@@ -119,6 +134,7 @@ h5 {
     width: 160px;
     height: 160px;
     border-radius: 100%;
+    background-color: transparent;
     margin: auto;
     margin-bottom: 30px;
     background-color: #1b2c54;
@@ -129,6 +145,10 @@ h5 {
     background-color: #9b723c;
 }
 
+.opciones-img {
+    width: 100%;
+}
+
 .currenth5 {
     color: #1b2c54;
 }
@@ -137,6 +157,8 @@ h5 {
     font-size: 5rem;
 }
 
+
+/* formulario */
 .preguntas label {
     margin-top: 50px;
     font-size: 1.5rem;
@@ -205,18 +227,8 @@ h5 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.panel2,
-.panel3,
-.panel4,
-.panel5,
-.panel-1,
-.panel-2,
-.panel-3,
-.panel-4,
-.panelEs1,
-.panelEs2,
-.panelEs3,
-.panel {
+.panel,
+.panelEs {
     display: none;
 }
 
@@ -227,4 +239,12 @@ h5 {
 
 .form-text {
     text-align: left;
+}
+
+.emsg {
+    color: red !important;
+}
+
+.hidden {
+    display: none;
 }

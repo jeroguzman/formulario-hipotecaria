@@ -8,29 +8,29 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control money" required>
+                        <input name="valor" type="text" class="form-control money" required>
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
                     </div>
+                    <small class="emsg form-text text-muted hidden">El campo valor debe ser entre $500,000 y
+                        $180,000,000</small>
                 </div>
 
                 <a role="button">
-                    <div class="btnNext btnPanel-1 btn">
+                    <div class="btnNext btn">
                         SIGUIENTE
                     </div>
                 </a>
             </div>
 
-            <div class="panel-1">
+            <div class="panel">
                 <div class="form-group">
                     <label for="bancoInput">¿EN QUÉ BANCO TIENES TU HIPOTECA ACTUAL?</label>
 
                     <div class="input-group mb-3" aria-describedby="bancoHelp">
-                        <div class="input-group-prepend">
-                        </div>
-                        <select class="custom-select" id="bancoInput">
-                            <option selected> </option>
+                        <select name="banco" class="custom-select" id="bancoInput">
+                            <option selected>Elija...</option>
                             <option value="1">Afirme</option>
                             <option value="2">Banamex</option>
                             <option value="3">Banorte</option>
@@ -46,65 +46,69 @@
                             <option value="13">Smart Lending</option>
                         </select>
                     </div>
-
-
-
+                    <small class="emsg form-text text-muted hidden">Por favor, elija una opción.
+                    </small>
                     <small id="bancoHelp" class="form-text text-muted">En base a estos datos te vamos a mostrar las
                         propuestas de crédito</small>
                 </div>
 
 
                 <a role="button">
-                    <div class="btnNext btnPanel-2 btn">
+                    <div class="btnNext btn">
                         SIGUIENTE
                     </div>
                 </a>
             </div>
 
-            <div class="panel-2">
+            <div class="panel">
                 <div class="form-group">
                     <label>¿CUÁNTO PAGAS MES A MES? ¿CUÁNTO ES TU MENSUALIDAD?</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control money" required aria-describedby="mensualidadHelp">
+                        <input name="mensualidad" type="text" class="form-control money" required
+                            aria-describedby="mensualidadHelp">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
                     </div>
+                    <small class="emsg form-text text-muted hidden">El campo valor debe ser entre $2,000 y $240,000
+                    </small>
                     <small id="mensualidadHelp" class="form-text text-muted">Este monto es el que optimizaremos</small>
                 </div>
 
                 <a role="button">
-                    <div class="btnNext btnPanel-3 btn">
+                    <div class="btnNext btn">
                         SIGUIENTE
                     </div>
                 </a>
             </div>
 
-            <div class="panel-3">
+            <div class="panel">
                 <div class="form-group">
                     <label>¿CUÁL ES EL MONTO DE LA DEUDA A LA FECHA?</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">$</span>
                         </div>
-                        <input type="text" class="form-control money">
+                        <input name="montoALaFecha" type="text" class="form-control money">
                         <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                         </div>
                     </div>
+                    <small class="emsg form-text text-muted hidden">El campo valor debe ser entre $250,000 y
+                        $40,000,000</small>
                 </div>
 
                 <a role="button">
-                    <div class="btnNext btnPanel-4 btn">
+                    <div class="btnNext btn">
                         SIGUIENTE
                     </div>
                 </a>
             </div>
 
-            <div class="panel-4">
+            <div class="panel">
                 <div class="form-group">
                     <label>¿QUÉ TIPO DE MENSUALIDAD TIENES?</label>
                     <small class="form-text text-muted">Pagas una mensualidad fija todos los meses
@@ -129,16 +133,18 @@
                 </div>
             </div>
 
-            <div class="panelEs2">
+            <div class="panelEs2 panelEs">
                 <div class="form-group">
                     <label>¿CUÁNTOS AÑOS TE FALTAN POR PAGAR?</label>
-                    <input type="number" class="form-control">
+                    <input name="anios" type="number" class="form-control">
+                    <small class="emsg form-text text-muted hidden">El campo años por pagar debe ser entre 5 y 30
+                        años</small>
                     <small class="form-text text-muted">Cuántos años te faltan pagar para finalizar el crédito</small>
 
                 </div>
 
                 <a role="button">
-                    <div class="btnNext btnPanel2 btn">
+                    <div class="btnNext btn">
                         SIGUIENTE
                     </div>
                 </a>
