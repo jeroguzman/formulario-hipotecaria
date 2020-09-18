@@ -20,55 +20,60 @@
 
 <body>
 {% block content-dashboard %}
+
 <div class="dashboard-wrapper">
     <div class="container-fluid  dashboard-content">
-<form>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Nombre y Apellido</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nombre y apellido">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Correo electronico</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlInput1">Fecha de nacimiento</label>
-    <input type="date" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Nombre de usuario</label>
-    <div class="input-group-prepend">
-         <div class="input-group-text">@</div>
-        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-     </div> 
-  </div>
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Contraseña</label>
-         <input type="password" class="form-control" >
-  </div>
-   <div class="form-group">
-        <label for="exampleFormControlInput1">Descripcion</label>
-         <textarea type="text" class="form-control" ></textarea>
-  </div>
-</form>
+    <h1 class="display">Datos del nuevo asesor</h1>
+    <form class="needs-validation" action="{% url 'a-nuevoasesor'%}"
+                            method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nombre y Apellido</label>
+        {% comment %} <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nombre y apellido"> {% endcomment %}
+            {{ form.nombres }}
+        </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Correo electronico</label>
+                {{ form.email }}
+            </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Fecha de nacimiento</label>
+            <input type="date" class="form-control" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre de usuario</label>
+            <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+                {{ form.usuario }}
+            </div> 
+        </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Contraseña</label>
+                <input type="password" class="form-control" >
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlInput1">Descripcion</label>
+                <textarea type="text" class="form-control" ></textarea>
+        </div>
+    </form>
 
 
-  <div class="form-row align-items-center">
-    
-     <div class="col-auto my-1">
-     <a href='{% url "a-asesores" %}'>
-      <button type="submit" class="btn btn-secondary" >Cancelar</button>
-     </div>
-     </a>
-     <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary ">Crear asesor</button>
-     </div>
-    
-   
-  </div>
+        <div class="form-row align-items-center">
+            
+            <div class="col-auto my-1">
+            <a href='{% url "a-asesores" %}'>
+            <button type="submit" class="btn btn-secondary" >Cancelar</button>
+            </div>
+            </a>
+            <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary ">Crear asesor</button>
+            </div>
+            
+        
+        </div>
 
 
-</div>
+    </div>
 </div>
 
 {% endblock %}
