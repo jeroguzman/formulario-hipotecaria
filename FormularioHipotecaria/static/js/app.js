@@ -205,3 +205,8 @@ $('form').submit(function (e) {
     }
 
 });
+
+$('.nav-link').click(function () {
+    $('.nav-link').not($(this)).removeClass('active');
+    $(this).toggleClass('active')
+})

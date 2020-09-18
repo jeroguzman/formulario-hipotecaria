@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <!-- Estilos adicionales -->
+    {%block librerias-adicionales%}
+
+    {% endblock librerias-adicionales%}
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/6767b0ab9c.js" crossorigin="anonymous"></script>
 
@@ -37,11 +42,15 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+    <!-- Scripts adicionales -->
+    {% block scripts-adicionales %}
+
+    {% endblock scripts-adicionales %}
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'js/jquery.mask.js'%}"></script>
     <script src="{% static 'js/jquery.mask.min.js'%}"></script>
-    <script src="{% static 'js/jquery.validate.js'%}"></script>
 
     <!-- JavaScript -->
     <script src="{% static 'js/app.js'%}"></script>

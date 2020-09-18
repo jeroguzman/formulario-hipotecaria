@@ -1,125 +1,147 @@
-{% extends 'dashboard/base.html' %}
+{% extends '../base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block librerias-adicionales%}
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'dashboard-template/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/libs/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/vector-map/jqvmap.css' %}">
+<link href="{% static 'dashboard-template/assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
+<link rel="stylesheet" type="text/css"
+    href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}">
-
-    <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-
-    
-
-    <title>Document</title>
-
-</head>
+<!-- Css Styling -->
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
+{% endblock librerias-adicionales%}
 
 
-<body>
-{% block content-dashboard %}
+{% block body %}
+<div class="dashboard-main-wrapper">
+    {% include 'dashboard/shared/navbar.html' %}
+    {% include 'dashboard/shared/sidebar.html' %}
 
-<div class="dashboard-wrapper">
-    <div class="container-fluid  dashboard-content">
-    <div class="row" >
-    <!-- ============================================================== -->
-         <!-- basic table -->
-            <!-- ============================================================== -->
-               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                     <div class="card">
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <div class="row">
+                <!-- ============================================================== -->
+                <!-- basic table -->
+                <!-- ============================================================== -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card">
                         <h5 class="card-header">Asesores</h5>
-                            <div class="card-body">
-                                 <table class="table">
-                                     <thead>
-                                        <p>Lorem ipsum dolor sit amet consectetur
-                                          adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                         <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Usuario</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                      <tbody>
-                                            <tr>
-                                                <th scope="row">Mark</th>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Jacob</th>
-                                                <td>@fat</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Larry</th>
-                                                <td>@twitter</td>
-                                                
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <p>Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Usuario</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Mark</th>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Jacob</th>
+                                        <td>@fat</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Larry</th>
+                                        <td>@twitter</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <!-- ============================================================== -->
-                        <!-- end basic table -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- striped table -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Clientes</h5>
-                                <div class="card-body">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        
-                                        <p>Lorem ipsum dolor sit amet consectetur
-                                          adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                            <tr>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Ultimo Pedido</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Mark</th>
-                                                <td>14/05/2020</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Jacob</th>
-                                                <td>14/05/2020</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Larry</th>
-                                                <td>14/05/2020</td>
-                                                
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end striped table -->
-                        <!-- ============================================================== -->
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- end basic table -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- striped table -->
+                <!-- ============================================================== -->
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Clientes</h5>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+
+                                    <p>Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Ultimo Pedido</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Mark</th>
+                                        <td>14/05/2020</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Jacob</th>
+                                        <td>14/05/2020</td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Larry</th>
+                                        <td>14/05/2020</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end striped table -->
+                <!-- ============================================================== -->
+
             </div>
-                 {% endblock %}
+        </div>
+    </div>
 
-                    </body>
+</div>
 
-<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
- 
 
-</html>
+{% block scripts-adicionales %}
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
+<!-- chart C3 js -->
+<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<!-- chartjs js -->
+<script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+<script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- dashboard finance js -->
+<script src="assets/libs/js/dashboard-finance.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- gauge js -->
+<script src="assets/vendor/gauge/gauge.min.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+{% endblock scripts-adicionales %}
+
+
+{% endblock body%}

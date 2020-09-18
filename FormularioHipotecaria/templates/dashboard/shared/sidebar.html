@@ -1,63 +1,41 @@
-{% load static %}
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%load static%}
+<div class="nav-left-sidebar sidebar-dark">
+    <div class="menu-list">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css'%}">
-
-    <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-<!-- ============================================================== -->
-<!-- left sidebar -->
-<!-- ============================================================== -->
- 
-
-      <div class="nav-left-sidebar sidebar-dark" id="sb-nav" style = "margin-top:100px">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-divider">
-                                <img
-                                src="{% static 'img/ic-logo.png' %}" alt="" class=""
-                                height="50">
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Menu 
-                                </a>
-                                <div id="submenu-10" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'a-dashboard' %}">Dashboard</a>
-                                        </li>
-                                        
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'a-asesores' %}">Asesores</a>
-                                        </li>
-                                   
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'a-clientes' %}">Clientes</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+        <div class="d-none d-md-flex administrador">
+            <img src="{%static 'img/ic-logo.png'%}" alt="logo">
+            <div>
+                <p>MI SOLUCIÓN HIPOTECARIA</p>
+                <p>Administrador</p>
             </div>
         </div>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'a-dashboard' %}" data-toggle="collapse" aria-expanded="false"
+                            data-target="#dashboard" aria-controls="submenu-1"><img src="{%static 'img/ic-1.png'%}"
+                                alt="icono dashboard">Dashboard <span class="badge badge-success">6</span></a>
 
-{#</script>#}
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
- 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'a-asesores' %}" data-toggle="collapse" aria-expanded="false"
+                            data-target="#asesores" aria-controls="submenu-2"><img src="{%static 'img/ic-2.png'%}"
+                                alt="icono dashboard">Asesores</a>
+                    </li>
 
-<!-- ============================================================== -->
-<!-- end left sidebar -->
-<!-- ============================================================== -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'a-clientes' %}" data-toggle="collapse" aria-expanded="false"
+                            data-target="#submenu-3" aria-controls="submenu-3"><img src="{%static 'img/ic-3.png'%}"
+                                alt="icono dashboard">Clientes</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
