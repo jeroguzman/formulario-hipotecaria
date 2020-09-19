@@ -55,9 +55,14 @@
                 <label for="exampleFormControlInput1">Descripcion</label>
                 <textarea type="text" class="form-control" ></textarea>
         </div>
+     <div class="col-auto my-1">
+            <a href='{% url "a-asesores" %}'>
+            <input type="submit" class="btn btn-primary " value="Crear asesor" />
+            </a>
+            </div>
+
     </form>
-
-
+      {% comment %}
         <div class="form-row align-items-center">
             
             <div class="col-auto my-1">
@@ -65,13 +70,11 @@
             <button type="submit" class="btn btn-secondary" >Cancelar</button>
             </div>
             </a>
-            <div class="col-auto my-1">
-            <button type="submit" class="btn btn-primary ">Crear asesor</button>
-            </div>
+           
             
         
         </div>
-
+    {% endcomment %}
 
     </div>
 </div>

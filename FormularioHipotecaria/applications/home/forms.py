@@ -9,3 +9,12 @@ class form_asesor_alta(forms.Form):
     telefono = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control'}))
     email = forms.EmailField(widget = forms.TextInput(attrs = {'class': 'form-control', 'placeholder':'email@example.com' }))
     nclientes = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control'}))
+
+class form_lista_Asesores(forms.Form):
+
+    # datos generales
+    nombres = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control' }))
+    usuario = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control'}))
+    telefono = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control'}))
+    email = forms.EmailField(widget = forms.TextInput(attrs = {'class': 'form-control' }))
+    nclientes = forms.CharField(widget = forms.TextInput(attrs = {'class': 'form-control'}))

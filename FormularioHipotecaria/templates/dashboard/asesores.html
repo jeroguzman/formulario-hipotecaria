@@ -44,12 +44,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {% for asesor in lista_Asesores %}
+                                        {% for form in form_lista_Asesores %}
                                             <tr>
-                                                <th scope="row">{{ asesor.nombres }}</th>
-                                                <td>{{ asesor.usuario }}</td>
+                                                <th scope="row">{{ form.nombres }}</th>
+                                                <td>{{ form.usuario }}</td>
                                                 <td>{{ asesor.telefono }}</td>
-                                                <td>{{ asesor.email }}</td>
+                                                <td>{{ form.email }}</td>
                                                 <td>{{ asesor.nclientes }}</td>
                                             </tr>
                                             
