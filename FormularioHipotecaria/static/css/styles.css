@@ -20,6 +20,7 @@ body {
     border: 0;
     text-align: justify;
     color: #1b2c54;
+
 }
 
 a,
@@ -32,44 +33,27 @@ button:focus {
     outline: none;
 }
 
+.inicio {
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23be9a66' fill-opacity='0.09' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
 /*------- Header -------*/
 
 .header {
     position: relative;
 }
 
-.img-header-container {
-    margin: 25px 0 25px 0;
-    position: relative;
-    width: 100%;
-}
-
-.img-header-container img {
-    width: 100%;
-    min-height: 100px;
-
-}
-
 .logo-container {
     background-color: #1b2c54;
-
-    width: 22%;
-    min-width: 250px;
-    height: 133%;
-    min-height: 150px;
-    position: absolute;
-    top: -25px;
-    left: 13%;
+    width: 100%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)
 }
 
 .logo-container img {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 15%;
+    min-width: 200px;
+    display: block;
     margin: auto;
 }
 
@@ -77,174 +61,93 @@ button:focus {
 /*------- Body -------*/
 
 .container-fluid {
-    padding: 5% 13%;
+    padding: 3% 20%;
 }
 
-.hombre {
-    width: 95%;
-    min-width: 250px;
-    height: auto;
+.presentacion {
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-h2,
-h4 {
-    font-family: Gotham-Light;
-    letter-spacing: 2px;
+.presentacion .img-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1b2c54;
 }
 
-h3 {
-    font-family: Gotham;
+.presentacion p {
+    margin-top: 1rem;
 }
 
-strong {
-    font-family: Gotham-bold;
-}
-
-.contacto {
-    margin: 40px 0 50px;
-}
-
-.contacto h4 {
-    margin: 0px;
-}
-
-.icono {
-    width: 15%;
-}
-
-
-/* options*/
-
-.asesoria {
+/* preguntas*/
+.opciones {
     text-align: center;
-    margin-top: 50px;
-}
-
-.asesoria h2 {
-    margin-bottom: 40px;
-}
-
-h5 {
-    color: #9b723c;
-    font-family: Gotham-bold;
 
 }
 
-.asesoria-circulo {
-    width: 160px;
-    height: 160px;
-    border-radius: 100%;
-    background-color: transparent;
-    margin: auto;
-    margin-bottom: 30px;
+.opcion {
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
     background-color: #1b2c54;
-}
-
-.asesoria-circulo:hover,
-.active {
-    background-color: #9b723c;
-}
-
-.opciones-img {
-    width: 100%;
-}
-
-.currenth5 {
-    color: #1b2c54;
-}
-
-.arrow {
-    font-size: 5rem;
-}
-
-
-/* formulario */
-.preguntas label {
-    margin-top: 50px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #9b723c;
-}
-
-.preguntas button {
-    border: none;
-    border-radius: 20px;
-    background-color: #9b723c;
+    margin: 15px auto;
     color: white;
-    font-size: 1rem;
-    padding: 5px 20px;
-    position: absolute;
-    right: 250px;
-
-
+    border-radius: 5px;
 }
 
-.preguntas .btn:hover,
-.preguntas .btn:focus {
-    background-color: #1b2c54;
+.not {
+    line-height: 25px;
 }
 
-.btn:focus {
-    background-color: #1b2c54;
-}
-
-
-.btnNext {
-    border: none;
-    border-radius: 20px;
+.opcion:hover,
+.opcion-active {
     background-color: #9b723c;
-    color: white;
-    font-size: 1rem;
-    padding: 5px 20px;
-
-}
-
-.preguntas input,
-.preguntas select {
-    max-width: 350px;
-}
-
-.btnEs {
-    position: relative;
-    margin: 20px 10px;
-    text-align: left;
-    width: 50%;
-    padding: 14px 22px;
-    border: black 5px;
-    border-radius: 2px;
-}
-
-.btnEs p {
-    margin: 0;
-}
-
-.btnEs .titulo {
-    font-family: Gotham-bold;
-    font-size: 1.2rem;
-}
-
-.btnEs:hover {
+    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+.btnNext,
+.btnAnt {
+    line-height: 50px;
+    width: 150px;
+    height: 50px;
+    background-color: #5e5e5e;
+    margin: 15px auto;
+    color: white;
+    border-radius: 5px;
+}
+
+.btnNext:hover,
+.btnAnt:hover {
+    background-color: #9b723c;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .panel,
-.panelEs {
+.section,
+.hidden {
     display: none;
 }
 
-.ingreso-active {
-    border: solid 1px #008A94;
-    background-color: #EBF6F7;
-}
-
-.form-text {
-    text-align: left;
+.panel.first {
+    display: block;
 }
 
 .emsg {
     color: red !important;
-}
-
-.hidden {
-    display: none;
 }

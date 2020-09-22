@@ -1,56 +1,104 @@
-<div class="preguntas">
-    <div class="collapse" id="compra" data-parent="#formulario">
-        <form>
+<div class="section">
 
-            <div class="form-group">
-                <label>¡EXCELENTE! MI NOMBRE ES ... Y TE VOY A GUIAR EN ESTE PROCESO 👍</label>
-                <small class="form-text text-muted">Primero es necesario que puedas sustentar ingresos para la
-                    evaluación del crédito</small>
-                <a role="button">
-                    <div class="btnPanelEs3 btnEs">
-                        <p>Si, continuemos</p>
-                    </div>
-                </a>
 
-                <a role="button">
-                    <div class="btnPanelEs3 btnEs no">
-                        <p>No, no tengo cómo sustentar mis ingresos</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="panelEs alt">
-                <div class="form-group">
-                    <label>SI NO TIENES CÓMO SUSTENTAR INGRESOS, NO VAMOS A PODER AYUDARTE POR EL MOMENTO 😢</label>
+    <!-- Pregunta uno -->
+    <div class="panel first">
+        <div class="presentacion row">
+            <div class="col-lg-2 d-flex justify-content-center">
+                <div class="img-container">
                 </div>
             </div>
 
-
-            <div class="panelEs3 panelEs">
-                <div class="form-group">
-                    <label>¿CUÁNTO VALE LA PROPIEDAD ASOCIADO CON EL CRÉDITO HIPOTECARIO?</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input name="valor" type="text" class="form-control money" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                        </div>
-                    </div>
-                    <small class="emsg form-text text-muted hidden">El campo valor debe ser entre $500,000 y
-                        $180,000,000</small>
-                </div>
-
-                <a role="button">
-                    <div class="btnNext btn">
-                        SIGUIENTE
-                    </div>
-                </a>
+            <div class="col-lg-10 d-flex justify-content-center">
+                <p>¡Perfecto! ¿Sabías que tu crédito autorizado se puede utilizar para comprar una casa nueva o usada?
+                </p>
             </div>
 
-            {% include 'home/formularios/common/basicform.html'%}
+        </div><!-- End presentacion -->
 
-        </form>
+        <div class="preguntas">
+            <div class="row">
+                <div class="col-lg-4 d-flex justify-content-center">
+
+                </div>
+                <div class="col-lg-8 d-flex justify-content-center">
+
+                    <div class="opciones">
+                        <h4><strong>¿Ya tienes el inmueble identificado?</strong></h4>
+                        <div class="opcion">
+                            <p>Ya lo tengo visto</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Lo estoy buscando</p>
+                        </div>
+                        <div class="opcion not">
+                            <p>Solo quiero conocer mi capacidad de crédito</p>
+                        </div>
+                        <small class="emsg form-text text-muted hidden">Por favor, elija una opción</small>
+                        <div class="d-flex justify-content-center">
+                            <div class="btnAnt">
+                                <p>Anterior</p>
+                            </div>
+                            <div class="btnNext">
+                                <p>Siguiente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End preguntas -->
     </div>
+
+
+
+    <!-- Pregunta dos -->
+    <div class="panel">
+        <div class="presentacion row">
+            <div class="col-lg-2 d-flex justify-content-center">
+                <div class="img-container">
+                </div>
+            </div>
+
+            <div class="col-lg-10 d-flex justify-content-center">
+                <p>El importe de un valor de inmueble nos servirá para poder darte opciones según tu capacidad de
+                    crédito</p>
+            </div>
+
+        </div><!-- End presentacion -->
+
+        <div class="preguntas">
+            <div class="row">
+                <div class="col-lg-4 d-flex justify-content-center">
+
+                </div>
+                <div class="col-lg-8 d-flex justify-content-center">
+
+                    <div class="opciones">
+                        <h4><strong>¿Cuál es el valor aproximado del inmueble?</strong></h4>
+                        <div class="opcion">
+                            <p>Ya lo tengo visto</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Lo estoy buscando</p>
+                        </div>
+                        <div class="opcion not">
+                            <p>Solo quiero conocer mi capacidad de crédito</p>
+                        </div>
+
+
+                        <div class="d-flex justify-content-center">
+                            <div class="btnAnt">
+                                <p>Anterior</p>
+                            </div>
+                            <div class="btnNext">
+                                <p>Siguiente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End preguntas -->
+    </div>
+
+
 </div>

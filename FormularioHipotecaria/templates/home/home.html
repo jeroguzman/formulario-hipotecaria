@@ -3,131 +3,78 @@
 
 
 {% block body %}
-<div>
+<div class="inicio">
 
     <div class="header">
-
-        <div class="img-header-container">
-            <img src="{% static 'img/banner.png'%}" alt="">
-        </div>
-
         <div class="logo-container">
             <img src="{% static 'img/logo-blanco.png'%}" alt="">
         </div>
-
-    </div>
+    </div><!-- End header -->
 
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 col-sm-12">
-                <img src="{% static 'img/foto.png'%}" class="hombre" alt="hombre">
-            </div>
 
-            <div class="col col-lg-8 col-sm-12">
+        <div class="panel" style="display: block;">
+            <div class="presentacion row">
+                <div class="col-lg-2 d-flex justify-content-center">
 
-                <h2><strong>¡HOLA!</strong> Soy,</h2>
-                <h4><strong>Lic. Alfredo Ontiveros,</strong> tu asesor hipotecario.</h4>
+                    <div class="img-container">
 
-                <div class="row">
-                    <div class="col-lg-6 col-sm-12">
-                        <div class="contacto">
-                            <h4><strong>Llámame:</strong></h4>
-                            <h3><img src="{% static 'img/ic-ph.png'%}" class="icono" alt="phone">(662) 267 85 23</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Eius itaque nisi perspiciatis
-                            obcaecati mollitia vitae id ea, fugiat reprehenderit,
-                            cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
-                    </div>
-                    <div class="col col-lg-6 col-sm-12">
-                        <div class="contacto">
-                            <h4><strong>Envíame un
-                                    Mensaje:</strong></h4>
-                            <h3><img src="{% static 'img/ic-ma.png'%}" class="icono" alt="mail">alfredo@msh.com</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Eius itaque nisi perspiciatis
-                            obcaecati mollitia vitae id ea, fugiat reprehenderit,
-                            cum in incidunt laborum ad quibusdam provident voluptatibus iure esse eum!</p>
                     </div>
                 </div>
 
-            </div>
+                <div class="col-lg-10 d-flex justify-content-center">
+                    <p>¡Hola! Soy <strong>Alberto Molina</strong>, ejecutivo experto en Créditos
+                        Hipotecarios,
+                        déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.</p>
+                </div>
 
-            <div class="asesoria" id="formulario">
-                <h2><strong>TE ASESORAMOS GRATUITAMENTE EN LO SIGUIENTE:</strong></h2>
+            </div><!-- End presentacion -->
+
+            <div class="preguntas">
                 <div class="row">
-                    <div class="col-lg-2 col-md-12 mx-auto">
-                        <a data-toggle="collapse" href="#capitalTrabajo" role="button" aria-expanded="false"
-                            aria-controls="capitalTrabajo">
-                            <div class="asesoria-circulo">
-                                <img src="{% static 'img/8.png'%}" class="opciones-img" alt="mail">
-                            </div>
-                        </a>
-                        <h5 class="texto-asesoria">CAPITAL DE TRABAJO</h5>
-                        <i class="fas fa-caret-down arrow"></i>
+                    <div class="col-lg-4 d-flex justify-content-center">
 
                     </div>
+                    <div class="col-lg-8 d-flex justify-content-center">
 
-                    <div class="col-lg-2 col-md-12 mx-auto">
-
-                        <a data-toggle="collapse" href="#consolidarDeudas" role="button" aria-expanded="false"
-                            aria-controls="consolidarDeudas" data-parent="#formulario">
-                            <div class="asesoria-circulo">
+                        <div class="opciones">
+                            <h4><strong>¿Qué estás buscando?</strong></h4>
+                            <div class="opcion opcionNext">
+                                <p>Compra Casa o Depa</p>
                             </div>
-                        </a>
-
-                        <h5>CONSOLIDAR DEUDAS</h5>
-                        <i class="fas fa-caret-down arrow"></i>
-
-                    </div>
-
-                    <div class="col-lg-2 col-md-12 mx-auto">
-                        <a data-toggle="collapse" href="#remodelar" role="button" aria-expanded="false"
-                            aria-controls="remodelar" data-parent="#formulario">
-                            <div class="asesoria-circulo">
+                            <div class="opcion opcionNext">
+                                <p>Mejora de Hipoteca</p>
                             </div>
-                        </a>
-                        <h5>REMODELAR/ CONSTRUIR</h5>
-                        <i class="fas fa-caret-down arrow mx-auto"></i>
-
-                    </div>
-
-                    <div class="col-lg-2 col-md-12 mx-auto">
-
-                        <a data-toggle="collapse" href="#traslado" role="button" aria-expanded="false"
-                            aria-controls="traslado" data-parent="#formulario">
-                            <div class="asesoria-circulo">
+                            <div class="opcion opcionNext">
+                                <p>Comprar Terreno</p>
                             </div>
-                        </a>
-                        <h5>TRASLADO</h5>
-                        <i class="fas fa-caret-down arrow"></i>
-                    </div>
-
-                    <div class="col-lg-2 col-md-12 mx-auto">
-                        <a data-toggle="collapse" href="#compra" role="button" aria-expanded="false"
-                            aria-controls="compra" data-parent="#formulario">
-                            <div class="asesoria-circulo">
+                            <div class="opcion opcionNext">
+                                <p>Quiero Construir</p>
                             </div>
-                        </a>
-                        <h5>COMPRA</h5>
-                        <i class="fas fa-caret-down arrow"></i>
+                            <div class="opcion opcionNext">
+                                <p>Comprar Terreno y Construir</p>
+                            </div>
+                            <div class="opcion opcionNext">
+                                <p>Necesito Liquidez</p>
+                            </div>
+                            <div class="opcion opcionNext">
+                                <p>Quiero Consolidar Mis Deudas</p>
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
-
-                {% include 'home/formularios/capitalTrabajo.html'%}
-                {% include 'home/formularios/consolidarDeudas.html'%}
-                {% include 'home/formularios/remodelar.html'%}
-                {% include 'home/formularios/traslado.html'%}
-                {% include 'home/formularios/compra.html'%}
-            </div>
-
+            </div><!-- End preguntas -->
         </div>
 
-    </div>
+
+
+        {% include 'home/formularios/compra.html' %}
+        {% include 'home/formularios/panel2.html' %}
+
+    </div><!-- End container-fluid -->
 
 
 
