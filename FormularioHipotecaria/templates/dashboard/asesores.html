@@ -48,9 +48,9 @@
                                             <tr>
                                                 <th scope="row">{{ form.nombres }}</th>
                                                 <td>{{ form.usuario }}</td>
-                                                <td>{{ asesor.telefono }}</td>
+                                                <td>{{ form.telefono }}</td>
                                                 <td>{{ form.email }}</td>
-                                                <td>{{ asesor.nclientes }}</td>
+                                                <td>{{ form.nclientes }}</td>
                                             </tr>
                                             
                                             
@@ -61,20 +61,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-md-center">
-                    <a href='{% url "a-nuevoasesor" %}'>
-                        <div class="d-flex">
+                        <div class="row justify-content-md-center">
+                            <a href='{% url "a-nuevoasesor" %}'>
+                                <div class="d-flex">
 
-                            <button class="btn ml-auto btn-nuevo rounded float-right"><i class="fa fa-plus-circle"></i>
-                            Agregar nuevo</button>
+                                    <button class="btn ml-auto btn-nuevo rounded float-right"><i class="fa fa-plus-circle"></i>
+                                    Agregar nuevo</button>
+                                </div>
+                            </a>
                         </div>
-                     </a>
-                </div>
+                 </div>
             </div>
-         </div>
                 
-                        {% endblock %}
-                    </body>
+     {% endblock %}
+</body>
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

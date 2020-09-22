@@ -24,7 +24,7 @@
 <div class="dashboard-wrapper">
     <div class="container-fluid  dashboard-content">
     <h1 class="display">Datos del nuevo asesor</h1>
-    <form class="needs-validation" action="{% url 'a-nuevoasesor'%}"
+    <form class="needs-validation" action="{% url 'a-asesores'%}"
                             method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -55,10 +55,10 @@
                 <label for="exampleFormControlInput1">Descripcion</label>
                 <textarea type="text" class="form-control" ></textarea>
         </div>
-     <div class="col-auto my-1">
-            <a href='{% url "a-asesores" %}'>
-            <input type="submit" class="btn btn-primary " value="Crear asesor" />
-            </a>
+             <div class="col-auto my-1">
+                <a href='{% url "a-asesores" %}'>
+                <input type="submit" class="btn btn-primary " value="Crear asesor" />
+                </a>
             </div>
 
     </form>
@@ -70,8 +70,6 @@
             <button type="submit" class="btn btn-secondary" >Cancelar</button>
             </div>
             </a>
-           
-            
         
         </div>
     {% endcomment %}
