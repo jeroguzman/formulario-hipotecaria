@@ -14,6 +14,7 @@ class asesoresView(FormView):
     form_class = forms.form_lista_Asesores
     template_name = 'dashboard/asesores.html'
 
+
 class clientesView(TemplateView):
     template_name = 'dashboard/clientes.html'
 
