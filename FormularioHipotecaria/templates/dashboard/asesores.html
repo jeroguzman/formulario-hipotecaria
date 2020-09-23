@@ -53,7 +53,6 @@
                                                 <td>{{ form.nclientes }}</td>
                                             </tr>
                                             
-                                            
                                              {% endfor %}
                                         </tbody>
                                     </table>
@@ -61,15 +60,21 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                                            
+                    <form method="post">
+                    {% csrf_token %}
                         <div class="row justify-content-md-center">
                             <a href='{% url "a-nuevoasesor" %}'>
                                 <div class="d-flex">
 
-                                    <button class="btn ml-auto btn-nuevo rounded float-right"><i class="fa fa-plus-circle"></i>
-                                    Agregar nuevo</button>
+                                    <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                   value=" agregar nueo">
+                                    
                                 </div>
                             </a>
                         </div>
+                        </form>
                  </div>
             </div>
                 
