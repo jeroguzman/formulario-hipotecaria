@@ -111,7 +111,7 @@ button:focus {
 .btnNext,
 .btnAnt {
     line-height: 50px;
-    width: 150px;
+    width: 130px;
     height: 50px;
     background-color: #5e5e5e;
     margin: 15px auto;
@@ -121,7 +121,7 @@ button:focus {
 
 .btnNext:hover,
 .btnAnt:hover {
-    background-color: #9b723c;
+    background-color: #8b8b8b;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -139,13 +139,8 @@ button:focus {
 
 
 .panel,
-.section,
 .hidden {
     display: none;
-}
-
-.panel.first {
-    display: block;
 }
 
 .emsg {

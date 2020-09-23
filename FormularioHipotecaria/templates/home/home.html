@@ -14,7 +14,7 @@
 
     <div class="container-fluid">
 
-        <div class="panel" style="display: block;">
+        <div id="inicio">
             <div class="presentacion row">
                 <div class="col-lg-2 d-flex justify-content-center">
 
@@ -40,10 +40,10 @@
 
                         <div class="opciones">
                             <h4><strong>¿Qué estás buscando?</strong></h4>
-                            <div class="opcion opcionNext">
+                            <div class="opcion opcionNext" for="compra">
                                 <p>Compra Casa o Depa</p>
                             </div>
-                            <div class="opcion opcionNext">
+                            <div class="opcion opcionNext" for="mejora">
                                 <p>Mejora de Hipoteca</p>
                             </div>
                             <div class="opcion opcionNext">
@@ -72,7 +72,7 @@
 
 
         {% include 'home/formularios/compra.html' %}
-        {% include 'home/formularios/panel2.html' %}
+        {% include 'home/formularios/mejora.html' %}
 
     </div><!-- End container-fluid -->
 

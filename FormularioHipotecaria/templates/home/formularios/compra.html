@@ -1,13 +1,7 @@
-<div class="section">
-
-
     <!-- Pregunta uno -->
-    <div class="panel first">
+    <div class="panel" id="compra">
         <div class="presentacion row">
-            <div class="col-lg-2 d-flex justify-content-center">
-                <div class="img-container">
-                </div>
-            </div>
+            {% include 'home/formularios/shared/img-asesor.html' %}
 
             <div class="col-lg-10 d-flex justify-content-center">
                 <p>¡Perfecto! ¿Sabías que tu crédito autorizado se puede utilizar para comprar una casa nueva o usada?
@@ -25,18 +19,18 @@
 
                     <div class="opciones">
                         <h4><strong>¿Ya tienes el inmueble identificado?</strong></h4>
-                        <div class="opcion">
+                        <div class="opcion" for="p02">
                             <p>Ya lo tengo visto</p>
                         </div>
-                        <div class="opcion">
+                        <div class="opcion" for="p02">
                             <p>Lo estoy buscando</p>
                         </div>
-                        <div class="opcion not">
+                        <div class="opcion not" for="actividad-principal">
                             <p>Solo quiero conocer mi capacidad de crédito</p>
                         </div>
                         <small class="emsg form-text text-muted hidden">Por favor, elija una opción</small>
                         <div class="d-flex justify-content-center">
-                            <div class="btnAnt">
+                            <div class="btnAnt" for="inicio">
                                 <p>Anterior</p>
                             </div>
                             <div class="btnNext">
@@ -47,17 +41,12 @@
                 </div>
             </div>
         </div><!-- End preguntas -->
-    </div>
-
-
+    </div><!-- End panel -->
 
     <!-- Pregunta dos -->
-    <div class="panel">
+    <div class="panel" id="p02">
         <div class="presentacion row">
-            <div class="col-lg-2 d-flex justify-content-center">
-                <div class="img-container">
-                </div>
-            </div>
+            {% include 'home/formularios/shared/img-asesor.html' %}
 
             <div class="col-lg-10 d-flex justify-content-center">
                 <p>El importe de un valor de inmueble nos servirá para poder darte opciones según tu capacidad de
@@ -75,19 +64,72 @@
 
                     <div class="opciones">
                         <h4><strong>¿Cuál es el valor aproximado del inmueble?</strong></h4>
-                        <div class="opcion">
-                            <p>Ya lo tengo visto</p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input name="valor" type="text" class="form-control money" required />
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
                         </div>
-                        <div class="opcion">
-                            <p>Lo estoy buscando</p>
-                        </div>
-                        <div class="opcion not">
-                            <p>Solo quiero conocer mi capacidad de crédito</p>
-                        </div>
-
+                        <small class="emsg form-text text-muted hidden">El campo valor debe ser entre $500,000 y
+                            $180,000,000</small>
 
                         <div class="d-flex justify-content-center">
-                            <div class="btnAnt">
+                            <div class="btnAnt" for="compra">
+                                <p>Anterior</p>
+                            </div>
+                            <div class="btnNext" for="actividad-principal">
+                                <p>Siguiente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End preguntas -->
+    </div><!-- End panel -->
+
+    <!-- Pregunta tres -->
+    <div class="panel" id="actividad-principal">
+        <div class="presentacion row">
+            {% include 'home/formularios/shared/img-asesor.html' %}
+
+            <div class="col-lg-10 d-flex justify-content-center">
+                <p>Es importante especificar bien tu actividad, ya que dependiendo de esto la Banca determina el
+                    porcentaje de ingreso a considerar</p>
+            </div>
+
+        </div><!-- End presentacion -->
+
+        <div class="preguntas">
+            <div class="row">
+                <div class="col-lg-4 d-flex justify-content-center">
+
+                </div>
+                <div class="col-lg-8 d-flex justify-content-center">
+
+                    <div class="opciones">
+                        <h4><strong>¿Cuál es el tu actividad principal?</strong></h4>
+                        <div class="opcion" for="empleado">
+                            <p>Empleado</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Independiente</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Empresario</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Socio Accionista</p>
+                        </div>
+                        <div class="opcion">
+                            <p>Trabajo en USA</p>
+                        </div>
+                        <small class="emsg form-text text-muted hidden">Por favor, elija una opción</small>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="btnAnt" for="compra">
                                 <p>Anterior</p>
                             </div>
                             <div class="btnNext">
@@ -98,7 +140,6 @@
                 </div>
             </div>
         </div><!-- End preguntas -->
-    </div>
+    </div><!-- End panel -->
 
-
-</div>
+    {% include 'home/formularios/empleado.html' %}
