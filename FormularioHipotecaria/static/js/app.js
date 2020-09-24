@@ -1,4 +1,4 @@
-const regexName = /^([a-zA-Z ]{3,50})$/;
+const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
 
 //Mask inputs
 $('.money').mask('000,000,000', {
@@ -27,11 +27,20 @@ $('.opcionNext').each(function () {
 })
 
 //Marca las opciones seleccionadas
-$('.opcion').click(function () {
-    $('.opcion').removeClass('opcion-active');
-    $(this).addClass('opcion-active');
-    $(this).siblings('.emsg').addClass('hidden');
-});
+// $('.opcion').click(function () {
+//     $('.opcion').removeClass('opcion-active');
+//     $(this).addClass('opcion-active');
+//     $(this).siblings('.emsg').addClass('hidden');
+// });
+
+$('.panel').each(function () {
+    const currentOptions = $(this).find('.opcion');
+    currentOptions.click(function () {
+        currentOptions.removeClass('opcion-active');
+        $(this).addClass('opcion-active');
+        $(this).siblings('.emsg').addClass('hidden');
+    });
+})
 
 //Boton siguiente
 $('.btnNext').each(function () {
@@ -41,17 +50,27 @@ $('.btnNext').each(function () {
     const nombre = $(this).parent().parent().find('input[name=nombre]')
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
+
+        //Revisa si las validaciones son correctas para poder continuar
         if (opcion.hasClass('opcion-active') ||
             (valor.length && (valor.cleanVal() > 500000 && valor.cleanVal() < 180000000)) ||
             (nombre.length && nombre.val().match(regexName))) {
-            if (target.length) {
+
+            //Toma el html de la opcion seleccionada para poder hacer submit en el form
+            $('.opcion-input').each(function () {
+                const choosenOption = $(this).siblings('.opcion-active').children().html();
+                $(this).val(choosenOption);
+            });
+
+            //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se elijio
+            if ($(this).attr('for') !== 'none') {
                 target.fadeIn(100);
             } else {
                 targetOption.fadeIn(100);
             }
 
             $(this).parent().parent().parent().parent().parent().parent().hide();
-        } else {
+        } else { //Si las validaciones no son correctas muestra un mensaje de error
             $(this).parent().siblings('.emsg').removeClass('hidden');
         }
     });

@@ -69,11 +69,16 @@ button:focus {
     margin-bottom: 2rem;
 }
 
-.presentacion .img-container {
+.img-asesor {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background-color: #1b2c54;
+    overflow: hidden;
+}
+
+.img-asesor img {
+    width: 100%;
 }
 
 .presentacion p {

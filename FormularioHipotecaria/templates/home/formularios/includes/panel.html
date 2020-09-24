@@ -1,0 +1,24 @@
+<div class="panel" id="{{id}}">
+    <div class="presentacion row">
+        {% include 'home/formularios/includes/img-asesor.html' %}
+
+        <div class="{{class_desc|default:'col-lg-10 d-flex justify-content-center'}}">
+            <p>
+                {{desc}}
+            </p>
+        </div>
+
+    </div><!-- End presentacion -->
+
+    <div class="preguntas">
+        <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center">
+
+            </div>
+            <div class="col-lg-8 d-flex justify-content-center">
+
+                <div class="opciones">
+                    <h4><strong>
+                            {{pregunta}}
+                        </strong></h4>
+                    <form action="" id="form-compra"></form>
