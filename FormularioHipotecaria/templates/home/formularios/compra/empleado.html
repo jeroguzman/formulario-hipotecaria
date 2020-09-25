@@ -1,0 +1,73 @@
+<!-- ¿Cotizas para alguna de estas instituciones? -->
+{%include "../includes/panel.html" with id="empleado" desc="Cuando cotizas para alguna institución gubernamental hay posibilidades de ampliar las opciones que te brindan los bancos." pregunta="¿Cotizas para alguna de estas instituciones?" %}
+{%include "../includes/opcion.html" with texto="Infonavit"%}
+{%include "../includes/opcion.html" with texto="Fovissste"%}
+{%include "../includes/opcion.html" with texto="Otro"%}
+{%include "../includes/opcion.html" with texto="Ninguno"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="actividad-principal" btnNext_for="emp-02"%}
+
+<!-- ¿Ya ejerciste o estas pagando tu Crédito Infonavit o Fovissste? -->
+{%include "../includes/panel.html" with id="emp-02" desc="Cuando cotizas para alguna institución gubernamental hay posibilidades de ampliar las opciones que te brindan los bancos." pregunta="¿Ya ejerciste o estas pagando tu Crédito Infonavit o Fovissste?" %}
+{%include "../includes/opcion.html" with texto="Sí"%}
+{%include "../includes/opcion.html" with texto="No"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="empleado" btnNext_for="ingreso-mensual"%}
+
+<!-- ¿Cuál es tu ingreso mensual? -->
+{%include "../includes/panel.html" with id="ingreso-mensual" desc="¿Sabías que hay bancos que calculan tu capacidad de crédito basados en tu ingreso neto y hay otros que lo calculan en base a tu ingreso bruto?" pregunta="¿Cuál es tu ingreso mensual?" %}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Bruto"%}
+<p><strong>Salario Neto:</strong> Es el pago que recibes menos los descuentos, lo que te
+    depositan o pagan finalmente.</p>
+<p><strong>Salario Bruto:</strong> Es lo que te pagan sin descuentos, es el total de todas las
+    percepciones.</p>
+{%include "../includes/panel-botones.html" with btnAnt_for="emp-02" btnNext_for="nombre"%}
+
+<!-- ¿Te gustaría presentar un ingreso mayor para aumentar tu capacidad de crédito? -->
+{%include "../includes/panel.html" with id="co-acreditado" desc="¿Sabías que puedes incrementar tu capacidad de crédito al unir ingresos con otra persona? (pareja, familiar, amigo) a la que se le denomina Co-Acreditado." pregunta="¿Te gustaría presentar un ingreso mayor para aumentar tu capacidad de crédito?" %}
+{%include "../includes/opcion.html" with for="actividad-coacreditado" texto="Sí, quiero agregar un Co-Acreditado"%}
+{%include "../includes/opcion.html" with for="creditos" texto="No, solo yo comprobare ingresos"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="estado-civil"%}
+
+<!-- ¿Cuál es la actividad principal del Co-Acreditado? -->.
+{%include "../includes/panel.html" with id="actividad-coacreditado" desc="Perfecto, el unir ingresos con un Co-Acreditado incrementará tu capacidad de crédito." pregunta="¿Cuál es la actividad principal del Co-Acreditado?" %}
+{%include "../includes/opcion.html" with for="cotiza-coacreditado" texto="Empleado"%}
+{%include "../includes/opcion.html" with for="independiente-coacreditado" texto="Independiente"%}
+{%include "../includes/opcion.html" with for="empresario-coacreditado" texto="Empresario"%}
+{%include "../includes/opcion.html" with for="socio-coacreditado" texto="Socio Accionista"%}
+{%include "../includes/opcion.html" with for="usa-coacreditado" texto="Trabajo en USA"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="co-acreditado"%}
+
+<!-- ¿El Co-Acreditado cotiza para alguna de estas instituciones? -->
+{%include "../includes/panel.html" with id="cotiza-coacreditado" desc="Cuando cotizas para alguna institución gubernamental hay posibilidades de ampliar las opciones que te brindan los bancos." pregunta="¿El Co-Acreditado cotiza para alguna de estas instituciones?" %}
+{%include "../includes/opcion.html" with texto="Infonavit"%}
+{%include "../includes/opcion.html" with texto="Fovissste"%}
+{%include "../includes/opcion.html" with texto="Otro"%}
+{%include "../includes/opcion.html" with texto="Ninguno"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="actividad-coacreditado" btnNext_for="ejercio-coacreditado"%}
+
+<!-- ¿El Co-Acreditado ya ejerció o esta pagando su Crédito Infonavit o Fovisste? -->
+{%include "../includes/panel.html" with id="ejercio-coacreditado" desc="Vamos ampliando posibilidades..." pregunta="¿El Co-Acreditado ya ejerció o esta pagando su Crédito Infonavit o Fovisste?"%}
+{%include "../includes/opcion.html" with texto="Sí"%}
+{%include "../includes/opcion.html" with texto="No"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="cotiza-coacreditado" btnNext_for="ingreso-coacreditado"%}
+
+<!-- ¿Cuál es el ingreso mensual del Co-Acreditado? -->
+{%include "../includes/panel.html" with id="ingreso-coacreditado" desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado" pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Bruto"%}
+<p><strong>Salario Neto:</strong> Es el pago que recibes menos los descuentos, lo que te
+    depositan o pagan finalmente.</p>
+<p><strong>Salario Bruto:</strong> Es lo que te pagan sin descuentos, es el total de todas las
+    percepciones.</p>
+{%include "../includes/panel-botones.html" with btnAnt_for="ejercio-coacreditado" btnNext_for="creditos"%}
+
+<!-- Captura lo que pagas de los siguientes tipos de créditos: -->
+{%include "../includes/panel.html" with id="creditos" desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso), esto para hacer un cálculo de Ingresos/Egresos y conocer tu capacidad de endeudamiento. Para un mejor análisis, captura tus gastos actuales:" pregunta="Captura lo que pagas de los siguientes tipos de créditos:"%}
+<p>Suma los gastos del Co-Acreditado si es el caso</p>
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Crédito Automotriz"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Tarjetas de Crédito(Pago Mínimo)"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Tiendas Departamentales(Pago Mínimo)"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Prestamos de Nómina Bancario"%}
+{%include "../includes/dinero.html" with name="valor" form="form-compra" titulo="Prestamos Personales"%}
+<input type="text" class="total" disabled />
+{%include "../includes/panel-botones.html" with btnAnt_for="co-acreditado" btnNext_for="numero-correo"%}

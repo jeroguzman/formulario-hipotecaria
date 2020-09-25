@@ -1,11 +1,12 @@
 const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
+const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 
 //Mask inputs
 $('.money').mask('000,000,000', {
     reverse: true
 });
 
-// $('.celularInput').mask('(000) 000-0000');
+$('.celularInput').mask('(000) 000-0000');
 
 // $('.rfcInput').mask('ZZZZ-00-00-00', {
 //     translation: {
@@ -48,13 +49,17 @@ $('.btnNext').each(function () {
     const opcion = $(this).parent().siblings('.opcion');
     const valor = $(this).parent().parent().find('input[name=valor]')
     const nombre = $(this).parent().parent().find('input[name=nombre]')
+    const correo = $(this).parent().parent().find('input[name=correo]')
+    const telefono = $(this).parent().parent().find('input[name=telefono]')
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
+
 
         //Revisa si las validaciones son correctas para poder continuar
         if (opcion.hasClass('opcion-active') ||
             (valor.length && (valor.cleanVal() > 500000 && valor.cleanVal() < 180000000)) ||
-            (nombre.length && nombre.val().match(regexName))) {
+            (nombre.length && nombre.val().match(regexName)) ||
+            ((correo.length && correo.val().match(regexEmail)) && (telefono.length && telefono.cleanVal().length === 10))) {
 
             //Toma el html de la opcion seleccionada para poder hacer submit en el form
             $('.opcion-input').each(function () {
@@ -104,4 +109,54 @@ $('input[name=nombre]').on('keypress keydown keyup', function () {
     }
 });
 
-$('.result').html('this is the result');
+$('input[name=telefono]').on('keypress keydown keyup', function () {
+    if ($(this).cleanVal().length < 10) {
+        $(this).siblings('.emsg:first-of-type').removeClass('hidden');
+    } else {
+        $(this).siblings('.emsg:first-of-type').addClass('hidden');
+    }
+});
+
+$('input[name=correo]').on('keypress keydown keyup', function () {
+    if (!$(this).val().match(regexEmail)) {
+        $(this).siblings('.emsg:last-of-type').removeClass('hidden');
+    } else {
+        $(this).siblings('.emsg:last-of-type').addClass('hidden');
+    }
+});
+
+
+//$('.result').html('this is the result');
+
+
+// $('#creditos').on('keypress keydown keyup', 'input', function () {
+//     console.log("verifica")
+//     let sum = 0;
+//     $(this).find('input').each(function () {
+//         sum += +$(this).cleanVal();
+//     });
+//     $('.total').val(sum);
+// })
+
+
+// $('#creditos').focusin(function () {
+//     console.log("okok")
+//     var sum = 0;
+//     $(this).find('input').each(function () {
+//         $(this).on('keypress keydown keyup', function () {
+//             console.log(typeof parseInt($(this).cleanVal()))
+//             sum = parseInt($(this).cleanVal());
+//         });
+//     });
+//     console.log(sum)
+//     $('.total').val(sum)
+// })
+
+// $('#creditos').on('change', 'input', function () {
+//     console.log("verifica")
+//     let sum = 0;
+//     $(this).find('input').each(function () {
+//         sum += +$(this).cleanVal();
+//     });
+//     $('.total').cleanVal(sum);
+// });

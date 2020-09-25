@@ -1,0 +1,9 @@
+<!-- ¿Cuál es tu ingreso mensual promedio? -->
+{%include "../includes/panel.html" with id="socio-accionista" desc="A los emprendedores como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
+{%include "../includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="actividad-principal" btnNext_for="giro-actividad"%}
+
+<!-- ¿Cuál es el ingreso mensual promedio? -->
+{%include "../includes/panel.html" with id="socio-coacreditado" desc="A los Co-Acreditados Socio Accionista, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio?" %}
+{%include "../includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "../includes/panel-botones.html" with btnAnt_for="actividad-coacreditado" btnNext_for="giro-actividad-coacreditado"%}
