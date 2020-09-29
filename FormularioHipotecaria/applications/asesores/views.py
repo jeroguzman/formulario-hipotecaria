@@ -16,7 +16,8 @@ class asesorDetailView(FormView):
     form_class = forms.form_Asesores
     template_name = 'asesores/asesores_list.html'
 
-class asesorCreate(CreateView):
+class asesorCreateView(CreateView):
     model = asesores
     form_class = asesores
-    success_url = reverse_lazy('asesores:asesores_list')
+    success_url = reverse_lazy('asesores/nuevoAsesor.html')
+    template_name = 'asesores/nuevoAsesor.html'
