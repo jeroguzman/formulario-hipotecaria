@@ -44,13 +44,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {% for forms in object_list %}
+                                        {% for models in object_list %}
                                             <tr>
-                                                <th scope="row">{{ forms.nombres }}</th>
-                                                <td>{{ forms.usuario }}</td>
-                                                <td>{{ forms.telefono }}</td>
-                                                <td>{{ forms.email }}</td>
-                                                <td>{{ forms.nclientes }}</td>
+                                                <th scope="row">{{ models.nombres }}</th>
+                                                <td>{{ models.usuario }}</td>
+                                                <td>{{ models.telefono }}</td>
+                                                <td>{{ models.email }}</td>
+                                                <td>{{ models.nclientes }}</td>
                                             </tr>
                                             
                                              {% endfor %}

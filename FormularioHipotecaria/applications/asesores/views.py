@@ -7,17 +7,19 @@ from . import forms
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
-class asesorListView(FormView):
-    
+class asesorListView(ListView):
+    model = asesores
     form_class = forms.form_Asesores
     template_name = 'asesores/asesores_list.html'
 
-class asesorDetailView(FormView):
+class asesorDetailView(DetailView):
+    model = asesores
     form_class = forms.form_Asesores
     template_name = 'asesores/asesores_list.html'
 
 class asesorCreateView(CreateView):
     model = asesores
-    form_class = asesores
-    success_url = reverse_lazy('asesores/nuevoAsesor.html')
-    template_name = 'asesores/nuevoAsesor.html'
+    #form_class = forms.form_Asesores
+    fields =   ['nombres', 'usuario','email']
+    success_url = reverse_lazy('a-asesores')
+   

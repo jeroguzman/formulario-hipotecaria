@@ -7,6 +7,6 @@ urlpatterns = [
     
     path("asesores/", views.asesorListView.as_view(), name='a-asesores'),
     path('<int:pk>/<slug:slug>/', asesorDetailView.as_view(), name='a-asesor'),
-    path("nuevoasesor/", views.asesorCreateView.as_view(), name='a-nuevoasesor'),
+    path("nuevoAsesor/", views.asesorCreateView.as_view(), name='a-nuevoasesor'),
 
 ]
