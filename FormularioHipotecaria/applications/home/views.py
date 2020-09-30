@@ -16,5 +16,5 @@ class dashboardView(TemplateView):
     template_name = 'dashboard/dashboard.html'
 
 class clientesView(TemplateView):
-    template_name = 'dashboard/clientes.html'
+    template_name = 'dashboard/clientes/clientes.html'
 

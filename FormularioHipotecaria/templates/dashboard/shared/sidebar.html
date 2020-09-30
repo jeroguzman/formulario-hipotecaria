@@ -18,21 +18,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item ">
-                        <a class="nav-link external nav" href="{% url 'a-dashboard' %}" data-toggle="collapse"
-                            aria-expanded="false" data-target="#dashboard" aria-controls="submenu-1"><img
-                                src="{%static 'img/ic-1.png'%}" alt="icono dashboard">Dashboard <span
-                                class="badge badge-success">6</span></a>
+                        <a class="nav-link" href="{% url 'a-dashboard' %}"><img src="{%static 'img/ic-1.png'%}"
+                                alt="icono dashboard">Dashboard</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link external nav" href="{% url 'a-asesores' %}" data-toggle="collapse"
-                            aria-expanded="false" data-target="#asesores" aria-controls="submenu-2"><img
-                                src="{%static 'img/ic-2.png'%}" alt="icono dashboard">Asesores</a>
+                        <a class="nav-link" href="{% url 'a-nuevoasesor' %}"><img src="{%static 'img/ic-2.png'%}"
+                                alt="icono dashboard">Asesores</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'a-clientes' %}" data-toggle="collapse" aria-expanded="false"
-                            data-target="#submenu-3" aria-controls="submenu-3"><img src="{%static 'img/ic-3.png'%}"
+                        <a class="nav-link" href="{% url 'a-clientes' %}"><img src="{%static 'img/ic-3.png'%}"
                                 alt="icono dashboard">Clientes</a>
                     </li>
                 </ul>

@@ -10,16 +10,17 @@ from django.shortcuts import render
 class asesorListView(ListView):
     model = asesores
     form_class = forms.form_Asesores
-    template_name = 'asesores/asesores_list.html'
+    template_name = 'dashboard/asesores/asesores_list.html'
 
 class asesorDetailView(DetailView):
     model = asesores
     form_class = forms.form_Asesores
-    template_name = 'asesores/asesores_list.html'
+    template_name = 'dashboard/asesores/asesores_list.html'
 
 class asesorCreateView(CreateView):
     model = asesores
     #form_class = forms.form_Asesores
-    fields =   ['nombres', 'usuario','email']
+    fields =   ['nombres', 'usuario', 'email']
     success_url = reverse_lazy('a-asesores')
+    template_name = 'dashboard/asesores/asesores_form.html'
    
