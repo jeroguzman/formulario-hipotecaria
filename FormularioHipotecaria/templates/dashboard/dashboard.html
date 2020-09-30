@@ -45,20 +45,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for models in object_list %}
                                     <tr>
-                                        <th scope="row">Mark</th>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Jacob</th>
-                                        <td>@fat</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Larry</th>
-                                        <td>@twitter</td>
-
-                                    </tr>
+                                       <th scope="row">{{ models.nombres }}</th>
+                                       <td>{{ models.usuario }}</td>
+                                    </tr> 
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
