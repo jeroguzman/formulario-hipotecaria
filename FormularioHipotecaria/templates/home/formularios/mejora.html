@@ -1,19 +1,167 @@
-<div class="panel" id="mejora">
-    <div class="presentacion row">
-        <div class="col-lg-2 d-flex justify-content-center">
+<!-- 2. ¿Cómo calificarías la puntualidad de tus pagos en tu hipoteca actual? -->
+{%include "./includes/panel.html" with id="m2" per=9 desc="¡Perfecto! ¿Sabías que para mejorar tu hipoteca, basta con haberte mantenido puntual en los pagos de la misma?, hay bancos en los que ni necesitas comprar ingresos." pregunta="¿Cómo calificarías la puntualidad de tus pagos en tu hipoteca actual?"%}
+{%include "./includes/opcion.html" with texto="Excelente, sin atrasos"%}
+{%include "./includes/opcion.html" with class="opcion not" texto="Me he atrasado 1 o 2 veces en el año pero estoy al día"%}
+{%include "./includes/opcion.html" with class="opcion not" texto="Me atrasé 3 o más meses pero ya estoy al día"%}
+{%include "./includes/opcion.html" with class="opcion not" texto="Actualmente voy atrasado en el pago de mi hipoteca"%}
+{%include "./includes/panel-botones.html" with next="m3"%}
 
-            <div class="img-container">
+<!-- 3. ¿Cuál es el monto aproximado del estado actual? -->
+{%include "./includes/panel.html" with id="m3" per=18 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es el monto aproximado del estado actual?"%}
+{%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
+{%include "./includes/panel-botones.html" with next="m4"%}
 
-            </div>
-        </div>
+<!-- 4. ¿Cuánto pagas de mensualidad? -->
+{%include "./includes/panel.html" with id="m4" per=27 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuánto pagas de mensualidad?"%}
+{%include "./includes/dinero.html" with name="valor" titulo="Mensualmente pago"%}
+{%include "./includes/panel-botones.html" with next="m5"%}
 
-        <div class="col-lg-10 d-flex justify-content-center">
-            <p>¡algo mas</p>
-        </div>
-
-    </div><!-- End presentacion -->
-
-    <div>
-
-    </div>
+<!-- 5. ¿A cuántos años fue tu crédito? -->
+{%include "./includes/panel.html" with id="m5" per=36 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿A cuántos años fue tu crédito?"%}
+<div class="form-group">
+    <select class="form-control">
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+    </select>
 </div>
+{%include "./includes/panel-botones.html" with next="m6"%}
+
+<!-- 6. ¿Cuánto tiempo llevas pagando tu crédito? -->
+{%include "./includes/panel.html" with id="m6" per=45 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuánto tiempo llevas pagando tu crédito?"%}
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Años</label>
+    <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Meses</label>
+    <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>
+</div>
+{%include "./includes/panel-botones.html" with next="m7"%}
+
+<!-- 7. ¿Tu crédito fue un crédito cofinanciado? -->
+{%include "./includes/panel.html" with id="m7" per=54 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Tu crédito fue un crédito cofinanciado?"%}
+<div class="form-group">
+    <select class="form-control">
+        <option>No</option>
+        <option>Sí, con Infovavit</option>
+        <option>Sí, con Fovissste</option>
+        <option>Otro</option>
+    </select>
+</div>
+{%include "./includes/panel-botones.html" with next="m8"%}
+
+<!-- 8. ¿A cuántos años fue tu crédito? -->
+{%include "./includes/panel.html" with id="m8" per=63 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es la institución actual de tu hipoteca?"%}
+<div class="form-group">
+    <select class="form-control">
+        <option>Afirme</option>
+        <option>B x Más</option>
+        <option>Banbajío</option>
+        <option>Bancomer</option>
+        <option>Banorte</option>
+        <option>Banregio</option>
+        <option>Citi Banamex</option>
+        <option>Fovissste Tradicional</option>
+        <option>HSBC</option>
+        <option>Infonavit Tradicional</option>
+        <option>Santander</option>
+        <option>Scotiabank</option>
+        <option>Otro</option>
+    </select>
+</div>
+{%include "./includes/panel-botones.html" with next="m9"%}
+
+<!-- 9. Tu crédito está en: -->
+{%include "./includes/panel.html" with id="m9" per=72 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="Tu crédito está en:"%}
+<div class="form-group">
+    <select class="form-control">
+        <option>Pesos</option>
+        <option>UDIS</option>
+        <option>VSM (Veces Salario Mínimo)</option>
+    </select>
+</div>
+{%include "./includes/panel-botones.html" with next="m10"%}
+
+<!-- 10. Los pagos pactados de tu crédito son: -->
+{%include "./includes/panel.html" with id="m10" per=81 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="Los pagos pactados de tu crédito son:"%}
+<div class="form-group">
+    <select class="form-control">
+        <option>Fijos</option>
+        <option>Crecientes</option>
+    </select>
+</div>
+{%include "./includes/panel-botones.html" with next="m11"%}
+
+<!-- 11. ¿Cuál es tu nombre y apellido? -->
+{%include "./includes/panel.html" with id="m11" per=90 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
+<input name="nombre" type="text" class="form-control" id="nombreInput" form="form-compra" maxlength="50" disabled />
+{%include "./includes/panel-botones.html" with next="m12" emsg="Ingrese un nombre válido"%}
+
+<!-- 12. Numero y correo: -->
+{%include "./includes/panel.html" with id="m12" per=100 desc="Lo que más nos interesa es la seguridad de tu información. Para continuar con tu análisis, te enviaremos un código por WhatsApp y obtener tu reporte." pregunta="Mi número celular es:"%}
+<p>Es importante capturar correctamente ya que el código será enviado a tu télefono movil</p>
+<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" disabled />
+<small class="emsg form-text text-muted hidden">El número debe ser de 10 dígitos</small>
+<h4><strong>Compártenos tu correo electrónico</strong></h4>
+<p>(El que más utilizas)</p>
+<input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
+    placeholder="Ejemplo: juan@gmail.com" disabled />
+{%include "./includes/panel-botones.html" with next="" emsg="Por favor, ingrese un correo valido"%}

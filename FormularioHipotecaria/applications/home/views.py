@@ -18,3 +18,4 @@ class dashboardView(TemplateView):
 class clientesView(TemplateView):
     template_name = 'dashboard/clientes/clientes.html'
 
+
