@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     #local apps
     'applications.home',
     'applications.asesores',
+    'applications.clientes',
 ]
 
 MIDDLEWARE = [
