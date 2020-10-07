@@ -33,6 +33,7 @@
 
 .administrador p:first-child {
     margin: 0;
+    width: 200px;
     font-size: 1.2rem;
     font-weight: bolder;
 }

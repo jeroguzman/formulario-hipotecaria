@@ -1,6 +1,10 @@
 const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
 const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 
+
+console.log($('.path').last())
+
+
 //Mask inputs
 $('.money').mask('000,000,000', {
     reverse: true
@@ -23,6 +27,7 @@ $('.opcionNext').each(function () {
     const target = $('#' + $(this).attr('for'));
     $(this).click(function () {
         target.fadeIn(100);
+        target.addClass('path')
         $(this).parent().parent().parent().parent().parent().hide();
     })
 })
@@ -67,11 +72,15 @@ $('.btnNext').each(function () {
                 $(this).val(choosenOption);
             });
 
-            //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se elijio
+            //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se eligio
             if ($(this).attr('for') !== 'none') {
                 target.fadeIn(100);
+                target.addClass('path');
+                target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
             } else {
                 targetOption.fadeIn(100);
+                targetOption.addClass('path');
+                targetOption.find('input').prop('disabled', false);
             }
 
             $(this).parent().parent().parent().parent().parent().parent().hide();
@@ -84,10 +93,16 @@ $('.btnNext').each(function () {
 
 //Boton anterior
 $('.btnAnt').each(function () {
-    const target = $('#' + $(this).attr('for'));
+    //const target = $('#' + $(this).attr('for'));
     $(this).click(function () {
+        //const path = $('.path').last().prev().attr('id');
+        const path = $('.path').eq(-2).attr('id');
+        const target = $('#' + path);
         target.fadeIn(100);
-        $(this).parent().parent().parent().parent().parent().parent().hide();
+        const thisPanel = $(this).parent().parent().parent().parent().parent().parent();
+        thisPanel.hide();
+        thisPanel.find('input').prop('disabled', true);
+        thisPanel.removeClass('path');
     });
 });
 
@@ -124,39 +139,3 @@ $('input[name=correo]').on('keypress keydown keyup', function () {
         $(this).siblings('.emsg:last-of-type').addClass('hidden');
     }
 });
-
-
-//$('.result').html('this is the result');
-
-
-// $('#creditos').on('keypress keydown keyup', 'input', function () {
-//     console.log("verifica")
-//     let sum = 0;
-//     $(this).find('input').each(function () {
-//         sum += +$(this).cleanVal();
-//     });
-//     $('.total').val(sum);
-// })
-
-
-// $('#creditos').focusin(function () {
-//     console.log("okok")
-//     var sum = 0;
-//     $(this).find('input').each(function () {
-//         $(this).on('keypress keydown keyup', function () {
-//             console.log(typeof parseInt($(this).cleanVal()))
-//             sum = parseInt($(this).cleanVal());
-//         });
-//     });
-//     console.log(sum)
-//     $('.total').val(sum)
-// })
-
-// $('#creditos').on('change', 'input', function () {
-//     console.log("verifica")
-//     let sum = 0;
-//     $(this).find('input').each(function () {
-//         sum += +$(this).cleanVal();
-//     });
-//     $('.total').cleanVal(sum);
-// });

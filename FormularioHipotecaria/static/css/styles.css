@@ -85,6 +85,10 @@ button:focus {
     margin-top: 1rem;
 }
 
+.progress {
+    margin: 0 auto 30px;
+}
+
 /* preguntas*/
 .opciones {
     text-align: center;
@@ -115,9 +119,9 @@ button:focus {
 
 .btnNext,
 .btnAnt {
-    line-height: 50px;
     width: 130px;
     height: 50px;
+    border: none;
     background-color: #5e5e5e;
     margin: 15px auto;
     color: white;
