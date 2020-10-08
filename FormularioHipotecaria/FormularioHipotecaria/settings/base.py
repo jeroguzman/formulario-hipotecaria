@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'applications.home',
     'applications.asesores',
     'applications.clientes',
+    
 ]
 
 MIDDLEWARE = [
