@@ -9,12 +9,12 @@
 <!-- 3. ¿Cuál es el monto aproximado del estado actual? -->
 {%include "./includes/panel.html" with id="m3" per=18 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es el monto aproximado del estado actual?"%}
 {%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
-{%include "./includes/panel-botones.html" with next="m4"%}
+{%include "./includes/panel-botones.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4. ¿Cuánto pagas de mensualidad? -->
 {%include "./includes/panel.html" with id="m4" per=27 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuánto pagas de mensualidad?"%}
 {%include "./includes/dinero.html" with name="valor" titulo="Mensualmente pago"%}
-{%include "./includes/panel-botones.html" with next="m5"%}
+{%include "./includes/panel-botones.html" with next="m5" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5. ¿A cuántos años fue tu crédito? -->
 {%include "./includes/panel.html" with id="m5" per=36 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿A cuántos años fue tu crédito?"%}

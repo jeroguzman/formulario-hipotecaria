@@ -23,7 +23,8 @@ $('.opcionNext').each(function () {
     const target = $('#' + $(this).attr('for'));
     $(this).click(function () {
         target.fadeIn(100);
-        target.addClass('path')
+        target.addClass('path');
+        target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
         $(this).parent().parent().parent().parent().parent().hide();
     })
 })
@@ -59,7 +60,7 @@ $('.btnNext').each(function () {
 
         //Revisa si las validaciones son correctas para poder continuar
         if (opcion.hasClass('opcion-active') ||
-            (valor.length && (valor.cleanVal() > 500000 && valor.cleanVal() < 180000000)) ||
+            (valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
             ((correo.length && correo.val().match(regexEmail)) && (telefono.length && telefono.cleanVal().length === 10)) ||
             (scroll.attr('class') !== undefined) ||
@@ -105,7 +106,7 @@ $('.btnAnt').each(function () {
 
 //Validaciones
 $('input[name=valor]').on('keypress keydown keyup', function () {
-    if ($(this).cleanVal() < 500000 || $(this).cleanVal() > 180000000) {
+    if ($(this).cleanVal() < 0) {
         $(this).parent().siblings('.emsg').removeClass('hidden');
     } else {
         $(this).parent().siblings('.emsg').addClass('hidden');
