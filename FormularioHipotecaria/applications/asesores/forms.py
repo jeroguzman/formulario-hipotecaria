@@ -10,6 +10,6 @@ class form_Asesores(forms.ModelForm):
             'nombres' :forms.TextInput(attrs={'class': 'form-control'}),
             'usuario' : forms.TextInput(attrs={'class': 'form-control'}),
             'email' : forms.TextInput(attrs={'class': 'form-control'}),
-            'puesto' :forms.TextInput(attrs={'class': 'form-control'}),
+            
             
         }
