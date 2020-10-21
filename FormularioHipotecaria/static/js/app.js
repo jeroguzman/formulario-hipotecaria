@@ -30,20 +30,20 @@ $('.opcionNext').each(function () {
 })
 
 //Marca las opciones seleccionadas
-// $('.opcion').click(function () {
-//     $('.opcion').removeClass('opcion-active');
-//     $(this).addClass('opcion-active');
-//     $(this).siblings('.emsg').addClass('hidden');
-// });
+$('.opcion').click(function () {
+    $('.opcion').removeClass('opcion-active');
+    $(this).addClass('opcion-active');
+    $(this).siblings('.emsg').addClass('hidden');
+});
 
-$('.panel').each(function () {
-    const currentOptions = $(this).find('.opcion');
-    currentOptions.click(function () {
-        currentOptions.removeClass('opcion-active');
-        $(this).addClass('opcion-active');
-        $(this).siblings('.emsg').addClass('hidden');
-    });
-})
+// $('.panel').each(function () {
+//     const currentOptions = $(this).find('.opcion');
+//     currentOptions.click(function () {
+//         currentOptions.removeClass('opcion-active');
+//         $(this).addClass('opcion-active');
+//         $(this).siblings('.emsg').addClass('hidden');
+//     });
+// });
 
 //Boton siguiente
 $('.btnNext').each(function () {
