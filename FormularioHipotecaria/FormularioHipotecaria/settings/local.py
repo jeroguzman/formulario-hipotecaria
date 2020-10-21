@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mshipotecaria.ddns.net']
+ALLOWED_HOSTS = ['mshipotecaria.ddns.net', '127.0.0.1']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -25,3 +25,4 @@ DATABASES = {
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR / 'static')]
+

@@ -40,7 +40,6 @@
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Usuario</th>
-                                        <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
                                         <th scope="col">Puesto</th>
                                     </tr>
@@ -50,9 +49,8 @@
                                     <tr>
                                         <th scope="row">{{ models.nombres }}</th>
                                         <td>{{ models.usuario }}</td>
-                                        <td>(66)</td>
                                         <td>{{ models.email }}</td>
-                                        <td>Puesto</td>
+                                        <td>{{ models.puesto }}</td>
                                     </tr>
 
                                     {% endfor %}
