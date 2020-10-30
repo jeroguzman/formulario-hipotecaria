@@ -1,22 +1,38 @@
 from django import forms
-from .models import asesores
+from .models import Asesores, Promotores
 
 class form_Asesores(forms.ModelForm):
 
     class Meta():
-        
-        Puesto =[("Asesor", "Asesor"), ("Promotor", "Promotor")]
-        model = asesores
-        fields =   ['nombres', 'usuario','email', 'puesto', 'pswd',]
+        model = Asesores
+        fields = ['nombre', 'usuario', 'email', 'pswd',]
         widgets = {
             'nombres' :forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre Completo' }),
             'usuario' : forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Usuario'}),
-            'email' : forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'puesto' : forms.ChoiceField(choices=Puesto),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
             'pswd' : forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
-    
         }
     
         labels = {
-            'nombres':'', 'usuario':'', 'email':'', 'puesto':'', 'pswd':'' 
-        },
+            'nombre':'', 'usuario':'', 'email':'', 'pswd':'' 
+        }
+
+class form_promotor(forms.ModelForm):
+    class Meta:
+        model = Promotores
+        fields = ['nombre', 'asesor', 'usuario', 'email', 'url', 'pswd']
+
+        widgets = {
+            'nombre' : forms.TextInput(attrs={'class': 'form-control'}),
+            'usuario' : forms.TextInput(attrs={'class': 'form-cotrol'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'url' : forms.URLInput(attrs={'class': 'form-control'}),
+            'asesor' : forms.TextInput(attrs={'class': 'form-control'}),
+            'pswd' : forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+
+        def __init__(self, *args, **kwargs):
+            self._user = kwargs.get('user')
+            super(form_promotor, self).__init__(*args, **kwargs)
+
+        
