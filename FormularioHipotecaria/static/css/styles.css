@@ -118,7 +118,7 @@ button:focus {
 
 
 .btnNext,
-.btnAnt {
+.btnAnt, .antPer {
     width: 130px;
     height: 50px;
     border: none;
@@ -129,15 +129,38 @@ button:focus {
 }
 
 .btnNext:hover,
-.btnAnt:hover {
+.btnAnt:hover, .antPer:hover {
     background-color: #8b8b8b;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* Final */
+.perfilamiento {
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    background-color: #5e5e5e;
+    margin: 15px auto;
+    color: white;
+    border-radius: 5px;
+    line-height: 25px;
+}
 
+.perfilamiento:hover{
+    background-color: #8b8b8b;
+}
 
+    /*Logos bancos*/
+.banco-div{
+    display: flex; 
+    justify-content: center;
+}
 
+.banco-img{
+    margin: 20px; 
+    align-self: center;
+}
 
 
 

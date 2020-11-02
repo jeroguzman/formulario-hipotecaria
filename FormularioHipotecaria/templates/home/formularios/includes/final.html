@@ -1,0 +1,101 @@
+{% load static %}
+
+<div class="panel" id="{{id}}">
+    <div class="presentacion row">
+        {% include 'home/formularios/includes/img-asesor.html' %}
+
+        <div class="col-lg-10 d-flex justify-content-left">
+            <p>
+                ¡Excelente! Estas a solo un paso de recibir tu análisis de perfilamiento, este te será enviado por
+                correo electrónico y en él podrás ver el alcance de crédito con cada banco.
+            </p>
+        </div>
+
+
+    </div><!-- End presentacion -->
+    <div class="preguntas">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:{{per}}%"
+                aria-valuenow="{{per}}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+
+
+            <!-- BORRAR -->
+
+            <!-- <div class="col-8 d-flex justify-content-center">
+                <div class="d-flex justify-content-center">
+
+                    <div class="opciones">
+                        <h4><strong>
+                                Compártenos tu correo electrónico
+                            </strong></h4>
+
+
+                        <p>(El que más utilizas)</p>
+                        <input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
+                            placeholder="Ejemplo: juan@gmail.com" disabled />
+                        <small class="emsg form-text text-muted hidden">Por favor, ingrese un correo valido</small>
+                        <div class="not perfilamiento" for="{{next}}">
+                            <p>Quiero recibir mi oferta de mejora de hipoteca</p>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button class="antPer">
+                                Anterior
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- BORRAR -->
+
+        </div>
+        <div class="d-flex justify-content-center">
+
+            <div class="opciones">
+                <h4><strong>
+                        Compártenos tu correo electrónico
+                    </strong></h4>
+
+
+                <p>(El que más utilizas)</p>
+                <input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
+                    placeholder="Ejemplo: juan@gmail.com" disabled />
+                <small class="emsg form-text text-muted hidden">Por favor, ingrese un correo valido</small>
+                <div class="not perfilamiento" for="{{next}}">
+                    <p>Quiero recibir mi oferta de mejora de hipoteca</p>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button class="antPer">
+                        Anterior
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="align-items: center;">
+            <h3 style="text-align: center;">"TODOS LOS BANCOS EN UN SOLO LUGAR"</h3>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-hsbc.png'%}" alt="logo hsbc" class="banco-img">
+                <img src="{%static 'img/logo-banorte.png'%}" alt="logo banorte" class="banco-img">
+                <img src="{%static 'img/logo-santander.png'%}" alt="logo santander" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-banamex.png'%}" alt="logo citibanamex" class="banco-img">
+                <img src="{%static 'img/logo-scotia.png'%}" alt="logo scotiabank" class="banco-img">
+                <img src="{%static 'img/logo-banregio.png'%}" alt="logo banregio" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-bx+.png'%}" alt="logo bx+" class="banco-img">
+
+                <img src="{%static 'img/logo-afirme.png'%}" alt="logo afirme" class="banco-img">
+            </div>
+        </div>
+
+    </div><!-- End preguntas -->
+</div><!-- End panel -->

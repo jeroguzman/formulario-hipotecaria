@@ -29,6 +29,23 @@ $('.opcionNext').each(function () {
     })
 })
 
+$('.perfilamiento').each(function () {
+    const target = $('#' + $(this).attr('for'));
+    const correo = $(this).parent().parent().find('input[name=correo]');
+    const telefono = $(this).parent().parent().find('input[name=telefono]');
+    $(this).click(function () {
+        if((correo.length && correo.val().match(regexEmail)) || (telefono.length && telefono.cleanVal().length === 10)){
+            target.fadeIn(100);
+            target.addClass('path');
+            target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+            $(this).parent().parent().parent().parent().hide(); 
+        }else{            
+            $(this).siblings('.emsg').removeClass('hidden');
+        }
+
+    })
+})
+
 //Marca las opciones seleccionadas
 $('.opcion').click(function () {
     $('.opcion').removeClass('opcion-active');
@@ -51,8 +68,8 @@ $('.btnNext').each(function () {
     const opcion = $(this).parent().siblings('.opcion');
     const valor = $(this).parent().parent().find('input[name=valor]')
     const nombre = $(this).parent().parent().find('input[name=nombre]')
-    const correo = $(this).parent().parent().find('input[name=correo]')
-    const telefono = $(this).parent().parent().find('input[name=telefono]')
+    const correo = $(this).parent().parent().find('input[name=correo]') //borrar esto
+    const telefono = $(this).parent().parent().find('input[name=telefono]') //borrar esto
     const scroll = $(this).parent().parent().find('select')
     const radio = $(this).parent().parent().find('input[name=radio]')
     $(this).click(function () {
@@ -98,6 +115,18 @@ $('.btnAnt').each(function () {
         const target = $('#' + path);
         target.fadeIn(100); //muestra el penultimo panel con la clase 'path'
         const thisPanel = $(this).parent().parent().parent().parent().parent().parent();
+        thisPanel.hide();
+        thisPanel.find('input').prop('disabled', true);
+        thisPanel.removeClass('path');
+    });
+});
+
+$('.antPer').each(function () {
+    $(this).click(function () {
+        const path = $('.path').eq(-2).attr('id');
+        const target = $('#' + path);
+        target.fadeIn(100); //muestra el penultimo panel con la clase 'path'
+        const thisPanel = $(this).parent().parent().parent().parent().parent();
         thisPanel.hide();
         thisPanel.find('input').prop('disabled', true);
         thisPanel.removeClass('path');

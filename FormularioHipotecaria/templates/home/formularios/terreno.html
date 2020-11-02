@@ -1,17 +1,17 @@
 <!-- 2. ¿Ya tienes el inmueble identificado? -->
-{%include "./includes/panel.html" with id="t2" per=6.25 desc="¡Excelente idea! Comprar un terreno es una de las mejores inversiones y tenemos varías opciones de financiamento. !Precalifica tu alcance de crédito" pregunta="¿Ya tienes el terreno identificado?" %}
+{%include "./includes/panel.html" with id="t2" per=6.25 desc="¡Excelente idea! Comprar un terreno es una de las mejores inversiones y tenemos varías opciones de financiamento. !Precalifica tu alcance de crédito!" pregunta="¿Ya tienes el terreno identificado?" %}
 {%include "./includes/opcion.html" with for="t3" texto="Ya lo tengo visto"%}
 {%include "./includes/opcion.html" with for="t4" texto="Lo estoy buscando"%}
 {%include "./includes/opcion.html" with class="opcion not" for="t4" texto="Solo quiero conocer mi capacidad de crédito"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 3. ¿Cuál es el valor aproximado del inmueble? -->
-{%include "./includes/panel.html" with id="t3" per=12.5 desc="El importe de un valor del terreno nos servirá para poder darte opciones según tu capacidad de crédito" pregunta="¿Cuál es el valor aproximado del terreno?" %}
+{%include "./includes/panel.html" with id="t3" per=12.5 desc="El importe de un valor del terreno nos servirá para poder darte opciones según tu capacidad de crédito." pregunta="¿Cuál es el valor aproximado del terreno?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra" only%}
 {%include "./includes/panel-botones.html" with next="t4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4. ¿Cuál es el tu actividad principal? -->
-{%include "./includes/panel.html" with id="t4" per=18.75 desc="Es importante especificar bien tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar" pregunta="¿Cuál es el tu actividad principal?" %}
+{%include "./includes/panel.html" with id="t4" per=18.75 desc="Es importante especificar bien tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el tu actividad principal?" %}
 {%include "./includes/opcion.html" with for="t5" texto="Empleado"%}
 {%include "./includes/opcion.html" with for="t5i" texto="Independiente"%}
 {%include "./includes/opcion.html" with for="t5e" texto="Empresario"%}
@@ -30,17 +30,17 @@
 {%include "./includes/panel-botones.html"%}
 
 <!-- 5i. ¿Cuál es tu ingreso mensual promedio? -->
-{%include "./includes/panel.html" with id="t5i" per=25 desc="A personas independientes como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
+{%include "./includes/panel.html" with id="t5i" per=25 desc="A personas independientes como tú, el banco promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es tu ingreso mensual promedio?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra"%}
 {%include "./includes/panel-botones.html" with next="t6e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5e. ¿Cuál es tu ingreso mensual promedio? -->
-{%include "./includes/panel.html" with id="t5e" per=25 desc="A empresarios como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
+{%include "./includes/panel.html" with id="t5e" per=25 desc="A empresarios como tú, el banco promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es tu ingreso mensual promedio?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra"%}
 {%include "./includes/panel-botones.html" with next="t6e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5s. ¿Cuál es tu ingreso mensual promedio? -->
-{%include "./includes/panel.html" with id="t5s" per=25 desc="A los emprendedores como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
+{%include "./includes/panel.html" with id="t5s" per=25 desc="A los emprendedores como tú, el banco promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es tu ingreso mensual promedio?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra"%}
 {%include "./includes/panel-botones.html" with next="t6e" emsg="El campo valor debe ser mayor a 0"%}
 
@@ -58,17 +58,18 @@
 <!-- 6e. ¿Cuál es el giro de tu actividad? -->
 {%include "./includes/panel.html" with id="t6e" per=31.25 desc="Es importante seleccionar correctamente el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el giro de tu actividad?" %}
 {%include "./includes/opcion.html" with texto="Servicios"%}
-{%include "./includes/opcion.html" with texto="tomercio"%}
+{%include "./includes/opcion.html" with texto="Comercio"%}
+{%include "./includes/opcion.html" with texto="Otro"%}
 {%include "./includes/panel-botones.html" with next="t8"%}
 
 <!-- 6u. ¿El Co-Acreditado cotiza para alguna de estas instituciones? -->
-{%include "./includes/panel.html" with id="t6u" per=31.25 desc="Es importante especificar bien el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar" pregunta="¿Cuál es el giro de tu actividad?" %}
+{%include "./includes/panel.html" with id="t6u" per=31.25 desc="Es importante especificar bien el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el giro de tu actividad?" %}
 {%include "./includes/opcion.html" with texto="Empleado"%}
 {%include "./includes/opcion.html" with texto="Independiente"%}
 {%include "./includes/panel-botones.html" with next="t8"%}
 
 <!-- 7. ¿Cuál es tu ingreso mensual? -->
-{%include "./includes/panel.html" with id="t7" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso." pregunta="¿Cuál es tu ingreso mensual?" %}
+{%include "./includes/panel.html" with id="t7" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso. Por favor, declara el total de todas tus fuentes de ingresos." pregunta="¿Cuál es tu ingreso mensual?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="t8" emsg="El campo valor debe ser mayor a 0"%}
 
@@ -78,9 +79,9 @@
 {%include "./includes/panel-botones.html" with next="t9" emsg="Ingrese un nombre válido"%}
 
 <!-- 9. ¿Cuál es tu estado civil? -->
-{%include "./includes/panel.html" with id="t9" per=50 desc="Puede haber variación en la oferta dependiendo de tu estado civil actual, ¿cuál es tu caso?" pregunta="¿Cuál es tu estado civil?" %}
+{%include "./includes/panel.html" with id="t9" per=50 desc="Tu estado civil es importante para el perfilamiento, ya que será lo que se plasmará en escrituras, ¿cuál es tu caso?" pregunta="¿Cuál es tu estado civil?" %}
 {%include "./includes/opcion.html" with texto="Soltero"%}
-{%include "./includes/opcion.html" with texto="tasado"%}
+{%include "./includes/opcion.html" with texto="Casado"%}
 {%include "./includes/opcion.html" with texto="Unión Libre"%}
 {%include "./includes/panel-botones.html" with next="t10"%}
 
@@ -100,7 +101,7 @@
 {%include "./includes/panel-botones.html"%}
 
 <!-- 12. ¿El Co-Acreditado cotiza para alguna de estas instituciones? -->
-{%include "./includes/panel.html" with id="t12" per=68.75 desc="tuando cotizas para alguna institución gubernamental hay posibilidades de ampliar las opciones que te brindan los bancos." pregunta="¿El Co-Acreditado cotiza para alguna de estas instituciones?" %}
+{%include "./includes/panel.html" with id="t12" per=68.75 desc="Cuando cotizas para alguna institución gubernamental hay posibilidades de ampliar las opciones que te brindan los bancos." pregunta="¿El Co-Acreditado cotiza para alguna de estas instituciones?" %}
 {%include "./includes/opcion.html" with texto="Infonavit" for="t13"%}
 {%include "./includes/opcion.html" with texto="Fovissste" for="t13"%}
 {%include "./includes/opcion.html" with texto="Otro" for="t14"%}
@@ -141,28 +142,20 @@
 {%include "./includes/panel-botones.html" with next="t15"%}
 
 <!-- 14. ¿Cuál es el ingreso mensual del Co-Acreditado? -->
-{%include "./includes/panel.html" with id="t14" per=81.25 desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado" pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
+{%include "./includes/panel.html" with id="t14" per=81.25 desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado, de igual forma puede demostrar ingresos con varios empleos." pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="t15" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 15. Captura lo que pagas de los siguientes tipos de créditos: -->
-{%include "./includes/panel.html" with id="t15" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso), para conocer tu capacidad de crédito. Captura tus gastos acutales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="taptura lo que pagas de créditos:"%}
+{%include "./includes/panel.html" with id="t15" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso) para conocer tu capacidad de crédito. Captura tus gastos actuales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="Captura lo que pagas de créditos:"%}
 <p>Suma los gastos del Co-Acreditado si es el caso</p>
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Créditos"%}
 {%include "./includes/panel-botones.html" with next="t16" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 16. Numero y correo: -->
-{%include "./includes/panel.html" with id="t16" per=93.75 desc="Lo que más nos interesa es la seguridad de tu información. Para accesar a tu reporte enviaremos un código por SMS, lo capturas aquí en pantalla y tendrás acceso a tu reporte, donde te indicaremos la capacidad de crédito para cada banco." pregunta="Mi número celular es:"%}
-<p>Es importante capturar correctamente ya que el código será enviado a tu télefono movil</p>
-<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" disabled />
-<small class="emsg form-text text-muted hidden">El número debe ser de 10 dígitos</small>
-<h4><strong>Compártenos tu correo electrónico</strong></h4>
-<p>(El que más utilizas)</p>
-<input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
-    placeholder="Ejemplo: juan@gmail.com" disabled />
-{%include "./includes/panel-botones.html" with next="t17" emsg="Por favor, ingrese un correo valido"%}
+{%include "./includes/final.html" with id="t16" per=93.75 next="t17"%}
 
 <!-- PIN -->
-{%include "./includes/panel.html" with id="t17" per=100 desc="taptura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
+{%include "./includes/panel.html" with id="t17" per=100 desc="Captura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
 <input type="number" class="form-control" maxlength="6">
 {%include "./includes/panel-botones.html" with next=next%}

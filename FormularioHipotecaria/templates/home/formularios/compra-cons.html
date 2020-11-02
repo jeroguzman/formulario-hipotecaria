@@ -59,6 +59,7 @@
 {%include "./includes/panel.html" with id="cc6e" per=31.25 desc="Es importante seleccionar correctamente el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el giro de tu actividad?" %}
 {%include "./includes/opcion.html" with texto="Servicios"%}
 {%include "./includes/opcion.html" with texto="Comercio"%}
+{%include "./includes/opcion.html" with texto="Otro"%}
 {%include "./includes/panel-botones.html" with next="cc8"%}
 
 <!-- 6u. ¿El Co-Acreditado cotiza para alguna de estas instituciones? -->
@@ -68,7 +69,7 @@
 {%include "./includes/panel-botones.html" with next="cc8"%}
 
 <!-- 7. ¿Cuál es tu ingreso mensual? -->
-{%include "./includes/panel.html" with id="cc7" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso." pregunta="¿Cuál es tu ingreso mensual?" %}
+{%include "./includes/panel.html" with id="cc7" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso. Por favor, declara el total de todas tus fuentes de ingresos." pregunta="¿Cuál es tu ingreso mensual?" %}
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="cc8" emsg="El campo valor debe ser mayor a 0"%}
 
@@ -78,7 +79,7 @@
 {%include "./includes/panel-botones.html" with next="cc9" emsg="Ingrese un nombre válido"%}
 
 <!-- 9. ¿Cuál es tu estado civil? -->
-{%include "./includes/panel.html" with id="cc9" per=50 desc="Puede haber variación en la oferta dependiendo de tu estado civil actual, ¿cuál es tu caso?" pregunta="¿Cuál es tu estado civil?" %}
+{%include "./includes/panel.html" with id="cc9" per=50 desc="Tu estado civil es importante para el perfilamiento, ya que será lo que se plasmará en escrituras, ¿cuál es tu caso?" pregunta="¿Cuál es tu estado civil?" %}
 {%include "./includes/opcion.html" with texto="Soltero"%}
 {%include "./includes/opcion.html" with texto="Casado"%}
 {%include "./includes/opcion.html" with texto="Unión Libre"%}
@@ -141,26 +142,19 @@
 {%include "./includes/panel-botones.html" with next="cc15"%}
 
 <!-- 14. ¿Cuál es el ingreso mensual del Co-Acreditado? -->
-{%include "./includes/panel.html" with id="cc14" per=81.25 desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado" pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
+{%include "./includes/panel.html" with id="cc14" per=81.25 desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado, de igual forma puede demostrar ingresos con varios empleos." pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="cc15" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 15. Captura lo que pagas de los siguientes tipos de créditos: -->
-{%include "./includes/panel.html" with id="cc15" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso), para conocer tu capacidad de crédito. Captura tus gastos acutales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="Captura lo que pagas de créditos:"%}
+{%include "./includes/panel.html" with id="cc15" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso) para conocer tu capacidad de crédito. Captura tus gastos acutales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="Captura lo que pagas de créditos:"%}
 <p>Suma los gastos del Co-Acreditado si es el caso</p>
 {%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Créditos"%}
 {%include "./includes/panel-botones.html" with next="cc16" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 16. Numero y correo: -->
-{%include "./includes/panel.html" with id="cc16" per=93.75 desc="Lo que más nos interesa es la seguridad de tu información. Para accesar a tu reporte enviaremos un código por SMS, lo capturas aquí en pantalla y tendrás acceso a tu reporte, donde te indicaremos la capacidad de crédito para cada banco." pregunta="Mi número celular es:"%}
-<p>Es importante capturar correctamente ya que el código será enviado a tu télefono movil</p>
-<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" disabled />
-<small class="emsg form-text text-muted hidden">El número debe ser de 10 dígitos</small>
-<h4><strong>Compártenos tu correo electrónico</strong></h4>
-<p>(El que más utilizas)</p>
-<input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
-    placeholder="Ejemplo: juan@gmail.com" disabled />
-{%include "./includes/panel-botones.html" with next="cc17" emsg="Por favor, ingrese un correo valido"%}
+{%include "./includes/final.html" with id="cc16" per=93.75 next="cc17"%}
+
 
 <!-- PIN -->
 {%include "./includes/panel.html" with id="cc17" per=100 desc="Captura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
