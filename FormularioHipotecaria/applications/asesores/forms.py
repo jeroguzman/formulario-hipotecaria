@@ -51,7 +51,7 @@ class form_promotor(forms.ModelForm):
             'pswd' : forms.PasswordInput(attrs={'class': 'form-control'}),
         }
 
-    labels {
+    labels = {
         'nombre' : '',
         'usuario' : '', 
         'telefono' : '', 
