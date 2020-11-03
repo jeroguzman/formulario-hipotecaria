@@ -51,20 +51,20 @@ class form_promotor(forms.ModelForm):
             'pswd' : forms.PasswordInput(attrs={'class': 'form-control'}),
         }
 
-    labels = {
-        'nombre' : '',
-        'usuario' : '', 
-        'telefono' : '', 
-        'email' : '', 
-        'empresa' : '', 
-        'asesor' : '',
-        'texto_bienvenida' : '',
-        'texto_despedida' : '',
-        'foto' : '',
-        'logo' : '',
-        'url' : '', 
-        'pswd' : '',
-    }
+        labels = {
+            'nombre' : '',
+            'usuario' : '', 
+            'telefono' : '', 
+            'email' : '', 
+            'empresa' : '', 
+            'asesor' : '',
+            'texto_bienvenida' : '',
+            'texto_despedida' : '',
+            'foto' : '',
+            'logo' : '',
+            'url' : '', 
+            'pswd' : '',
+        }
 
 class form_dashboard(forms.ModelForm):
     
