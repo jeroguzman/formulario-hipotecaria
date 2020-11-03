@@ -8,16 +8,6 @@ $('.money').mask('000,000,000', {
 
 $('.celularInput').mask('(000) 000-0000');
 
-// $('.rfcInput').mask('ZZZZ-00-00-00', {
-//     translation: {
-//         'Z': {
-//             pattern: /[A-Za-z]/,
-//             optional: false
-//         }
-//     }
-// });
-
-
 //Opciones de la pagina de inicio que lleva los formularios
 $('.opcionNext').each(function () {
     const target = $('#' + $(this).attr('for'));
@@ -46,6 +36,22 @@ $('.perfilamiento').each(function () {
     })
 })
 
+$('.goToMenu').each(function(){
+    const target = $('#' + $(this).attr('for'));
+    const thisPanel = $(this).parent().parent().parent().parent().parent();   
+
+    $(this).click(function(){
+        target.fadeIn(100);
+        thisPanel.hide();
+        thisPanel.removeClass('path');
+        
+        const pathClass = $('.path').last().attr('id'); 
+        const panelToRemove = $('#' + pathClass);
+        panelToRemove.removeClass('path');
+    });
+
+})
+
 //Marca las opciones seleccionadas
 $('.opcion').click(function () {
     $('.opcion').removeClass('opcion-active');
@@ -68,8 +74,6 @@ $('.btnNext').each(function () {
     const opcion = $(this).parent().siblings('.opcion');
     const valor = $(this).parent().parent().find('input[name=valor]')
     const nombre = $(this).parent().parent().find('input[name=nombre]')
-    const correo = $(this).parent().parent().find('input[name=correo]') //borrar esto
-    const telefono = $(this).parent().parent().find('input[name=telefono]') //borrar esto
     const scroll = $(this).parent().parent().find('select')
     const radio = $(this).parent().parent().find('input[name=radio]')
     $(this).click(function () {
@@ -79,7 +83,6 @@ $('.btnNext').each(function () {
         if (opcion.hasClass('opcion-active') ||
             (valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
-            ((correo.length && correo.val().match(regexEmail)) && (telefono.length && telefono.cleanVal().length === 10)) ||
             (scroll.attr('class') !== undefined) ||
             (radio.attr('class') !== undefined)) {
 
