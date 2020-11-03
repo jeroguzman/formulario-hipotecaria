@@ -21,10 +21,16 @@ class Asesores(models.Model):
 class Promotores(models.Model):
     # datos generales
     nombre = models.CharField(max_length=140)
-    asesor = models.ForeignKey(Asesores, on_delete=models.PROTECT)
     usuario = models.CharField(max_length=140)
+    telefono = models.CharField(max_length=140, default='')
     email = models.EmailField(max_length=140)
-    url = models.URLField(max_length=140)
+    empresa = models.CharField(max_length=140, default='')
+    asesor = models.ForeignKey(Asesores, on_delete=models.PROTECT)
+    texto_bienvenida = models.CharField(max_length=140, default='')
+    texto_despedida = models.CharField(max_length=140, default='')
+    foto = models.ImageField(upload_to='static/img/promotores', default='')
+    logo = models.ImageField(upload_to='static/img/promotores/logos', default='')
+    url = models.URLField(max_length=140, default='')
     pswd = models.CharField(max_length=20, default='')
 
     def __str__(self):
