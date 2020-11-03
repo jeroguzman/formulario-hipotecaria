@@ -39,6 +39,12 @@ class asesorCreateView(CreateView):
     template_name = 'dashboard/asesores/asesores_form.html'
 
 @method_decorator(staff_member_required, name='dispatch')
+class dashboardListView(ListView):
+    model = Promotores
+    form_class = forms.form_dashboard
+    template_name = 'dashboard/dashboard.html'
+
+@method_decorator(staff_member_required, name='dispatch')
 class promotorListView(ListView):
     model = Promotores
     form_class = forms.form_promotor

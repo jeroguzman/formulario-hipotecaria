@@ -18,7 +18,8 @@ class form_Asesores(forms.ModelForm):
         }
 
 class form_promotor(forms.ModelForm):
-    class Meta:
+    
+    class Meta():
         model = Promotores
         fields = [
             'nombre', 
@@ -43,3 +44,12 @@ class form_promotor(forms.ModelForm):
             'asesor' : forms.TextInput(attrs={'class': 'form-control'}),
             'pswd' : forms.PasswordInput(attrs={'class': 'form-control'}),
         }
+
+class form_dashboard(forms.ModelForm):
+    
+    class Meta():
+        model = Promotores
+        fields = [
+            'nombre',
+            'foto'
+        ]

@@ -5,7 +5,8 @@ from .views import (
     asesorCreateView,
     promotorListView,
     promotorDetailView,
-    promotorCreateView
+    promotorCreateView,
+    dashboardListView
     )
 from . import views
 
@@ -15,5 +16,6 @@ urlpatterns = [
     path('nuevoAsesor/', asesorCreateView.as_view(), name='a-nuevoasesor'),
     path('promotores/', promotorListView.as_view(), name='a-promotores'),
     path('<int:pk>/<slug:slug>/', promotorDetailView.as_view(), name='a-promotor'),
-    path('nevo-promotor/', promotorCreateView.as_view(), name='a-nuevopromotor'),
+    path('nuevoPromotor/', promotorCreateView.as_view(), name='a-nuevopromotor'),
+    path('dashboard/', dashboardListView.as_view(), name='a-dashboard'),
 ]
