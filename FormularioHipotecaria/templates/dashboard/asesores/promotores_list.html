@@ -31,26 +31,32 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Asesores</h5>
+                        <h5 class="card-header">Promotores</h5>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <p>Lorem ipsum dolor sit amet consectetur
                                         adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
+                                        <th scope="col">Foto</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Usuario</th>
+                                        <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
-                                        <th scope="col">Puesto</th>
+                                        <th scope="col">Empresa</th>
+                                        <th scope="col">Asesor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for models in object_list %}
                                     <tr>
+                                        <td><img src="{{ models.foto.url }}" width="64"></td>
                                         <th scope="row">{{ models.nombre }}</th>
                                         <td>{{ models.usuario }}</td>
+                                        <td>{{ models.telefono }}</td>
                                         <td>{{ models.email }}</td>
-                                        <td>{{ models.puesto }}</td>
+                                        <td>{{ models.empresa }}</td>
+                                        <td>{{ models.asesor }}</td>
                                     </tr>
 
                                     {% endfor %}
@@ -65,7 +71,7 @@
             <form method="post">
                 {% csrf_token %}
                 <div class="row justify-content-md-center">
-                    <a href='{% url "a-nuevoasesor" %}'>
+                    <a href='{% url "a-nuevopromotor" %}'>
                         <div class="d-flex">
 
                             <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"

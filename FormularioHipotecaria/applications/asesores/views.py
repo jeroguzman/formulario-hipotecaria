@@ -51,9 +51,22 @@ class promotorDetailView(DetailView):
     template_name = 'dashboard/asesores/promotores_list.html'
 
 @method_decorator(staff_member_required, name='dispatch')
-class promorCreateView(CreateView):
+class promotorCreateView(CreateView):
     model = Promotores
-    fields = ['nombre', 'usuario', 'email', 'url', 'pswd',]
+    fields = [
+        'nombre', 
+        'usuario', 
+        'telefono', 
+        'email', 
+        'empresa', 
+        'asesor',
+        'texto_bienvenida',
+        'texto_despedida',
+        'foto',
+        'logo',
+        'url', 
+        'pswd',
+        ]
     success_url = reverse_lazy('a-promotores')
     template_name = 'dashboard/asesores/promotores_form.html'
     

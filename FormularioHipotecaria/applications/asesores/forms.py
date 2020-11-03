@@ -20,7 +20,20 @@ class form_Asesores(forms.ModelForm):
 class form_promotor(forms.ModelForm):
     class Meta:
         model = Promotores
-        fields = ['nombre', 'asesor', 'usuario', 'email', 'url', 'pswd']
+        fields = [
+            'nombre', 
+            'usuario', 
+            'telefono', 
+            'email', 
+            'empresa', 
+            'asesor',
+            'texto_bienvenida',
+            'texto_despedida',
+            'foto',
+            'logo',
+            'url', 
+            'pswd',
+        ]
 
         widgets = {
             'nombre' : forms.TextInput(attrs={'class': 'form-control'}),
@@ -30,9 +43,3 @@ class form_promotor(forms.ModelForm):
             'asesor' : forms.TextInput(attrs={'class': 'form-control'}),
             'pswd' : forms.PasswordInput(attrs={'class': 'form-control'}),
         }
-
-        def __init__(self, *args, **kwargs):
-            self._user = kwargs.get('user')
-            super(form_promotor, self).__init__(*args, **kwargs)
-
-        

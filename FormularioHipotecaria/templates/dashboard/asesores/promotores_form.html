@@ -24,57 +24,25 @@
     {% include 'dashboard/shared/navbar.html' %}
     {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
-        <div class="container-fluid  dashboard-content">
-            <div class="row">
-                <!-- ============================================================== -->
-                <!-- basic table -->
-                <!-- ============================================================== -->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <h5 class="card-header">Asesores</h5>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <p>Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Puesto</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for models in object_list %}
-                                    <tr>
-                                        <th scope="row">{{ models.nombre }}</th>
-                                        <td>{{ models.usuario }}</td>
-                                        <td>{{ models.email }}</td>
-                                        <td>{{ models.puesto }}</td>
-                                    </tr>
-
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+        <div class="container-fluid dashboard-content">
+            <div class="form-row mt-3">
+                <div class="col-md-9 mx-auto">
+                    <h1 class="display">Datos del promotor</h1>
+                    <form class="needs-validation" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary" value="Crear promotor">Guardar</button>
+                    </form>
+            
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-2">
+                                <a href='{% url "a-promotores" %}'>
+                                <button type="submit" class="btn btn-secondary">Cancelar</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
                 </div>
-            </div>
-            <br>
-
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "a-nuevoasesor" %}'>
-                        <div class="d-flex">
-
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                value=" agregar nuevo">
-
-                        </div>
-                    </a>
-                </div>
-            </form>
+            </div>        
         </div>
     </div>
 </div>
