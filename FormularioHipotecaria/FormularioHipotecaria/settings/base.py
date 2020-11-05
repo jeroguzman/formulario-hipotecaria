@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'applications.home',
     'applications.asesores',
     'applications.clientes',
+    'applications.users',
     
 ]
 
@@ -73,6 +74,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 
 # Internationalization
