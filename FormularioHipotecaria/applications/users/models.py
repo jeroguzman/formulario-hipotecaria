@@ -16,7 +16,6 @@ class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
     telefono = models.CharField(unique=True, max_length=13)
-    password = models.CharField(max_length=40, verbose_name='Contraseña')
     modalidad = models.CharField(
         max_length=10, 
         choices=MODALIDAD_CHOICES, 
