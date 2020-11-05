@@ -1,6 +1,7 @@
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
-from .forms import UserRegisterForm
+from django.contrib.auth import authenticate, login
+from .forms import UserRegisterForm, LoginForm
 from .models import User
 
 # Create your views here.
@@ -25,3 +26,19 @@ class UserRegisterView(FormView):
         )
 
         return super(UserRegisterView, self).form_valid(form)
+
+
+class LoginView(FormView):
+    template_name = 'dashboard/users/login.html'
+    form_class = LoginForm
+    success_url = reverse_lazy('a-dashboard')
+
+    def form_valid(self, form):
+        user = authenticate(
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password']
+        )
+        login(self.request, user)
+
+        return super(LoginView, self).form_valid(form)
+

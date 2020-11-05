@@ -52,3 +52,26 @@ class UserRegisterForm(forms.ModelForm):
     def clean_confirm_password(self):
         if self.cleaned_data['password'] != self.cleaned_data['confirm_password']:
             self.add_error('confirm_password', 'Las contraseñas no coinsiden')
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        label='Nombre de usuario',
+        required=True,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            }
+        )
+    )
+
+    password = forms.CharField(
+        label='Contraseña',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control'
+            }
+        )
+    )
+
