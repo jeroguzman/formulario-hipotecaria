@@ -1,4 +1,5 @@
 from django.views.generic.edit import FormView
+from django.views.generic.list import ListView
 from django.views.generic import View
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
@@ -54,4 +55,25 @@ class LogoutView(View):
         return HttpResponseRedirect(
             reverse('users_app:u-login')
         )
+
+
+class asesorListView(ListView):
+    model = User
+    form_class = UserRegisterForm
+    template_name = 'dashboard/users/asesores_list.html'
+    
+
+
+class promotorListView(ListView):
+    model = User
+    form_class = UserRegisterForm
+    template_name = 'dashboard/users/promotores_list.html'
+    
+
+
+class dashboardListView(ListView):
+    model = User
+    form_class = UserRegisterForm
+    template_name = 'dashboard/dashboard.html'
+    
 
