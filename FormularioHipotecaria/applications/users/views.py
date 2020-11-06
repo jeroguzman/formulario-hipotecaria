@@ -1,6 +1,8 @@
 from django.views.generic.edit import FormView
-from django.urls import reverse_lazy
-from django.contrib.auth import authenticate, login
+from django.views.generic import View
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm, LoginForm
 from .models import User
 
@@ -31,14 +33,25 @@ class UserRegisterView(FormView):
 class LoginView(FormView):
     template_name = 'dashboard/users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('a-dashboard')
+    success_url = reverse_lazy('home_app:a-dashboard')
 
     def form_valid(self, form):
         user = authenticate(
             username=form.cleaned_data['username'],
             password=form.cleaned_data['password']
         )
+        print(user)
         login(self.request, user)
 
         return super(LoginView, self).form_valid(form)
+
+
+class LogoutView(View):
+    
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        
+        return HttpResponseRedirect(
+            reverse('users_app:u-login')
+        )
 

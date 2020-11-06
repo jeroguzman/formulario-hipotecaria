@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .managers import UserManager
 # from django.contrib.auth.hashers import make_password Guardar contraseñas encriptadas
 
 # Create your models here.
-class User(AbstractUser):
+class User(AbstractUser, PermissionsMixin):
     MODALIDAD_CHOICES = (
         ('Asesor', 'Asesor'),
         ('Promotor', 'Promotor'),
@@ -23,6 +23,7 @@ class User(AbstractUser):
         )
     asesor = models.CharField(max_length=20, blank=True)
     is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     
     # Campos no obligatoríos (Promotores)
     bienvenida_txt = models.TextField(blank=True)
@@ -43,4 +44,7 @@ class User(AbstractUser):
         
     def get_full_name(self):
         return '{} {}'.format(self.last_name, self.first_name)
+
+    def __str__(self):
+        return '{} {} ({})'.format(self.first_name, self.last_name, self.username)
         
