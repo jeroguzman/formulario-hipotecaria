@@ -15,15 +15,15 @@ class User(AbstractUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, verbose_name='Apellidos')
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(unique=True)
-    telefono = models.CharField(unique=True, max_length=13)
+    telefono = models.CharField(max_length=13, unique=True)
     modalidad = models.CharField(
         max_length=10, 
         choices=MODALIDAD_CHOICES, 
         default='Promotor'
         )
     asesor = models.CharField(max_length=20, blank=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=True)
     
     # Campos no obligatoríos (Promotores)
     bienvenida_txt = models.TextField(blank=True)

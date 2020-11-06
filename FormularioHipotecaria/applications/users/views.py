@@ -1,6 +1,7 @@
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
 from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -8,10 +9,11 @@ from .forms import UserRegisterForm, LoginForm
 from .models import User
 
 # Create your views here.
-class UserRegisterView(FormView):
+class UserRegisterView(LoginRequiredMixin, FormView):
     template_name = 'dashboard/users/register.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('a-dashboard')
+    success_url = reverse_lazy('users_app:u-dashboard')
+    login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form):
         User.objects.create_user(
@@ -34,20 +36,20 @@ class UserRegisterView(FormView):
 class LoginView(FormView):
     template_name = 'dashboard/users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('home_app:u-dashboard')
+    success_url = reverse_lazy('users_app:u-dashboard')
 
     def form_valid(self, form):
         user = authenticate(
             username=form.cleaned_data['username'],
             password=form.cleaned_data['password']
         )
-        print(user)
         login(self.request, user)
 
         return super(LoginView, self).form_valid(form)
 
 
-class LogoutView(View):
+class LogoutView(LoginRequiredMixin, View):
+    login_url = reverse_lazy('users_app:u-login')
     
     def get(self, request, *args, **kwargs):
         logout(request)
@@ -57,23 +59,22 @@ class LogoutView(View):
         )
 
 
-class asesorListView(ListView):
+class asesorListView(LoginRequiredMixin, ListView):
     model = User
     form_class = UserRegisterForm
     template_name = 'dashboard/users/asesores_list.html'
-    
+    login_url = reverse_lazy('users_app:u-login')
 
 
-class promotorListView(ListView):
+class promotorListView(LoginRequiredMixin, ListView):
     model = User
     form_class = UserRegisterForm
     template_name = 'dashboard/users/promotores_list.html'
-    
+    login_url = reverse_lazy('users_app:u-login')
 
 
-class dashboardListView(ListView):
+class dashboardListView(LoginRequiredMixin, ListView):
     model = User
     form_class = UserRegisterForm
     template_name = 'dashboard/dashboard.html'
-    
-
+    login_url = reverse_lazy('users_app:u-login')
