@@ -46,5 +46,4 @@ class User(AbstractUser, PermissionsMixin):
         return '{} {}'.format(self.last_name, self.first_name)
 
     def __str__(self):
-        return '{} {} ({})'.format(self.first_name, self.last_name, self.username)
-        
+        return '{} {}'.format(self.first_name, self.last_name)

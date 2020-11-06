@@ -1,5 +1,6 @@
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
@@ -59,22 +60,24 @@ class LogoutView(LoginRequiredMixin, View):
         )
 
 
+class UserDetailView(DetailView):
+    model = User
+    template_name = 'dashboard/users/user.html'
+
+
 class asesorListView(LoginRequiredMixin, ListView):
     model = User
-    form_class = UserRegisterForm
     template_name = 'dashboard/users/asesores_list.html'
     login_url = reverse_lazy('users_app:u-login')
 
 
 class promotorListView(LoginRequiredMixin, ListView):
     model = User
-    form_class = UserRegisterForm
     template_name = 'dashboard/users/promotores_list.html'
     login_url = reverse_lazy('users_app:u-login')
 
 
 class dashboardListView(LoginRequiredMixin, ListView):
     model = User
-    form_class = UserRegisterForm
     template_name = 'dashboard/dashboard.html'
     login_url = reverse_lazy('users_app:u-login')

@@ -20,65 +20,31 @@
 {% block body %}
 
 <div class="dashboard-main-wrapper">
-
     {% include 'dashboard/shared/navbar.html' %}
     {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <div class="row">
-                <!-- ============================================================== -->
-                <!-- basic table -->
-                <!-- ============================================================== -->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <h5 class="card-header">Asesores</h5>
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <p>Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Puesto</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for models in object_list %}
-                                    <tr>
-                                        <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.email }}</td>
-                                        <td>{{ models.modalidad }}</td>
-                                    </tr>
-
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "users_app:u-register" %}'>
-                        <div class="d-flex">
-
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                value=" agregar nuevo">
-
-                        </div>
-                    </a>
-                </div>
-            </form>
+                Nombre: {{ object.first_name }}<br>
+                Apellidos: {{ object.last_name }}<br>
+                Nombre de usuario: {{ object.username }}<br>
+                Email: {{ object.email }}<br>
+                Numero de telefono: {{ object.telefono }}<br>
+                Puesto: {{ object.modalidad }}<br>
+                
+                <a href="{% url 'users_app:u-detail' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="32"></a> 
+                <a href="{% url 'users_app:u-detail' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="32"></a>
+                
+                {% if user.modalidad == 'Promotor' %}
+                    Asesor: {{ object.asesor }}<br>
+                    Texto de bienvenida: {{ object.bienvenida_txt }}<br>
+                    Texto de despedida: {{ object.despedida_txt }}<br>
+                    Foto: {{ object.foto }}<br>
+                    url: {{ object.url }}<br>
+                {% endif %}
         </div>
     </div>
 </div>
-
 
 {% block scripts-adicionales %}
 <!-- slimscroll js -->

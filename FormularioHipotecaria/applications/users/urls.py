@@ -5,13 +5,15 @@ from .views import (
     LogoutView,
     promotorListView,
     asesorListView,
-    dashboardListView
+    dashboardListView,
+    UserDetailView
     )
 
 app_name = 'users_app'
 
 urlpatterns = [
     path('registrarUsuario/', UserRegisterView.as_view(), name='u-register'),
+    path('usuario/<pk>/', UserDetailView.as_view(), name='u-detail'),
     path('login/', LoginView.as_view(), name='u-login'),
     path('logout/', LogoutView.as_view(), name='u-logout'),
     path('promotores/', promotorListView.as_view(), name='u-promotores'),
