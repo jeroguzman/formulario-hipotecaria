@@ -30,7 +30,15 @@
                     {{ form.as_p }}
 
                     <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Guardar Cambios">
+                    <a href="{% url 'users_app:u-promotores' %}" >Cancelar</a>
                 </form>
+
+                <a href="{% url 'users_app:u-updatePass' object.pk %}">
+                    <div class="d-flex">
+                        <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                            value="Cambiar contraseña">
+                    </div>
+                </a>
         </div>
     </div>
 </div>

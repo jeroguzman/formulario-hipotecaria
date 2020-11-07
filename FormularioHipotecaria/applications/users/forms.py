@@ -10,7 +10,6 @@ class UserRegisterForm(forms.ModelForm):
             attrs={'class': 'form-control'}
         )
     )
-
     confirm_password = forms.CharField(
         label='Confirmar Contraseña',
         required=True,
@@ -65,7 +64,6 @@ class LoginForm(forms.Form):
             }
         )
     )
-
     password = forms.CharField(
         label='Contraseña',
         required=True,
@@ -86,3 +84,23 @@ class LoginForm(forms.Form):
 
         return self.cleaned_data
 
+
+class UpdatePassForm(forms.Form):
+    new_pass = forms.CharField(
+        label='Nueva Contraseña',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control'}
+        )
+    )
+    confirm_new_pass = forms.CharField(
+        label='Confirmar nueva contraseña',
+        required=True,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control'}
+        )
+    )
+
+    def clean_confirm_new_pass(self):
+        if self.cleaned_data['new_pass'] != self.cleaned_data['confirm_new_pass']:
+            self.add_error('confirm_new_pass', 'Las contraseñas no coinsiden')

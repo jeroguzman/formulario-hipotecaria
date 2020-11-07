@@ -27,15 +27,15 @@
             <div class="row">
                 <form method="POST">
                     {% csrf_token %}
+                    {{ form.as_p }}
                     
-                    <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.username }}</strong>?</p>
-                    <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cancelar">
-                    <a href="{% url 'users_app:u-detail' object.pk %}" >Cancelar</a>
+                    <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cambiar Contraseña">
+                    <a href="{% url 'users_app:u-detail' request.resolver_match.kwargs.pk %}" >Cancelar</a>
                 </form>
+            </div>
         </div>
     </div>
 </div>
-
 {% block scripts-adicionales %}
 <!-- slimscroll js -->
 <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>

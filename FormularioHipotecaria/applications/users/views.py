@@ -10,7 +10,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserRegisterForm, LoginForm
+from .forms import (
+    UserRegisterForm, 
+    LoginForm, 
+    UpdatePassForm
+)
 from .models import User
 
 # Create your views here.
@@ -38,10 +42,11 @@ class UserRegisterView(LoginRequiredMixin, FormView):
         return super(UserRegisterView, self).form_valid(form)
 
 
-class UserUpadateView(UpdateView):
+class UserUpadateView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'dashboard/users/edit.html'
     success_url = reverse_lazy('users_app:u-promotores')
+    login_url = reverse_lazy('users_app:u-login')
     fields = (
     'first_name',
     'last_name',
@@ -57,10 +62,11 @@ class UserUpadateView(UpdateView):
 )
 
 
-class UserDeleteView(DeleteView):
+class UserDeleteView(LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'dashboard/users/delete.html'
     success_url = reverse_lazy('users_app:u-promotores')
+    login_url = reverse_lazy('users_app:u-login')
 
 
 class LoginView(FormView):
@@ -89,9 +95,25 @@ class LogoutView(LoginRequiredMixin, View):
         )
 
 
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'dashboard/users/user.html'
+    login_url = reverse_lazy('users_app:u-login')
+
+
+class UserUpdatePassView(LoginRequiredMixin, FormView):
+    model = User
+    form_class = UpdatePassForm
+    template_name = 'dashboard/users/update_pass.html'
+    success_url = reverse_lazy('users_app:u-promotores')
+    login_url = reverse_lazy('users_app:u-login')
+
+    def form_valid(self, form):
+        user = User.objects.get(pk=self.kwargs['pk'])
+        user.set_password(form.cleaned_data['confirm_new_pass'])
+        user.save()
+
+        return super(UserUpdatePassView, self).form_valid(form)
 
 
 class asesorListView(LoginRequiredMixin, ListView):

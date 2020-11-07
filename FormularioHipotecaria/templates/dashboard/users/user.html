@@ -32,9 +32,6 @@
                 Numero de telefono: {{ object.telefono }}<br>
                 Puesto: {{ object.modalidad }}<br>
                 
-                <a href="{% url 'users_app:u-edit' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="32"></a> 
-                <a href="{% url 'users_app:u-detail' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="32"></a>
-                
                 {% if user.modalidad == 'Promotor' %}
                     Asesor: {{ object.asesor }}<br>
                     Texto de bienvenida: {{ object.bienvenida_txt }}<br>
@@ -42,6 +39,15 @@
                     Foto: {{ object.foto }}<br>
                     url: {{ object.url }}<br>
                 {% endif %}
+
+                <a href="{% url 'users_app:u-edit' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="32"></a> 
+                <a href="{% url 'users_app:u-delete' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="32"></a>
+                <a href="{% url 'users_app:u-updatePass' object.pk %}">
+                    <div class="d-flex">
+                        <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                            value="Cambiar contraseña">
+                    </div>
+                </a>
         </div>
     </div>
 </div>
