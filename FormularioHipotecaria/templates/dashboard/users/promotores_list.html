@@ -80,19 +80,21 @@
             </div>
             <br>
 
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "users_app:u-register" %}'>
-                        <div class="d-flex">
+            {% if user.modalidad == 'Asesor' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-md-center">
+                        <a href='{% url "users_app:u-register" %}'>
+                            <div class="d-flex">
 
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                value=" agregar nuevo">
+                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                    value="Agregar nuevo">
 
-                        </div>
-                    </a>
-                </div>
-            </form>
+                            </div>
+                        </a>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
 </div>
