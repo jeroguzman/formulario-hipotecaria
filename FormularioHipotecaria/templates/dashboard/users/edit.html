@@ -25,23 +25,12 @@
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <div class="row">
-                Nombre: {{ object.first_name }}<br>
-                Apellidos: {{ object.last_name }}<br>
-                Nombre de usuario: {{ object.username }}<br>
-                Email: {{ object.email }}<br>
-                Numero de telefono: {{ object.telefono }}<br>
-                Puesto: {{ object.modalidad }}<br>
-                
-                <a href="{% url 'users_app:u-edit' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="32"></a> 
-                <a href="{% url 'users_app:u-detail' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="32"></a>
-                
-                {% if user.modalidad == 'Promotor' %}
-                    Asesor: {{ object.asesor }}<br>
-                    Texto de bienvenida: {{ object.bienvenida_txt }}<br>
-                    Texto de despedida: {{ object.despedida_txt }}<br>
-                    Foto: {{ object.foto }}<br>
-                    url: {{ object.url }}<br>
-                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Guardar Cambios">
+                </form>
         </div>
     </div>
 </div>

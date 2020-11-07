@@ -1,6 +1,10 @@
-from django.views.generic.edit import FormView
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import (
+    FormView,
+    ListView,
+    DetailView,
+    UpdateView,
+    DeleteView
+)
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
@@ -32,6 +36,31 @@ class UserRegisterView(LoginRequiredMixin, FormView):
         )
 
         return super(UserRegisterView, self).form_valid(form)
+
+
+class UserUpadateView(UpdateView):
+    model = User
+    template_name = 'dashboard/users/edit.html'
+    success_url = reverse_lazy('users_app:u-promotores')
+    fields = (
+    'first_name',
+    'last_name',
+    'username',
+    'email',
+    'telefono',
+    'modalidad',
+    'asesor',
+    'bienvenida_txt',
+    'despedida_txt',
+    'foto',
+    'url',
+)
+
+
+class UserDeleteView(DeleteView):
+    model = User
+    template_name = 'dashboard/users/delete.html'
+    success_url = reverse_lazy('users_app:u-promotores')
 
 
 class LoginView(FormView):
