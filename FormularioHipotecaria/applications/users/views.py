@@ -25,19 +25,21 @@ class UserRegisterView(LoginRequiredMixin, FormView):
     login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form):
-        User.objects.create_user(
+        user = User.objects.create_user(
             form.cleaned_data['first_name'],
             form.cleaned_data['last_name'],
             form.cleaned_data['username'],
             form.cleaned_data['email'],
             form.cleaned_data['telefono'],
             form.cleaned_data['modalidad'],
-            asesor=form.cleaned_data['asesor'],
+            asesor=self.request.user.username,
             bienvenida_txt=form.cleaned_data['bienvenida_txt'],
             despedida_txt=form.cleaned_data['despedida_txt'],
             foto=form.cleaned_data['foto'],
             url=form.cleaned_data['url'],
         )
+        # user.asesor = self.request.user.username
+        user.save
 
         return super(UserRegisterView, self).form_valid(form)
 

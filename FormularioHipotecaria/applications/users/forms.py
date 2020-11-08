@@ -3,6 +3,11 @@ from django.contrib.auth import authenticate
 from .models import User
 
 class UserRegisterForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        self.fields['asesor'].widget = forms.HiddenInput()
+
     password = forms.CharField(
         label='Contraseña',
         required=True,
