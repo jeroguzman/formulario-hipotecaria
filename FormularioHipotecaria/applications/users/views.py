@@ -38,8 +38,6 @@ class UserRegisterView(LoginRequiredMixin, FormView):
             foto=form.cleaned_data['foto'],
             url=form.cleaned_data['url'],
         )
-        # user.asesor = self.request.user.username
-        user.save
 
         return super(UserRegisterView, self).form_valid(form)
 
