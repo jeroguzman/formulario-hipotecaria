@@ -25,7 +25,7 @@ class UserRegisterView(LoginRequiredMixin, FormView):
     login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form):
-        user = User.objects.create_user(
+        User.objects.create_user(
             form.cleaned_data['first_name'],
             form.cleaned_data['last_name'],
             form.cleaned_data['username'],

@@ -3,11 +3,6 @@ from django.contrib.auth import authenticate
 from .models import User
 
 class UserRegisterForm(forms.ModelForm):
-
-    def __init__(self, *args, **kwargs):
-        super(UserRegisterForm, self).__init__(*args, **kwargs)
-        self.fields['asesor'].widget = forms.HiddenInput()
-
     password = forms.CharField(
         label='Contraseña',
         required=True,
@@ -47,7 +42,7 @@ class UserRegisterForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
             'modalidad': forms.Select(attrs={'id': 'modalidad', 'class': 'form-control promotor-field'}),
-            'asesor': forms.TextInput(attrs={'class': 'form-control promotor-field'}),
+            'asesor': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
             'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
