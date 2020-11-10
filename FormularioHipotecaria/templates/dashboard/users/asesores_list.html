@@ -38,21 +38,39 @@
                                     <p>Lorem ipsum dolor sit amet consectetur
                                         adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
+                                        <th scope="col">Foto</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Usuario</th>
+                                        <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
-                                        <th scope="col">Puesto</th>
+                                        <th scope="col">Asesor</th>
+                                        {% if user.modalidad == 'Asesor' %}
+                                            <th scope="col">Acciones</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for models in object_list %}
-                                    <tr>
-                                        <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.email }}</td>
-                                        <td>{{ models.modalidad }}</td>
-                                    </tr>
+                                        <tr>
+                                            {% if models.foto.url == None %}
+                                                <td><img src="{{ models.foto.url }}" width="64"></td>
+                                            {% else %}
+                                                <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
+                                            {% endif %}
+                                            <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
+                                            <td>{{ models.username }}</td>
+                                            <td>{{ models.telefono }}</td>
+                                            <td>{{ models.email }}</td>
+                                            <td>{{ models.asesor }}</td>
+                                            {% if user.modalidad == 'Asesor' %}
+                                                <td>
+                                                    <a href="{% url 'users_app:u-detail' models.pk %}"><img src="{% static 'img\ic-ojo.png' %}" width="32"></a> |
+                                                    <a href="{% url 'users_app:u-edit' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16"></a> |
+                                                    <a href="{% url 'users_app:u-delete' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16"></a>
+                                                </td>
 
+                                            {% endif %}
+                                        </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -61,20 +79,41 @@
                 </div>
             </div>
             <br>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1"><<</a>
+                        |
+                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
+                    {% endif %}
+                    
+                    <span class="current">
+                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">></a>
+                        |
+                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
+                    {% endif %}
+                </span>
+            </div>
 
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "users_app:u-register" %}'>
-                        <div class="d-flex">
+            {% if user.modalidad == 'Asesor' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-md-center">
+                        <a href='{% url "users_app:u-register" %}'>
+                            <div class="d-flex">
 
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                value=" agregar nuevo">
+                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                    value="Agregar nuevo">
 
-                        </div>
-                    </a>
-                </div>
-            </form>
+                            </div>
+                        </a>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
 </div>

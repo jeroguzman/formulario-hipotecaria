@@ -10,7 +10,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.hashers import check_password #
 from .forms import (
     UserRegisterForm, 
     LoginForm, 
@@ -39,6 +38,8 @@ class UserRegisterView(LoginRequiredMixin, FormView):
             foto=form.cleaned_data['foto'],
             url=form.cleaned_data['url'],
         )
+
+        print(form.cleaned_data['modalidad'])
 
         return super(UserRegisterView, self).form_valid(form)
 
@@ -129,12 +130,25 @@ class asesorListView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'dashboard/users/asesores_list.html'
     login_url = reverse_lazy('users_app:u-login')
+    paginate_by = 10
+
+
+    def get_queryset(self):
+        queryset = User.objects.filter(modalidad='Asesor')
+
+        return queryset
 
 
 class promotorListView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'dashboard/users/promotores_list.html'
     login_url = reverse_lazy('users_app:u-login')
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = User.objects.filter(modalidad='Promotor')
+
+        return queryset
 
 
 class dashboardListView(LoginRequiredMixin, ListView):

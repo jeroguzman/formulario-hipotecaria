@@ -80,6 +80,26 @@
             </div>
             <br>
 
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1"><<</a>
+                        |
+                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
+                    {% endif %}
+                    
+                    <span class="current">
+                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">></a>
+                        |
+                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
+                    {% endif %}
+                </span>
+            </div>
+
             {% if user.modalidad == 'Asesor' %}
                 <form method="post">
                     {% csrf_token %}
