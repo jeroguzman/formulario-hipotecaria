@@ -10,6 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import check_password #
 from .forms import (
     UserRegisterForm, 
     LoginForm, 
@@ -70,14 +71,22 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class LoginView(FormView):
+    model = User
     template_name = 'dashboard/users/login.html'
     form_class = LoginForm
     success_url = reverse_lazy('users_app:u-dashboard')
 
     def form_valid(self, form):
+        form_user = form.cleaned_data['username']
+        form_pass = form.cleaned_data['password']
+        bd_user = User.objects.get(username=form_user)
+
+        print('** [USERNAME -> ' + form_user + ', ' + bd_user.username + '] **')
+        print('** [PASSWORD -> ' + form_pass + ', ' + bd_user.password + '] **')
+
         user = authenticate(
-            username=form.cleaned_data['username'],
-            password=form.cleaned_data['password']
+            username=form_user,
+            password=form_pass
         )
         login(self.request, user)
 
