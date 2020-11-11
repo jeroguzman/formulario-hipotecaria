@@ -32,12 +32,22 @@ class User(AbstractUser, PermissionsMixin):
         upload_to='static/img/promotores',
         blank=True
         )
-    url = models.URLField(blank=True)
+    url = models.TextField(blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'telefono']
-
     objects = UserManager()
+
+    def save(self, *args, **kwargs):
+        profile_pic = str(self.foto).replace(' ', '_').lower()
+        self.url = 'http://127.0.0.1:8000/?first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
+            self.first_name,
+            self.last_name,
+            profile_pic,
+            self.bienvenida_txt,
+            self.despedida_txt
+        )
+        super(User, self).save(*args, **kwargs)
 
     def get_short_name(self):
         return self.username

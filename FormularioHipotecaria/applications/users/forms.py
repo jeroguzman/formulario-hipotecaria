@@ -46,7 +46,7 @@ class UserRegisterForm(forms.ModelForm):
             'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
-            'url': forms.URLInput(attrs={'class': 'form-control promotor-field'}),
+            'url': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
         }
 
     def clean_confirm_password(self):
