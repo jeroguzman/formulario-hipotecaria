@@ -29,7 +29,7 @@
                     {% csrf_token %}
                     
                     <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.username }}</strong>?</p>
-                    <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cancelar">
+                    <input type="submit" class="btn btn-teal btn-danger btn-lg rounded-pill lift lift-sm" value="Eliminar">
                     <a href="{% url 'users_app:u-detail' object.pk %}" >Cancelar</a>
                 </form>
         </div>
