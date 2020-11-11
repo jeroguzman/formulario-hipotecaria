@@ -29,8 +29,7 @@ class User(AbstractUser, PermissionsMixin):
     bienvenida_txt = models.TextField(blank=True)
     despedida_txt = models.TextField(blank=True)
     foto = models.ImageField(
-        upload_to='static/img/promotores',
-        blank=True
+        upload_to='static/img/promotores'
         )
     url = models.TextField(blank=True)
 
@@ -47,6 +46,7 @@ class User(AbstractUser, PermissionsMixin):
             self.bienvenida_txt,
             self.despedida_txt
         )
+
         super(User, self).save(*args, **kwargs)
 
     def get_short_name(self):
