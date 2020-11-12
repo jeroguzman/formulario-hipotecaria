@@ -53,9 +53,9 @@
                                     {% for models in object_list %}
                                         <tr>
                                             {% if models.foto.url == None %}
-                                                <td><img src="{{ models.foto.url }}" width="64"></td>
-                                            {% else %}
                                                 <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
+                                            {% else %}
+                                                <td><img src="{{ models.foto.url }}" width="64"></td>
                                             {% endif %}
                                             <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
                                             <td>{{ models.username }}</td>
