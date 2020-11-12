@@ -24,8 +24,8 @@ class UserRegisterView(LoginRequiredMixin, FormView):
     success_url = reverse_lazy('users_app:u-dashboard')
     login_url = reverse_lazy('users_app:u-login')
 
-    def form_valid(self, form):
-        User.objects.create_user(
+    def form_valid(self, form): 
+        user = User.objects.create_user(
             form.cleaned_data['first_name'],
             form.cleaned_data['last_name'],
             form.cleaned_data['username'],
@@ -38,8 +38,8 @@ class UserRegisterView(LoginRequiredMixin, FormView):
             foto=form.cleaned_data['foto'],
             url=form.cleaned_data['url'],
         )
-
-        print(form.cleaned_data['modalidad'])
+        user.modalidad = form.cleaned_data['modalidad']
+        user.save()
 
         return super(UserRegisterView, self).form_valid(form)
 
