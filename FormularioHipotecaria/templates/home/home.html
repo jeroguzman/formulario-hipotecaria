@@ -19,7 +19,14 @@
                 {% include 'home/formularios/includes/img-asesor.html' %}
 
                 <div class="col-lg-10 d-flex justify-content-center">
-                    <p>¡Hola! Soy <strong>{{request.GET.first_name }} {{ request.GET.last_name }}</strong>, ejecutivo experto en Créditos
+                    <p>¡Hola! Soy 
+                    <strong> 
+                        {% if request.GET.first_name == null %} 
+                            su asesor, 
+                        {% else %} 
+                            {{ request.GET.first_name }} {{ request.GET.last_name}},
+                        {% endif %}
+                    </strong> ejecutivo experto en Créditos
                         Hipotecarios,
                         déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.</p>
                 </div>

@@ -37,6 +37,8 @@ class User(AbstractUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         profile_pic = str(self.foto).replace(' ', '_').lower()
+        profile_pic = profile_pic.replace('static/', '')
+
         self.url = 'http://127.0.0.1:8000/?first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
             self.first_name,
             self.last_name,
