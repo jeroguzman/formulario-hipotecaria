@@ -72,7 +72,7 @@ $('.opcion').click(function () {
 $('.btnNext').each(function () {
     const target = $('#' + $(this).attr('for'));
     const opcion = $(this).parent().siblings('.opcion');
-    const valor = $(this).parent().parent().find('input[name=valor]')
+    const valor = $(this).parent().parent().find('.money')
     const nombre = $(this).parent().parent().find('input[name=nombre]')
     const scroll = $(this).parent().parent().find('select')
     const radio = $(this).parent().parent().find('input[name=radio]')
