@@ -1,6 +1,5 @@
-{% extends '../base.html' %}
+{% extends '../../base.html' %}
 {% load static %}
-
 {% block librerias-adicionales%}
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'dashboard-template/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
@@ -18,21 +17,21 @@
 <link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
 {% endblock librerias-adicionales%}
 
-
 {% block body %}
+
 <div class="dashboard-main-wrapper">
+
     {% include 'dashboard/shared/navbar.html' %}
     {% include 'dashboard/shared/sidebar.html' %}
-
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table -->
                 <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                       <a class="card-header" href="{%url 'users_app:u-promotores'%}" > <b>Promotores</b></a> 
+                        <h5 class="card-header">Promotores</h5>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
@@ -41,71 +40,83 @@
                                     <tr>
                                         <th scope="col">Foto</th>
                                         <th scope="col">Nombre</th>
- 
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Telefono</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Asesor</th>
+                                        {% if user.modalidad == 'Asesor' %}
+                                            <th scope="col">Acciones</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for models in object_list %}
-                                    <tr>
-                                       <td><img src="{{ models.foto.url }}" width="64"></td>
-                                        <th scope="row">{{ models.nombre }}</th>
-                                    </tr> 
-                                    {% endfor %}
+                                    {% for models in object_list %}
+                                        <tr>
+                                            {% if models.foto.url == None %}
+                                                <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
+                                            {% else %}
+                                                <td><img src="{{ models.foto.url }}" width="64"></td>
+                                            {% endif %}
+                                            <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
+                                            <td>{{ models.username }}</td>
+                                            <td>{{ models.telefono }}</td>
+                                            <td>{{ models.email }}</td>
+                                            <td>{{ models.asesor }}</td>
+                                            {% if user.modalidad == 'Asesor' %}
+                                                <td>
+                                                    <a href="{% url 'users_app:u-detail' models.pk %}"><img src="{% static 'img\ic-ojo.png' %}" width="32"></a> |
+                                                    <a href="{% url 'users_app:u-edit' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16"></a> |
+                                                    <a href="{% url 'users_app:u-delete' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16"></a>
+                                                </td>
+
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end basic table -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- striped table -->
-                <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <a class="card-header" href="{%url 'a-clientes'%}" > <b>Clientes</b></a> 
-                        <div class="card-body">
-                            <table class="table table-striped">
-                                <thead>
-
-                                    <p>Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Ultimo Pedido</th>
-                                       
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Mark</th>
-                                        <td>14/05/2020</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Jacob</th>
-                                        <td>14/05/2020</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Larry</th>
-                                        <td>14/05/2020</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end striped table -->
-                <!-- ============================================================== -->
-
             </div>
+            <br>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1"><<</a>
+                        |
+                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
+                    {% endif %}
+                    
+                    <span class="current">
+                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">></a>
+                        |
+                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
+                    {% endif %}
+                </span>
+            </div>
+
+            {% if user.modalidad == 'Asesor' %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-md-center">
+                        <a href='{% url "users_app:u-register" %}'>
+                            <div class="d-flex">
+
+                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                    value="Agregar nuevo">
+
+                            </div>
+                        </a>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
-
 </div>
 
 
@@ -135,6 +146,4 @@
 <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
 <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
 {% endblock scripts-adicionales %}
-
-
-{% endblock body%}
+{% endblock body %}

@@ -21,8 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #local apps
     'applications.home',
-    'applications.asesores',
     'applications.clientes',
+    'applications.users',
     
 ]
 
@@ -74,6 +74,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

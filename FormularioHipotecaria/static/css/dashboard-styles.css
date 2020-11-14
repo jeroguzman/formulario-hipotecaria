@@ -37,3 +37,29 @@
     font-size: 1.2rem;
     font-weight: bolder;
 }
+
+/*Login*/
+.login{
+    padding: 50px;    
+    width: 500px;
+    text-align: center !important;
+}
+
+.logo-login{
+    display: block;
+    margin: 0 auto 30px auto;
+    width: 85%;
+}
+
+.btn-iniciar-sesion{
+    background-color: #1b2c54;
+    color: white;
+    font-weight: bolder;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.recuperar{
+    color: gray;
+    font-style: italic;
+}

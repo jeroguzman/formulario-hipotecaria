@@ -1,9 +1,0 @@
-{% comment %} {% block login-form %} {% endcomment %}
-    <h2>Iniciar sesión</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <input type="submit" value="Entrar">
-    </form>
-{% comment %} {% endblock login-form %} {% endcomment %}

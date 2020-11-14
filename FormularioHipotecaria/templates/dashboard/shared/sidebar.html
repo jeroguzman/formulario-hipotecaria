@@ -6,7 +6,7 @@
             <img src="{%static 'img/ic-logo.png'%}" alt="logo">
             <div>
                 <p>MI SOLUCIÓN HIPOTECARIA</p>
-                <p>Administrador</p>
+                <p>{{ user }}</p>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -18,23 +18,28 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'a-dashboard' %}"><img src="{%static 'img/ic-1.png'%}"
+                        <a class="nav-link" href="{% url 'users_app:u-dashboard' %}"><img src="{%static 'img/ic-1.png'%}"
                                 alt="icono dashboard">Dashboard</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'a-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
+                        <a class="nav-link" href="{% url 'users_app:u-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
                                 alt="icono dashboard">Asesores</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'a-promotores' %}"><img src="{%static 'img/ic-2.png'%}"
+                        <a class="nav-link" href="{% url 'users_app:u-promotores' %}"><img src="{%static 'img/ic-2.png'%}"
                             alt="icono dashboard">Promotores</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'a-clientes' %}"><img src="{%static 'img/ic-3.png'%}"
                                 alt="icono dashboard">Clientes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users_app:u-logout' %}"><img src="{%static 'img/ic-3.png'%}"
+                                alt="icono dashboard">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,19 @@
+{% extends '../../base.html' %}
+{% load static %}
+
+{%block librerias-adicionales%}
+<!-- CSS stylesheet Dashboard -->
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
+{% endblock librerias-adicionales%}
+
+{% block body %}
+<div class="container login">
+    <img src="{%static 'img/logo-login.png'%}" class="logo-login" alt="logo ms">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="" class="recuperar">Recuperar Contraseña</a>
+        <input type="submit" value="INICIAR SESIÓN" class="btn btn-iniciar-sesion">
+    </form>
+</div>
+{% endblock body %}
