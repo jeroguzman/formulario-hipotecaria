@@ -1,9 +1,19 @@
-{% comment %} {% block login-form %} {% endcomment %}
-    <h2>Iniciar sesión</h2>
+{% extends '../../base.html' %}
+{% load static %}
+
+{%block librerias-adicionales%}
+<!-- CSS stylesheet Dashboard -->
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
+{% endblock librerias-adicionales%}
+
+{% block body %}
+<div class="container login">
+    <img src="{%static 'img/logo-login.png'%}" class="logo-login" alt="logo ms">
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-
-        <input type="submit" value="Entrar">
+        <a href="" class="recuperar">Recuperar Contraseña</a>
+        <input type="submit" value="INICIAR SESIÓN" class="btn btn-iniciar-sesion">
     </form>
-{% comment %} {% endblock login-form %} {% endcomment %}
+</div>
+{% endblock body %}
