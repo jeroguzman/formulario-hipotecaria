@@ -51,7 +51,7 @@ class UserRegisterForm(forms.ModelForm):
 
     def clean_confirm_password(self):
         if self.cleaned_data['password'] != self.cleaned_data['confirm_password']:
-            self.add_error('confirm_password', 'Las contraseñas no coinsiden')
+            self.add_error('confirm_password', 'Las contraseñas no coiciden')
 
 
 class LoginForm(forms.Form):
@@ -105,4 +105,4 @@ class UpdatePassForm(forms.Form):
 
     def clean_confirm_new_pass(self):
         if self.cleaned_data['new_pass'] != self.cleaned_data['confirm_new_pass']:
-            self.add_error('confirm_new_pass', 'Las contraseñas no coinsiden')
+            self.add_error('confirm_new_pass', 'Las contraseñas no coinciden')
