@@ -14,19 +14,19 @@
 
     <div class="container-fluid">
 
-        <div id="inicio" class="path">
+        <div id="inicio" class="path panel">
             <div class="presentacion row">
                 {% include 'home/formularios/includes/img-asesor.html' %}
 
                 <div class="col-lg-10 d-flex justify-content-center">
-                    <p>¡Hola! Soy 
-                    <strong> 
-                        {% if request.GET.first_name == null %} 
-                            su asesor, 
-                        {% else %} 
+                    <p>¡Hola! Soy
+                        <strong>
+                            {% if request.GET.first_name == null %}
+                            su asesor,
+                            {% else %}
                             {{ request.GET.first_name }} {{ request.GET.last_name}},
-                        {% endif %}
-                    </strong> ejecutivo experto en Créditos
+                            {% endif %}
+                        </strong> ejecutivo experto en Créditos
                         Hipotecarios,
                         déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.</p>
                 </div>
@@ -63,6 +63,8 @@
                             <div class="opcion opcionNext" for="d2">
                                 <p>Mejora de Hipoteca más Liquidez</p>
                             </div>
+
+                            <input name="tramite" form="from-db" class="opcion-input" hidden>
                         </div>
 
                     </div>
@@ -71,9 +73,19 @@
             </div><!-- End preguntas -->
         </div>
 
-        <form action="" id="form-compra">
+        <form action="" method="" id="from-db">
+
+
+            <input type="submit" name="submit" value="submit">
 
         </form>
+
+        {% if submitButton == "submit"  %}
+        <h1> Your tramite name is {{ tramite }}</h1>
+        <h1> Your nombre name is {{ nombre }}</h1>
+        <h1> Your correo is {{ correo }} </h1>
+        {% endif %}
+
         {% include 'home/formularios/compra.html' %}
         {% include 'home/formularios/mejora.html' %}
         {% include 'home/formularios/terreno.html' %}

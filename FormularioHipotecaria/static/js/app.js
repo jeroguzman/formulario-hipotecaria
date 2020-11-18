@@ -8,6 +8,25 @@ $('.money').mask('000,000,000', {
 
 $('.celularInput').mask('(000) 000-0000');
 
+//Marca las opciones seleccionadas
+// $('.opcion').click(function () {
+//     $('.opcion').removeClass('opcion-active');
+//     $(this).addClass('opcion-active');
+//     $(this).siblings('.emsg').addClass('hidden');
+// });
+
+$('.panel').first().show();
+console.log($('.panel').first());
+
+$('.panel').each(function () {
+    const currentOptions = $(this).find('.opcion');
+    currentOptions.click(function () {
+        currentOptions.removeClass('opcion-active');
+        $(this).addClass('opcion-active');
+        $(this).siblings('.emsg').addClass('hidden');
+    });
+});
+
 //Opciones de la pagina de inicio que lleva los formularios
 $('.opcionNext').each(function () {
     const target = $('#' + $(this).attr('for'));
@@ -16,6 +35,14 @@ $('.opcionNext').each(function () {
         target.addClass('path');
         target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
         $(this).parent().parent().parent().parent().parent().hide();
+
+        //Toma el html de la opcion seleccionada para poder hacer submit en el form
+        $('.opcion-input').each(function () {
+            const choosenOption = $(this).siblings('.opcion-active').children().html();
+            $(this).val(choosenOption);
+            console.log($(this).siblings('.opcion-active').children().html());
+        });
+        
     })
 })
 
@@ -28,13 +55,17 @@ $('.perfilamiento').each(function () {
             target.fadeIn(100);
             target.addClass('path');
             target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-            $(this).parent().parent().parent().parent().hide(); 
+            $(this).parent().parent().parent().parent().hide();            
         }else{            
             $(this).siblings('.emsg').removeClass('hidden');
         }
 
     })
 })
+
+// $('#from-db').submit(function(e){
+//   e.preventDefault();
+// });
 
 $('.goToMenu').each(function(){
     const target = $('#' + $(this).attr('for'));
@@ -52,44 +83,37 @@ $('.goToMenu').each(function(){
 
 })
 
-//Marca las opciones seleccionadas
-$('.opcion').click(function () {
-    $('.opcion').removeClass('opcion-active');
-    $(this).addClass('opcion-active');
-    $(this).siblings('.emsg').addClass('hidden');
-});
-
-// $('.panel').each(function () {
-//     const currentOptions = $(this).find('.opcion');
-//     currentOptions.click(function () {
-//         currentOptions.removeClass('opcion-active');
-//         $(this).addClass('opcion-active');
-//         $(this).siblings('.emsg').addClass('hidden');
-//     });
-// });
 
 //Boton siguiente
 $('.btnNext').each(function () {
     const target = $('#' + $(this).attr('for'));
     const opcion = $(this).parent().siblings('.opcion');
-    const valor = $(this).parent().parent().find('.money')
-    const nombre = $(this).parent().parent().find('input[name=nombre]')
-    const scroll = $(this).parent().parent().find('select')
-    const radio = $(this).parent().parent().find('input[name=radio]')
+    const valor = $(this).parent().parent().find('.money');
+    const nombre = $(this).parent().parent().find('input[name=nombre]');
+    const scroll = $(this).parent().parent().find('select');
+    const radio = $(this).parent().parent().find('input[name=radio]');    
+    const telefono = $(this).parent().parent().find('input[name=telefono]');
+    
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
+        console.log(telefono)
+        if(telefono.length && telefono.cleanVal().length === 10){
+            console.log('shit')
+        }
 
         //Revisa si las validaciones son correctas para poder continuar
         if (opcion.hasClass('opcion-active') ||
             (valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
             (scroll.attr('class') !== undefined) ||
-            (radio.attr('class') !== undefined)) {
+            (radio.attr('class') !== undefined) || 
+            (telefono.length && telefono.cleanVal().length === 10)) {
 
             //Toma el html de la opcion seleccionada para poder hacer submit en el form
             $('.opcion-input').each(function () {
                 const choosenOption = $(this).siblings('.opcion-active').children().html();
                 $(this).val(choosenOption);
+                console.log($(this).siblings('.opcion-active').children().html());
             });
 
             //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se eligio

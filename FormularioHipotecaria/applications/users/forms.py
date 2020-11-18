@@ -82,7 +82,7 @@ class LoginForm(forms.Form):
         password = self.cleaned_data['password']
 
         if not authenticate(username=username, password=password):
-            raise forms.ValidationError('El nombre de usuario o la contraseña no coinsiden')
+            raise forms.ValidationError('El nombre de usuario o la contraseña no coinciden')
 
         return self.cleaned_data
 

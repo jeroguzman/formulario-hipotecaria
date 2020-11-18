@@ -1,6 +1,6 @@
 <!-- 2. ¿Cuál es el valor aproximado del proyecto de construcción? -->
 {%include "./includes/panel.html" with id="qc2" per=6.25 desc="¡Construir una casa a tu gusto es el sueño de muchos!¿Sabías que el banco te puede financiar hasta el %100 del valor del proyecto de construcción? Y con la misma tasa de interés que maneja para la compra de casa ya construida" pregunta="¿Cuál es el valor aproximado del proyecto de construcción?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Valor del proyecto" only%}
+{%include "./includes/dinero.html" with name="valor" form="from-db" titulo="Valor del proyecto" only%}
 {%include "./includes/panel-botones.html" with next="qc3" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3. ¿Cuál es el tu actividad principal? -->
@@ -10,7 +10,6 @@
 {%include "./includes/opcion.html" with for="qc4e" texto="Empresario"%}
 {%include "./includes/opcion.html" with for="qc4s" texto="Socio Accionista"%}
 {%include "./includes/opcion.html" with for="qc4u" texto="Trabajo en USA"%}
-{%include "./includes/opcion-input.html" with name="actividad" form="form-compra"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 4. ¿Cotizas para alguna de estas instituciones? -->
@@ -19,27 +18,26 @@
 {%include "./includes/opcion.html" with texto="Fovissste" for="qc5"%}
 {%include "./includes/opcion.html" with texto="Otro" for="qc6"%}
 {%include "./includes/opcion.html" with texto="Ninguno" for="qc6"%}
-{%include "./includes/opcion-input.html" with name="seguro" form="form-compra"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 4i. ¿Cuál es tu ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc4i" per=25 desc="A personas independientes como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc5e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4e. ¿Cuál es tu ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc4e" per=25 desc="A empresarios como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc5e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4s. ¿Cuál es tu ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc4s" per=25 desc="A los emprendedores como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc5e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4u. ¿Cuál es tu ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc4u" per=25 desc="¿Sabías que aunque trabajes en Estados Unidos puedes tener acceso a un crédito hipotecario para comprar casa en México? ¡Cosecha el esfuerzo de tus logros! <br> (Único requisito, tener papales de residencia en regla)" pregunta="¿Cuál es tu ingreso mensual promedio (en pesos mexicanos)?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc5u" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5. ¿Actualmente estas pagando un crédito Infonavit o Fovissste? // ¿Ya ejerciste o estas pagando tu Crédito Infonavit o Fovissste? -->
@@ -63,12 +61,12 @@
 
 <!-- 6. ¿Cuál es tu ingreso mensual? -->
 {%include "./includes/panel.html" with id="qc6" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso. Por favor, declara el total de todas tus fuentes de ingresos." pregunta="¿Cuál es tu ingreso mensual?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
+{%include "./includes/dinero.html" with name="valor" form="from" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="qc7" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 7. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="qc7" per=43.75 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
-<input name="nombre" type="text" class="form-control" form="form-compra" maxlength="50" disabled />
+<input name="nombre" type="text" class="form-control" form="from-db" maxlength="50" disabled />
 {%include "./includes/panel-botones.html" with next="qc8" emsg="Ingrese un nombre válido"%}
 
 <!-- 8. ¿Cuál es tu estado civil? -->
@@ -103,22 +101,22 @@
 
 <!-- 11i. ¿Cuál es el ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc11i" per=68.75 desc="A los Co-Acreditados Independientes, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc12e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 11e. ¿Cuál es el ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc11e" per=68.75 desc="A los Co-Acreditados Empresarios, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc12e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 11s. ¿Cuál es el ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc11s" per=68.75 desc="A los Co-Acreditados Socio Accionista, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio?" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc12e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 11u. ¿Cuál es el ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="qc11u" per=68.75 desc="A los Co-Acreditados, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio? (en pesos mexicanos)" %}
-{%include "./includes/dinero.html" with name="valor" form="form-compra"%}
+{%include "./includes/dinero.html" with name="valor" form="from"%}
 {%include "./includes/panel-botones.html" with next="qc12e" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 12. ¿El Co-Acreditado ya ejerció o esta pagando su Crédito Infonavit o Fovisste? -->
@@ -136,19 +134,25 @@
 
 <!-- 13. ¿Cuál es el ingreso mensual del Co-Acreditado? -->
 {%include "./includes/panel.html" with id="qc13" per=81.25 desc="Ok, unamos los ingresos tuyos con tu Co-Acreditado, de igual forma puede demostrar ingresos con varios empleos." pregunta="¿Cuál es el ingreso mensual del Co-Acreditado?"%}
-{%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Salario Neto"%}
+{%include "./includes/dinero.html" with name="valor" form="from" titulo="Salario Neto"%}
 {%include "./includes/panel-botones.html" with next="qc14" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 14. Captura lo que pagas de los siguientes tipos de créditos: -->
 {%include "./includes/panel.html" with id="qc14" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso) para conocer tu capacidad de crédito. Captura tus gastos acutales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="Captura lo que pagas de créditos:"%}
 <p>Suma los gastos del Co-Acreditado si es el caso</p>
-{%include "./includes/dinero.html" with name="valor" form="form-compra" titulo="Créditos"%}
+{%include "./includes/dinero.html" with name="valor" form="from" titulo="Créditos"%}
 {%include "./includes/panel-botones.html" with next="qc15" emsg="El campo valor debe ser mayor a 0"%}
 
-<!-- 15. Numero y correo: -->
-{%include "./includes/final.html" with id="qc15" per=93.75 next="qc16"%}
+<!-- Numero -->
+{%include "./includes/panel.html" with id="qc15" per=92 desc="Compartenos tu número de teléfono para mantenernos mejor comunicados" pregunta="Mi número celular es:"%}
+<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" form="from-db"
+    disabled />
+{%include "./includes/panel-botones.html" with next="qc16" emsg="El número debe ser de 10 dígitos"%}
+
+<!-- correo: -->
+{%include "./includes/final.html" with id="qc16" per=97 form="from-db" next="qc17"%}
 
 <!-- PIN -->
-{%include "./includes/panel.html" with id="qc16" per=100 desc="Captura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
+{%include "./includes/panel.html" with id="qc17" per=100 desc="Captura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
 <input type="number" class="form-control" maxlength="6">
 {%include "./includes/panel-botones.html" with next=next%}
