@@ -177,20 +177,5 @@
 
 <!-- 11. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="m11" per=90 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
-<input name="nombre" type="text" class="form-control" form="from-db" maxlength="50" disabled />
-{%include "./includes/panel-botones.html" with next="m12" emsg="Ingrese un nombre válido"%}
-
-<!-- Numero -->
-{%include "./includes/panel.html" with id="m12" per=92 desc="Compartenos tu número de teléfono para mantenernos mejor comunicados" pregunta="Mi número celular es:"%}
-<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" form="from-db"
-    disabled />
-{%include "./includes/panel-botones.html" with next="m13" emsg="El número debe ser de 10 dígitos"%}
-
-<!-- correo: -->
-{%include "./includes/final.html" with id="m13" per=97 form="from-db" next="m14"%}
-
-
-<!-- PIN -->
-{%include "./includes/panel.html" with id="m14" per=100 desc="Captura el PIN que recibiste por mensaje y obtendrás tu reporte al instante" pregunta="Captura tu PIN aquí:"%}
-<input type="number" class="form-control" maxlength="6">
-{%include "./includes/panel-botones.html" with next=next%}
+<input name="nombre" type="text" class="form-control" form="form-db" maxlength="50" disabled />
+{%include "./includes/panel-botones.html" with next="telefono" emsg="Ingrese un nombre válido"%}

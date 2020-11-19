@@ -16,7 +16,6 @@ $('.celularInput').mask('(000) 000-0000');
 // });
 
 $('.panel').first().show();
-console.log($('.panel').first());
 
 $('.panel').each(function () {
     const currentOptions = $(this).find('.opcion');
@@ -40,7 +39,6 @@ $('.opcionNext').each(function () {
         $('.opcion-input').each(function () {
             const choosenOption = $(this).siblings('.opcion-active').children().html();
             $(this).val(choosenOption);
-            console.log($(this).siblings('.opcion-active').children().html());
         });
         
     })
@@ -63,7 +61,7 @@ $('.perfilamiento').each(function () {
     })
 })
 
-// $('#from-db').submit(function(e){
+// $('#form-db').submit(function(e){
 //   e.preventDefault();
 // });
 
@@ -96,11 +94,6 @@ $('.btnNext').each(function () {
     
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
-        console.log(telefono)
-        if(telefono.length && telefono.cleanVal().length === 10){
-            console.log('shit')
-        }
-
         //Revisa si las validaciones son correctas para poder continuar
         if (opcion.hasClass('opcion-active') ||
             (valor.length && (valor.cleanVal() > 0)) ||
@@ -121,6 +114,7 @@ $('.btnNext').each(function () {
                 target.fadeIn(100);
                 target.addClass('path'); //Agrega la clase path a el panel para saber el camino que va tomanto el formulario
                 target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+                telefono.unmask();
             } else {
                 targetOption.fadeIn(100);
                 targetOption.addClass('path');

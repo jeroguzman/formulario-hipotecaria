@@ -64,7 +64,7 @@
                                 <p>Mejora de Hipoteca más Liquidez</p>
                             </div>
 
-                            <input name="tramite" form="from-db" class="opcion-input" hidden>
+                            <input name="tramite" form="form-db" class="opcion-input" hidden>
                         </div>
 
                     </div>
@@ -73,18 +73,9 @@
             </div><!-- End preguntas -->
         </div>
 
-        <form action="" method="" id="from-db">
-
-
-            <input type="submit" name="submit" value="submit">
+        <form action="" method="" id="form-db">
 
         </form>
-
-        {% if submitButton == "submit"  %}
-        <h1> Your tramite name is {{ tramite }}</h1>
-        <h1> Your nombre name is {{ nombre }}</h1>
-        <h1> Your correo is {{ correo }} </h1>
-        {% endif %}
 
         {% include 'home/formularios/compra.html' %}
         {% include 'home/formularios/mejora.html' %}
