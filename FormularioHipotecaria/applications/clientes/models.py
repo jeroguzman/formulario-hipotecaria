@@ -16,3 +16,4 @@ class Clientes(models.Model):
         cliente_str = '{}'.format(self.nombre)
 
         return cliente_str
+    

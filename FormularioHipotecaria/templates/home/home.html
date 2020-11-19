@@ -18,6 +18,7 @@
             <div class="presentacion row">
                 {% include 'home/formularios/includes/img-asesor.html' %}
 
+
                 <div class="col-lg-10 d-flex justify-content-center">
                     <p>¡Hola! Soy
                         <strong>
@@ -73,7 +74,9 @@
             </div><!-- End preguntas -->
         </div>
 
-        <form action="" method="" id="form-db">
+        <form action="." method="post" id="form-db">
+            {% csrf_token %}
+            <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
 
         </form>
 

@@ -2,24 +2,33 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from applications.clientes.models import Clientes
+from applications.users.models import User
 
 
 
 class HomeView(TemplateView):
     template_name = 'home/home.html'
-    
-    def index(request):
+
+    def post(self, request):
 
         tramite = request.POST.get('tramite')
         nombre = request.POST.get('nombre')
+        telefono = request.POST.get('telefono')
         correo = request.POST.get('correo')
-        submitButton = request.POST.get('submit')
-        print(tramite)
+        promotor = request.POST.get('promotor')
+        cliente = Clientes.objects.create()
+        cliente.nombre = nombre
+        cliente.email = correo
+        cliente.tramite = tramite
+        cliente.telefono = telefono
+        cliente.promotor = User.objects.get(id=promotor)
+        cliente.save()
 
-        context = {'tramite':tramite, 'nombre':nombre,
-                'correo':correo, 'submitButton':submitButton}
+        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono,
+                'correo':correo}
             
-        return render(request, 'home/home.html', context)
+        return render(request, self.template_name, context)
 
 class dashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/dashboard.html'
