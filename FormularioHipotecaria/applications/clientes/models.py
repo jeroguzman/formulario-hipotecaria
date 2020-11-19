@@ -8,6 +8,8 @@ class Clientes(models.Model):
     email = models.EmailField(max_length=140)
     promotor = models.ForeignKey(User, on_delete=models.PROTECT)
     telefono = models.CharField(max_length=140)
+    tramite = models.CharField(max_length=140, blank=True, null=True)
+    alcance_credito = models.FloatField(default=0, blank=True, null=True)
 
     def __str__(self):
         """Return Clientes name."""

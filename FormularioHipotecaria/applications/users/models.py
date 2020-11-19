@@ -39,7 +39,8 @@ class User(AbstractUser, PermissionsMixin):
         profile_pic = str(self.foto).replace(' ', '_').lower()
         profile_pic = profile_pic.replace('static/', '')
 
-        self.url = 'http://127.0.0.1:8000/?first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
+        self.url = 'http://127.0.0.1:8000/?id={}&first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
+            self.pk,
             self.first_name,
             self.last_name,
             profile_pic,
