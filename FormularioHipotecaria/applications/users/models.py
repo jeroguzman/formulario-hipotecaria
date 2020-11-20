@@ -2,6 +2,15 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .managers import UserManager
 
+
+class Company(models.Model):
+    name = models.CharField(max_length=140)
+    logo = models.ImageField(upload_to='static/img/promotores/logos')
+
+    def __str__(self):
+        return self.name
+
+
 # Create your models here.
 class User(AbstractUser, PermissionsMixin):
     MODALIDAD_CHOICES = (
@@ -20,6 +29,7 @@ class User(AbstractUser, PermissionsMixin):
         choices=MODALIDAD_CHOICES, 
         default='Asesor'
         )
+    empresa = models.ForeignKey(Company, on_delete=models.PROTECT, blank=True, null=True)
     asesor = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
