@@ -47,38 +47,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                {% for models in object_list %}
                                     <tr>
-                                        <th scope="row">Nombre y Apellido</th>
-                                        <td>@Usuario4</td>
-                                        <td>(662)123 78 45</td>
-                                        <td>Usuario@gmail.com</td>
-                                        <td>Traspaso</td>
-                                        <td>Traspaso</td>
+                                        <th scope="row">{{ models.nombre }}</th>
+                                        <td>{{ models.promotor }}</td>
+                                        <td>{{ models.telefono }}</td>
+                                        <td>{{ models.email }}</td>
+                                        <td>{{ models.tramite }}</td>
+                                        <td>{{ models.alcance_credito }}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Nombre y Apellido</th>
-                                        <td>@Usuario3</td>
-                                        <td>(662)123 78 45</td>
-                                        <td>Usuario@gmail.com</td>
-                                        <td>Credito</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Nombre y Apellido</th>
-                                        <td>@Usuario1</td>
-                                        <td>(662)123 78 45</td>
-                                        <td>Usuario@gmail.com</td>
-                                        <td>Venta</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Nombre y Apellido</th>
-                                        <td>@Usuario2</td>
-                                        <td>(662)123 78 45</td>
-                                        <td>Usuario@gmail.com</td>
-                                        <td>Venta</td>
-
-                                    </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
