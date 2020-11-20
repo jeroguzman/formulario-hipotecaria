@@ -38,7 +38,7 @@ class User(AbstractUser, PermissionsMixin):
     # Campos no obligatoríos (Promotores)
     bienvenida_txt = models.TextField(blank=True)
     despedida_txt = models.TextField(blank=True)
-    foto = models.ImageField(upload_to='static/img/promotores')
+    foto = models.ImageField(upload_to='static/img/promotores', default='static/img/ic-2.png')
     url = models.TextField(blank=True)
 
     USERNAME_FIELD = 'username'
