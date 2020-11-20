@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
@@ -53,15 +53,12 @@ class HomeView(TemplateView):
             
         return render(request, self.template_name, context)
 
-class dashboardView(LoginRequiredMixin, TemplateView):
+class dashboardView(LoginRequiredMixin, ListView):
+    model = User
     template_name = 'dashboard/dashboard.html'
     login_url = reverse_lazy('users_app:u-login')
 
+    def get_queryset(self):
+        queryset = User.objects.filter(modalidad='Promotor')
 
-class clientesView(LoginRequiredMixin, TemplateView):
-    template_name = 'dashboard/clientes/clientes.html'
-    login_url = reverse_lazy('users_app:u-login')
-
-    
-
-
+        return queryset
