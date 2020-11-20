@@ -11,12 +11,12 @@
 <!-- 3. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3" per=18 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
 {%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
-{%include "./includes/panel-botones.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3a. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3a" per=18 desc="Ok, veamos las condiciones de tu crédito actual." pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
 {%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
-{%include "./includes/panel-botones.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3x. Lo sentimos -->
 {%include "./includes/panel.html" with id="m3x" per=100 desc="Lo sentimos, si actualmente tu hipoteca trae atraso ningún banco nos mejorará las condiciones. <br> <br>Te recomiendo ponerte al día, esperar un año y lo intentamos en su momento. <br> <br> ¡Quedo a la orden!"%}
@@ -39,7 +39,7 @@
 <!-- 4. ¿Cuánto pagas de mensualidad? -->
 {%include "./includes/panel.html" with id="m4" per=27 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto pagas de mensualidad?"%}
 {%include "./includes/dinero.html" with name="valor"%}
-{%include "./includes/panel-botones.html" with next="m5" emsg="El campo valor debe ser mayor a 0"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m5" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5. ¿A cuántos años fue tu crédito? -->
 {%include "./includes/panel.html" with id="m5" per=36 desc="Favor de responder la siguiente pregunta:" pregunta="¿A cuántos años fue tu crédito?"%}
@@ -73,7 +73,7 @@
         <option>30</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m6"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m6"%}
 
 <!-- 6. ¿Cuánto tiempo llevas pagando tu crédito? -->
 {%include "./includes/panel.html" with id="m6" per=45 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto tiempo llevas pagando tu crédito?"%}
@@ -119,7 +119,7 @@
         <option>12</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m7"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m7"%}
 
 <!-- 7. ¿Tu crédito fue un crédito cofinanciado? -->
 {%include "./includes/panel.html" with id="m7" per=54 desc="Favor de responder la siguiente pregunta:" pregunta="¿Tu crédito fue un crédito cofinanciado?"%}
@@ -131,7 +131,7 @@
         <option>Otro</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m8"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m8"%}
 
 <!-- 8. ¿A cuántos años fue tu crédito? -->
 {%include "./includes/panel.html" with id="m8" per=63 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuál es la institución actual con la que tienes tu hipoteca?"%}
@@ -152,7 +152,7 @@
         <option>Otro</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m9"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m9"%}
 
 <!-- 9. Tu crédito está en: -->
 {%include "./includes/panel.html" with id="m9" per=72 desc="Favor de responder la siguiente pregunta:" pregunta="Tu crédito está en:"%}
@@ -163,7 +163,7 @@
         <option>VSM (Veces Salario Mínimo)</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m10"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m10"%}
 
 <!-- 10. Los pagos pactados de tu crédito son: -->
 {%include "./includes/panel.html" with id="m10" per=81 desc="Favor de responder la siguiente pregunta:" pregunta="Los pagos pactados de tu crédito son:"%}
@@ -173,9 +173,9 @@
         <option>Crecientes</option>
     </select>
 </div>
-{%include "./includes/panel-botones.html" with next="m11"%}
+{%include "./includes/panel-botones-siguiente.html" with next="m11"%}
 
 <!-- 11. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="m11" per=90 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
 <input name="nombre" type="text" class="form-control" form="form-db" maxlength="50" disabled />
-{%include "./includes/panel-botones.html" with next="telefono" emsg="Ingrese un nombre válido"%}
+{%include "./includes/panel-botones-siguiente.html" with next="telefono" emsg="Ingrese un nombre válido"%}

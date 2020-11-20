@@ -22,9 +22,9 @@
                     <p>¡Hola! Soy
                         <strong>
                             {% if request.GET.first_name == null %}
-                                su asesor,
+                            su asesor,
                             {% else %}
-                                {{ request.GET.first_name }} {{ request.GET.last_name}},
+                            {{ request.GET.first_name }} {{ request.GET.last_name}},
                             {% endif %}
                         </strong> ejecutivo experto en Créditos
                         Hipotecarios,
@@ -77,7 +77,6 @@
         <form action="." method="post" id="form-db">
             {% csrf_token %}
             <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
-
         </form>
 
         {% include 'home/formularios/compra.html' %}
