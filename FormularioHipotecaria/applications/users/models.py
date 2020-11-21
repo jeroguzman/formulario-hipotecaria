@@ -19,9 +19,19 @@ class User(AbstractUser, PermissionsMixin):
     )
 
     # Campos obligatoríos (Asesores)
-    first_name = models.CharField(max_length=30, verbose_name='Nombre(s)')
-    last_name = models.CharField(max_length=30, verbose_name='Apellidos')
-    username = models.CharField(max_length=30, unique=True)
+    first_name = models.CharField(
+        max_length=30, 
+        verbose_name='Nombre(s)'
+        )
+    last_name = models.CharField(
+        max_length=30, 
+        verbose_name='Apellidos'
+        )
+    username = models.CharField(
+        max_length=30, 
+        unique=True, 
+        verbose_name='Nombre de usuario'
+    )
     email = models.EmailField(unique=True)
     telefono = models.CharField(max_length=13, unique=True)
     modalidad = models.CharField(
@@ -29,17 +39,23 @@ class User(AbstractUser, PermissionsMixin):
         choices=MODALIDAD_CHOICES, 
         default='Asesor'
         )
-    empresa = models.ForeignKey(Company, on_delete=models.PROTECT, blank=True, null=True)
+    empresa = models.ForeignKey(
+        Company,
+        on_delete=models.PROTECT,
+        blank=True,
+        null=True
+    )
     asesor = models.CharField(max_length=20, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
-    
+
     # Campos no obligatoríos (Promotores)
     bienvenida_txt = models.TextField(blank=True)
     despedida_txt = models.TextField(blank=True)
-    foto = models.ImageField(upload_to='static/img/promotores', default='static/img/ic-2.png')
+    foto = models.ImageField(
+        upload_to='static/img/promotores', 
+        default='static/img/ic-2.png'
+        )
     url = models.TextField(blank=True)
+    is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email', 'telefono']

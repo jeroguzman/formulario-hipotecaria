@@ -29,6 +29,7 @@ class UserRegisterForm(forms.ModelForm):
             'telefono',
             'modalidad',
             'asesor',
+            'empresa',
             'bienvenida_txt',
             'despedida_txt',
             'foto',
@@ -43,6 +44,7 @@ class UserRegisterForm(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
             'modalidad': forms.Select(attrs={'id': 'modalidad', 'class': 'form-control promotor-field'}),
             'asesor': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
+            'empresa': forms.Select(attrs={'class': 'form-control promotor-field'}),
             'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
@@ -76,15 +78,15 @@ class LoginForm(forms.Form):
         )
     )
 
-    def clean(self):
-        cleaned_data = super(LoginForm, self).clean() 
-        username = self.cleaned_data['username']
-        password = self.cleaned_data['password']
+    # def clean(self):
+    #     cleaned_data = super(LoginForm, self).clean() 
+    #     username = self.cleaned_data['username']
+    #     password = self.cleaned_data['password']
 
-        if not authenticate(username=username, password=password):
-            raise forms.ValidationError('El nombre de usuario o la contraseña no coinciden')
+    #     if not authenticate(username=username, password=password):
+    #         raise forms.ValidationError('El nombre de usuario o la contraseña no coinciden')
 
-        return self.cleaned_data
+    #     return self.cleaned_data
 
 
 class UpdatePassForm(forms.Form):

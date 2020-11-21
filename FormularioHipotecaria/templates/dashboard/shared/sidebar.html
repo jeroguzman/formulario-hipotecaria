@@ -22,11 +22,12 @@
                                 alt="icono dashboard">Dashboard</a>
 
                     </li>
+                    {% if user.modalidad == 'Asesor' %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users_app:u-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
                                 alt="icono dashboard">Asesores</a>
                     </li>
-
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users_app:u-promotores' %}"><img src="{%static 'img/ic-2.png'%}"
                             alt="icono dashboard">Promotores</a>

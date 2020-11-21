@@ -19,6 +19,7 @@ from .models import User
 
 # Create your views here.
 class UserRegisterView(LoginRequiredMixin, FormView):
+    model = User
     template_name = 'dashboard/users/register.html'
     form_class = UserRegisterForm
     success_url = reverse_lazy('users_app:u-dashboard')
@@ -31,8 +32,9 @@ class UserRegisterView(LoginRequiredMixin, FormView):
             form.cleaned_data['username'],
             form.cleaned_data['email'],
             form.cleaned_data['telefono'],
-            form.cleaned_data['modalidad'],
+            form.cleaned_data['password'],
             asesor=self.request.user.username,
+            empresa=form.cleaned_data['empresa'],
             bienvenida_txt=form.cleaned_data['bienvenida_txt'],
             despedida_txt=form.cleaned_data['despedida_txt'],
             foto=form.cleaned_data['foto'],
@@ -89,6 +91,8 @@ class LoginView(FormView):
             username=form_user,
             password=form_pass
         )
+
+        print(user)
         login(self.request, user)
 
         return super(LoginView, self).form_valid(form)
