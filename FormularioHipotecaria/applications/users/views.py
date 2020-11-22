@@ -58,6 +58,7 @@ class UserUpadateView(LoginRequiredMixin, UpdateView):
     'email',
     'telefono',
     'modalidad',
+    'empresa',
     'asesor',
     'bienvenida_txt',
     'despedida_txt',
@@ -82,17 +83,12 @@ class LoginView(FormView):
     def form_valid(self, form):
         form_user = form.cleaned_data['username']
         form_pass = form.cleaned_data['password']
-        bd_user = User.objects.get(username=form_user)
-
-        print('** [USERNAME -> ' + form_user + ', ' + bd_user.username + '] **')
-        print('** [PASSWORD -> ' + form_pass + ', ' + bd_user.password + '] **')
 
         user = authenticate(
             username=form_user,
             password=form_pass
         )
 
-        print(user)
         login(self.request, user)
 
         return super(LoginView, self).form_valid(form)
@@ -124,7 +120,8 @@ class UserUpdatePassView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         user = User.objects.get(pk=self.kwargs['pk'])
-        user.set_password(form.cleaned_data['confirm_new_pass'])
+
+        user.set_password(form.cleaned_data['new_pass'])
         user.save()
 
         return super(UserUpdatePassView, self).form_valid(form)
@@ -135,7 +132,6 @@ class asesorListView(LoginRequiredMixin, ListView):
     template_name = 'dashboard/users/asesores_list.html'
     login_url = reverse_lazy('users_app:u-login')
     paginate_by = 10
-
 
     def get_queryset(self):
         queryset = User.objects.filter(modalidad='Asesor')
