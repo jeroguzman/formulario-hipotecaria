@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from .managers import UserManager
 
 
+# Create your models here.
 class Company(models.Model):
     name = models.CharField(max_length=140)
     logo = models.ImageField(upload_to='static/img/promotores/logos')
@@ -11,7 +12,6 @@ class Company(models.Model):
         return self.name
 
 
-# Create your models here.
 class User(AbstractUser, PermissionsMixin):
     MODALIDAD_CHOICES = (
         ('Asesor', 'Asesor'),

@@ -31,8 +31,8 @@ class HomeView(TemplateView):
         sender = ''
         send_mail(client_subject, client_message, sender, [correo])
 
-        admin_subject = 'Reigistro de nuevo cliente'
-        admin_message = 'Un nuevo cliente se ah registrado bajo el siguiente perfil:'\
+        admin_subject = 'Registro de nuevo cliente'
+        admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\
             '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {} '\
             '\n Alcance de credito: {}'.format(
                 nombre, 
@@ -42,7 +42,7 @@ class HomeView(TemplateView):
                 tramite, 
                 client.alcance_credito
                 )
-        admin_mail = 'admin@mail.com'
+        admin_mail = 'correomshipotecaria@gmail.com'
         promotor_email = promotor.email
         asesor_email = User.objects.get(username=promotor.asesor).email
 

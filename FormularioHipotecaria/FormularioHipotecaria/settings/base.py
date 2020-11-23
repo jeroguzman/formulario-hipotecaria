@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'applications.home',
     'applications.clientes',
     'applications.users',
+    'applications.calc',
     
 ]
 
