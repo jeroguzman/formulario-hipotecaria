@@ -1,0 +1,386 @@
+[
+    {
+        "model": "calc.Banco",
+        "pk": 1,
+        "fields": {
+            "nombre": "BANORTE",
+            "factor_millar": 10.00
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 2,
+        "fields": {
+            "nombre": "HSBC",
+            "factor_millar": 9.75
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 3,
+        "fields": {
+            "nombre": "BANAMEX",
+            "factor_millar": 9.74
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 4,
+        "fields": {
+            "nombre": "SANTANDER",
+            "factor_millar": 10.42
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 5,
+        "fields": {
+            "nombre": "SCOTIABANK",
+            "factor_millar": 10.68
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 6,
+        "fields": {
+            "nombre": "BX+",
+            "factor_millar": 9.97
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 7,
+        "fields": {
+            "nombre": "AFIRME",
+            "factor_millar": 9.91
+        }
+    },
+    {
+        "model": "calc.Banco",
+        "pk": 8,
+        "fields": {
+            "nombre": "BANREGIO",
+            "factor_millar": 10.74
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 1,
+        "fields": {
+            "banco": 1,
+            "nombre": "Asalariado_banorte",
+            "castigo": 1,
+            "endeudamiento": 0.6
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 2,
+        "fields": {
+            "banco": 1,
+            "nombre": "Servicios_banorte",
+            "castigo": 0.6,
+            "endeudamiento": 0.6
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 3,
+        "fields": {
+            "banco": 1,
+            "nombre": "Comerciante_banorte",
+            "castigo": 0.6,
+            "endeudamiento": 0.6
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 4,
+        "fields": {
+            "banco": 1,
+            "nombre": "Otros_banorte",
+            "castigo": 0.6,
+            "endeudamiento": 0.6
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 5,
+        "fields": {
+            "banco": 2,
+            "nombre": "Asalariado_hsbc",
+            "castigo": 1,
+            "endeudamiento": 0.6
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 6,
+        "fields": {
+            "banco": 2,
+            "nombre": "Servicios_hsbc",
+            "castigo": 0.75,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 7,
+        "fields": {
+            "banco": 2,
+            "nombre": "Comerciante_hsbc",
+            "castigo": 0.5,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 8,
+        "fields": {
+            "banco": 2,
+            "nombre": "Otros_hsbc",
+            "castigo": 0.2,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 9,
+        "fields": {
+            "banco": 3,
+            "nombre": "Asalariado_banamex",
+            "castigo": 1.2,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 10,
+        "fields": {
+            "banco": 3,
+            "nombre": "Servicios_banamex",
+            "castigo": 0.8,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 11,
+        "fields": {
+            "banco": 3,
+            "nombre": "Comerciante_banamex",
+            "castigo": 0.3,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 12,
+        "fields": {
+            "banco": 3,
+            "nombre": "Otros_banamex",
+            "castigo": 0.2,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 13,
+        "fields": {
+            "banco": 4,
+            "nombre": "Asalariado_santander",
+            "castigo": 1.8,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 14,
+        "fields": {
+            "banco": 4,
+            "nombre": "Servicios_santander",
+            "castigo": 0.8,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 15,
+        "fields": {
+            "banco": 4,
+            "nombre": "Comerciante_santander",
+            "castigo": 0.3,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 16,
+        "fields": {
+            "banco": 4,
+            "nombre": "Otros_santander",
+            "castigo": 0.2,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 17,
+        "fields": {
+            "banco": 5,
+            "nombre": "Asalariado_scotiabank",
+            "castigo": 1.1,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 18,
+        "fields": {
+            "banco": 5,
+            "nombre": "Servicios_scotiabank",
+            "castigo": 0.75,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 19,
+        "fields": {
+            "banco": 5,
+            "nombre": "Comerciante_scotiabank",
+            "castigo": 0.3,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 20,
+        "fields": {
+            "banco": 5,
+            "nombre": "Otros_scotiabank",
+            "castigo": 0.1,
+            "endeudamiento": 0.55
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 21,
+        "fields": {
+            "banco": 6,
+            "nombre": "Asalariado_bx+",
+            "castigo": 1.2,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 22,
+        "fields": {
+            "banco": 6,
+            "nombre": "Servicios_bx+",
+            "castigo": 0.6,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 23,
+        "fields": {
+            "banco": 6,
+            "nombre": "Comerciante_bx+",
+            "castigo": 0.3,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 24,
+        "fields": {
+            "banco": 6,
+            "nombre": "Otros_bx+",
+            "castigo": 0.2,
+            "endeudamiento": 0.45
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 25,
+        "fields": {
+            "banco": 7,
+            "nombre": "Asalariado_afirme",
+            "castigo": 1,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 26,
+        "fields": {
+            "banco": 7,
+            "nombre": "Servicios_afirme",
+            "castigo": 0.65,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 27,
+        "fields": {
+            "banco": 7,
+            "nombre": "Comerciante_afirme",
+            "castigo": 0.3,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 28,
+        "fields": {
+            "banco": 7,
+            "nombre": "Otros_afirme",
+            "castigo": 0.2,
+            "endeudamiento": 0.65
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 29,
+        "fields": {
+            "banco": 8,
+            "nombre": "Asalariado_banregio",
+            "castigo": 1,
+            "endeudamiento": 0.5
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 30,
+        "fields": {
+            "banco": 8,
+            "nombre": "Servicios_banregio",
+            "castigo": 0.7,
+            "endeudamiento": 0.5
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 31,
+        "fields": {
+            "banco": 8,
+            "nombre": "Comerciante_banregio",
+            "castigo": 0.6,
+            "endeudamiento": 0.5
+        }
+    },
+    {
+        "model": "calc.Actividad",
+        "pk": 32,
+        "fields": {
+            "banco": 8,
+            "nombre": "Otros_banregio",
+            "castigo": 0.6,
+            "endeudamiento": 0.5
+        }
+    }
+]
