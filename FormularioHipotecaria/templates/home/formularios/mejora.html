@@ -6,16 +6,17 @@
 {%include "./includes/opcion.html" with for="m3a" class="opcion not" texto="Me he atrasado 1 o 2 veces en el año pero estoy al día"%}
 {%include "./includes/opcion.html" with for="m3a" class="opcion not" texto="Me atrasé 3 o más meses pero ya estoy al día"%}
 {%include "./includes/opcion.html" with for="m3x" class="opcion not" texto="Actualmente voy atrasado en el pago de mi hipoteca"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="puntualidad_pagos"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 3. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3" per=18 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
-{%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
+{%include "./includes/dinero.html" with name="saldo_actual" form="form-db" titulo="Saldo de tu hipoteca"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3a. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3a" per=18 desc="Ok, veamos las condiciones de tu crédito actual." pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
-{%include "./includes/dinero.html" with name="valor" titulo="Saldo de tu hipoteca"%}
+{%include "./includes/dinero.html" with name="saldo_actual" form="form-db" titulo="Saldo de tu hipoteca"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3x. Lo sentimos -->
@@ -38,13 +39,13 @@
 
 <!-- 4. ¿Cuánto pagas de mensualidad? -->
 {%include "./includes/panel.html" with id="m4" per=27 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto pagas de mensualidad?"%}
-{%include "./includes/dinero.html" with name="valor"%}
+{%include "./includes/dinero.html" with name="pago_mensual" form="form-db"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m5" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5. ¿A cuántos años fue tu crédito? -->
 {%include "./includes/panel.html" with id="m5" per=36 desc="Favor de responder la siguiente pregunta:" pregunta="¿A cuántos años fue tu crédito?"%}
 <div class="form-group">
-    <select class="form-control">
+    <select class="form-control" form="form-db" name="años_credito" disabled>
         <option>5</option>
         <option>6</option>
         <option>7</option>
@@ -79,7 +80,7 @@
 {%include "./includes/panel.html" with id="m6" per=45 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto tiempo llevas pagando tu crédito?"%}
 <div class="form-group">
     <label for="exampleFormControlSelect1">Años</label>
-    <select class="form-control">
+    <select class="form-control" form="form-db" name="tiempo_pagando_años" disabled>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -104,7 +105,7 @@
 </div>
 <div class="form-group">
     <label for="exampleFormControlSelect1">Meses</label>
-    <select class="form-control">
+    <select class="form-control" form="form-db" name="tiempo_pagando_meses" disabled>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -123,20 +124,17 @@
 
 <!-- 7. ¿Tu crédito fue un crédito cofinanciado? -->
 {%include "./includes/panel.html" with id="m7" per=54 desc="Favor de responder la siguiente pregunta:" pregunta="¿Tu crédito fue un crédito cofinanciado?"%}
-<div class="form-group">
-    <select class="form-control">
-        <option>No</option>
-        <option>Sí, con Infovavit</option>
-        <option>Sí, con Fovissste</option>
-        <option>Otro</option>
-    </select>
-</div>
-{%include "./includes/panel-botones-siguiente.html" with next="m8"%}
+{%include "./includes/opcion.html" with for="m8" class="opcion" texto="No"%}
+{%include "./includes/opcion.html" with for="m8" class="opcion" texto="Sí, con Infonavit"%}
+{%include "./includes/opcion.html" with for="m8" class="opcion" texto="Sí, con Fovissste"%}
+{%include "./includes/opcion.html" with for="m8" class="opcion" texto="Otro"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="credito_cofinanciado"%}
+{%include "./includes/panel-botones.html"%}
 
-<!-- 8. ¿A cuántos años fue tu crédito? -->
+<!-- 8. Banco -->
 {%include "./includes/panel.html" with id="m8" per=63 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuál es la institución actual con la que tienes tu hipoteca?"%}
 <div class="form-group">
-    <select class="form-control">
+    <select class="form-control" form="form-db" name="institucion_hipotecaria" disabled>
         <option>Afirme</option>
         <option>B x Más</option>
         <option>Banbajío</option>
@@ -156,24 +154,18 @@
 
 <!-- 9. Tu crédito está en: -->
 {%include "./includes/panel.html" with id="m9" per=72 desc="Favor de responder la siguiente pregunta:" pregunta="Tu crédito está en:"%}
-<div class="form-group">
-    <select class="form-control">
-        <option>Pesos</option>
-        <option>UDIS</option>
-        <option>VSM (Veces Salario Mínimo)</option>
-    </select>
-</div>
-{%include "./includes/panel-botones-siguiente.html" with next="m10"%}
+{%include "./includes/opcion.html" with for="m10" class="opcion" texto="Pesos"%}
+{%include "./includes/opcion.html" with for="m10" class="opcion" texto="UDIS"%}
+{%include "./includes/opcion.html" with for="m10" class="opcion" texto="VSM (Veces Salario Mínimo)"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="moneda_credito"%}
+{%include "./includes/panel-botones.html"%}
 
 <!-- 10. Los pagos pactados de tu crédito son: -->
 {%include "./includes/panel.html" with id="m10" per=81 desc="Favor de responder la siguiente pregunta:" pregunta="Los pagos pactados de tu crédito son:"%}
-<div class="form-group">
-    <select class="form-control">
-        <option>Fijos</option>
-        <option>Crecientes</option>
-    </select>
-</div>
-{%include "./includes/panel-botones-siguiente.html" with next="m11"%}
+{%include "./includes/opcion.html" with for="m11" class="opcion" texto="Fijos"%}
+{%include "./includes/opcion.html" with for="m11" class="opcion" texto="Crecientes"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="pagos_pactados"%}
+{%include "./includes/panel-botones.html"%}
 
 <!-- 11. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="m11" per=90 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}

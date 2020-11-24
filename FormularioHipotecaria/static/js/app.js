@@ -33,6 +33,7 @@ $('.opcionNext').each(function () {
         target.fadeIn(100);
         target.addClass('path');
         target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+        target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
         $(this).parent().parent().parent().parent().parent().hide();
 
         //Toma el html de la opcion seleccionada para poder hacer submit en el form
@@ -47,23 +48,20 @@ $('.opcionNext').each(function () {
 $('.perfilamiento').each(function () {
     const target = $('#' + $(this).attr('for'));
     const correo = $(this).parent().parent().find('input[name=correo]');
-    const telefono = $(this).parent().parent().find('input[name=telefono]');
     $(this).click(function () {
-        if((correo.length && correo.val().match(regexEmail)) || (telefono.length && telefono.cleanVal().length === 10)){
+        if((correo.length && correo.val().match(regexEmail)) ){
             target.fadeIn(100);
             target.addClass('path');
             target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+            target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+            $('.money').unmask();
             $(this).parent().parent().parent().parent().hide();            
         }else{            
             $(this).siblings('.emsg').removeClass('hidden');
         }
 
     })
-})
-
-// $('#form-db').submit(function(e){
-//   e.preventDefault();
-// });
+});
 
 $('.goToMenu').each(function(){
     const target = $('#' + $(this).attr('for'));
@@ -106,7 +104,6 @@ $('.btnNext').each(function () {
             $('.opcion-input').each(function () {
                 const choosenOption = $(this).siblings('.opcion-active').children().html();
                 $(this).val(choosenOption);
-                console.log($(this).siblings('.opcion-active').children().html());
             });
 
             //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se eligio
@@ -114,11 +111,12 @@ $('.btnNext').each(function () {
                 target.fadeIn(100);
                 target.addClass('path'); //Agrega la clase path a el panel para saber el camino que va tomanto el formulario
                 target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-                telefono.unmask();
+                target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
             } else {
                 targetOption.fadeIn(100);
                 targetOption.addClass('path');
                 targetOption.find('input').prop('disabled', false);
+                targetOption.find('select').prop('disabled', false);
             }
 
             $(this).parent().parent().parent().parent().parent().parent().hide();
@@ -138,6 +136,7 @@ $('.btnAnt').each(function () {
         const thisPanel = $(this).parent().parent().parent().parent().parent().parent();
         thisPanel.hide();
         thisPanel.find('input').prop('disabled', true);
+        thisPanel.find('select').prop('disabled', true);
         thisPanel.removeClass('path');
     });
 });
@@ -150,6 +149,7 @@ $('.antPer').each(function () {
         const thisPanel = $(this).parent().parent().parent().parent().parent();
         thisPanel.hide();
         thisPanel.find('input').prop('disabled', true);
+        thisPanel.find('select').prop('disabled', true);
         thisPanel.removeClass('path');
     });
 });
@@ -162,7 +162,6 @@ $('input[name=valor]').on('keypress keydown keyup', function () {
         $(this).parent().siblings('.emsg').addClass('hidden');
     }
 });
-
 
 $('input[name=nombre]').on('keypress keydown keyup', function () {
     if (!$(this).val().match(regexName)) {

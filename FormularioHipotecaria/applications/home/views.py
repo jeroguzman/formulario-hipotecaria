@@ -17,12 +17,70 @@ class HomeView(TemplateView):
         correo = request.POST.get('correo')
         promotor = User.objects.get(id=request.POST.get('promotor'))
 
+        #Mejora
+        puntualidad_pagos = request.POST.get('puntualidad_pagos')
+        saldo_actual = request.POST.get('saldo_actual')
+        pago_mensual = request.POST.get('pago_mensual')
+        años_credito = request.POST.get('años_credito')
+        tiempo_pagando_años = request.POST.get('tiempo_pagando_años')
+        tiempo_pagando_meses = request.POST.get('tiempo_pagando_meses')
+        credito_cofinanciado = request.POST.get('credito_cofinanciado')
+        institucion_hipotecaria = request.POST.get('institucion_hipotecaria')
+        moneda_credito = request.POST.get('moneda_credito')
+        pagos_pactados = request.POST.get('pagos_pactados')
+
+        #Compra
+        #inmueble_identificado = request.POST.get('inmueble_identificado') #
+        valor_inmueble = request.POST.get('valor_inmueble')
+        actividad = request.POST.get('actividad')
+        institucion = request.POST.get('institucion')
+        #pagando_credito_inmb = request.POST.get('pagando_credito_inmb')
+        ingreso_mensual = request.POST.get('ingreso_mensual')
+        giro_actividad = request.POST.get('giro_actividad')
+        estado_civil = request.POST.get('estado_civil')
+        #mostrar_mayor_ingreso = request.POST.get('mostrar_mayor_ingreso')
+        giro_actividad_co_acreditado = request.POST.get('giro_actividad_co_acreditado')
+        actividad_co_acreditado = request.POST.get('actividad_co_acreditado')
+        instituciones_co_acreditado = request.POST.get('instituciones_co_acreditado')
+        #pagando_credito_inmb_co_acreditado = request.POST.get('pagando_credito_inmb_co_acreditado')
+        ingreso_mensual_co_acreditado = request.POST.get('ingreso_mensual_co_acreditado')
+        pago_credito = request.POST.get('pago_credito')
+
         client = Clientes(
             nombre=nombre,
             email=correo,
             promotor=promotor,
             telefono=telefono,
-            tramite=tramite
+            tramite=tramite,
+
+            #Mejora
+            puntualidad_pagos = puntualidad_pagos,
+            saldo_actual = saldo_actual,
+            pago_mensual = pago_mensual,
+            años_credito = años_credito,
+            tiempo_pagando_años = tiempo_pagando_años,
+            tiempo_pagando_meses = tiempo_pagando_meses,
+            credito_cofinanciado = credito_cofinanciado,
+            institucion_hipotecaria = institucion_hipotecaria,
+            moneda_credito = moneda_credito,
+            pagos_pactados = pagos_pactados,
+
+            #Compra
+            #inmueble_identificado = inmueble_identificado,
+            valor_inmueble = valor_inmueble,
+            actividad = actividad,
+            institucion = institucion,
+            #pagando_credito_inmb = pagando_credito_inmb,
+            ingreso_mensual = ingreso_mensual,
+            giro_actividad = giro_actividad,
+            estado_civil = estado_civil,
+            #mostrar_mayor_ingreso = mostrar_mayor_ingreso,
+            giro_actividad_co_acreditado = giro_actividad_co_acreditado,
+            actividad_co_acreditado = actividad_co_acreditado,
+            instituciones_co_acreditado = instituciones_co_acreditado,
+            #pagando_credito_inmb_co_acreditado = pagando_credito_inmb_co_acreditado,
+            ingreso_mensual_co_acreditado = ingreso_mensual_co_acreditado,
+            pago_credito = pago_credito
         )
         client.save()
 

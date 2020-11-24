@@ -82,17 +82,10 @@ class LoginForm(forms.Form):
         cleaned_data = super(LoginForm, self).clean() 
         username = self.cleaned_data['username']
         password = self.cleaned_data['password']
-<<<<<<< HEAD
-
-        if not authenticate(username=username, password=password):
-            raise forms.ValidationError('El nombre de usuario o la contraseña no coinciden')
-
-=======
         
         if not authenticate(username=username, password=password):
             raise forms.ValidationError('El nombre de usuario o la contraseña no coinciden')
             
->>>>>>> temp
         return self.cleaned_data
 
 
