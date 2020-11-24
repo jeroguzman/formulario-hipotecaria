@@ -47,6 +47,12 @@ class HomeView(TemplateView):
         ingreso_mensual_co_acreditado = request.POST.get('ingreso_mensual_co_acreditado')
         pago_credito = request.POST.get('pago_credito')
 
+        if(actividad == "Empleado"):
+            giro_actividad = "Asalariado"
+
+        if(actividad_co_acreditado == "Empleado"):
+            giro_actividad_co_acreditado = "Asalariado"
+
         client = Clientes(
             nombre=nombre,
             email=correo,
