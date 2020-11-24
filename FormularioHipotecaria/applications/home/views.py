@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from applications.clientes.models import Clientes
 from applications.users.models import User
+from applications.calc.calc import get_all_estimates
 
 
 class HomeView(TemplateView):
@@ -84,15 +85,17 @@ class HomeView(TemplateView):
         )
         client.save()
 
+        msg, alcances = get_all_estimates(client)
+
         client_subject = 'Registro'
-        client_message = 'Registro exitoso'
+        client_message = 'Registro exitoso\n' + msg
         sender = ''
         send_mail(client_subject, client_message, sender, [correo])
 
         admin_subject = 'Registro de nuevo cliente'
         admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\
             '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {} '\
-            '\n Alcance de credito: {}'.format(
+            '\n Alcance de credito: {}\n' + msg .format(
                 nombre, 
                 correo, 
                 promotor, 

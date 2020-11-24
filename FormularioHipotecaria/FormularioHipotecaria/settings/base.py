@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'applications.clientes',
     'applications.users',
     'applications.calc',
-    
 ]
 
 MIDDLEWARE = [
