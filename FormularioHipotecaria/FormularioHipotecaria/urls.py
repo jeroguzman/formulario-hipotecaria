@@ -6,4 +6,5 @@ urlpatterns = [
     re_path('', include('applications.home.urls')),
     re_path('', include('applications.clientes.urls')),
     re_path('', include('applications.users.urls')),
+    re_path('', include('applications.calc.urls')),
 ]
