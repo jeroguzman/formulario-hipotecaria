@@ -53,6 +53,18 @@ class HomeView(TemplateView):
         if(actividad_co_acreditado == "Empleado"):
             giro_actividad_co_acreditado = "Asalariado"
 
+        if(giro_actividad == "Empleado"):
+            giro_actividad = "Asalariado"
+
+        if(giro_actividad == "Independiente"):
+            giro_actividad = "Otros"
+
+        if(giro_actividad_co_acreditado == "Empleado"):
+            giro_actividad_co_acreditado = "Asalariado"
+
+        if(giro_actividad_co_acreditado == "Independiente"):
+            giro_actividad_co_acreditado = "Otros"
+
         client = Clientes(
             nombre=nombre,
             email=correo,
