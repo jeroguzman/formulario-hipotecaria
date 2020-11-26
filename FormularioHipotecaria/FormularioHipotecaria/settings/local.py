@@ -1,8 +1,7 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 ALLOWED_HOSTS = ['mshipotecaria.ddns.net', '127.0.0.1']
 
 # Database
