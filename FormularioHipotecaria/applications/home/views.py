@@ -11,6 +11,19 @@ from applications.calc.calc import get_all_estimates
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
+class dashboardView(LoginRequiredMixin, ListView):
+    model = User
+    template_name = 'dashboard/dashboard.html'
+    login_url = reverse_lazy('users_app:u-login')
+
+    def get_queryset(self):
+        queryset = User.objects.filter(modalidad='Promotor')
+
+        return queryset
+
+class FinalView(TemplateView):
+    template_name = 'home/pagina_final.html'
+
     def post(self, request):
         tramite = request.POST.get('tramite')
         nombre = request.POST.get('nombre')
@@ -47,20 +60,14 @@ class HomeView(TemplateView):
         ingreso_mensual_co_acreditado = request.POST.get('ingreso_mensual_co_acreditado')
         pago_credito = request.POST.get('pago_credito')
 
-        if(actividad == "Empleado"):
+        if(actividad == "Empleado" or giro_actividad == "Empleado"):
             giro_actividad = "Asalariado"
 
-        if(actividad_co_acreditado == "Empleado"):
+        if(actividad_co_acreditado == "Empleado" or giro_actividad_co_acreditado == "Empleado"):
             giro_actividad_co_acreditado = "Asalariado"
-
-        if(giro_actividad == "Empleado"):
-            giro_actividad = "Asalariado"
 
         if(giro_actividad == "Independiente"):
             giro_actividad = "Otros"
-
-        if(giro_actividad_co_acreditado == "Empleado"):
-            giro_actividad_co_acreditado = "Asalariado"
 
         if(giro_actividad_co_acreditado == "Independiente"):
             giro_actividad_co_acreditado = "Otros"
@@ -131,13 +138,3 @@ class HomeView(TemplateView):
                 'correo':correo}
             
         return render(request, self.template_name, context)
-
-class dashboardView(LoginRequiredMixin, ListView):
-    model = User
-    template_name = 'dashboard/dashboard.html'
-    login_url = reverse_lazy('users_app:u-login')
-
-    def get_queryset(self):
-        queryset = User.objects.filter(modalidad='Promotor')
-
-        return queryset

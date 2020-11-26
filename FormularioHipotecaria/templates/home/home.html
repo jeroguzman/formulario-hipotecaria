@@ -74,7 +74,7 @@
             </div><!-- End preguntas -->
         </div>
 
-        <form action="." method="post" id="form-db">
+        <form action="pagina_final/" method="post" id="form-db">
             {% csrf_token %}
             <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
         </form>

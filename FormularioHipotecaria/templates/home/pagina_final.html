@@ -1,0 +1,47 @@
+{% extends '../base.html'%}
+{% load static %}
+
+
+{% block body %}
+<div>
+    <div class="header">
+        <div class="logo-container">
+            <img src="{% static 'img/logo-blanco.png'%}" alt="">
+        </div>
+    </div><!-- End header -->
+
+    <div class="container-fluid">
+        <h3 style="text-align: center;">Gracias por llenar las preguntas para tu perfilamiento. <br> <br>
+            Te enviamos el resultado de tu crédito a tu correo
+            electrónico, si no lo encuentras revisa tu carpeta de spam.</h3>
+        <form action="https://www.mshipotecaria.com/">
+            <input type="submit" value="Ir a MS Hipotecaria" class="btn button" />
+        </form>
+
+
+        <div class="container" style="align-items: center;">
+            <h3 style="text-align: center;">"TODOS LOS BANCOS EN UN SOLO LUGAR"</h3>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-hsbc.png'%}" alt="logo hsbc" class="banco-img">
+                <img src="{%static 'img/logo-banorte.png'%}" alt="logo banorte" class="banco-img">
+                <img src="{%static 'img/logo-santander.png'%}" alt="logo santander" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-banamex.png'%}" alt="logo citibanamex" class="banco-img">
+                <img src="{%static 'img/logo-scotia.png'%}" alt="logo scotiabank" class="banco-img">
+                <img src="{%static 'img/logo-banregio.png'%}" alt="logo banregio" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-bx+.png'%}" alt="logo bx+" class="banco-img">
+
+                <img src="{%static 'img/logo-afirme.png'%}" alt="logo afirme" class="banco-img">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+{% endblock body %}

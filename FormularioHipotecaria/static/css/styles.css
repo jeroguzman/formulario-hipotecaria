@@ -92,7 +92,6 @@ button:focus {
 /* preguntas*/
 .opciones {
     text-align: center;
-
 }
 
 .opcion {
@@ -161,12 +160,17 @@ button:focus {
     align-self: center;
 }
 
+.button{
+    background-color: #1b2c54;
+    color: white;
+    display: block;
+    margin: 80px auto;
+    padding: 10px 50px;
+}
 
-
-
-
-
-
+.button:hover{
+    background-color: #9b723c;
+}
 
 
 .panel,
