@@ -12,9 +12,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'msh',
-        'NAME': 'mshipotecaria2020',
+        'NAME': 'mshprod',
+        'PASSWORD': 'mshipotecaria2020',
+        'HOST': 'localhost',
+        'PORT': '',
         'TEST': {
-            'NAME': 'msh_prod',
+            'NAME': 'mshprod',
         },
     },
 }
