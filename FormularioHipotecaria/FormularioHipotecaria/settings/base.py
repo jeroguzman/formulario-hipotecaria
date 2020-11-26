@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).parents[2]
@@ -9,6 +10,7 @@ BASE_DIR = Path(__file__).parents[2]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'w3k%!o77iex8-^ss7dctd6p4r9)n4@6st3oqna^s0=_5afsy97'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Application definition
 
@@ -34,9 +36,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'FormularioHipotecaria.urls'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 TEMPLATES = [
     {
