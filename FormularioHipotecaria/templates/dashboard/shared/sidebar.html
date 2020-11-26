@@ -19,40 +19,41 @@
                 <ul class="navbar-nav flex-column">
                     <li class="nav-item ">
                         <a class="nav-link" href="{% url 'users_app:u-dashboard' %}"><img src="{%static 'img/ic-1.png'%}"
-                                alt="icono dashboard">Dashboard</a>
+                            alt="icono dashboard">Dashboard</a>
+                    </li>
 
-                    </li>
                     {% if user.modalidad == 'Asesor' %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users_app:u-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users_app:u-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
                                 alt="icono dashboard">Asesores</a>
-                    </li>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users_app:u-promotores' %}"><img src="{%static 'img/ic-2.png'%}"
+                                alt="icono dashboard">Promotores</a>
+                        </li>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users_app:u-promotores' %}"><img src="{%static 'img/ic-2.png'%}"
-                            alt="icono dashboard">Promotores</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'clients_app:a-clientes' %}"><img src="{%static 'img/ic-3.png'%}"
-                                alt="icono dashboard">Clientes</a>
+                            alt="icono dashboard">Clientes</a>
                     </li>
 
                     {% if user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'calc_app:c-banks' %}"><img src="{% static 'img/ic-3.png' %}"
-                                    alt="icono dashboard">Bancos</a>
+                                alt="icono dashboard">Bancos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'calc_app:c-banks' %}"><img src="{% static 'img/ic-3.png' %}"
-                                    alt="icono dashboard">Empresas Afiliadas</a>
+                            <a class="nav-link" href="{% url 'calc_app:c-empresas' %}"><img src="{% static 'img/ic-3.png' %}"
+                                alt="icono dashboard">Empresas Afiliadas</a>
                         </li>
                     {% endif %}
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users_app:u-logout' %}"><img src="{%static 'img/ic-3.png'%}"
-                                alt="icono dashboard">Cerrar Sesión</a>
+                            alt="icono dashboard">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

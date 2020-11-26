@@ -21,9 +21,10 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h1 class="card-header">{% if models.foto.url == None %}
-                            <img src="{% static 'img\ic-2.png' %}" width="64"> {% else %}
-                            <img src="{{ models.foto.url }}" width="64"> {% endif %} {{ object.first_name }} {{ object.last_name }}</h1>
+                        <h1 class="card-header">
+                            <img src="{{ object.foto.url }}" width="64">
+                            {{ object.first_name }} {{ object.last_name }}
+                        </h1>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -32,11 +33,13 @@
                                     <th>Nombre de usuario</td>
                                     <th>Email</td>
                                     <th>Numero de telefono</td>
-                                    <th>Puesto</td> {% if user.modalidad == 'Promotor' %}
-                                    <th>Asesor</td>
-                                    <th>Texto de bienvenida </td>
-                                    <th>Texto de despedida</td>
-                                    <th>Url</td> {% endif %}
+                                    <th>Puesto</td> 
+                                    {% if object.modalidad == 'Promotor' %}
+                                        <th>Asesor</td>
+                                        <th>Texto de bienvenida </td>
+                                        <th>Texto de despedida</td>
+                                        <th>Url</td> 
+                                    {% endif %}
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -47,11 +50,13 @@
                                     <td>{{ object.username }}</td>
                                     <td>{{ object.email }}</td>
                                     <td>{{ object.telefono }}</td>
-                                    <td>{{ object.modalidad }}</td> {% if user.modalidad == 'Promotor' %}
-                                    <td>{{ object.asesor }}</td>
-                                    <td>{{ object.bienvenida_txt }}</td>
-                                    <td>{{ object.despedida_txt }}</td>
-                                    <td>{{ object.url }}</td> {% endif %}
+                                    <td>{{ object.modalidad }}</td> 
+                                    {% if user.modalidad == 'Promotor' %}
+                                        <td>{{ object.asesor }}</td>
+                                        <td>{{ object.bienvenida_txt }}</td>
+                                        <td>{{ object.despedida_txt }}</td>
+                                        <td>{{ object.url }}</td> 
+                                    {% endif %}
                                     <td>
                                         <a href="{% url 'users_app:u-edit' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="24" title="Editar"></a> |
                                         <a href="{% url 'users_app:u-delete' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="24" title="Eliminar"></a> |

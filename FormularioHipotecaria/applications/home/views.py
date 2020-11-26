@@ -17,7 +17,7 @@ class dashboardView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users_app:u-login')
 
     def get_queryset(self):
-        queryset = User.objects.filter(modalidad='Promotor')
+        queryset = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
 
         return queryset
 
@@ -120,7 +120,7 @@ class FinalView(TemplateView):
         admin_subject = 'Registro de nuevo cliente'
         admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\
             '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {} '\
-            '\n Alcance de credito: {}\n' + msg .format(
+            '\n Alcance de credito: {}\n'.format(
                 nombre, 
                 correo, 
                 promotor, 
@@ -128,6 +128,7 @@ class FinalView(TemplateView):
                 tramite, 
                 client.alcance_credito
                 )
+        admin_message += msg
         admin_mail = 'correomshipotecaria@gmail.com'
         promotor_email = promotor.email
         asesor_email = User.objects.get(username=promotor.asesor).email

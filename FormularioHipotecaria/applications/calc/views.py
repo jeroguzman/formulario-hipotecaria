@@ -1,10 +1,14 @@
 from django.views.generic import (
     UpdateView, 
-    ListView
+    ListView,
+    CreateView,
+    DeleteView
     )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Banco, Actividad
+from applications.users.models import Company
+from .forms import CompanyCreateForm
 
 
 # Create your views here.
@@ -49,3 +53,50 @@ class ActividadUpdateView(LoginRequiredMixin, UpdateView):
         'castigo',
         'endeudamiento',
         )
+
+
+class CompanyViews(LoginRequiredMixin, ListView):
+    model = Company
+    template_name = 'dashboard/calc/empresas.html'
+    login_url = reverse_lazy('users_app:u-login')
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = Company.objects.all()
+
+        return queryset
+
+
+class CompanyCreateView(LoginRequiredMixin, CreateView):
+    model = Company
+    template_name = 'dashboard/calc/crear_empresa.html'
+    form_class = CompanyCreateForm
+    success_url = reverse_lazy('calc_app:c-empresas')
+    login_url = reverse_lazy('users_app:u-login')
+
+    def form_valid(self, form):
+        empresa = Company.objects.create(
+            name=form.cleaned_data['name'],
+            logo=form.cleaned_data['logo']
+        )
+        empresa.save()
+
+        return super(CompanyCreateView, self).form_valid(form)
+
+
+class CompanyUpdateView(LoginRequiredMixin, UpdateView):
+    model = Company
+    template_name = 'dashboard/calc/edit_empresa.html'
+    success_url = reverse_lazy('calc_app:c-empresas')
+    login_url = reverse_lazy('users_app:login')
+    fields = (
+        'name',
+        'logo',
+        )
+
+
+class CompanyDeleteView(LoginRequiredMixin, DeleteView):
+    model = Company
+    template_name = 'dashboard/calc/delete_empresa.html'
+    success_url = reverse_lazy('calc_app:c-empresas')
+    login_url = reverse_lazy('users_app:u-login')

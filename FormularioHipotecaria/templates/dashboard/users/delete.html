@@ -11,50 +11,61 @@
 <link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 
 <!-- Css Styling -->
-
-{% endblock librerias-adicionales%}
-<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% block body %}
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
 
 <div class="dashboard-main-wrapper">
+
     {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <div class="row">
-                <form method="POST">
-                    {% csrf_token %}
+                <!-- ============================================================== -->
+                <!-- basic table -->
+                <!-- ============================================================== -->
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <h5 class="card-header">Banco</h5>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
 
-                    <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.username }}</strong>?</p>
+                                <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.username }}</strong>?</p>
 
-                    <input type="submit" class="btn btn-teal btn-danger btn-lg rounded-pill lift lift-sm" value="Eliminar">
-                    <button type="button" onclick="location.href='{% url 'users_app:u-detail' object.pk %}'" class="btn btn-primary">Cancelar</button>
-                </form>
+                                <input type="submit" class="btn btn-teal btn-danger btn-lg rounded-pill lift lift-sm" value="Eliminar">
+                                <button type="button" onclick="location.href='{% url 'users_app:u-detail' object.pk %}'" class="btn btn-primary">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    {% block scripts-adicionales %}
-    <!-- slimscroll js -->
-    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- chart chartist js -->
-    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <script src="assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
-    <script src="assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
-    <!-- chart C3 js -->
-    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <!-- chartjs js -->
-    <script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
-    <script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
-    <!-- sparkline js -->
-    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- dashboard finance js -->
-    <script src="assets/libs/js/dashboard-finance.js"></script>
-    <!-- main js -->
-    <script src="assets/libs/js/main-js.js"></script>
-    <!-- gauge js -->
-    <script src="assets/vendor/gauge/gauge.min.js"></script>
-    <!-- morris js -->
-    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
-    {% endblock scripts-adicionales %} {% endblock body %}
+
+{% block scripts-adicionales %}
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
+<!-- chart C3 js -->
+<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<!-- chartjs js -->
+<script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+<script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- dashboard finance js -->
+<script src="assets/libs/js/dashboard-finance.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- gauge js -->
+<script src="assets/vendor/gauge/gauge.min.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+{% endblock scripts-adicionales %} {% endblock body %}
