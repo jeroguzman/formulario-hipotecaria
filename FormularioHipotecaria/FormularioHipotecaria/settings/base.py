@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.WhiteNoiseMiddleware',
+    # 'django.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'FormularioHipotecaria.urls'
