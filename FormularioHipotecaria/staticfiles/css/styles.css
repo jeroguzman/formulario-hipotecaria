@@ -1,0 +1,183 @@
+@font-face {
+    font-family: Gotham;
+    src: url('/static/fonts/GothamBook.ttf');
+}
+
+@font-face {
+    font-family: Gotham-bold;
+    src: url('/static/fonts/GothamMedium.ttf');
+}
+
+@font-face {
+    font-family: Gotham-light;
+    src: url('/static/fonts/Gotham-Thin.otf');
+}
+
+body {
+    font-family: Gotham;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-align: justify;
+    color: #1b2c54;
+
+}
+
+a,
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+button:focus {
+    outline: none;
+}
+
+.inicio {
+    min-height: 100vh;
+    /*background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%23be9a66' fill-opacity='0.09' fill-rule='evenodd'/%3E%3C/svg%3E");*/
+}
+
+/*------- Header -------*/
+
+.header {
+    position: relative;
+}
+
+.logo-container {
+    background-color: #5e5e5e;
+    width: 100%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)
+}
+
+.logo-container img {
+    width: 15%;
+    min-width: 200px;
+    display: block;
+    margin: auto;
+}
+
+
+/*------- Body -------*/
+
+.container-fluid {
+    padding: 3% 20%;
+}
+
+.presentacion {
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.img-asesor {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1b2c54;
+    overflow: hidden;
+}
+
+.img-asesor img {
+    width: 100%;
+}
+
+.presentacion p {
+    margin-top: 1rem;
+}
+
+.progress {
+    margin: 0 auto 30px;
+}
+
+/* preguntas*/
+.opciones {
+    text-align: center;
+}
+
+.opcion {
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    background-color: #1b2c54;
+    margin: 15px auto;
+    color: white;
+    border-radius: 5px;
+}
+
+.not {
+    line-height: 25px;
+}
+
+.opcion:hover,
+.opcion-active {
+    background-color: #9b723c;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.btnNext,
+.btnAnt, .antPer {
+    width: 130px;
+    height: 50px;
+    border: none;
+    background-color: #5e5e5e;
+    margin: 15px auto;
+    color: white;
+    border-radius: 5px;
+}
+
+.btnNext:hover,
+.btnAnt:hover, .antPer:hover {
+    background-color: #8b8b8b;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Final */
+.perfilamiento {
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    background-color: #5e5e5e;
+    margin: 15px auto;
+    color: white;
+    border-radius: 5px;
+}
+
+.perfilamiento:hover{
+    background-color: #8b8b8b;
+}
+
+    /*Logos bancos*/
+.banco-div{
+    display: flex; 
+    justify-content: center;
+}
+
+.banco-img{
+    margin: 20px; 
+    align-self: center;
+}
+
+.button{
+    background-color: #1b2c54;
+    color: white;
+    display: block;
+    margin: 80px auto;
+    padding: 10px 50px;
+}
+
+.button:hover{
+    background-color: #9b723c;
+}
+
+
+.panel,
+.hidden {
+    display: none;
+}
+
+.emsg {
+    color: red !important;
+}
