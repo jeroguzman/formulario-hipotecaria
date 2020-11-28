@@ -13,7 +13,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'msh',
         'NAME': 'mshprod',
-        'PASSWORD': 'masdbadmin',
+        'PASSWORD': 'msdbadmin',
         'HOST': 'localhost',
         'PORT': '',
         'TEST': {
