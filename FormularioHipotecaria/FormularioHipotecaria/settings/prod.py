@@ -13,7 +13,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'USER': 'msh',
         'NAME': 'mshprod',
-        'PASSWORD': 'mshipotecaria2020',
+        'PASSWORD': 'masdbadmin',
         'HOST': 'localhost',
         'PORT': '',
         'TEST': {
