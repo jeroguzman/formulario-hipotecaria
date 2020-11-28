@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['138.68.61.212', '165.22.15.142', 'localhost', '127.0.0.1', 'perfilador.mshipotecaria.com']
+ALLOWED_HOSTS = ['138.68.61.212', 'localhost', '127.0.0.1', 'perfilador.mshipotecaria.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
