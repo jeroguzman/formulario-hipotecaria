@@ -2,8 +2,15 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+<<<<<<< Updated upstream
 BASE_DIR = Path(__file__).parents[2]
 print('BASE_DIR PATH -> ' + str(BASE_DIR))
+=======
+BASE_DIR = '/home/ms_admin/formulario-hipotecaria/env/FormularioHipotecaria/'
+
+#Path(__file__).parents[2]
+
+>>>>>>> Stashed changes
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
