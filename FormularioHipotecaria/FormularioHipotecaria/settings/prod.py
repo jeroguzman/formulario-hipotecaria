@@ -11,8 +11,8 @@ ALLOWED_HOSTS = ['165.22.15.142', 'localhost', '127.0.0.1', 'perfilador.mshipote
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'msh',
-        'NAME': 'admin_ms',
+        'USER': 'admin_ms',
+        'NAME': 'mshprod',
         'PASSWORD': 'msdbadmin',
         'HOST': 'localhost',
         'PORT': '',
