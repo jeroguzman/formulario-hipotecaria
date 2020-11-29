@@ -26,7 +26,6 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-
 # EMAIL SETTINGS
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
