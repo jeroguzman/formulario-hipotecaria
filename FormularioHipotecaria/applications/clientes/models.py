@@ -9,7 +9,6 @@ class Clientes(models.Model):
     promotor = models.ForeignKey(User, on_delete=models.PROTECT)
     telefono = models.CharField(max_length=140)
     tramite = models.CharField(max_length=140, blank=True, null=True)
-    alcance_credito = models.FloatField(default=0, blank=True, null=True)
     
     busqueda = models.CharField(max_length=140, blank=True, null=True) # Inicio
 
@@ -41,6 +40,16 @@ class Clientes(models.Model):
     # pagando_credito_inmb_co_acreditado = models.BooleanField(default=False, blank=True, null=True) ####
     ingreso_mensual_co_acreditado = models.FloatField(blank=True, null=True) 
     pago_credito = models.FloatField(blank=True, null=True) 
+
+    # Alcances de credito por banco
+    banorte = models.CharField(max_length=40, default='0.0')
+    hsbc = models.CharField(max_length=40, default='0.0')
+    banamex = models.CharField(max_length=40, default='0.0')
+    santander = models.CharField(max_length=40, default='0.0')
+    scotiabanck = models.CharField(max_length=40, default='0.0')
+    bx = models.CharField(max_length=40, default='0.0')
+    afirme = models.CharField(max_length=40, default='0.0')
+    banregio = models.CharField(max_length=40, default='0.0')
 
     # Construcción
     #valor_proyecto = models.FloatField(blank=True, null=True) ### puede ser valor_inmbueble ###

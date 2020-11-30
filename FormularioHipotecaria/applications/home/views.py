@@ -110,7 +110,19 @@ class FinalView(TemplateView):
         )
         client.save()
 
+        # Obteniendo los alcabces de credito por banco
         msg, alcances = get_all_estimates(client)
+
+        # Guardando alcances de credito en el modelo cliente
+        client.banorte = alcances['BANORTE']
+        client.hsbc = alcances['HSBC']
+        client.banamex = alcances['BANAMEX']
+        client.santander = alcances['SANTANDER']
+        client.scotiabanck = alcances['SCOTIABANK']
+        client.bx = alcances['BX+']
+        client.afirme = alcances['AFIRME']
+        client.banregio = alcances['BANREGIO']
+        client.save()
 
         client_subject = 'Registro'
         client_message = 'Registro exitoso\n' + msg
