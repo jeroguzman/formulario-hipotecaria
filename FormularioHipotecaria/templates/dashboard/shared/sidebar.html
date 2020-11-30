@@ -3,10 +3,10 @@
     <div class="menu-list">
 
         <div class="d-none d-md-flex administrador">
-            <img src="{%static 'img/ic-logo.png'%}" alt="logo">
+            <img src="{{ request.user.foto.url }}" alt="logo">
             <div>
                 <p>MI SOLUCIÓN HIPOTECARIA</p>
-                <p>{{ user }}</p>
+                <p>{{ request.user }}</p>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -22,7 +22,7 @@
                             alt="icono dashboard">Dashboard</a>
                     </li>
 
-                    {% if user.modalidad == 'Asesor' %}
+                    {% if request.user.modalidad == 'Asesor' %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'users_app:u-asesores' %}"><img src="{%static 'img/ic-2.png'%}"
                                 alt="icono dashboard">Asesores</a>
@@ -39,7 +39,7 @@
                             alt="icono dashboard">Clientes</a>
                     </li>
 
-                    {% if user.is_superuser %}
+                    {% if request.user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'calc_app:c-banks' %}"><img src="{% static 'img/ic-3.png' %}"
                                 alt="icono dashboard">Bancos</a>

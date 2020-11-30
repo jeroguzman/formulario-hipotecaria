@@ -51,7 +51,7 @@
                                     <td>{{ object.email }}</td>
                                     <td>{{ object.telefono }}</td>
                                     <td>{{ object.modalidad }}</td> 
-                                    {% if user.modalidad == 'Promotor' %}
+                                    {% if object.modalidad == 'Promotor' %}
                                         <td>{{ object.asesor }}</td>
                                         <td>{{ object.bienvenida_txt }}</td>
                                         <td>{{ object.despedida_txt }}</td>

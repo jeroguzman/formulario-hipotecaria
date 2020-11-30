@@ -382,5 +382,13 @@
             "castigo": 0.6,
             "endeudamiento": 0.5
         }
+    },
+    {
+        "model": "users.Company",
+        "pk": 1,
+        "fields": {
+            "name": "MS Hipotecaria",
+            "logo": "/static/img/ic-logo.png"
+        }
     }
 ]
