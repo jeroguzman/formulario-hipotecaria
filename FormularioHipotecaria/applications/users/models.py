@@ -51,8 +51,8 @@ class User(AbstractUser, PermissionsMixin):
     bienvenida_txt = models.TextField(blank=True)
     despedida_txt = models.TextField(blank=True)
     foto = models.ImageField(
-        upload_to='static/img/promotores', 
-        default='static/img/ic-2.png'
+        upload_to='staticfiles/img/promotores', 
+        default='staticfiles/img/ic-2.png'
         )
     url = models.TextField(blank=True)
     is_superuser = models.BooleanField(default=False)
@@ -63,9 +63,9 @@ class User(AbstractUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         profile_pic = str(self.foto).replace(' ', '_').lower()
-        profile_pic = profile_pic.replace('static/', '')
+        profile_pic = profile_pic.replace('staticfiles/', '')
 
-        self.url = 'http://127.0.0.1:8000/?id={}&first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
+        self.url = 'http://perfilador.hipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
             self.pk,
             self.first_name,
             self.last_name,
