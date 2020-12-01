@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.core.mail import send_mail
+from itertools import chain #
 from applications.clientes.models import Clientes
 from applications.users.models import User
 from applications.calc.calc import get_all_estimates
@@ -17,9 +18,21 @@ class dashboardView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users_app:u-login')
 
     def get_queryset(self):
-        queryset = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
+        print(self.request.user.modalidad)
 
-        return queryset
+        if self.request.user.modalidad == 'Asesor':
+            # Promotores
+            queryset_p = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
+
+            for promotor in queryset_p:
+                queryset_c = Clientes.objects.filter(promotor_id=promotor.id)
+                queryset_p = list(chain(queryset_p, queryset_c))
+
+            return queryset_p
+        else:
+            queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
+
+            return queryset_c
 
 class FinalView(TemplateView):
     template_name = 'home/pagina_final.html'
@@ -131,14 +144,12 @@ class FinalView(TemplateView):
 
         admin_subject = 'Registro de nuevo cliente'
         admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\
-            '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {} '\
-            '\n Alcance de credito: {}\n'.format(
+            '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {}'.format(
                 nombre, 
                 correo, 
                 promotor, 
                 telefono, 
-                tramite, 
-                client.alcance_credito
+                tramite
                 )
         admin_message += msg
         admin_mail = 'correomshipotecaria@gmail.com'

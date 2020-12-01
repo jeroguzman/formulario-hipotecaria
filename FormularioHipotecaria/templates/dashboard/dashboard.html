@@ -26,6 +26,7 @@
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
             <div class="row">
+                {% if request.user.modalidad == 'Asesor' %}
                 <!-- ============================================================== -->
                 <!-- basic table -->
                 <!-- ============================================================== -->
@@ -43,11 +44,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for object in object_list %}
-                                    <tr>
-                                        <td><img src="{{ object.foto.url }}" width="64"></td>
-                                        <th scope="row">{{ object.first_name }} {{ object.last_name }}</th>
-                                    </tr> 
+                                    {% for promotor in object_list %}
+                                        {% if promotor.modalidad == 'Promotor' %}
+                                            <tr>
+                                                <td><img src="{{ promotor.foto.url }}" width="64"></td>
+                                                <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
+                                            </tr> 
+                                        {% endif %}
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -57,40 +60,47 @@
                 <!-- ============================================================== -->
                 <!-- end basic table -->
                 <!-- ============================================================== -->
+                {% endif %}
                 <!-- ============================================================== -->
                 <!-- striped table -->
                 <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="{% if request.user.modalidad != 'Asesor' %} col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 {% else %} col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 {% endif %}">
                     <div class="card">
-                        <a class="card-header" href="{% url 'clients_app:a-clientes' %}" > <b>Clientes</b></a> 
+                        <a class="card-header" href="{% url 'clients_app:a-clientes' %}"> <b>Clientes</b></a> 
                         <div class="card-body">
                             <table class="table table-striped">
                                 <thead>
-
                                     <p>Lorem ipsum dolor sit amet consectetur
                                         adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Ultimo Pedido</th>
-                                        
-
+                                        <th scope="col">Banorte</th>
+                                        <th scope="col">HSBC</th>
+                                        <th scope="col">Banamex</th>
+                                        <th scope="col">Santander</th>
+                                        <th scope="col">Scotiabank</th>
+                                        <th scope="col">BX+</th>
+                                        <th scope="col">Afirme</th>
+                                        <th scope="col">Banregio</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">Mark</th>
-                                        <td>14/05/2020</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Jacob</th>
-                                        <td>14/05/2020</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Larry</th>
-                                        <td>14/05/2020</td>
-
-                                    </tr>
+                                {% for cliente in object_list %}
+                                    {% if cliente.ingreso_mensual != null %}
+                                        <tr>
+                                            <th scope="row">{{ cliente.nombre }}</th>
+                                            <td>{{ cliente.banorte }}</td>
+                                            <td>{{ cliente.hsbc }}</td>
+                                            <td>{{ cliente.banamex }}</td>
+                                            <td>{{ cliente.santander }}</td>
+                                            <td>{{ cliente.scotiabanck }}</td>
+                                            <td>{{ cliente.bx }}</td>
+                                            <td>{{ cliente.afirme }}</td>
+                                            <td>{{ cliente.banregio }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -99,7 +109,6 @@
                 <!-- ============================================================== -->
                 <!-- end striped table -->
                 <!-- ============================================================== -->
-
             </div>
         </div>
     </div>

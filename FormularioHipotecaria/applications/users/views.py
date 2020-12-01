@@ -22,7 +22,7 @@ class UserRegisterView(LoginRequiredMixin, FormView):
     model = User
     template_name = 'dashboard/users/register.html'
     form_class = UserRegisterForm
-    success_url = reverse_lazy('users_app:u-dashboard')
+    success_url = reverse_lazy('home_app:a-dashboard')
     login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form): 
@@ -78,7 +78,7 @@ class LoginView(FormView):
     model = User
     template_name = 'dashboard/users/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('users_app:u-dashboard')
+    success_url = reverse_lazy('home_app:a-dashboard')
 
     def form_valid(self, form):
         form_user = form.cleaned_data['username']
@@ -149,9 +149,3 @@ class promotorListView(LoginRequiredMixin, ListView):
         queryset = User.objects.filter(modalidad='Promotor')
 
         return queryset
-
-
-class dashboardListView(LoginRequiredMixin, ListView):
-    model = User
-    template_name = 'dashboard/dashboard.html'
-    login_url = reverse_lazy('users_app:u-login')
