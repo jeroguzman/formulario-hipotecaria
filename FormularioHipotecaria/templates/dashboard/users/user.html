@@ -25,46 +25,120 @@
                             <img src="{{ object.foto.url }}" width="64">
                             {{ object.first_name }} {{ object.last_name }}
                         </h1>
-                        <table class="table">
+<table class="table">
                             <thead>
                                 <tr>
-                                    <th>Nombre </td>
-                                    <th>Apellidos </td>
-                                    <th>Nombre de usuario</td>
-                                    <th>Email</td>
-                                    <th>Numero de telefono</td>
-                                    <th>Puesto</td> 
-                                    {% if object.modalidad == 'Promotor' %}
-                                        <th>Asesor</td>
-                                        <th>Texto de bienvenida </td>
-                                        <th>Texto de despedida</td>
-                                        <th>Url</td> 
-                                    {% endif %}
-                                    <th>Acciones</th>
+                                    <th>Campo</th>
+                                    <th>Información</th>
                                 </tr>
                             </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Información</th>
+                                </tr>
+                            </tfoot>
+
                             <tbody>
                                 <tr>
-                                    <td>{{ object.first_name }}</td>
-                                    <td>{{ object.last_name }}</td>
-                                    <td>{{ object.username }}</td>
-                                    <td>{{ object.email }}</td>
-                                    <td>{{ object.telefono }}</td>
-                                    <td>{{ object.modalidad }}</td> 
-                                    {% if object.modalidad == 'Promotor' %}
-                                        <td>{{ object.asesor }}</td>
-                                        <td>{{ object.bienvenida_txt }}</td>
-                                        <td>{{ object.despedida_txt }}</td>
-                                        <td>{{ object.url }}</td> 
-                                    {% endif %}
                                     <td>
-                                        <a href="{% url 'users_app:u-edit' object.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="24" title="Editar"></a> |
-                                        <a href="{% url 'users_app:u-delete' object.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="24" title="Eliminar"></a> |
-                                        <a href="{% url 'users_app:u-updatePass' object.pk %}"><img src="{% static 'img\ic-pass.png' %}" width="24" title="Actualizar Contraseña"></a>
+                                        Nombre
+                                    </td>
+                                    <td>
+                                        {{ object.first_name }} {{ object.last_name }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Nombre de Usuario
+                                    </td>
+                                    <td>
+                                        {{ object.username }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Correo
+                                    </td>
+                                    <td>
+                                        {{ object.email }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Telefono
+                                    </td>
+                                    <td>
+                                        {{ object.telefono }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Asesor
+                                    </td>
+                                    <td>
+                                        {{ object.asesor }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Texto de Bienvenida
+                                    </td>
+                                    <td>
+                                        {{ object.bienvenida_txt }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Texto de Despedida
+                                    </td>
+                                    <td>
+                                        {{ object.despedida_txt }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        URL de Perfilamiento
+                                    </td>
+                                    <td>
+                                        {{ object.url }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Modalidad
+                                    </td>
+                                    <td>
+                                        {{ object.modalidad }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Empresa
+                                    </td>
+                                    <td>
+                                        {{ object.empresa }}
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <div class="card d-flex justify-content-center flex-row">
+                            <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
+                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <a href="{% url 'users_app:u-delete' object.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
+                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <a href="{% url 'users_app:u-updatePass' object.pk %}"><i class="fas fa-unlock-alt fa-2x"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
