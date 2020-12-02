@@ -32,16 +32,25 @@
                                     <tr>
                                         <th scope="col">LOGO</th>
                                         <th scope="col">NOMBRE</th>
+                                        <th scope="col">ACCIONES</th>
                                     </tr>
                                 </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">LOGO</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">ACCIONES</th>
+                                    </tr>
+                                </tfoot>
                                 <tbody>
                                     {% for models in object_list %}
                                         <tr>
                                             <th scope="row"><img src="{{ models.logo.url }}" width="64"></th>
                                             <td>{{ models.name }}</td>
                                             <td>
-                                                <a href="{% url 'calc_app:c-editar-empresa' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16" title="Editar"></a> |
-                                                <a href="{% url 'calc_app:c-borrar-empresa' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16" title="Eliminar"></a>
+                                                <a href="{% url 'calc_app:c-editar-empresa' models.pk %}"><i class="far fa-edit fa-2x"></i></a> 
+                                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                                <a href="{% url 'calc_app:c-borrar-empresa' models.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}

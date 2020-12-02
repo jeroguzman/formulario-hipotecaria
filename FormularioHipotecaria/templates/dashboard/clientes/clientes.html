@@ -44,8 +44,20 @@
                                         <th scope="col">E-mail</th>
                                         <th scope="col">Tramite</th>
                                         <th scope="col">Alcance de Crédito</th>
+                                        <th class="text-center" scope="col">Ver</th>
                                     </tr>
                                 </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Asesor</th>
+                                        <th scope="col">Telefono</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Tramite</th>
+                                        <th scope="col">Alcance de Crédito</th>
+                                        <th class="text-center" scope="col">Ver</th>
+                                    </tr>
+                                </tfoot>
                                 <tbody>
                                 {% for models in object_list %}
                                     <tr>
@@ -55,6 +67,9 @@
                                         <td>{{ models.email }}</td>
                                         <td>{{ models.tramite }}</td>
                                         <td>{{ models.banorte }}</td>
+                                        <td class="text-center">
+                                            <a href="{% url 'clients_app:a-cliente' models.pk %}"><i class="far fa-eye fa-2x"></i></a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -62,6 +77,24 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <br>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1"><<</a>
+                        |
+                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
+                    {% endif %}
+                    
+                    <span class="current">
+                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                    </span> 
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">></a> |
+                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a> 
+                    {% endif %}
+                </span>
             </div>
         </div>
     </div>

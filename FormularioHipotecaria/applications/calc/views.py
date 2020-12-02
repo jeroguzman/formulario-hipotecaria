@@ -11,7 +11,6 @@ from applications.users.models import Company
 from .forms import CompanyCreateForm
 
 
-# Create your views here.
 class BancoView(LoginRequiredMixin, ListView):
     model = Banco
     template_name = 'dashboard/calc/banks.html'
@@ -36,7 +35,7 @@ class ActividadView(LoginRequiredMixin, ListView):
     model = Actividad
     template_name = 'dashboard/calc/actividades.html'
     login_url = reverse_lazy('users_app:u-login')
-    paginate_by = 10
+    paginate_by = 32
 
     def get_queryset(self):
         queryset = Actividad.objects.all()
@@ -47,7 +46,7 @@ class ActividadView(LoginRequiredMixin, ListView):
 class ActividadUpdateView(LoginRequiredMixin, UpdateView):
     model = Actividad
     template_name = 'dashboard/calc/edit_actvidades.html'
-    success_url = reverse_lazy('calc_app:c-activitys')
+    success_url = reverse_lazy('calc_app:c-banks')
     login_url = reverse_lazy('users_app:login')
     fields = (
         'castigo',

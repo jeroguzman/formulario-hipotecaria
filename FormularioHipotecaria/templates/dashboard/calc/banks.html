@@ -31,16 +31,24 @@
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
                                         <th scope="col">BANCO</th>
-                                        <th scope="col">FACTOR AL MILLAR</th>
+                                        <th class="text-center" scope="col">FACTOR AL MILLAR</th>
+                                        <th class="text-center" scope="col">EDITAR</th>
                                     </tr>
                                 </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">BANCO</th>
+                                        <th class="text-center" scope="col">FACTOR AL MILLAR</th>
+                                        <th class="text-center" scope="col">EDITAR</th>
+                                    </tr>
+                                </tfoot>
                                 <tbody>
                                     {% for models in object_list %}
                                         <tr>
                                             <th scope="row">{{ models.nombre }}</th>
-                                            <td>{{ models.factor_millar }}</td>
-                                            <td>
-                                                <a href="{% url 'calc_app:c-edit-banks' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="24"></a>
+                                            <td class="text-center">{{ models.factor_millar }}</td>
+                                            <td class="text-center">
+                                                <a href="{% url 'calc_app:c-edit-banks' models.pk %}"><i class="far fa-edit fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}

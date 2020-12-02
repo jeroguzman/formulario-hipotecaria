@@ -1,0 +1,257 @@
+{% extends '../../base.html' %} {% load static %} {% block librerias-adicionales%}
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'dashboard-template/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/libs/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/vector-map/jqvmap.css' %}">
+<link href="{% static 'dashboard-template/assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
+
+
+<!-- Css Styling -->
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
+
+<div class="dashboard-main-wrapper">
+    {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
+    <div class="dashboard-wrapper">
+        <div class="container-fluid  dashboard-content">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-1">
+                    <div class="card">
+                        <h1 class="card-header">
+                            Alcances de credito por banco
+                        </h1>
+                        <table class="table table-hover table-strip">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">BANORTE</th>
+                                    <th class="text-center" scope="col">HSBC</th>
+                                    <th class="text-center" scope="col">BANAMEX</th>
+                                    <th class="text-center" scope="col">SANTANDER</th>
+                                    <th class="text-center" scope="col">SCOTIABANK</th>
+                                    <th class="text-center" scope="col">BX+</th>
+                                    <th class="text-center" scope="col">AFIRME</th>
+                                    <th class="text-center" scope="col">BANREGIO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">{{ object.banorte }}</td>
+                                    <td class="text-center">{{ object.hsbc }}</td>
+                                    <td class="text-center">{{ object.banamex }}</td>
+                                    <td class="text-center">{{ object.santander }}</td>
+                                    <td class="text-center">{{ object.scotiabanck }}</td>
+                                    <td class="text-center">{{ object.bx }}</td>
+                                    <td class="text-center">{{ object.afirme }}</td>
+                                    <td class="text-center">{{ object.banregio }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <h1 class="card-header">
+                            Información de {{ object.nombre }}
+                        </h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Información</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Información</th>
+                                </tr>
+                            </tfoot>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Nombre
+                                    </td>
+                                    <td>
+                                        {{ object.nombre }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Correo
+                                    </td>
+                                    <td>
+                                        {{ object.email }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Telefono
+                                    </td>
+                                    <td>
+                                        {{ object.telefono }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Promotor
+                                    </td>
+                                    <td>
+                                        {{ object.promotor_id }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Tramite
+                                    </td>
+                                    <td>
+                                        {{ object.tramite }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Valor del Inmueble
+                                    </td>
+                                    <td>
+                                        {{ object.valor_inmueble }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Actividad
+                                    </td>
+                                    <td>
+                                        {{ object.actividad }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Giro Actividad
+                                    </td>
+                                    <td>
+                                        {{ object.giro_actividad }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Ingreso Mensual
+                                    </td>
+                                    <td>
+                                        {{ object.ingreso_mensual }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Estado Civil
+                                    </td>
+                                    <td>
+                                        {{ object.estado_civil }}
+                                    </td>
+                                </tr>
+
+                                {% if object.estado_civil != 'Soltero' %}
+                                    <tr>
+                                        <td>
+                                            Actividad del Co-Acreditado
+                                        </td>
+                                        <td>
+                                            {{ object.actividad_co_acreditado }}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Giro de Actividad del Co-Acreditado
+                                        </td>
+                                        <td>
+                                            {{ object.giro_actividad_co_acreditado }}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Ingreso Mensual del Co-Acreditado
+                                        </td>
+                                        <td>
+                                            {{ object.ingreso_mensual_co_acreditado }}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Institucion del Co-Acreditado
+                                        </td>
+                                        <td>
+                                            {{ object.instituciones_co_acreditado }}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+
+                                <tr>
+                                    <td>
+                                        Institucion del Perfilado
+                                    </td>
+                                    <td>
+                                        {{ object.institucion }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Pago de Credito
+                                    </td>
+                                    <td>
+                                        {{ object.pago_credito }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block scripts-adicionales %}
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
+<script src="assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
+<!-- chart C3 js -->
+<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<!-- chartjs js -->
+<script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+<script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- dashboard finance js -->
+<script src="assets/libs/js/dashboard-finance.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- gauge js -->
+<script src="assets/vendor/gauge/gauge.min.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+{% endblock scripts-adicionales %} {% endblock body %}

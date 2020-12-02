@@ -36,33 +36,47 @@
                                         <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
                                         <th scope="col">Asesor</th>
-                                        {% if user.modalidad == 'Asesor' %}
-                                        <th scope="col">Acciones</th>
+                                        {% if request.user.modalidad == 'Asesor' %}
+                                            <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {% for models in object_list %}
+                                <tfoot>
                                     <tr>
-                                        {% if models.foto.url == None %}
-                                        <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
-                                        {% else %}
-                                        <td><img src="{{ models.foto.url }}" width="64"></td>
-                                        {% endif %}
-                                        <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.telefono }}</td>
-                                        <td>{{ models.email }}</td>
-                                        <td>{{ models.asesor }}</td>
-                                        {% if user.modalidad == 'Asesor' %}
-                                        <td>
-                                            <a href="{% url 'users_app:u-detail' models.pk %}"><img src="{% static 'img\ic-ojo.png' %}" width="32" title="Ver"></a> |
-                                            <a href="{% url 'users_app:u-edit' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16" title="Editar"></a> |
-                                            <a href="{% url 'users_app:u-delete' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16" title="Eliminar"></a>
-                                        </td>
-
+                                        <th scope="col">Foto</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Telefono</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Asesor</th>
+                                        {% if request.user.modalidad == 'Asesor' %}
+                                            <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
+                                </tfoot>
+                                <tbody>
+                                    {% for models in object_list %}
+                                        <tr>
+                                            {% if models.foto.url == None %}
+                                            <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
+                                            {% else %}
+                                            <td><img src="{{ models.foto.url }}" width="64"></td>
+                                            {% endif %}
+                                            <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
+                                            <td>{{ models.username }}</td>
+                                            <td>{{ models.telefono }}</td>
+                                            <td>{{ models.email }}</td>
+                                            <td>{{ models.asesor }}</td>
+                                            {% if request.user.modalidad == 'Asesor' %}
+                                                <td class="text-center">
+                                                    <a href="{% url 'users_app:u-detail' models.pk %}"><i class="far fa-eye fa-2x"></i></a>
+                                                    <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                                    <a href="{% url 'users_app:u-edit' models.pk %}"><i class="far fa-edit fa-2x"></i></a>
+                                                    <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                                    <a href="{% url 'users_app:u-delete' models.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
+                                                </td>
+                                            {% endif %}
+                                        </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>

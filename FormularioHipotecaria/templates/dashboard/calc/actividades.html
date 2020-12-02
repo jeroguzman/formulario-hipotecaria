@@ -31,18 +31,29 @@
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
                                         <th scope="col">ACTIVIDAD_BANCO</th>
-                                        <th scope="col">CASTIGO SEGÚN ACTIVIDAD</th>
-                                        <th scope="col">ENDEUDAMIENTO PERMITIDO</th>
+                                        <th class="text-center" scope="col">CASTIGO SEGÚN ACTIVIDAD</th>
+                                        <th class="text-center" scope="col">ENDEUDAMIENTO PERMITIDO</th>
+                                        <th class="text-center" scope="col">EDITAR</th>
                                     </tr>
                                 </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">ACTIVIDAD_BANCO</th>
+                                        <th class="text-center" scope="col">CASTIGO SEGÚN ACTIVIDAD</th>
+                                        <th class="text-center" scope="col">ENDEUDAMIENTO PERMITIDO</th>
+                                        <th class="text-center" scope="col">EDITAR</th>
+                                    </tr>
+                                </tfoot>
+
                                 <tbody>
                                     {% for models in object_list %}
                                         <tr>
                                             <th scope="row">{{ models.nombre }}</th>
-                                            <td>{{ models.castigo }}</td>
-                                            <td>{{ models.endeudamiento }}</td>
-                                            <td>
-                                                <a href="{% url 'calc_app:c-edit-activity' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="24"></a>
+                                            <td class="text-center">{{ models.castigo }}</td>
+                                            <td class="text-center">{{ models.endeudamiento }}</td>
+                                            <td class="text-center">
+                                                <a href="{% url 'calc_app:c-edit-activity' models.pk %}"><i class="far fa-edit fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -68,19 +79,6 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">>></a> {% endif %}
                 </span>
             </div>
-
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "users_app:u-register" %}'>
-                        <div class="d-flex">
-
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Modificar Porcentajes">
-
-                        </div>
-                    </a>
-                </div>
-            </form>
         </div>
     </div>
 </div>
