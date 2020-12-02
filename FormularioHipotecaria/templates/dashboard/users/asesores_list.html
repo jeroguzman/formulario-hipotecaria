@@ -35,6 +35,7 @@
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
+                                        <th scope="col">URL de perfilamiento</th>
                                         {% if user.modalidad == 'Asesor' %}
                                         <th scope="col">Acciones</th>
                                         {% endif %}
@@ -42,25 +43,21 @@
                                 </thead>
                                 <tbody>
                                     {% for models in object_list %}
-                                    <tr>
-                                        {% if models.foto.url == None %}
-                                        <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
-                                        {% else %}
-                                        <td><img src="{{ models.foto.url }}" width="64"></td>
-                                        {% endif %}
-                                        <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.telefono }}</td>
-                                        <td>{{ models.email }}</td>
-                                        {% if user.modalidad == 'Asesor' %}
-                                        <td>
-                                            <a href="{% url 'users_app:u-detail' models.pk %}"><img src="{% static 'img\ic-ojo.png' %}" width="32" title="Ver"></a> |
-                                            <a href="{% url 'users_app:u-edit' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16" title="Editar"></a> |
-                                            <a href="{% url 'users_app:u-delete' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16" title="Eliminar"></a>
-                                        </td>
-
-                                        {% endif %}
-                                    </tr>
+                                        <tr>
+                                            <td><img src="{{ models.foto.url }}" width="64"></td>
+                                            <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
+                                            <td>{{ models.username }}</td>
+                                            <td>{{ models.telefono }}</td>
+                                            <td><a href="#"><i class="far fa-copy"></i></a></td>
+                                            <td>{{ models.email }}</td>
+                                            {% if user.modalidad == 'Asesor' %}
+                                                <td>
+                                                    <a href="{% url 'users_app:u-detail' models.pk %}"><img src="{% static 'img\ic-ojo.png' %}" width="32" title="Ver"></a> |
+                                                    <a href="{% url 'users_app:u-edit' models.pk %}"><img src="{% static 'img\ic-edit.png' %}" width="16" title="Editar"></a> |
+                                                    <a href="{% url 'users_app:u-delete' models.pk %}"><img src="{% static 'img\ic-delete.png' %}" width="16" title="Eliminar"></a>
+                                                </td>
+                                            {% endif %}
+                                        </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>

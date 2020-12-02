@@ -75,13 +75,15 @@
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Banorte</th>
-                                        <th scope="col">HSBC</th>
-                                        <th scope="col">Banamex</th>
-                                        <th scope="col">Santander</th>
-                                        <th scope="col">Scotiabank</th>
-                                        <th scope="col">BX+</th>
-                                        <th scope="col">Afirme</th>
-                                        <th scope="col">Banregio</th>
+                                        {% if request.user.modalidad == 'Promotor' %}
+                                            <th scope="col">HSBC</th>
+                                            <th scope="col">Banamex</th>
+                                            <th scope="col">Santander</th>
+                                            <th scope="col">Scotiabank</th>
+                                            <th scope="col">BX+</th>
+                                            <th scope="col">Afirme</th>
+                                            <th scope="col">Banregio</th>
+                                        {% endif %}
                                     </tr>
                                 </thead>
 
@@ -91,13 +93,15 @@
                                         <tr>
                                             <th scope="row">{{ cliente.nombre }}</th>
                                             <td>{{ cliente.banorte }}</td>
-                                            <td>{{ cliente.hsbc }}</td>
-                                            <td>{{ cliente.banamex }}</td>
-                                            <td>{{ cliente.santander }}</td>
-                                            <td>{{ cliente.scotiabanck }}</td>
-                                            <td>{{ cliente.bx }}</td>
-                                            <td>{{ cliente.afirme }}</td>
-                                            <td>{{ cliente.banregio }}</td>
+                                            {% if request.user.modalidad == 'Promotor' %}
+                                                <td>{{ cliente.hsbc }}</td>
+                                                <td>{{ cliente.banamex }}</td>
+                                                <td>{{ cliente.santander }}</td>
+                                                <td>{{ cliente.scotiabanck }}</td>
+                                                <td>{{ cliente.bx }}</td>
+                                                <td>{{ cliente.afirme }}</td>
+                                                <td>{{ cliente.banregio }}</td>
+                                            {% endif %}
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
