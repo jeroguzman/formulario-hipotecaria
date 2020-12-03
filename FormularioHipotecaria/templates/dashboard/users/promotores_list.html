@@ -18,6 +18,9 @@
     {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
+        <div id="success-alert" class="alert alert-primary" role="alert">
+            Se copio la URL en el portapapeles exitosamente!
+        </div>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table -->
@@ -35,6 +38,7 @@
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
+                                        <th scope="col">URL de perfilamiento</th>
                                         <th scope="col">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
                                             <th class="text-center" scope="col">Acciones</th>
@@ -48,6 +52,7 @@
                                         <th scope="col">Usuario</th>
                                         <th scope="col">Telefono</th>
                                         <th scope="col">E-mail</th>
+                                        <th scope="col">URL de perfilamiento</th>
                                         <th scope="col">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
                                             <th class="text-center" scope="col">Acciones</th>
@@ -66,6 +71,7 @@
                                             <td>{{ models.username }}</td>
                                             <td>{{ models.telefono }}</td>
                                             <td>{{ models.email }}</td>
+                                            <td class="text-center"><a id="url-field" onclick="copyUrl(this)" data-url="{{ models.url }}"><i class="far fa-copy fa-2x"></i></a></td>
                                             <td>{{ models.asesor }}</td>
                                             {% if request.user.modalidad == 'Asesor' %}
                                                 <td class="text-center">
