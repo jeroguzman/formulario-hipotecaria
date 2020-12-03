@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.core.mail import send_mail
-from itertools import chain #
+from itertools import chain
 from applications.clientes.models import Clientes
 from applications.users.models import User
 from applications.calc.calc import get_all_estimates
@@ -18,7 +18,6 @@ class dashboardView(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('users_app:u-login')
 
     def get_queryset(self):
-        print(self.request.user.modalidad)
 
         if self.request.user.modalidad == 'Asesor':
             # Promotores

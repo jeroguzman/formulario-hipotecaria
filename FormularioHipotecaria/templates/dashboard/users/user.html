@@ -25,7 +25,7 @@
                             <img src="{{ object.foto.url }}" width="64">
                             {{ object.first_name }} {{ object.last_name }}
                         </h1>
-<table class="table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Campo</th>
@@ -131,14 +131,15 @@
                                 </tr>
                             </tbody>
                         </table>
-
-                        <div class="card d-flex justify-content-center flex-row">
-                            <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
-                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                            <a href="{% url 'users_app:u-delete' object.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
-                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                            <a href="{% url 'users_app:u-updatePass' object.pk %}"><i class="fas fa-unlock-alt fa-2x"></i></a>
-                        </div>
+                        {% if request.user.modalidad == 'Asesor' %}
+                            <div class="card d-flex justify-content-center flex-row">
+                                <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
+                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                <a href="{% url 'users_app:u-delete' object.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
+                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                <a href="{% url 'users_app:u-updatePass' object.pk %}"><i class="fas fa-unlock-alt fa-2x"></i></a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

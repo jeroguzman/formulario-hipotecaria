@@ -1,7 +1,9 @@
 from django.views.generic import DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from applications.clientes.models import Clientes
+from itertools import chain
+from .models import Clientes
+from applications.users.models import User
 
 
 class clientesView(LoginRequiredMixin, ListView):
@@ -11,9 +13,22 @@ class clientesView(LoginRequiredMixin, ListView):
     paginate_by = 20
 
     def get_queryset(self):
-        queryset = Clientes.objects.filter(promotor_id=self.request.user.pk)
 
-        return queryset
+        if self.request.user.modalidad == 'Asesor':
+            # Promotores
+            queryset_p = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
+            queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
+
+            for promotor in queryset_p:
+                # Clientes
+                queryset = Clientes.objects.filter(promotor_id=promotor.id)
+                queryset_c = list(chain(queryset_c, queryset))
+
+            return queryset_c
+        else:
+            queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
+
+            return queryset_c
 
 
 class ClientDetailView(LoginRequiredMixin, DetailView):

@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
 {% endblock librerias-adicionales%}
 
-
 {% block body %}
 <div class="dashboard-main-wrapper">
     {% include 'dashboard/shared/navbar.html' %}
@@ -25,48 +24,75 @@
 
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
+            <div id="success-alert" class="alert alert-primary" role="alert">
+                Se copio la URL en el portapapeles exitosamente!
+            </div>
             <div class="row">
-                {% if request.user.modalidad == 'Asesor' %}
                 <!-- ============================================================== -->
                 <!-- basic table -->
                 <!-- ============================================================== -->
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <a class="card-header" href="{%url 'users_app:u-promotores'%}" > <b>Promotores</b></a> 
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <p>Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
-                                    <tr>
-                                        <th scope="col">Foto</th>
-                                        <th scope="col">Nombre</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for promotor in object_list %}
-                                        {% if promotor.modalidad == 'Promotor' %}
-                                            <tr>
-                                                <td><img src="{{ promotor.foto.url }}" width="64"></td>
-                                                <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
-                                            </tr> 
-                                        {% endif %}
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                {% if request.user.modalidad == 'Promotor' %}
+                    <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <a class="card-header"><b>{{ request.user.username }}</b></a> 
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <p>Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
+                                        <tr>
+                                            <th class="text-center" scope="col">URL de perfilamiento</th>
+                                            <th class="text-center" scope="col">Ver Perfil</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center"><a id="url-field" onclick="copyUrl(this)" data-url="{{ request.user.url }}"><i class="far fa-copy fa-2x"></i></a></td>
+                                            <th class="text-center" scope="row"><a href="{% url 'users_app:u-detail' request.user.id %}"><i class="far fa-eye fa-2x"></i></a></th>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <a class="card-header" href="{% url 'users_app:u-promotores' %}"><b>Promotores</b></a> 
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <p>Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
+                                        <tr>
+                                            <th scope="col">Foto</th>
+                                            <th scope="col">Nombre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for promotor in object_list %}
+                                            {% if promotor.modalidad == 'Promotor' %}
+                                                <tr>
+                                                    <td><img src="{{ promotor.foto.url }}" width="64"></td>
+                                                    <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
+                                                </tr> 
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 <!-- ============================================================== -->
                 <!-- end basic table -->
                 <!-- ============================================================== -->
-                {% endif %}
                 <!-- ============================================================== -->
                 <!-- striped table -->
                 <!-- ============================================================== -->
-                <div class="{% if request.user.modalidad != 'Asesor' %} col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 {% else %} col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 {% endif %}">
+                <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <a class="card-header" href="{% url 'clients_app:a-clientes' %}"> <b>Clientes</b></a> 
+                        <a class="card-header" href="{% url 'clients_app:a-clientes' %}"><b>Clientes</b></a> 
                         <div class="card-body">
                             <table class="table table-striped">
                                 <thead>
@@ -74,16 +100,7 @@
                                         adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Banorte</th>
-                                        {% if request.user.modalidad == 'Promotor' %}
-                                            <th scope="col">HSBC</th>
-                                            <th scope="col">Banamex</th>
-                                            <th scope="col">Santander</th>
-                                            <th scope="col">Scotiabank</th>
-                                            <th scope="col">BX+</th>
-                                            <th scope="col">Afirme</th>
-                                            <th scope="col">Banregio</th>
-                                        {% endif %}
+                                        <th scope="col">Alcance de Credito</th>
                                     </tr>
                                 </thead>
 
@@ -93,15 +110,6 @@
                                         <tr>
                                             <th scope="row">{{ cliente.nombre }}</th>
                                             <td>{{ cliente.banorte }}</td>
-                                            {% if request.user.modalidad == 'Promotor' %}
-                                                <td>{{ cliente.hsbc }}</td>
-                                                <td>{{ cliente.banamex }}</td>
-                                                <td>{{ cliente.santander }}</td>
-                                                <td>{{ cliente.scotiabanck }}</td>
-                                                <td>{{ cliente.bx }}</td>
-                                                <td>{{ cliente.afirme }}</td>
-                                                <td>{{ cliente.banregio }}</td>
-                                            {% endif %}
                                         </tr>
                                     {% endif %}
                                 {% endfor %}
