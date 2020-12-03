@@ -24,13 +24,15 @@
     {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
-            <div class="row">
+            <div class="row d-flex flex-column align-items-center">
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
                     
-                    <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cambiar Contraseña">
-                    <a href="{% url 'users_app:u-detail' request.resolver_match.kwargs.pk %}" >Cancelar</a>
+                    <div>
+                        <input type="submit" class="btn btn-primary rounded-pill lift lift-sm" value="Cambiar Contraseña">
+                        <a href="{% url 'users_app:u-detail' request.resolver_match.kwargs.pk %}" class="btn btn-danger">Cancelar</a>
+                    </div>
                 </form>
             </div>
         </div>

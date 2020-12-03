@@ -13,7 +13,8 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import (
     UserRegisterForm, 
     LoginForm, 
-    UpdatePassForm
+    UpdatePassForm,
+    UpdateUserForm
 )
 from .models import User
 
@@ -49,22 +50,9 @@ class UserRegisterView(LoginRequiredMixin, FormView):
 class UserUpadateView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'dashboard/users/edit.html'
+    form_class = UpdateUserForm
     success_url = reverse_lazy('users_app:u-promotores')
     login_url = reverse_lazy('users_app:u-login')
-    fields = (
-    'first_name',
-    'last_name',
-    'username',
-    'email',
-    'telefono',
-    'modalidad',
-    'empresa',
-    'asesor',
-    'bienvenida_txt',
-    'despedida_txt',
-    'foto',
-    'url',
-)
 
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):

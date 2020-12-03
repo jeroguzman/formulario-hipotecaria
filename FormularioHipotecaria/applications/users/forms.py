@@ -108,3 +108,39 @@ class UpdatePassForm(forms.Form):
     def clean_confirm_new_pass(self):
         if self.cleaned_data['new_pass'] != self.cleaned_data['confirm_new_pass']:
             self.add_error('confirm_new_pass', 'Las contraseñas no coinciden')
+
+    
+class UpdateUserForm(forms.ModelForm):
+
+
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'telefono',
+            'modalidad',
+            'empresa',
+            'asesor',
+            'bienvenida_txt',
+            'despedida_txt',
+            'foto',
+            'url'
+        )
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control'}),
+            'modalidad': forms.Select(attrs={'id': 'modalidad', 'class': 'form-control promotor-field'}),
+            'asesor': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
+            'empresa': forms.Select(attrs={'class': 'form-control promotor-field'}),
+            'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
+            'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
+            'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
+            'url': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
+        }

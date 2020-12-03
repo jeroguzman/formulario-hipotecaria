@@ -24,15 +24,17 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Banco</h5>
+                        <h5 class="card-header">Eliminando a al usuario {{ object.username }}</h5>
                         <div class="card-body">
-                            <form method="POST">
+                            <form class="d-flex flex-column align-items-center" method="POST">
                                 {% csrf_token %}
 
-                                <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.username }}</strong>?</p>
-
-                                <input type="submit" class="btn btn-teal btn-danger btn-lg rounded-pill lift lift-sm" value="Eliminar">
-                                <button type="button" onclick="location.href='{% url 'users_app:u-detail' object.pk %}'" class="btn btn-primary">Cancelar</button>
+                                <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.first_name }} {{ object.lasst_name }}</strong>?</p>
+                                
+                                <div>
+                                    <input type="submit" class="btn btn-danger rounded-pill lift lift-sm" value="Eliminar">
+                                    <button type="button" onclick="location.href='{% url 'users_app:u-detail' object.pk %}'" class="btn btn-primary">Cancelar</button>
+                                </div>
                             </form>
                         </div>
                     </div>

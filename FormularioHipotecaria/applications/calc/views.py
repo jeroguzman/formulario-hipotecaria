@@ -8,7 +8,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Banco, Actividad
 from applications.users.models import Company
-from .forms import CompanyCreateForm
+from .forms import (
+    CompanyCreateForm,
+    CompanyUpdateForm,
+    BancoUpdateForm,
+    ActividadUpdateForm
+    )
 
 
 class BancoView(LoginRequiredMixin, ListView):
@@ -26,9 +31,9 @@ class BancoView(LoginRequiredMixin, ListView):
 class BancoUpdateView(LoginRequiredMixin, UpdateView):
     model = Banco
     template_name = 'dashboard/calc/edit_bank.html'
+    form_class = BancoUpdateForm
     success_url = reverse_lazy('calc_app:c-banks')
     login_url = reverse_lazy('users_app:login')
-    fields = ('factor_millar',)
 
 
 class ActividadView(LoginRequiredMixin, ListView):
@@ -46,12 +51,9 @@ class ActividadView(LoginRequiredMixin, ListView):
 class ActividadUpdateView(LoginRequiredMixin, UpdateView):
     model = Actividad
     template_name = 'dashboard/calc/edit_actvidades.html'
+    form_class = ActividadUpdateForm
     success_url = reverse_lazy('calc_app:c-banks')
     login_url = reverse_lazy('users_app:login')
-    fields = (
-        'castigo',
-        'endeudamiento',
-        )
 
 
 class CompanyViews(LoginRequiredMixin, ListView):
@@ -86,12 +88,9 @@ class CompanyCreateView(LoginRequiredMixin, CreateView):
 class CompanyUpdateView(LoginRequiredMixin, UpdateView):
     model = Company
     template_name = 'dashboard/calc/edit_empresa.html'
+    form_class = CompanyUpdateForm
     success_url = reverse_lazy('calc_app:c-empresas')
     login_url = reverse_lazy('users_app:login')
-    fields = (
-        'name',
-        'logo',
-        )
 
 
 class CompanyDeleteView(LoginRequiredMixin, DeleteView):

@@ -19,25 +19,25 @@
         <div class="container-fluid  dashboard-content">
             <div class="form-row mt-3">
                 <div class="col-md-9 mx-auto">
-                    <h1 class="display">Datos del Usuario</h1>
+                    <h1 class="display">Datos de {{ object.first_name }} {{ object.last_name }}</h1>
                     <form method="POST">
                         {% csrf_token %} {{ form.as_p }}
 
-                        <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Guardar Cambios">
-                        <button type="button" onclick="href.location='{% url 'users_app:u-promotores' %}'" class="btn btn-primary">Cancelar</button>
-                        <a href="{% url 'users_app:u-updatePass' object.pk %}">
-                            <div class="d-flex">
-                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cambiar contraseña">
-                            </div>
-                        </a>
+                        <div class="d-flex justify-content-around">
+                            <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Guardar Cambios">
+                            <a class="btn btn-danger" href="{% url 'users_app:u-promotores' %}" class="btn btn-primary">Cancelar</a>
+                            <a href="{% url 'users_app:u-updatePass' object.pk %}">
+                                <div class="d-flex">
+                                    <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Cambiar contraseña">
+                                </div>
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 {% block scripts-adicionales %}
 <!-- slimscroll js -->

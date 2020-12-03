@@ -24,13 +24,14 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Banco</h5>
+                        <h5 class="card-header">Modificando la actividad {{ object.nombre }}</h5>
                         <div class="card-body">
                             <form method="POST">
                                 {% csrf_token %}
                                 {{ form.as_p }}
 
-                                <input type="submit" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Guardar Cambios">
+                                <input type="submit" class="btn btn-primary rounded-pill lift lift-sm" value="Guardar Cambios">
+                                <a href="{% url 'calc_app:c-activitys' %}" class="btn btn-danger">Cancelar</a>
                             </form>
                         </div>
                     </div>
@@ -39,7 +40,6 @@
         </div>
     </div>
 </div>
-
 
 {% block scripts-adicionales %}
 <!-- slimscroll js -->
