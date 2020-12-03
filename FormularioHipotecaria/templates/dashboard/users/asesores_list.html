@@ -18,6 +18,9 @@
     {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
+        <div id="success-alert" class="alert alert-primary" role="alert">
+            Se copio la URL en el portapapeles exitosamente!
+        </div>
             <div class="row">
                 <!-- ============================================================== -->
                 <!-- basic table -->
@@ -62,7 +65,7 @@
                                             <td>{{ models.username }}</td>
                                             <td>{{ models.telefono }}</td>
                                             <td>{{ models.email }}</td>
-                                            <td>{{ models.url }}</td>
+                                            <td class="text-center"><a id="url-field" onclick="copyUrl(this)" data-url="{{ models.url }}"><i class="far fa-copy fa-2x"></i></a></td>
                                             {% if request.user.modalidad == 'Asesor' %}
                                                 <td>
                                                     <a href="{% url 'users_app:u-detail' models.pk %}"><i class="far fa-eye fa-2x"></i></a>
