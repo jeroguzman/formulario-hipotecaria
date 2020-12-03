@@ -17,8 +17,8 @@ class Clientes(models.Model):
     saldo_actual = models.FloatField(blank=True, null=True) 
     pago_mensual = models.FloatField(blank=True, null=True) 
     años_credito = models.IntegerField(blank=True, null=True) 
-    tiempo_pagando_años = models.CharField(max_length=140, blank=True, null=True) ####
-    tiempo_pagando_meses = models.CharField(max_length=140, blank=True, null=True) ####
+    tiempo_pagando_años = models.CharField(max_length=140, blank=True, null=True) 
+    tiempo_pagando_meses = models.CharField(max_length=140, blank=True, null=True) 
     credito_cofinanciado = models.CharField(max_length=40, blank=True, null=True)
     institucion_hipotecaria = models.CharField(max_length=140, blank=True, null=True) 
     moneda_credito = models.CharField(max_length=40, blank=True, null=True) 
@@ -34,7 +34,7 @@ class Clientes(models.Model):
     giro_actividad = models.CharField(max_length=40, blank=True, null=True) ##!##
     estado_civil = models.CharField(max_length=40, blank=True, null=True) 
     # mostrar_mayor_ingreso = models.BooleanField(default=False, blank=True, null=True) ####
-    giro_actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) ##!##
+    giro_actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     instituciones_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     # pagando_credito_inmb_co_acreditado = models.BooleanField(default=False, blank=True, null=True) ####

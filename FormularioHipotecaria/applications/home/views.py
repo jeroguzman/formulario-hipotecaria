@@ -123,24 +123,30 @@ class FinalView(TemplateView):
         )
         client.save()
 
-        # Obteniendo los alcabces de credito por banco
-        msg, alcances = get_all_estimates(client)
+        if client.tramite != "Mejora de Hipoteca":
 
-        # Guardando alcances de credito en el modelo cliente
-        client.banorte = alcances['BANORTE']
-        client.hsbc = alcances['HSBC']
-        client.banamex = alcances['BANAMEX']
-        client.santander = alcances['SANTANDER']
-        client.scotiabanck = alcances['SCOTIABANK']
-        client.bx = alcances['BX+']
-        client.afirme = alcances['AFIRME']
-        client.banregio = alcances['BANREGIO']
-        client.save()
+            # Obteniendo los alcabces de credito por banco
+            msg, alcances = get_all_estimates(client)
 
-        client_subject = 'Registro'
-        client_message = 'Registro exitoso\n' + msg
-        sender = ''
-        send_mail(client_subject, client_message, sender, [correo])
+            # Guardando alcances de credito en el modelo cliente
+            client.banorte = alcances['BANORTE']
+            client.hsbc = alcances['HSBC']
+            client.banamex = alcances['BANAMEX']
+            client.santander = alcances['SANTANDER']
+            client.scotiabanck = alcances['SCOTIABANK']
+            client.bx = alcances['BX+']
+            client.afirme = alcances['AFIRME']
+            client.banregio = alcances['BANREGIO']
+            client.save()
+
+            client_subject = 'Registro'
+            client_message = 'Registro exitoso\n' + msg
+            sender = 'correomshipotecaria@gmail.com'
+            send_mail(client_subject, client_message, sender, [correo])
+
+        else:
+            msg = 'Tramite de mejora de hipoteca'
+            sender = 'correomshipotecaria@gmail.com'
 
         admin_subject = 'Registro de nuevo cliente'
         admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\

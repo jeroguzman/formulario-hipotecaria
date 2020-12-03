@@ -24,7 +24,7 @@
 
 <!-- 3. ¿Cuál es el valor aproximado del inmueble? -->
 {%include "./includes/panel.html" with id="valor-inmueble" per=12.5 desc="El importe de un valor de inmueble nos servirá para poder determinar el monto máximo de crédito que te pudiera prestar el banco." pregunta="¿Cuál es el valor aproximado del inmueble?" %}
-{%include "./includes/dinero.html" with form="form-db" name="valor-inmueble"%}
+{%include "./includes/dinero.html" with form="form-db" name="valor_inmueble"%}
 {%include "./includes/panel-botones-siguiente.html" with next="actividad" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 4. ¿Cuál es el tu actividad principal? -->
@@ -187,6 +187,9 @@
 
 <!-- Numero -->
 {%include "./includes/panel.html" with id="telefono" per=92 desc="Compartenos tu número de teléfono para mantenernos mejor comunicados." pregunta="Mi número celular es:"%}
+<p>Tu información está segura, consulta nuestro <b><a class="visible-link"
+            href="https://www.mshipotecaria.com/aviso-de-privacidad/" target="__blank">Aviso de
+            Privacidad</a></b></p>
 <input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" form="form-db"
     disabled />
 {%include "./includes/panel-botones-siguiente.html" with next="correo" emsg="El número debe ser de 10 dígitos"%}

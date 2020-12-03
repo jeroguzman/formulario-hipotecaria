@@ -1,20 +1,5 @@
-@font-face {
-    font-family: Gotham;
-    src: url('/static/fonts/GothamBook.ttf');
-}
-
-@font-face {
-    font-family: Gotham-bold;
-    src: url('/static/fonts/GothamMedium.ttf');
-}
-
-@font-face {
-    font-family: Gotham-light;
-    src: url('/static/fonts/Gotham-Thin.otf');
-}
-
 body {
-    font-family: Gotham;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
     border: 0;
@@ -27,6 +12,10 @@ a,
 a:hover {
     color: inherit;
     text-decoration: inherit;
+}
+
+.visible-link:hover{
+    text-decoration: underline;
 }
 
 button:focus {

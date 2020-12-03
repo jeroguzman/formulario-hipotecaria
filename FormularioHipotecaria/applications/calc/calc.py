@@ -3,7 +3,7 @@ from applications.clientes.models import Clientes
 
 def get_all_estimates(client=None):
     
-    if client is not None:
+    if client is not None:          
 
         if client.ingreso_mensual_co_acreditado is not None:
             sueldo = float(client.ingreso_mensual) + float(client.ingreso_mensual_co_acreditado)
