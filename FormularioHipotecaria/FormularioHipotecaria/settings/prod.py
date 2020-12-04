@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['165.22.15.142', 'localhost', '127.0.0.1', 'perfilador.mshipotecaria.com']
+ALLOWED_HOSTS = ['138.68.61.212', 'localhost', '127.0.0.1', 'perfilador.mshipotecaria.com']
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -11,9 +11,9 @@ ALLOWED_HOSTS = ['165.22.15.142', 'localhost', '127.0.0.1', 'perfilador.mshipote
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'msh',
+        'USER': 'admin_ms',
         'NAME': 'mshprod',
-        'PASSWORD': 'mshipotecaria2020',
+        'PASSWORD': 'msdbadmin',
         'HOST': 'localhost',
         'PORT': '',
         'TEST': {
@@ -25,7 +25,7 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 
 # EMAIL SETTINGS
