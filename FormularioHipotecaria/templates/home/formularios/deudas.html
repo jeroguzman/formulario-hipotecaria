@@ -70,7 +70,7 @@
 {%include "./includes/panel.html" with id="ejercer-infonavit" per=31.25 desc="El banco te da la oportunidad de acceder a un crédito hipotecario, aunque estés pagando un crédito con Infovanit o Fovissste." pregunta="¿Actualmente estas pagando un crédito Infonavit o Fovissste?" %}
 {%include "./includes/opcion.html" with for="ingreso-mensual" texto="Sí"%}
 {%include "./includes/opcion.html" with for="ingreso-mensual" texto="No"%}
-<!-- {%include "./includes/opcion-input.html" with form="form-db" name="pagando_credito_inmb"%} -->
+{%include "./includes/opcion-input.html" with form="form-db" name="pagando_credito_inmb"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 6e. ¿Cuál es el giro de tu actividad? -->
@@ -119,7 +119,7 @@
 {%include "./includes/opcion.html" with for="ingreso-coacreditado-independiente" texto="Independiente"%}
 {%include "./includes/opcion.html" with for="ingreso-coacreditado-empresario" texto="Empresario"%}
 {%include "./includes/opcion.html" with for="ingreso-coacreditado-accionista" texto="Socio Accionista"%}
-{%include "./includes/opcion.html" with for="ingreso-coacreditado-usa" texto="Trabajo en USA"%}
+{%include "./includes/opcion.html" with for="giro-coacreditado-usa" texto="Trabajo en USA"%}
 {%include "./includes/opcion-input.html" with form="form-db" name="actividad_co_acreditado"%}
 {%include "./includes/panel-botones.html"%}
 
@@ -131,6 +131,13 @@
 {%include "./includes/opcion.html" with texto="Ninguno" for="ingreso-coacreditado"%}
 {%include "./includes/opcion-input.html" with form="form-db" name="instituciones_co_acreditado"%}
 {%include "./includes/panel-botones.html"%}
+
+<!-- 12e. ¿Cuál es el giro de la actividad? Giro USA -->
+{%include "./includes/panel.html" with id="giro-coacreditado-usa" per=68.75 desc="Es importante seleccionar correctamente el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el giro de la actividad?" %}
+{%include "./includes/opcion.html" with for="ingreso-coacreditado-usa-e" texto="Empleado"%}
+{%include "./includes/opcion.html" with for="ingreso-coacreditado-usa-i" texto="Independiente"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad_co_acreditado"%}
+{%include "./includes/panel-botones.html" %}
 
 <!-- 12i. ¿Cuál es el ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="ingreso-coacreditado-independiente" per=68.75 desc="A los Co-Acreditados Independientes, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio?" %}
@@ -147,16 +154,21 @@
 {%include "./includes/dinero.html" with name="ingreso_mensual_co_acreditado" form="form-db"%}
 {%include "./includes/panel-botones-siguiente.html" with next="giro-coacreditado" emsg="El campo valor debe ser mayor a 0"%}
 
-<!-- 12u. ¿Cuál es el ingreso mensual promedio? -->
-{%include "./includes/panel.html" with id="ingreso-coacreditado-usa" per=68.75 desc="A los Co-Acreditados, el banco les promedia los ingresos de los últimos 6 meses." pregunta="¿Cuál es el ingreso mensual promedio? (en pesos mexicanos)" %}
+<!-- 13u. ¿Cuál es el ingreso mensual promedio? Ingreso USA empleado -->
+{%include "./includes/panel.html" with id="ingreso-coacreditado-usa-e" per=75 desc="¿Cual sería el Ingreso mensual del Co-Acreditado?" pregunta="¿Cuál es el ingreso mensual? (en pesos mexicanos)" %}
 {%include "./includes/dinero.html" with name="ingreso_mensual_co_acreditado" form="form-db"%}
-{%include "./includes/panel-botones-siguiente.html" with next="giro-coacreditado-usa" emsg="El campo valor debe ser mayor a 0"%}
+{%include "./includes/panel-botones-siguiente.html" with next="creditos" emsg="El campo valor debe ser mayor a 0"%}
+
+<!-- 13u. ¿Cuál es el ingreso mensual promedio? Ingreso USA independiente -->
+{%include "./includes/panel.html" with id="ingreso-coacreditado-usa-i" per=75 desc="¿Cual sería el Ingreso mensual promedio de los últimos 6 meses del Co-Acreditado?" pregunta="¿Cuál es el ingreso mensual promedio? (en pesos mexicanos)" %}
+{%include "./includes/dinero.html" with name="ingreso_mensual_co_acreditado" form="form-db"%}
+{%include "./includes/panel-botones-siguiente.html" with next="creditos" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 13. ¿El Co-Acreditado ya ejerció o esta pagando su Crédito Infonavit o Fovisste? -->
 {%include "./includes/panel.html" with id="infonavit-coacreditado" per=75 desc="Vamos ampliando posibilidades..." pregunta="¿El Co-Acreditado ya ejerció o esta pagando su Crédito Infonavit o Fovisste?"%}
 {%include "./includes/opcion.html" with for="ingreso-coacreditado" texto="Sí"%}
 {%include "./includes/opcion.html" with for="ingreso-coacreditado" texto="No"%}
-<!-- {%include "./includes/opcion-input.html" with form="form-db" name="pagando_credito_inmb_co_acreditado"%} -->
+{%include "./includes/opcion-input.html" with form="form-db" name="pagando_credito_inmb_co_acreditado"%}
 {%include "./includes/panel-botones.html" %}
 
 <!-- 13e. ¿Cuál es el giro de la actividad? -->
@@ -164,13 +176,6 @@
 {%include "./includes/opcion.html" with for="creditos" texto="Servicios"%}
 {%include "./includes/opcion.html" with for="creditos" texto="Comerciante"%}
 {%include "./includes/opcion.html" with for="creditos" texto="Otros"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad_co_acreditado"%}
-{%include "./includes/panel-botones.html" %}
-
-<!-- 13e. ¿Cuál es el giro de la actividad? -->
-{%include "./includes/panel.html" with id="giro-coacreditado-usa" per=75 desc="Es importante seleccionar correctamente el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar." pregunta="¿Cuál es el giro de la actividad?" %}
-{%include "./includes/opcion.html" with for="creditos" texto="Empleado"%}
-{%include "./includes/opcion.html" with for="creditos" texto="Independiente"%}
 {%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad_co_acreditado"%}
 {%include "./includes/panel-botones.html" %}
 

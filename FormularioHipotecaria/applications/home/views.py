@@ -56,11 +56,11 @@ class FinalView(TemplateView):
         pagos_pactados = request.POST.get('pagos_pactados')
 
         #Compra
-        #inmueble_identificado = request.POST.get('inmueble_identificado') #
+        inmueble_identificado = request.POST.get('inmueble_identificado')
         valor_inmueble = request.POST.get('valor_inmueble')
         actividad = request.POST.get('actividad')
         institucion = request.POST.get('institucion')
-        #pagando_credito_inmb = request.POST.get('pagando_credito_inmb')
+        pagando_credito_inmb = request.POST.get('pagando_credito_inmb')
         ingreso_mensual = request.POST.get('ingreso_mensual')
         giro_actividad = request.POST.get('giro_actividad')
         estado_civil = request.POST.get('estado_civil')
@@ -68,7 +68,7 @@ class FinalView(TemplateView):
         giro_actividad_co_acreditado = request.POST.get('giro_actividad_co_acreditado')
         actividad_co_acreditado = request.POST.get('actividad_co_acreditado')
         instituciones_co_acreditado = request.POST.get('instituciones_co_acreditado')
-        #pagando_credito_inmb_co_acreditado = request.POST.get('pagando_credito_inmb_co_acreditado')
+        pagando_credito_inmb_co_acreditado = request.POST.get('pagando_credito_inmb_co_acreditado')
         ingreso_mensual_co_acreditado = request.POST.get('ingreso_mensual_co_acreditado')
         pago_credito = request.POST.get('pago_credito')
 
@@ -104,11 +104,11 @@ class FinalView(TemplateView):
             pagos_pactados = pagos_pactados,
 
             #Compra
-            #inmueble_identificado = inmueble_identificado,
+            inmueble_identificado = inmueble_identificado,
             valor_inmueble = valor_inmueble,
             actividad = actividad,
             institucion = institucion,
-            #pagando_credito_inmb = pagando_credito_inmb,
+            pagando_credito_inmb = pagando_credito_inmb,
             ingreso_mensual = ingreso_mensual,
             giro_actividad = giro_actividad,
             estado_civil = estado_civil,
@@ -116,7 +116,7 @@ class FinalView(TemplateView):
             giro_actividad_co_acreditado = giro_actividad_co_acreditado,
             actividad_co_acreditado = actividad_co_acreditado,
             instituciones_co_acreditado = instituciones_co_acreditado,
-            #pagando_credito_inmb_co_acreditado = pagando_credito_inmb_co_acreditado,
+            pagando_credito_inmb_co_acreditado = pagando_credito_inmb_co_acreditado,
             ingreso_mensual_co_acreditado = ingreso_mensual_co_acreditado,
             pago_credito = pago_credito
         )

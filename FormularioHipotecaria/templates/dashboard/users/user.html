@@ -8,11 +8,13 @@
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
+<link rel="stylesheet" type="text/css"
+    href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 
 
 <!-- Css Styling -->
-<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%}
+{% block body %}
 
 <div class="dashboard-main-wrapper">
     {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
@@ -22,7 +24,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h1 class="card-header">
-                            <img src="{{ object.foto.url }}" width="64">
+                            <img src="{{ object.foto.url }}" class="foto-perfil">
                             {{ object.first_name }} {{ object.last_name }}
                         </h1>
                         <table class="table">
@@ -132,13 +134,15 @@
                             </tbody>
                         </table>
                         {% if request.user.modalidad == 'Asesor' %}
-                            <div class="card d-flex justify-content-center flex-row">
-                                <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
-                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                <a href="{% url 'users_app:u-delete' object.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
-                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                <a href="{% url 'users_app:u-updatePass' object.pk %}"><i class="fas fa-unlock-alt fa-2x"></i></a>
-                            </div>
+                        <div class="card d-flex justify-content-center flex-row">
+                            <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
+                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <a href="{% url 'users_app:u-delete' object.pk %}"><i
+                                    class="far fa-trash-alt fa-2x"></i></a>
+                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <a href="{% url 'users_app:u-updatePass' object.pk %}"><i
+                                    class="fas fa-unlock-alt fa-2x"></i></a>
+                        </div>
                         {% endif %}
                     </div>
                 </div>

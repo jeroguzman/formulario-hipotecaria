@@ -25,19 +25,19 @@ class Clientes(models.Model):
     pagos_pactados = models.CharField(max_length=40, blank=True, null=True) 
 
     # Compra
-    # inmueble_identificado = models.BooleanField(default=False, blank=True, null=True) #######
+    inmueble_identificado = models.CharField(max_length=140, blank=True, null=True)
     valor_inmueble = models.FloatField(blank=True, null=True) 
     actividad = models.CharField(max_length=140, blank=True, null=True) 
     institucion = models.CharField(max_length=40, blank=True, null=True) 
-    # pagando_credito_inmb = models.BooleanField(default=False, blank=True, null=True) ######
+    pagando_credito_inmb = models.CharField(max_length=40, blank=True, null=True)
     ingreso_mensual = models.FloatField(blank=True, null=True)
-    giro_actividad = models.CharField(max_length=40, blank=True, null=True) ##!##
+    giro_actividad = models.CharField(max_length=40, blank=True, null=True)
     estado_civil = models.CharField(max_length=40, blank=True, null=True) 
     # mostrar_mayor_ingreso = models.BooleanField(default=False, blank=True, null=True) ####
     giro_actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     instituciones_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
-    # pagando_credito_inmb_co_acreditado = models.BooleanField(default=False, blank=True, null=True) ####
+    pagando_credito_inmb_co_acreditado = models.CharField(max_length=40, blank=True, null=True)
     ingreso_mensual_co_acreditado = models.FloatField(blank=True, null=True) 
     pago_credito = models.FloatField(blank=True, null=True) 
 

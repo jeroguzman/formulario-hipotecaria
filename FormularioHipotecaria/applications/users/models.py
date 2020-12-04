@@ -6,7 +6,7 @@ from .managers import UserManager
 # Create your models here.
 class Company(models.Model):
     name = models.CharField(max_length=140)
-    logo = models.ImageField(upload_to='staticfiles/img/promotores/logos')
+    logo = models.ImageField(upload_to='static/img/promotores/logos')
 
     def __str__(self):
         return self.name
@@ -51,8 +51,8 @@ class User(AbstractUser, PermissionsMixin):
     bienvenida_txt = models.TextField(blank=True)
     despedida_txt = models.TextField(blank=True)
     foto = models.ImageField(
-        upload_to='staticfiles/img/promotores', 
-        default='staticfiles/img/ic-2.png'
+        upload_to='static/img/promotores', 
+        default='static/img/ic-2.png'
         )
     url = models.TextField(blank=True)
     is_superuser = models.BooleanField(default=False)
@@ -63,7 +63,7 @@ class User(AbstractUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         profile_pic = str(self.foto).replace(' ', '_').lower()
-        profile_pic = profile_pic.replace('staticfiles/', '')
+        profile_pic = profile_pic.replace('static/', '')
 
         self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
             self.pk,
