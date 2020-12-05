@@ -46,18 +46,36 @@ $('.opcionNext').each(function () {
 })
 
 $('.perfilamiento').each(function () {
-    const target = $('#' + $(this).attr('for'));
+    //const target = $('#' + $(this).attr('for'));
     const correo = $(this).parent().parent().find('input[name=correo]');
+    const telefono = $(this).parent().parent().find('input[name=telefono]');
+
     $(this).click(function () {
-        if((correo.length && correo.val().match(regexEmail)) ){
-            target.fadeIn(100);
-            target.addClass('path');
+        // if((correo.length && correo.val().match(regexEmail)) ){
+        //     target.fadeIn(100);
+        //     target.addClass('path');
+        //     target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+        //     target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+        //     $('.money').unmask();
+        //     $(this).parent().parent().parent().parent().hide();            
+        // }else{            
+        //     $(this).siblings('.emsg').removeClass('hidden');
+        // }
+
+        if(!((correo.length && correo.val().match(regexEmail)) && (telefono.length && telefono.cleanVal().length === 10))){
+            $(this).siblings('#emsg-correo').removeClass('hidden');
+            $(this).siblings('#emsg-telefono').removeClass('hidden');
+        }else if(!(correo.length && correo.val().match(regexEmail))){
+            $(this).siblings('#emsg-correo').removeClass('hidden');
+        }else if(!(telefono.length && telefono.cleanVal().length === 10)){
+            $(this).siblings('#emsg-telefono').removeClass('hidden');
+        }else{
+            //target.fadeIn(100);
+            //target.addClass('path');
             target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-            target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+            //target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
             $('.money').unmask();
-            $(this).parent().parent().parent().parent().hide();            
-        }else{            
-            $(this).siblings('.emsg').removeClass('hidden');
+            //$(this).parent().parent().parent().parent().hide();  
         }
 
     })
@@ -88,7 +106,7 @@ $('.btnNext').each(function () {
     const nombre = $(this).parent().parent().find('input[name=nombre]');
     const scroll = $(this).parent().parent().find('select');
     const radio = $(this).parent().parent().find('input[name=radio]');    
-    const telefono = $(this).parent().parent().find('input[name=telefono]');
+    //const telefono = $(this).parent().parent().find('input[name=telefono]');
     
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
@@ -97,8 +115,8 @@ $('.btnNext').each(function () {
             (valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
             (scroll.attr('class') !== undefined) ||
-            (radio.attr('class') !== undefined) || 
-            (telefono.length && telefono.cleanVal().length === 10)) {
+            (radio.attr('class') !== undefined)  
+           /* || (telefono.length && telefono.cleanVal().length === 10)*/) {
 
             //Toma el html de la opcion seleccionada para poder hacer submit en el form
             $('.opcion-input').each(function () {

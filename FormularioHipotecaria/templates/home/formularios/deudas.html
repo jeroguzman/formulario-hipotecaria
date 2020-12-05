@@ -33,7 +33,7 @@
 {%include "./includes/opcion.html" with for="ingreso-independiente" texto="Independiente"%}
 {%include "./includes/opcion.html" with for="ingreso-empresario" texto="Empresario"%}
 {%include "./includes/opcion.html" with for="ingreso-socio" texto="Socio Accionista"%}
-{%include "./includes/opcion.html" with for="ingreso-usa" texto="Trabajo en USA"%}
+{%include "./includes/opcion.html" with for="giro-usa" texto="Trabajo en USA"%}
 {%include "./includes/opcion-input.html" with form="form-db" name="actividad"%}
 {%include "./includes/panel-botones.html"%}
 
@@ -45,6 +45,13 @@
 {%include "./includes/opcion.html" with texto="Ninguno" for="ingreso-mensual"%}
 {%include "./includes/opcion-input.html" with form="form-db" name="institucion"%}
 {%include "./includes/panel-botones.html"%}
+
+<!-- 5u. ¿Cuál es el giro de tu actividad? GIRO USA-->
+{%include "./includes/panel.html" with id="giro-usa" per=25 desc="Es importante especificar bien el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar" pregunta="¿Cuál es el giro de tu actividad?" %}
+{%include "./includes/opcion.html" with for="ingreso-usa-e" texto="Empleado"%}
+{%include "./includes/opcion.html" with for="ingreso-usa-i" texto="Independiente"%}
+{%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad"%}
+{%include "./includes/panel-botones.html" %}
 
 <!-- 5i. ¿Cuál es tu ingreso mensual promedio? -->
 {%include "./includes/panel.html" with id="ingreso-independiente" per=25 desc="A personas independientes como tú, el banco promedia los ingresos de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio?" %}
@@ -61,10 +68,15 @@
 {%include "./includes/dinero.html" with name="ingreso_mensual" form="form-db"%}
 {%include "./includes/panel-botones-siguiente.html" with next="giro" emsg="El campo valor debe ser mayor a 0"%}
 
-<!-- 5u. ¿Cuál es tu ingreso mensual promedio? -->
-{%include "./includes/panel.html" with id="ingreso-usa" per=25 desc="¿Sabías que aunque trabajes en Estados Unidos puedes tener acceso a un crédito hipotecario para comprar casa en México? ¡Cosecha el esfuerzo de tus logros! <br> (Único requisito, tener papales de residencia en regla)" pregunta="¿Cuál es tu ingreso mensual promedio (en pesos mexicanos)?" %}
+<!-- 6u. ¿Cuál es tu ingreso mensual promedio? INGRESO USA-->
+{%include "./includes/panel.html" with id="ingreso-usa-e" per=31.25 desc="¿Sabías que aunque trabajes en Estados Unidos puedes tener acceso a un crédito hipotecario para comprar casa en México? ¡Cosecha el esfuerzo de tus logros! <br> (Único requisito, tener papales de residencia en regla) ¿Cual sería tu Ingreso mensual?" pregunta="¿Cuál es tu ingreso mensual (en pesos mexicanos)?" %}
 {%include "./includes/dinero.html" with name="ingreso_mensual" form="form-db"%}
-{%include "./includes/panel-botones-siguiente.html" with next="giro-usa" emsg="El campo valor debe ser mayor a 0"%}
+{%include "./includes/panel-botones-siguiente.html" with next="nombre" emsg="El campo valor debe ser mayor a 0"%}
+
+<!-- 6u. ¿Cuál es tu ingreso mensual promedio? INGRESO USA-->
+{%include "./includes/panel.html" with id="ingreso-usa-i" per=31.25 desc="¿Sabías que aunque trabajes en Estados Unidos puedes tener acceso a un crédito hipotecario para comprar casa en México? ¡Cosecha el esfuerzo de tus logros! <br> (Único requisito, tener papales de residencia en regla) ¿Cual sería tu Ingreso mensual promedio de los últimos 6 meses" pregunta="¿Cuál es tu ingreso mensual promedio (en pesos mexicanos)?" %}
+{%include "./includes/dinero.html" with name="ingreso_mensual" form="form-db"%}
+{%include "./includes/panel-botones-siguiente.html" with next="nombre" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 6. ¿Actualmente estas pagando un crédito Infonavit o Fovissste? // ¿Ya ejerciste o estas pagando tu Crédito Infonavit o Fovissste? -->
 {%include "./includes/panel.html" with id="ejercer-infonavit" per=31.25 desc="El banco te da la oportunidad de acceder a un crédito hipotecario, aunque estés pagando un crédito con Infovanit o Fovissste." pregunta="¿Actualmente estas pagando un crédito Infonavit o Fovissste?" %}
@@ -81,12 +93,6 @@
 {%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad"%}
 {%include "./includes/panel-botones.html"%}
 
-<!-- 6u. ¿Cuál es el giro de tu actividad? -->
-{%include "./includes/panel.html" with id="giro-usa" per=31.25 desc="Es importante especificar bien el giro de tu actividad, ya que dependiendo de esto la Banca determina el porcentaje de ingreso a considerar" pregunta="¿Cuál es el giro de tu actividad?" %}
-{%include "./includes/opcion.html" with for="nombre" texto="Empleado"%}
-{%include "./includes/opcion.html" with for="nombre" texto="Independiente"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="giro_actividad"%}
-{%include "./includes/panel-botones.html" %}
 
 <!-- 7. ¿Cuál es tu ingreso mensual? -->
 {%include "./includes/panel.html" with id="ingreso-mensual" per=37.5 desc="Los bancos calculan tu capacidad de crédito basándose en tus ingresos incluso si tienes dos fuentes de ingreso. Por favor, declara el total de todas tus fuentes de ingresos." pregunta="¿Cuál es tu ingreso mensual?" %}
@@ -188,16 +194,7 @@
 {%include "./includes/panel.html" with id="creditos" per=87.5 desc="El banco revisa el endeudamiento actual de los créditos a tu nombre y del Co-Acreditado (si es el caso) para conocer tu capacidad de crédito. Captura tus gastos acutales (crédito automotriz, tarjetas de crédito, departamentales, hipotecario o préstamo personal)" pregunta="Captura lo que pagas de créditos:"%}
 <p>Suma los gastos del Co-Acreditado si es el caso</p>
 {%include "./includes/dinero.html" with name="pago_credito" form="form-db" titulo="Créditos"%}
-{%include "./includes/panel-botones-siguiente.html" with next="telefono" emsg="El campo valor debe ser mayor a 0"%}
-
-<!-- Numero -->
-{%include "./includes/panel.html" with id="telefono" per=92 desc="Compartenos tu número de teléfono para mantenernos mejor comunicados." pregunta="Mi número celular es:"%}
-<p>Tu información está segura, consulta nuestro <b><a class="visible-link"
-            href="https://www.mshipotecaria.com/aviso-de-privacidad/" target="__blank">Aviso de
-            Privacidad</a></b></p>
-<input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput" form="form-db"
-    disabled />
-{%include "./includes/panel-botones-siguiente.html" with next="correo" emsg="El número debe ser de 10 dígitos"%}
+{%include "./includes/panel-botones-siguiente.html" with next="correo" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 16. correo: -->
 {%include "./includes/final.html" with id="correo" per=97 form="form-db"%}
