@@ -1,22 +1,20 @@
 const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
 const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+const correo = $('input[name=correo]');
+const telefono = $('input[name=telefono]');
+const nombre = $('input[name=nombre]');
+const dinero = $('.money');
 
 //Mask inputs
-$('.money').mask('000,000,000', {
+dinero.mask('000,000,000', {
     reverse: true
 });
 
-$('.celularInput').mask('(000) 000-0000');
-
-//Marca las opciones seleccionadas
-// $('.opcion').click(function () {
-//     $('.opcion').removeClass('opcion-active');
-//     $(this).addClass('opcion-active');
-//     $(this).siblings('.emsg').addClass('hidden');
-// });
+telefono.mask('(000) 000-0000');
 
 $('.panel').first().show();
 
+//Marca las opciones seleccionadas
 $('.panel').each(function () {
     const currentOptions = $(this).find('.opcion');
     currentOptions.click(function () {
@@ -45,39 +43,22 @@ $('.opcionNext').each(function () {
     })
 })
 
+//Boton final para enviar el formulario
 $('.perfilamiento').each(function () {
-    //const target = $('#' + $(this).attr('for'));
-    const correo = $(this).parent().parent().find('input[name=correo]');
-    const telefono = $(this).parent().parent().find('input[name=telefono]');
-
-    $(this).click(function () {
-        // if((correo.length && correo.val().match(regexEmail)) ){
-        //     target.fadeIn(100);
-        //     target.addClass('path');
-        //     target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-        //     target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-        //     $('.money').unmask();
-        //     $(this).parent().parent().parent().parent().hide();            
-        // }else{            
-        //     $(this).siblings('.emsg').removeClass('hidden');
-        // }
-
-        if(!((correo.length && correo.val().match(regexEmail)) && (telefono.length && telefono.cleanVal().length === 10))){
+    $(this).click(function (event) {
+        if(!correo.val().match(regexEmail) && telefono.cleanVal().length !== 10 ){
             $(this).siblings('#emsg-correo').removeClass('hidden');
             $(this).siblings('#emsg-telefono').removeClass('hidden');
-        }else if(!(correo.length && correo.val().match(regexEmail))){
+            event.preventDefault();
+        }else if(!correo.val().match(regexEmail)){
             $(this).siblings('#emsg-correo').removeClass('hidden');
-        }else if(!(telefono.length && telefono.cleanVal().length === 10)){
+            event.preventDefault();
+        }else if(telefono.cleanVal().length !== 10){
             $(this).siblings('#emsg-telefono').removeClass('hidden');
+            event.preventDefault();
         }else{
-            //target.fadeIn(100);
-            //target.addClass('path');
-            target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-            //target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-            $('.money').unmask();
-            //$(this).parent().parent().parent().parent().hide();  
+            dinero.unmask();
         }
-
     })
 });
 
@@ -105,8 +86,7 @@ $('.btnNext').each(function () {
     const valor = $(this).parent().parent().find('.money');
     const nombre = $(this).parent().parent().find('input[name=nombre]');
     const scroll = $(this).parent().parent().find('select');
-    const radio = $(this).parent().parent().find('input[name=radio]');    
-    //const telefono = $(this).parent().parent().find('input[name=telefono]');
+    const radio = $(this).parent().parent().find('input[name=radio]');
     
     $(this).click(function () {
         const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
@@ -115,8 +95,7 @@ $('.btnNext').each(function () {
             (valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
             (scroll.attr('class') !== undefined) ||
-            (radio.attr('class') !== undefined)  
-           /* || (telefono.length && telefono.cleanVal().length === 10)*/) {
+            (radio.attr('class') !== undefined)) {
 
             //Toma el html de la opcion seleccionada para poder hacer submit en el form
             $('.opcion-input').each(function () {
@@ -173,7 +152,7 @@ $('.antPer').each(function () {
 });
 
 //Validaciones
-$('input[name=valor]').on('keypress keydown keyup', function () {
+dinero.on('keypress keydown keyup', function () {
     if ($(this).cleanVal() < 0) {
         $(this).parent().siblings('.emsg').removeClass('hidden');
     } else {
@@ -181,7 +160,7 @@ $('input[name=valor]').on('keypress keydown keyup', function () {
     }
 });
 
-$('input[name=nombre]').on('keypress keydown keyup', function () {
+nombre.on('keypress keydown keyup', function () {
     if (!$(this).val().match(regexName)) {
         $(this).siblings('.emsg').removeClass('hidden');
     } else {
@@ -189,7 +168,7 @@ $('input[name=nombre]').on('keypress keydown keyup', function () {
     }
 });
 
-$('input[name=telefono]').on('keypress keydown keyup', function () {
+telefono.on('keypress keydown keyup', function () {
     if ($(this).cleanVal().length < 10) {
         $(this).siblings('.emsg:first-of-type').removeClass('hidden');
     } else {
@@ -197,7 +176,7 @@ $('input[name=telefono]').on('keypress keydown keyup', function () {
     }
 });
 
-$('input[name=correo]').on('keypress keydown keyup', function () {
+correo.on('keypress keydown keyup', function () {
     if (!$(this).val().match(regexEmail)) {
         $(this).siblings('.emsg:last-of-type').removeClass('hidden');
     } else {

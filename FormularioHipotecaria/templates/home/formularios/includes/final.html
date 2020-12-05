@@ -37,7 +37,7 @@
                             href="https://www.mshipotecaria.com/aviso-de-privacidad/" target="__blank">Aviso de
                             Privacidad</a></b></p>
                 <input name="telefono" type="text" placeholder="(662) 000-0000" class="form-control celularInput"
-                    form="form-db" disabled required />
+                    form="form-db" minlength="14" disabled />
                 <small id="emsg-telefono" class="emsg form-text text-muted hidden">El número debe ser de 10
                     dígitos</small>
 
@@ -50,7 +50,7 @@
                 <p>(El que más utilizas)</p>
                 <input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
                     placeholder="Ejemplo: juan@gmail.com" form="{{form}}" disabled
-                    value='{% if submitButton == "submit" %} {{ correo }} {% endif %}' required />
+                    value='{% if submitButton == "submit" %} {{ correo }} {% endif %}' />
                 <small id="emsg-correo" class="emsg form-text text-muted hidden">Por favor, ingrese un correo
                     valido</small>
 
