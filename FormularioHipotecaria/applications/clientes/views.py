@@ -13,19 +13,24 @@ class clientesView(LoginRequiredMixin, ListView):
     paginate_by = 20
 
     def get_queryset(self):
-
+        # Asesores
         if self.request.user.modalidad == 'Asesor':
-            # Promotores
-            queryset_p = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
-            queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
+            if self.request.user.is_superuser: # Administrador
+                queryset = Clientes.objects.all()
 
-            for promotor in queryset_p:
-                # Clientes
-                queryset = Clientes.objects.filter(promotor_id=promotor.id)
-                queryset_c = list(chain(queryset_c, queryset))
+                return queryset
+            else: 
+                # Promotores
+                queryset_p = User.objects.filter(modalidad='Promotor', asesor=self.request.user.username)
+                queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
 
-            return queryset_c
-        else:
+                for promotor in queryset_p:
+                    # Clientes
+                    queryset = Clientes.objects.filter(promotor_id=promotor.id)
+                    queryset_c = list(chain(queryset_c, queryset))
+
+                return queryset_c
+        else: # Promotores
             queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
 
             return queryset_c

@@ -54,6 +54,17 @@ class UserUpadateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('users_app:u-promotores')
     login_url = reverse_lazy('users_app:u-login')
 
+    def form_valid(self, form):
+        current_user = self.request.user
+        user_to_edit = User.objects.filter(pk=self.kwargs['pk'], asesor=current_user.username)
+
+        if user_to_edit.exists() or current_user.is_superuser:
+            return super(UserUpadateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):
     model = User
@@ -107,12 +118,20 @@ class UserUpdatePassView(LoginRequiredMixin, FormView):
     login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form):
-        user = User.objects.get(pk=self.kwargs['pk'])
+        current_user = self.request.user
+        user_to_edit = User.objects.filter(pk=self.kwargs['pk'], asesor=current_user.username)
 
-        user.set_password(form.cleaned_data['new_pass'])
-        user.save()
+        if current_user.is_superuser or user_to_edit.exists():
+            user = User.objects.get(pk=self.kwargs['pk'])
 
-        return super(UserUpdatePassView, self).form_valid(form)
+            user.set_password(form.cleaned_data['new_pass'])
+            user.save()
+
+            return super(UserUpdatePassView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-login')
+            )
 
 
 class asesorListView(LoginRequiredMixin, ListView):
@@ -134,6 +153,13 @@ class promotorListView(LoginRequiredMixin, ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        queryset = User.objects.filter(modalidad='Promotor')
+        # Administrador
+        if self.request.user.is_superuser: 
+            queryset = User.objects.filter(modalidad='Promotor')
 
-        return queryset
+            return queryset
+        else: # Asesor
+            current_user = self.request.user.username            
+            queryset = User.objects.filter(modalidad='Promotor', asesor=current_user)
+
+            return queryset

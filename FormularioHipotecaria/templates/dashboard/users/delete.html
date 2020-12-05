@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <form class="d-flex flex-column align-items-center" method="POST">
                                 {% csrf_token %}
-
+                                
                                 <p>¿Está seguro que desea eliminar el registro de <strong>{{ object.first_name }} {{ object.lasst_name }}</strong>?</p>
                                 
                                 <div>
