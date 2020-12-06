@@ -58,19 +58,14 @@
                                         <th scope="col">URL de perfilamiento</th>
                                         <th scope="col">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                        <th class="text-center" scope="col">Acciones</th>
+                                            <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     {% for models in object_list %}
                                     <tr>
-                                        {% if models.foto.url == None %}
-                                        <td><img src="{% static 'img\ic-2.png' %}" width="64"></td>
-                                        {% else %}
-                                        <td><img src="{{ models.foto.url }}" class="foto-perfil">
-                                        </td>
-                                        {% endif %}
+                                        <td><img src="{{ models.foto.url }}" class="foto-perfil" width="64"></td>
                                         <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
                                         <td>{{ models.username }}</td>
                                         <td>{{ models.telefono }}</td>
