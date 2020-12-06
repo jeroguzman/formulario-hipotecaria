@@ -102,7 +102,7 @@
 <!-- 8. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="nombre" per=43.75 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
 <input name="nombre" type="text" class="form-control" form="form-db" maxlength="50" disabled />
-{%include "./includes/panel-botones-siguiente.html" with next="estado-civil" emsg="Ingrese un nombre válido"%}
+{%include "./includes/panel-botones-siguiente.html" with next="estado-civil" emsg="Ingrese un nombre y apellido válido. Ejemplo: Juan Pérez"%}
 
 <!-- 9. ¿Cuál es tu estado civil? -->
 {%include "./includes/panel.html" with id="estado-civil" per=50 desc="Tu estado civil es importante para el perfilamiento, ya que será lo que se plasmará en escrituras, ¿cuál es tu caso?" pregunta="¿Cuál es tu estado civil?" %}

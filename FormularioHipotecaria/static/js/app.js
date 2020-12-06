@@ -1,4 +1,5 @@
-const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
+//const regexName = /^([a-zA-Z ]{3,50})$/; //Regex para la validacion de nombres (solo permite letras y espacios)
+const regexName = /^[\w'\-,][^0-9_!¡.?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}\s[\w'\-,][^0-9_!¡.?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/; //Regex para la validacion de nombres (solo permite letras y espacios)
 const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 const correo = $('input[name=correo]');
 const telefono = $('input[name=telefono]');
@@ -75,46 +76,27 @@ $('.goToMenu').each(function(){
         const panelToRemove = $('#' + pathClass);
         panelToRemove.removeClass('path');
     });
-
-})
-
+});
 
 //Boton siguiente
 $('.btnNext').each(function () {
     const target = $('#' + $(this).attr('for'));
-    const opcion = $(this).parent().siblings('.opcion');
     const valor = $(this).parent().parent().find('.money');
     const nombre = $(this).parent().parent().find('input[name=nombre]');
     const scroll = $(this).parent().parent().find('select');
     const radio = $(this).parent().parent().find('input[name=radio]');
     
     $(this).click(function () {
-        const targetOption = $('#' + $(this).parent().siblings('.opcion-active').attr('for'));
         //Revisa si las validaciones son correctas para poder continuar
-        if (opcion.hasClass('opcion-active') ||
-            (valor.length && (valor.cleanVal() > 0)) ||
+        if ((valor.length && (valor.cleanVal() > 0)) ||
             (nombre.length && nombre.val().match(regexName)) ||
             (scroll.attr('class') !== undefined) ||
             (radio.attr('class') !== undefined)) {
 
-            //Toma el html de la opcion seleccionada para poder hacer submit en el form
-            $('.opcion-input').each(function () {
-                const choosenOption = $(this).siblings('.opcion-active').children().html();
-                $(this).val(choosenOption);
-            });
-
-            //Revisa si va a ser direccionado por el boton siguiente o por la opcion que se eligio
-            if ($(this).attr('for') !== 'none') {
-                target.fadeIn(100);
-                target.addClass('path'); //Agrega la clase path a el panel para saber el camino que va tomanto el formulario
-                target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-                target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
-            } else {
-                targetOption.fadeIn(100);
-                targetOption.addClass('path');
-                targetOption.find('input').prop('disabled', false);
-                targetOption.find('select').prop('disabled', false);
-            }
+            target.fadeIn(100);
+            target.addClass('path'); //Agrega la clase path a el panel para saber el camino que va tomanto el formulario
+            target.find('input').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
+            target.find('select').prop('disabled', false); //Permite que nomas se llene el input del formulario especifico
 
             $(this).parent().parent().parent().parent().parent().parent().hide();
         } else { //Si las validaciones no son correctas muestra un mensaje de error
