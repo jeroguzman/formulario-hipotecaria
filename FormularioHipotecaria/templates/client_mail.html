@@ -1,0 +1,50 @@
+{% load static %}
+
+<table class="table">
+    <thead>
+        <p>{{ despedida }}</p><br/>
+        <p>
+            Según los datos proporcionados en tu perfilamiento, te presentamos el alcance de crédito
+            que tienes en cada una de las instituciones bancarias siguientes:
+        </p>
+
+        <tr>
+            <th scope="col">Banco</th>
+            <th scope="col">Alcance de Credito</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="..\static\img\b1.png" width="128"></td>
+            <td>{{ hsbc }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b1.png' %}" width="128"></td>
+            <td>{{ banorte }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b4.png' %}" width="128"></td>
+            <td>{{ santander }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b7.png' %}" width="128"></td>
+            <td>{{ banamex }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b3.png' %}" width="128"></td>
+            <td>{{ scotiabank }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b5.png' %}" width="128"></td>
+            <td>{{ afirme }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b6.png' %}" width="128"></td>
+            <td>{{ banregio }}</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'img/b8.png' %}" width="128"></td>
+            <td>{{ bx }}</td>
+        </tr>
+    </tbody>
+</table>

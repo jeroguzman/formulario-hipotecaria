@@ -12,7 +12,6 @@ def get_all_estimates(client=None):
 
         actividad = client.giro_actividad
         actividades = Actividad.objects.filter(nombre__startswith=actividad)
-        msg = 'Alcances de credito por banco.\n'
         alcances = {}
 
         for activity in actividades:
@@ -26,7 +25,6 @@ def get_all_estimates(client=None):
             banco = Banco.objects.get(id=activity.banco_id).nombre
 
             alcances[banco] = '${:,}'.format(alcance_credito)
-            msg += '{}: ${:,}\n'.format(banco, alcance_credito)
 
-        return msg, alcances
+        return alcances, cap_endeudamiento
 
