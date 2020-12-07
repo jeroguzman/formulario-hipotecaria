@@ -2,15 +2,16 @@ from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.core.mail import send_mail
 from itertools import chain
 from applications.clientes.models import Clientes
 from applications.users.models import User
 from applications.calc.calc import get_all_estimates
+from .send_emails import Messenger
 
 
 class HomeView(TemplateView):
     template_name = 'home/home.html'
+
 
 class dashboardView(LoginRequiredMixin, ListView):
     model = User
@@ -32,6 +33,7 @@ class dashboardView(LoginRequiredMixin, ListView):
             queryset_c = Clientes.objects.filter(promotor_id=self.request.user.id)
 
             return queryset_c
+
 
 class FinalView(TemplateView):
     template_name = 'home/pagina_final.html'
@@ -84,6 +86,24 @@ class FinalView(TemplateView):
         if(giro_actividad_co_acreditado == "Independiente"):
             giro_actividad_co_acreditado = "Otros"
 
+        # if ingreso_mensual_co_acreditado is not None:
+        #     ingreso_mensual_co_acreditado = ingreso_mensual_co_acreditado.replace(',', '')
+        # else:
+        #     ingreso_mensual_co_acreditado = 0.0
+
+        # if pago_mensual is not None:
+        #     pago_mensual = pago_mensual.replace(',', '')
+        # else:
+        #     pago_mensual = 0.0
+
+        # if valor_inmueble is not None:
+        #     valor_inmueble = valor_inmueble.replace(',', '')
+        # else:
+        #     valor_inmueble = 0.0
+
+        # ingreso_mensual = ingreso_mensual.replace(',', '')
+        # pago_credito = pago_credito.replace(',', '')
+        
         client = Clientes(
             nombre=nombre,
             email=correo,
@@ -123,9 +143,8 @@ class FinalView(TemplateView):
         client.save()
 
         if client.tramite != "Mejora de Hipoteca":
-
             # Obteniendo los alcabces de credito por banco
-            msg, alcances = get_all_estimates(client)
+            alcances, cap_endeudamiento = get_all_estimates(client)
 
             # Guardando alcances de credito en el modelo cliente
             client.banorte = alcances['BANORTE']
@@ -138,32 +157,12 @@ class FinalView(TemplateView):
             client.banregio = alcances['BANREGIO']
             client.save()
 
-            client_subject = 'Registro'
-            client_message = 'Registro exitoso\n' + msg
-            sender = 'correomshipotecaria@gmail.com'
-            send_mail(client_subject, client_message, sender, [correo])
+            sender = Messenger()
+            sender.email_to_admin(client, cap_endeudamiento)
+            sender.email_to_client(client)
+        # else:
+        #     msg = 'Tramite de mejora de hipoteca'
 
-        else:
-            msg = 'Tramite de mejora de hipoteca'
-            sender = 'correomshipotecaria@gmail.com'
+        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo}
 
-        admin_subject = 'Registro de nuevo cliente'
-        admin_message = 'Un nuevo cliente se ha registrado bajo el siguiente perfil:'\
-            '\n Nombre: {} \n Correo: {} \n Promotor: {} \n Telefono: {} \n Tramite {}'.format(
-                nombre, 
-                correo, 
-                promotor, 
-                telefono, 
-                tramite
-                )
-        admin_message += msg
-        admin_mail = 'correomshipotecaria@gmail.com'
-        promotor_email = promotor.email
-        asesor_email = User.objects.get(username=promotor.asesor).email
-
-        send_mail(admin_subject, admin_message, sender, [admin_mail, promotor_email, asesor_email])
-
-        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono,
-                'correo':correo}
-            
         return render(request, self.template_name, context)
