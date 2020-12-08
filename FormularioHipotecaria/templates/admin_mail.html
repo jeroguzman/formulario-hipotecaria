@@ -1,0 +1,37 @@
+<p>Asesor: {{ asesor }}</p>
+<p>Promotor: {{ promotor }}</p>
+<br />
+
+<p>Nombre Cliente: {{ nombre_cliente }}</p>
+<p>Télefono: {{ telefono }}</p>
+<p>Correo: {{ correo }}</p>
+<br />
+
+<p>Tipo de Credito: {{ tipo_credito }}</p> 
+<p>Inmueble Identificado: {{ inmueble_identificado }}</p> 
+<p>Valor Inmueble: {{ valor_inmueble }}</p> 
+<br />
+
+{% if actividad == 'Empleado' %}
+    <p>Actividad: {{ actividad }}</p> 
+    <p>Cotiza: {{ institucion }}</p> 
+    <p>Esta pagando crédito Infonavit o Fovissste: {{ pagando_credito_inmb }}</p> 
+    <p>Ingreso Mensual: {{ ingreso_mensual }}</p> 
+    <p>Estado Civil: {{ estado_civil }}</p> 
+{% else %}
+    <p>Actividad: {{ actividad }}</p> 
+    <p>Ingreso Mensual: {{ ingreso_mensual }}</p> 
+    <p>Giro: {{ giro_actividad }}</p> 
+    <p>Estado Civil: {{ estado_civil }}</p> 
+{% endif %}
+<br />
+
+<p>Actividad Co-Acreditado: {{ actividad_co_acreditado }}</p> 
+<p>Cotiza: {{ instituciones_co_acreditado }}</p> 
+<p>Esta pagando crédito Infonavit o Fovissste: {{ pagando_credito_inmb_co_acreditado }}</p>
+<p>Ingreso Mensual: {{ ingreso_mensual_co_acreditado }}</p>
+<br />
+
+<p>Suma de Ingresos: {{ suma_ingresos }}</p>
+<p>Compromisos de Pago Mensual: {{ pago_mensual }}</p>
+<p>Capacidad de endeudamiento: {{ cap_endeudamiento }}</p>
