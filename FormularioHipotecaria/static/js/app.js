@@ -11,7 +11,7 @@ dinero.mask('000,000,000', {
     reverse: true
 });
 
-telefono.mask('(000) 000-0000');
+telefono.mask('(000)000-0000');
 
 $('.panel').first().show();
 

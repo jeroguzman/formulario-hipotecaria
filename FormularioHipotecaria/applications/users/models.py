@@ -65,7 +65,7 @@ class User(AbstractUser, PermissionsMixin):
         profile_pic = str(self.foto).replace(' ', '_').lower()
         profile_pic = profile_pic.replace('staticfiles/', '')
 
-        self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienbenida={}&despedida={}'.format(
+        self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienvenida={}&despedida={}'.format(
             self.pk,
             self.first_name,
             self.last_name,

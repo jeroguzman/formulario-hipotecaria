@@ -26,9 +26,15 @@
                             {% else %}
                             {{ request.GET.first_name }} {{ request.GET.last_name}},
                             {% endif %}
-                        </strong> ejecutivo experto en Créditos
+                        </strong>
+                        {% if request.GET.bienvenida == null %}
+                        ejecutivo experto en Créditos
                         Hipotecarios,
                         déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
+                        {% else %}
+                        {{ request.GET.bienvenida }}
+                        {% endif %}
+
                     </p>
                 </div>
 
@@ -77,6 +83,7 @@
         <form action="pagina_final/" method="post" id="form-db">
             {% csrf_token %}
             <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
+            <input type="text" name="despedida" value="{{ request.GET.despedida }}" hidden>
         </form>
 
         {% include 'home/formularios/compra.html' %}

@@ -44,6 +44,7 @@ class FinalView(TemplateView):
         telefono = request.POST.get('telefono')
         correo = request.POST.get('correo')
         promotor = User.objects.get(id=request.POST.get('promotor'))
+        despedida = request.POST.get('despedida')
 
         #Mejora
         puntualidad_pagos = request.POST.get('puntualidad_pagos')
@@ -163,6 +164,6 @@ class FinalView(TemplateView):
         # else:
         #     msg = 'Tramite de mejora de hipoteca'
 
-        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo}
+        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo, 'despedida':despedida}
 
         return render(request, self.template_name, context)
