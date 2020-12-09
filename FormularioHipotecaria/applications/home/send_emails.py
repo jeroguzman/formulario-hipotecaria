@@ -74,12 +74,14 @@ class Messenger:
         client_subject = 'Mi Solución Hipotecaria'
         client_content = '¡¡Gracias por tu confienza!!'
 
-        if client.promotor.modalidad == 'Asesor':
-            template_mail = 'client_mail_as.html'
+        if client.promotor.empresa.name == 'MS Hipotecaria':
+            template_mail = 'client_mail_ms.html'
         else:
-            template_mail = 'client_mail_prom.html'
+            template_mail = 'client_mail_other.html'
 
         ctx = {
+            'promotor': client.promotor,
+            'promotor_tel': client.promotor.telefono,
             'despedida': client.promotor.despedida_txt,
             'hsbc': client.hsbc,
             'banorte': client.banorte,
@@ -88,7 +90,8 @@ class Messenger:
             'scotiabank': client.scotiabanck,
             'banregio': client.banregio,
             'afirme': client.afirme,
-            'bx': client.bx
+            'bx': client.bx,
+            'empresa': client.promotor.empresa.name
         }
         
         html_mail = loader.render_to_string(template_mail, ctx)
