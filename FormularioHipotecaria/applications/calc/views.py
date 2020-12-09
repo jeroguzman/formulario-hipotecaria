@@ -5,7 +5,8 @@ from django.views.generic import (
     DeleteView
     )
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
 from .models import Banco, Actividad
 from applications.users.models import Company
 from .forms import (
@@ -35,6 +36,16 @@ class BancoUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('calc_app:c-banks')
     login_url = reverse_lazy('users_app:login')
 
+    def form_valid(self, form):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(BancoUpdateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
 
 class ActividadView(LoginRequiredMixin, ListView):
     model = Actividad
@@ -54,6 +65,16 @@ class ActividadUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ActividadUpdateForm
     success_url = reverse_lazy('calc_app:c-banks')
     login_url = reverse_lazy('users_app:login')
+
+    def form_valid(self, form):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(ActividadUpdateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
 
 
 class CompanyViews(LoginRequiredMixin, ListView):
@@ -76,14 +97,19 @@ class CompanyCreateView(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('users_app:u-login')
 
     def form_valid(self, form):
-        empresa = Company.objects.create(
-            name=form.cleaned_data['name'],
-            logo=form.cleaned_data['logo']
-        )
-        empresa.save()
+        current_user = self.request.user 
+        if current_user.is_superuser:
+            empresa = Company.objects.create(
+                name=form.cleaned_data['name'],
+                logo=form.cleaned_data['logo']
+            )
+            empresa.save()
 
-        return super(CompanyCreateView, self).form_valid(form)
-
+            return super(CompanyCreateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
 
 class CompanyUpdateView(LoginRequiredMixin, UpdateView):
     model = Company
@@ -92,9 +118,29 @@ class CompanyUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('calc_app:c-empresas')
     login_url = reverse_lazy('users_app:login')
 
+    def form_valid(self, form):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(CompanyUpdateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
 
 class CompanyDeleteView(LoginRequiredMixin, DeleteView):
     model = Company
     template_name = 'dashboard/calc/delete_empresa.html'
     success_url = reverse_lazy('calc_app:c-empresas')
     login_url = reverse_lazy('users_app:u-login')
+
+    def delete(self, *args, **kwargs):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(CompanyDeleteView, self).delete(self, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
