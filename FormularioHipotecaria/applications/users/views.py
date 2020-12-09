@@ -72,6 +72,17 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('users_app:u-promotores')
     login_url = reverse_lazy('users_app:u-login')
 
+    def delete(self, *args, **kwargs):
+        current_user = self.request.user
+        user_to_delete = User.objects.filter(pk=self.kwargs['pk'], asesor=current_user.username)
+
+        if user_to_delete.exists() or current_user.is_superuser:
+            return super(UserDeleteView, self).delete(self, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
 
 class LoginView(FormView):
     model = User
