@@ -49,7 +49,7 @@ class FinalView(TemplateView):
             promotor = User.objects.get(id=request.POST.get('promotor'))
         except:
             print('EXCEPT: No se encontro el promotor/asesor en el sistema')
-        finally:
+            
             promotor = User.objects.get(is_superuser=1)
 
         #Mejora

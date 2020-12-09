@@ -56,7 +56,7 @@ class Messenger:
             ]
         except:
             print('EXCEPT: No existe un asesor asignado al usuario ' + str(client.promotor))
-        finally:
+            
             to_send = [
                 self.email_admin, 
                 email_prom
