@@ -9,13 +9,16 @@ class Messenger:
 
     def email_to_admin(self, client, cap_endeudamiento):
         email_prom = client.promotor.email
-        email_as = User.objects.get(username=client.promotor.asesor).email
+
         admin_subject = 'Perfilador web /{}/{}'.format(client.promotor, client.nombre)
         admin_content = 'Un nuevo cliente se ha registrado en tu enlace de Perfilamiento de Crédito Hipotecario:'
         template_mail = 'admin_mail.html'
 
         if client.ingreso_mensual_co_acreditado is None:
             client.ingreso_mensual_co_acreditado = 0.0
+        
+        if client.valor_inmueble is None:
+            client.valor_inmueble = 0.0
 
         ctx = {
             'asesor': client.promotor.asesor,
@@ -25,7 +28,7 @@ class Messenger:
             'correo': client.email,
             'tipo_credito': client.tramite,
             'inmueble_identificado': client.inmueble_identificado,
-            'valor_inmueble': client.valor_inmueble,
+            'valor_inmueble': '{:,}'.format(float(client.valor_inmueble)),
             'actividad': client.actividad,
             'institucion': client.institucion,
             'pagando_credito_inmb': client.pagando_credito_inmb,
@@ -42,12 +45,28 @@ class Messenger:
         }
 
         html_mail = loader.render_to_string(template_mail, ctx)
+        to_send = []
+
+        try:
+            email_as = User.objects.get(username=client.promotor.asesor).email
+            to_send = [
+                self.email_admin, 
+                email_prom, 
+                email_as
+            ]
+        except:
+            print('EXCEPT: No existe un asesor asignado al usuario ' + str(client.promotor))
+        finally:
+            to_send = [
+                self.email_admin, 
+                email_prom
+            ]
 
         send_mail(
             admin_subject, 
             admin_content, 
             self.email_sender, 
-            [self.email_admin, email_prom, email_as], 
+            to_send, 
             html_message=html_mail
         )
 
@@ -75,5 +94,3 @@ class Messenger:
         html_mail = loader.render_to_string(template_mail, ctx)
 
         send_mail(client_subject, client_content, self.email_sender, [client.email], html_message=html_mail)
-
-

@@ -43,8 +43,14 @@ class FinalView(TemplateView):
         nombre = request.POST.get('nombre')
         telefono = request.POST.get('telefono')
         correo = request.POST.get('correo')
-        promotor = User.objects.get(id=request.POST.get('promotor'))
         despedida = request.POST.get('despedida')
+
+        try:
+            promotor = User.objects.get(id=request.POST.get('promotor'))
+        except:
+            print('EXCEPT: No se encontro el promotor/asesor en el sistema')
+        finally:
+            promotor = User.objects.get(is_superuser=1)
 
         #Mejora
         puntualidad_pagos = request.POST.get('puntualidad_pagos')
@@ -67,7 +73,6 @@ class FinalView(TemplateView):
         ingreso_mensual = request.POST.get('ingreso_mensual')
         giro_actividad = request.POST.get('giro_actividad')
         estado_civil = request.POST.get('estado_civil')
-        #mostrar_mayor_ingreso = request.POST.get('mostrar_mayor_ingreso')
         giro_actividad_co_acreditado = request.POST.get('giro_actividad_co_acreditado')
         actividad_co_acreditado = request.POST.get('actividad_co_acreditado')
         instituciones_co_acreditado = request.POST.get('instituciones_co_acreditado')
@@ -86,24 +91,6 @@ class FinalView(TemplateView):
 
         if(giro_actividad_co_acreditado == "Independiente"):
             giro_actividad_co_acreditado = "Otros"
-
-        # if ingreso_mensual_co_acreditado is not None:
-        #     ingreso_mensual_co_acreditado = ingreso_mensual_co_acreditado.replace(',', '')
-        # else:
-        #     ingreso_mensual_co_acreditado = 0.0
-
-        # if pago_mensual is not None:
-        #     pago_mensual = pago_mensual.replace(',', '')
-        # else:
-        #     pago_mensual = 0.0
-
-        # if valor_inmueble is not None:
-        #     valor_inmueble = valor_inmueble.replace(',', '')
-        # else:
-        #     valor_inmueble = 0.0
-
-        # ingreso_mensual = ingreso_mensual.replace(',', '')
-        # pago_credito = pago_credito.replace(',', '')
         
         client = Clientes(
             nombre=nombre,
@@ -162,6 +149,7 @@ class FinalView(TemplateView):
             sender.email_to_admin(client, cap_endeudamiento)
             sender.email_to_client(client)
         # else:
+        ## --| Envio de correos en el tramite de Mejora de Hipoteca |-- ##
         #     msg = 'Tramite de mejora de hipoteca'
 
         context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo, 'despedida':despedida}
