@@ -48,9 +48,9 @@ class Messenger:
         to_send = []
 
         try:
-            email_as = User.objects.get(username=client.promotor.asesor).email
+            email_as = User.objects.get(asesor=client.promotor.asesor).email
             to_send = [
-                self.email_admin, 
+                self.email_admin,
                 email_prom, 
                 email_as
             ]
