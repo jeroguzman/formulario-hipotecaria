@@ -1,107 +1,185 @@
+{% extends './base.html'%}
 {% load static %}
 
-<p>
-    En Mi Solución Hipotecaria te asesoramos para que la compra que hagas la hagas con el mejor 
-    crédito Hipotecario. Nos especializamos en ayudarte a cumplir tus sueños, analizando las 
-    alternativas que ofrecen los bancos y recomendándote la mejor opción. Tramitamos tu crédito   
-    !!SIN COSTO!!  El mejor crédito!! La mejor tasa!! El  mejor servicio!!
-<p>
-<br />
-<p>
-    Si gustas puedo enviarte un comparativo mostrando como quedarían los pagos mensuales, solo mándame 
-    un mándame un WhatsApp al 6622 755 855 Alberto Molina (Broker Hipotecario).
-<p>
+<!--  
+    hsbc
+    https://i.ibb.co/fMxSSTy/logo-hsbc.png
 
+    banorte
+    https://i.ibb.co/mNCC6k1/logo-banorte.png
+    
+    santander
+    https://i.ibb.co/8MZy4MQ/logo-santander.png
+
+    banamex
+    https://i.ibb.co/B3F7Hss/logo-banamex.png
+
+    scotia
+    https://i.ibb.co/z4SyRgc/logo-scotia.png
+
+    afirme
+    https://i.ibb.co/0BYctCR/logo-afirme.png
+
+    banregio
+    https://i.ibb.co/g3yqCGY/logo-banregio.png
+
+    bx+
+    https://i.ibb.co/d73GnZ4/logo-bx.png
+
+    #promotor
+    https://i.ibb.co/4NSkLj3/promotor.jpg
+
+    #promotor con texto
+    https://i.ibb.co/7NXXgJX/promotor-2.jpg
+
+    #asesor
+    https://i.ibb.co/TtCKFJ4/asesor.jpg
+
+    #infonavit
+    https://i.ibb.co/jHptQ5T/infonavit.jpg
+
+    #infonavit con texto
+    https://i.ibb.co/QXvGS1m/infonavit-2.jpg
+
+    #fovisste
+    https://i.ibb.co/njR48WH/fovisste.jpg
+
+    #fovisste con texto
+    https://i.ibb.co/gRsGFxY/fovisste-2.jpg
+
+    #firma-correo
+    https://i.ibb.co/YWDh8Vz/firma-correo.png
+-->
+
+{% block body %}>
 <p>
-    Según los datos proporcionados en tu perfilamiento, te presentamos el alcance de crédito que tienes 
-    en cada una de las instituciones bancarias siguientes:
+    ¡¡Gracias por tu confianza!!
+    <br>
+    <br>
+    En Mi Solución Hipotecaria te asesoramos para que la compra que hagas la hagas con el mejor
+    crédito Hipotecario. Nos especializamos en ayudarte a cumplir tus sueños, analizando las
+    alternativas que ofrecen los bancos y recomendándote la mejor opción. Tramitamos tu crédito
+    ¡¡SIN COSTO!! ¡¡El mejor crédito!! ¡¡La mejor tasa!! ¡¡El  mejor servicio!!
+    <br>
+    <br>
+    Si gustas puedo enviarte un comparativo mostrando como quedarían los pagos mensuales, solo mándame un mándame un
+    WhatsApp al 6622 755 855 Alberto Molina (Broker Hipotecario).
+    <br>
+    <br>
+    <br>
+    Según los datos proporcionados en tu perfilamiento, te presentamos el alcance de crédito que tienes en cada una
+    de las instituciones bancarias siguientes:
 </p>
 
-<div class="row">
-    <div class="col-sm-6">
-    
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Banco</th>
-                    <th scope="col">Alcance de Credito</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="..\static\img\b1.png" width="128"></td>
-                    <td>{{ hsbc }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b1.png' %}" width="128"></td>
-                    <td>{{ banorte }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b4.png' %}" width="128"></td>
-                    <td>{{ santander }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b7.png' %}" width="128"></td>
-                    <td>{{ banamex }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b3.png' %}" width="128"></td>
-                    <td>{{ scotiabank }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b5.png' %}" width="128"></td>
-                    <td>{{ afirme }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b6.png' %}" width="128"></td>
-                    <td>{{ banregio }}</td>
-                </tr>
-                <tr>
-                    <td><img src="{% static 'img/b8.png' %}" width="128"></td>
-                    <td>{{ bx }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    
-    <div class="col-sm-6">
-        <div class="d-flex">
-            <h3>Ahora estas más cerca decumplir tus sueños!!</h3>
-            <img src=""/>
-            <h3>Llámanos, lo hacemos fácil y Sin Enredos Conoce los Beneficios</h3>
-        </div>
-    </div>
-<div>
+<br>
 
-<p>
-    Las cantidades aquí presentadas están basadas en parámetros reales que manejan los bancos, y dan una 
-    idea muy certera del alcance de crédito, sin embargo el monto definitivo que será autorizado dependerá 
-    en gran medida del historial crediticio de cada. Por esto te recomendamos acercarte con nosotros, 
-    te asesoraremos y te ayudaremos a presentar tu expediente ante los bancos con el mejor perfil de cliente, 
-    juntos elegiremos la mejor opción para tí.
-</p>
+<table width="100%">
+    <col width="20%">
+    <col width="40%">
+    <col width="40%">
+    <tbody>
+        <tr>
+            <td scope="col">
+                <h2>Banco</h2>
+            </td>
+            <td scope="col">
+                <h2>Alcance de Crédito</h2>
+            </td>
+            <td rowspan="8">
+                <div>
+                    <img width="380" src="https://i.ibb.co/TtCKFJ4/asesor.jpg" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/fMxSSTy/logo-hsbc.png" width="128"></td>
+            <td>
+                <h3>{{ hsbc }}</h3>
+            </td>
 
-<div class="row">
-    <div class="col-sm-6">
-        <h3>También manejamos Créditos Cofinanciados Crece tu crédito para comprar una casa más Grande</h3>
-    </div>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/mNCC6k1/logo-banorte.png" width="128"></td>
+            <td>
+                <h3>{{ banorte }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/8MZy4MQ/logo-santander.png" width="128"></td>
+            <td>
+                <h3>{{ santander }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/B3F7Hss/logo-banamex.png" width="128"></td>
+            <td>
+                <h3>{{ banamex }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/z4SyRgc/logo-scotia.png" width="128"></td>
+            <td>
+                <h3>{{ scotiabank }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/0BYctCR/logo-afirme.png" width="128"></td>
+            <td>
+                <h3>{{ afirme }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/g3yqCGY/logo-banregio.png" width="128"></td>
+            <td>
+                <h3>{{ banregio }}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="https://i.ibb.co/d73GnZ4/logo-bx.png" width="128"></td>
+            <td>
+                <h3>{{ bx }}</h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-    <div class="col-sm-6">
-        <img src=""/>
-    </div>
-</div>
+<br>
+<br>
 
-<div class="row">
-    <div class="col-sm-6">
-        <img src=""/>
-    </div>
+<small style="font-style: italic;">
+    Las cantidades aquí presentadas están basadas en parámetros reales que manejan los bancos, y dan una idea muy
+    certera del alcance de crédito, sin embargo, el monto definitivo que será autorizado dependerá en gran medida
+    del historial crediticio de cada. Por esto te recomendamos acercarte con nosotros, te asesoraremos y te
+    ayudaremos a presentar tu expediente ante los bancos con el mejor perfil de cliente, juntos elegiremos la mejor
+    opción para ti.
+</small>
 
-    <div class="col-sm-6">
-        <h3>¿Eres empleado Federal? Aprovecha los grandes beneficios que te ofrece este crédito Hipotecario!!</h3>
-    </div>
-</div>
+<br>
+<br>
 
-<div class="row">
-    <strong>“Ponemos a los Bancos a competir por Ti”</strong>
-    <img src="">
-</div>
+<center><img src="https://i.ibb.co/QXvGS1m/infonavit-2.jpg"></center>
+
+<br>
+<br>
+<br>
+
+<center>
+    <img src="https://i.ibb.co/gRsGFxY/fovisste-2.jpg">
+</center>
+
+<br>
+<br>
+<br>
+
+<center>
+    <h3>"Ponemos a los bancos a competir por ti"</h3>
+</center>
+<br>
+
+
+<center>
+    <img src="https://i.ibb.co/YWDh8Vz/firma-correo.png">
+</center>
+
+
+{% endblock body %}
