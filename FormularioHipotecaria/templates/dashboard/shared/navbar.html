@@ -1,10 +1,10 @@
 {% load static%}
 <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
-        <a class="navbar-brand" href="#"><img src="{% static  'img/logo-header.png' %}"
-                alt="Mi solucion hipotecaria"></a>
+        <a class="navbar-brand" href="#"><img src="{{ request.user.empresa.logo.url }}"
+                alt="Empresa Afiliada" width="64"></a>
         
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        {% comment %} <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
                 <li class="nav-item">
                     <div id="custom-search" class="top-search-bar">
@@ -17,6 +17,6 @@
                             class="user-avatar-md rounded-circle"></a>
                 </li>
             </ul>
-        </div>
+        </div> {% endcomment %}
     </nav>
 </div>

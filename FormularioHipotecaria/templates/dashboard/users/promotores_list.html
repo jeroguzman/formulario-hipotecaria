@@ -29,12 +29,14 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Promotores</h5>
+                        {% if request.user.is_superuser %}
+                            <h5 class="card-header">Todos los Promotores</h5>                    
+                        {% else %}
+                            <h5 class="card-header">Todos tus Promotores</h5>                    
+                        {% endif %}
                         <div class="card-body">
                             <table class="table">
                                 <thead>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaqueluptatibus
-                                        iure esse eum!</p>
                                     <tr>
                                         <th scope="col">Foto</th>
                                         <th scope="col">Nombre</th>
@@ -44,7 +46,7 @@
                                         <th scope="col">URL de perfilamiento</th>
                                         <th scope="col">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                        <th class="text-center" scope="col">Acciones</th>
+                                            <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
                                 </thead>
@@ -74,16 +76,16 @@
                                                 data-url="{{ models.url }}"><i class="far fa-copy fa-2x"></i></a></td>
                                         <td>{{ models.asesor }}</td>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                        <td class="text-center">
-                                            <a href="{% url 'users_app:u-detail' models.pk %}"><i
-                                                    class="far fa-eye fa-2x"></i></a>
-                                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                            <a href="{% url 'users_app:u-edit' models.pk %}"><i
-                                                    class="far fa-edit fa-2x"></i></a>
-                                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                            <a href="{% url 'users_app:u-delete' models.pk %}"><i
-                                                    class="far fa-trash-alt fa-2x"></i></a>
-                                        </td>
+                                            <td class="text-center">
+                                                <a href="{% url 'users_app:u-detail' models.pk %}"><i
+                                                        class="far fa-eye fa-2x"></i></a>
+                                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                                <a href="{% url 'users_app:u-edit' models.pk %}"><i
+                                                        class="far fa-edit fa-2x"></i></a>
+                                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                                <a href="{% url 'users_app:u-delete' models.pk %}"><i
+                                                        class="far fa-trash-alt fa-2x"></i></a>
+                                            </td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}
@@ -109,19 +111,19 @@
             </div>
 
             {% if user.modalidad == 'Asesor' %}
-            <form method="post">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                    <a href='{% url "users_app:u-register" %}'>
-                        <div class="d-flex">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row justify-content-md-center">
+                        <a href='{% url "users_app:u-register" %}'>
+                            <div class="d-flex">
 
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                value="Agregar nuevo">
+                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                    value="Agregar nuevo">
 
-                        </div>
-                    </a>
-                </div>
-            </form>
+                            </div>
+                        </a>
+                    </div>
+                </form>
             {% endif %}
         </div>
     </div>

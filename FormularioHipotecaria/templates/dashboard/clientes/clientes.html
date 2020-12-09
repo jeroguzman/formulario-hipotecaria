@@ -31,12 +31,14 @@
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Clientes</h5>
+                        {% if request.user.is_superuser %}
+                            <h5 class="card-header">Todos los Clientes</h5>
+                        {% else %}
+                            <h5 class="card-header">Todos tus Clientes</h5>
+                        {% endif %}
                         <div class="card-body">
                             <table class="table">
                                 <thead>
-                                    <p>Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eius itaqueluptatibus iure esse eum!</p>
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Asesor</th>
