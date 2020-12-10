@@ -388,7 +388,7 @@
         "pk": 1,
         "fields": {
             "name": "Mi Solución Hipotecaria",
-            "logo": "/staticfiles/img/ic-logo.png"
+            "logo": "/staticfiles/img/logo-blanco.png"
         }
     }
 ]

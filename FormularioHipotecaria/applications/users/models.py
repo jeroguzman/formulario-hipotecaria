@@ -22,11 +22,11 @@ class User(AbstractUser, PermissionsMixin):
     first_name = models.CharField(
         max_length=30, 
         verbose_name='Nombre(s)'
-        )
+    )
     last_name = models.CharField(
         max_length=30, 
         verbose_name='Apellidos'
-        )
+    )
     username = models.CharField(
         max_length=30, 
         unique=True, 
@@ -52,7 +52,7 @@ class User(AbstractUser, PermissionsMixin):
     foto = models.ImageField(
         upload_to='staticfiles/img/promotores', 
         default='staticfiles/img/ic-2.png'
-        )
+    )
     url = models.TextField(blank=True)
     is_superuser = models.BooleanField(default=False)
 
