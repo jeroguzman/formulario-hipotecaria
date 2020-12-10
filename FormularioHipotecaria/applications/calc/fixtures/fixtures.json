@@ -387,8 +387,8 @@
         "model": "users.Company",
         "pk": 1,
         "fields": {
-            "name": "MS Hipotecaria",
-            "logo": "/static/img/ic-logo.png"
+            "name": "Mi Solución Hipotecaria",
+            "logo": "/staticfiles/img/ic-logo.png"
         }
     }
 ]
