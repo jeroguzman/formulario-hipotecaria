@@ -4,7 +4,7 @@
         <div class="d-none d-md-flex administrador">
             <img src="{{ request.user.foto.url }}" alt="logo">
             <div>
-                <p>MI SOLUCIÓN HIPOTECARIA</p>
+                <p>{{ request.user.empresa }}</p>
                 <p>{{ request.user.first_name }}</p>
             </div>
         </div>
