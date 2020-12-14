@@ -26,7 +26,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/staticfiles/'
-STATICFILES_DIRS = [str(BASE_DIR / 'staticfiles')]
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 
 # EMAIL SETTINGS
 EMAIL_USE_TLS = True
