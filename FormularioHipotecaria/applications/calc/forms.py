@@ -1,30 +1,5 @@
 from django import forms
-from applications.users.models import Company
 from .models import Banco, Actividad
-
-
-class CompanyCreateForm(forms.ModelForm):
-
-
-    class Meta:
-        model = Company
-        fields = ('name', 'logo')
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'logo': forms.FileInput(attrs={'class': 'form-control'})
-        }
-
-
-class CompanyUpdateForm(forms.ModelForm):
-
-    
-    class Meta:
-        model = Company
-        fields = ('name', 'logo')
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'logo': forms.FileInput(attrs={'class': 'form-control'})
-        }
 
 
 class BancoUpdateForm(forms.ModelForm):

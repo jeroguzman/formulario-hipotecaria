@@ -3,7 +3,8 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
-    DeleteView
+    DeleteView,
+    CreateView,
 )
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,9 +15,11 @@ from .forms import (
     UserRegisterForm, 
     LoginForm, 
     UpdatePassForm,
-    UpdateUserForm
+    UpdateUserForm,
+    CompanyCreateForm,
+    CompanyUpdateForm
 )
-from .models import User
+from .models import User, Company
 
 # Create your views here.
 class UserRegisterView(LoginRequiredMixin, FormView):
@@ -174,3 +177,73 @@ class promotorListView(LoginRequiredMixin, ListView):
             queryset = User.objects.filter(modalidad='Promotor', asesor=current_user)
 
             return queryset
+
+
+class CompanyViews(LoginRequiredMixin, ListView):
+    model = Company
+    template_name = 'dashboard/users/empresas.html'
+    login_url = reverse_lazy('users_app:u-login')
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = Company.objects.all()
+
+        return queryset
+
+
+class CompanyCreateView(LoginRequiredMixin, CreateView):
+    model = Company
+    template_name = 'dashboard/users/crear_empresa.html'
+    form_class = CompanyCreateForm
+    success_url = reverse_lazy('users_app:c-empresas')
+    login_url = reverse_lazy('users_app:u-login')
+
+    def form_valid(self, form):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            empresa = Company.objects.create(
+                name=form.cleaned_data['name'],
+                logo=form.cleaned_data['logo']
+            )
+            empresa.save()
+
+            return super(CompanyCreateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
+class CompanyUpdateView(LoginRequiredMixin, UpdateView):
+    model = Company
+    template_name = 'dashboard/users/edit_empresa.html'
+    form_class = CompanyUpdateForm
+    success_url = reverse_lazy('users_app:c-empresas')
+    login_url = reverse_lazy('users_app:login')
+
+    def form_valid(self, form):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(CompanyUpdateView, self).form_valid(form)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )
+
+
+class CompanyDeleteView(LoginRequiredMixin, DeleteView):
+    model = Company
+    template_name = 'dashboard/users/delete_empresa.html'
+    success_url = reverse_lazy('users_app:c-empresas')
+    login_url = reverse_lazy('users_app:u-login')
+
+    def delete(self, *args, **kwargs):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(CompanyDeleteView, self).delete(self, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )

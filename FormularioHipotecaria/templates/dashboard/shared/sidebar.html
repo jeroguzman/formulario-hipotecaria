@@ -4,7 +4,7 @@
         <div class="d-none d-md-flex administrador">
             <img src="{{ request.user.foto.url }}" alt="logo">
             <div>
-                <p>MI SOLUCIÓN HIPOTECARIA</p>
+                <p>{{ request.user.empresa }}</p>
                 <p>{{ request.user.first_name }}</p>
             </div>
         </div>
@@ -47,7 +47,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'calc_app:c-empresas' %}"><img src="{% static 'img/ic-3.png' %}"
+                            <a class="nav-link" href="{% url 'users_app:c-empresas' %}"><img src="{% static 'img/ic-3.png' %}"
                                 alt="icono dashboard">Empresas Afiliadas</a>
                         </li>
                     {% endif %}

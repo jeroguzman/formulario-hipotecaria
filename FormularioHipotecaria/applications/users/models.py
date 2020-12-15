@@ -22,11 +22,11 @@ class User(AbstractUser, PermissionsMixin):
     first_name = models.CharField(
         max_length=30, 
         verbose_name='Nombre(s)'
-        )
+    )
     last_name = models.CharField(
         max_length=30, 
         verbose_name='Apellidos'
-        )
+    )
     username = models.CharField(
         max_length=30, 
         unique=True, 
@@ -38,12 +38,11 @@ class User(AbstractUser, PermissionsMixin):
         max_length=10, 
         choices=MODALIDAD_CHOICES, 
         default='Asesor'
-        )
+    )
     empresa = models.ForeignKey(
         Company,
         on_delete=models.PROTECT,
-        blank=True,
-        null=True
+        default=1
     )
     asesor = models.CharField(max_length=20, blank=True)
 
@@ -53,7 +52,7 @@ class User(AbstractUser, PermissionsMixin):
     foto = models.ImageField(
         upload_to='staticfiles/img/promotores', 
         default='staticfiles/img/ic-2.png'
-        )
+    )
     url = models.TextField(blank=True)
     is_superuser = models.BooleanField(default=False)
 
@@ -62,16 +61,20 @@ class User(AbstractUser, PermissionsMixin):
     objects = UserManager()
 
     def save(self, *args, **kwargs):
-        profile_pic = str(self.foto).replace(' ', '_').lower()
+        profile_pic = str(self.foto).replace(' ', '_')
         profile_pic = profile_pic.replace('staticfiles/', '')
+        logo_empresa = str(self.empresa.logo).replace(' ', '_')
+        logo_empresa = logo_empresa.replace('staticfiles/', '')
 
-        self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienvenida={}&despedida={}'.format(
+        self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienvenida={}&despedida={}'\
+            '&logo={}'.format(
             self.pk,
             self.first_name,
             self.last_name,
             profile_pic,
             self.bienvenida_txt,
-            self.despedida_txt
+            self.despedida_txt,
+            logo_empresa
         )
 
         super(User, self).save(*args, **kwargs)
