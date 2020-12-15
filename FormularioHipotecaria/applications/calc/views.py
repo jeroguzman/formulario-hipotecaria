@@ -1,9 +1,4 @@
-from django.views.generic import (
-    UpdateView, 
-    ListView,
-    CreateView,
-    DeleteView
-    )
+from django.views.generic import UpdateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect

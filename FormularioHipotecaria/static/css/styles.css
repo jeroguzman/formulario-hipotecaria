@@ -40,8 +40,8 @@ button:focus {
 }
 
 .logo-container img {
-    width: 15%;
-    min-width: 200px;
+    max-width: 10%;
+    /* min-width: 200px; */
     display: block;
     margin: auto;
 }
