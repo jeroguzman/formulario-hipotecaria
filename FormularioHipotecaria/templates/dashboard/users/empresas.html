@@ -47,9 +47,9 @@
                                             <th scope="row"><img src="{{ models.logo.url }}" width="64"></th>
                                             <td>{{ models.name }}</td>
                                             <td>
-                                                <a href="{% url 'calc_app:c-editar-empresa' models.pk %}"><i class="far fa-edit fa-2x"></i></a> 
+                                                <a href="{% url 'users_app:c-editar-empresa' models.pk %}"><i class="far fa-edit fa-2x"></i></a> 
                                                 <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                                <a href="{% url 'calc_app:c-borrar-empresa' models.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
+                                                <a href="{% url 'users_app:c-borrar-empresa' models.pk %}"><i class="far fa-trash-alt fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -79,7 +79,7 @@
             <form method="post">
                 {% csrf_token %}
                 <div class="row justify-content-md-center">
-                    <a href='{% url "calc_app:c-crear-empresa" %}'>
+                    <a href='{% url "users_app:c-crear-empresa" %}'>
                         <div class="d-flex">
                             <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Agregar empresa">
                         </div>

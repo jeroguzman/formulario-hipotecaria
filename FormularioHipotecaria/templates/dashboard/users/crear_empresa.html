@@ -1,4 +1,6 @@
-{% extends '../../base.html' %} {% load static %} {% block librerias-adicionales%}
+{% extends '../../base.html' %}
+{% load static %}
+{% block librerias-adicionales%}
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'dashboard-template/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/libs/css/style.css' %}">
@@ -8,35 +10,32 @@
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
-
+<link rel="stylesheet" type="text/css"
+    href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 <!-- Css Styling -->
-<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}">
+{% endblock librerias-adicionales%}
+
+{% block body %}
 
 <div class="dashboard-main-wrapper">
 
-    {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
+    {% include 'dashboard/shared/navbar.html' %}
+    {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
-        <div class="container-fluid  dashboard-content">
-            <div class="row">
-                <!-- ============================================================== -->
-                <!-- basic table -->
-                <!-- ============================================================== -->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <h5 class="card-header">Editando {{ object.name }}</h5>
-                        <div class="card-body">
-                            <form method="POST">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-
-                                <input type="submit" class="btn btn-primary rounded-pill lift lift-sm" value="Guardar Cambios">
-                                <a href="{% url 'calc_app:c-empresas' %}" class="btn btn-danger">Cancelar</a>
-                            </form>
-                        </div>
-                    </div>
+        <div class="container-fluid dashboard-content">
+            <div class="form-row mt-3">
+                <div class="col-md-9 mx-auto">
+                    <h1 class="display">Datos de la Nueva Empresa</h1>
+                    <form class="needs-validation" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        
+                        <input type="submit" class="btn btn-primary rounded-pill lift lift-sm" value="Guardar Cambios">
+                        <a href="{% url 'users_app:c-empresas' %}" class="btn btn-danger">Cancelar</a>
+                    </form>
                 </div>
-            </div>
+            </div>        
         </div>
     </div>
 </div>
@@ -67,4 +66,5 @@
 <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
 <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
 <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
-{% endblock scripts-adicionales %} {% endblock body %}
+{% endblock scripts-adicionales %}
+{% endblock body %}

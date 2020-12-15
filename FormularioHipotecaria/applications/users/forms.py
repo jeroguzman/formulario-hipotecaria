@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate
-from .models import User
+from .models import User, Company
 
 class UserRegisterForm(forms.ModelForm):
     password = forms.CharField(
@@ -143,4 +143,28 @@ class UpdateUserForm(forms.ModelForm):
             'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
             'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
             'url': forms.URLInput(attrs={'class': 'form-control promotor-field'})
+        }
+
+
+class CompanyCreateForm(forms.ModelForm):
+    
+
+    class Meta:
+        model = Company
+        fields = ('name', 'logo')
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'logo': forms.FileInput(attrs={'class': 'form-control'})
+        }
+
+
+class CompanyUpdateForm(forms.ModelForm):
+
+    
+    class Meta:
+        model = Company
+        fields = ('name', 'logo')
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'logo': forms.FileInput(attrs={'class': 'form-control'})
         }
