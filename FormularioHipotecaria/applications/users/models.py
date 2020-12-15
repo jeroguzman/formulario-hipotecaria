@@ -42,7 +42,8 @@ class User(AbstractUser, PermissionsMixin):
     empresa = models.ForeignKey(
         Company,
         on_delete=models.PROTECT,
-        default=1
+        default=1,
+        blank=True
     )
     asesor = models.CharField(max_length=20, blank=True)
 

@@ -5,9 +5,9 @@ from applications.users.models import User
 class Clientes(models.Model):
     # datos generales
     nombre = models.CharField(max_length=140)
-    email = models.EmailField(max_length=140, unique=True)
+    email = models.EmailField(max_length=140)
     promotor = models.ForeignKey(User, on_delete=models.PROTECT)
-    telefono = models.CharField(max_length=140, unique=True)
+    telefono = models.CharField(max_length=140)
     tramite = models.CharField(max_length=140, blank=True, null=True)
     
     busqueda = models.CharField(max_length=140, blank=True, null=True) # Inicio

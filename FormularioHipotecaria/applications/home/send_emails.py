@@ -74,7 +74,7 @@ class Messenger:
         client_subject = 'Mi Solución Hipotecaria'
         client_content = '¡¡Gracias por tu confienza!!'
 
-        if client.promotor.empresa.name == 'MS Hipotecaria':
+        if client.promotor.empresa.name == 'Mi Solución Hipotecaria':
             template_mail = 'client_mail_ms.html'
         else:
             template_mail = 'client_mail_other.html'
