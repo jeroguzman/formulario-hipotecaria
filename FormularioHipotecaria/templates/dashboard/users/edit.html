@@ -20,7 +20,7 @@
             <div class="form-row mt-3">
                 <div class="col-md-9 mx-auto">
                     <h1 class="display">Editando Datos de {{ object.first_name }} {{ object.last_name }}</h1>
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %} {{ form.as_p }}
 
                         <div class="d-flex justify-content-around">

@@ -3,8 +3,7 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
-    DeleteView,
-    CreateView,
+    DeleteView
 )
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -191,7 +190,7 @@ class CompanyViews(LoginRequiredMixin, ListView):
         return queryset
 
 
-class CompanyCreateView(LoginRequiredMixin, CreateView):
+class CompanyCreateView(LoginRequiredMixin, FormView):
     model = Company
     template_name = 'dashboard/users/crear_empresa.html'
     form_class = CompanyCreateForm
@@ -200,11 +199,13 @@ class CompanyCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         current_user = self.request.user
+        company_name = form.cleaned_data['name']
+        company_logo = form.cleaned_data['logo']
 
         if current_user.is_superuser:
             empresa = Company.objects.create(
-                name=form.cleaned_data['name'],
-                logo=form.cleaned_data['logo']
+                name=company_name,
+                logo=company_logo
             )
             empresa.save()
 
