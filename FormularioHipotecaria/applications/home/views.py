@@ -12,7 +12,6 @@ from .send_emails import Messenger
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
-
 class dashboardView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'dashboard/dashboard.html'

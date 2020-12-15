@@ -82,6 +82,7 @@
 
         <form action="pagina_final/" method="post" id="form-db">
             {% csrf_token %}
+            {{ form.as_p }}
             <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
             <input type="text" name="despedida" value="{{ request.GET.despedida }}" hidden>
         </form>
