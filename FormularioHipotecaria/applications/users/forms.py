@@ -136,18 +136,18 @@ class UpdateUserForm(forms.ModelForm):
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
-            'modalidad': forms.Select(attrs={'id': 'modalidad', 'class': 'form-control promotor-field'}),
-            'asesor': forms.HiddenInput(attrs={'class': 'form-control promotor-field'}),
-            'empresa': forms.Select(attrs={'class': 'form-control promotor-field'}),
-            'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
-            'despedida_txt': forms.Textarea(attrs={'class': 'form-control promotor-field'}),
-            'foto': forms.FileInput(attrs={'class': 'form-control promotor-field'}),
-            'url': forms.URLInput(attrs={'class': 'form-control promotor-field'})
+            'modalidad': forms.Select(attrs={'class': 'form-control'}),
+            'asesor': forms.HiddenInput(attrs={'class': 'form-control'}),
+            'empresa': forms.Select(attrs={'class': 'form-control'}),
+            'bienvenida_txt': forms.Textarea(attrs={'class': 'form-control'}),
+            'despedida_txt': forms.Textarea(attrs={'class': 'form-control'}),
+            'foto': forms.FileInput(attrs={'class': 'form-control'}),
+            'url': forms.URLInput(attrs={'class': 'form-control'})
         }
 
 
 class CompanyCreateForm(forms.ModelForm):
-    
+
 
     class Meta:
         model = Company
