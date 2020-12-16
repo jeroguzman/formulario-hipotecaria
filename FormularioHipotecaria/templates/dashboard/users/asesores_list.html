@@ -34,11 +34,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Foto</th>
+                                        <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
+                                        <th scope="col" class="xs">Usuario</th>
+                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="md">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
                                         {% if request.user.modalidad == 'Asesor' %}
                                         <th scope="col">Acciones</th>
@@ -47,11 +47,11 @@
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th scope="col">Foto</th>
+                                        <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
+                                        <th scope="col" class="xs">Usuario</th>
+                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="md">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
                                         {% if request.user.modalidad == 'Asesor' %}
                                         <th scope="col">Acciones</th>
@@ -61,22 +61,22 @@
                                 <tbody>
                                     {% for models in object_list %}
                                     <tr>
-                                        <td><img src="{{ models.foto.url }}" class="foto-perfil">
+                                        <td class="xs"><img src="{{ models.foto.url }}" class="foto-perfil">
                                         </td>
                                         <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.telefono }}</td>
-                                        <td>{{ models.email }}</td>
+                                        <td class="xs">{{ models.username }}</td>
+                                        <td class="sm">{{ models.telefono }}</td>
+                                        <td class="md">{{ models.email }}</td>
                                         <td class="text-center"><a id="url-field" onclick="copyUrl(this)"
                                                 data-url="{{ models.url }}"><i class="far fa-copy fa-2x"></i></a></td>
                                         {% if request.user.modalidad == 'Asesor' %}
                                         <td>
                                             <a href="{% url 'users_app:u-detail' models.pk %}"><i
                                                     class="far fa-eye fa-2x"></i></a>
-                                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                            <i class="fas fa-ellipsis-v"></i>
                                             <a href="{% url 'users_app:u-edit' models.pk %}"><i
                                                     class="far fa-edit fa-2x"></i></a>
-                                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                                            <i class="fas fa-ellipsis-v"></i>
                                             <a href="{% url 'users_app:u-delete' models.pk %}"><i
                                                     class="far fa-trash-alt fa-2x"></i></a>
                                         </td>
@@ -103,10 +103,12 @@
                 </span>
             </div>
 
+            <br>
+
             {% if user.modalidad == 'Asesor' %}
             <form method="post">
                 {% csrf_token %}
-                <div class="row justify-content-md-center">
+                <div class="row d-flex justify-content-center">
                     <a href='{% url "users_app:u-register" %}'>
                         <div class="d-flex">
 

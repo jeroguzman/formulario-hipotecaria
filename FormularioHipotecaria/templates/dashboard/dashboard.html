@@ -30,9 +30,38 @@
             </div>
             <div class="row">
                 {% if request.user.modalidad == 'Asesor' %}
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-1">
-                        <div class="card">
-                            <h1 class="card-header">Información de Perfil</h1>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <h1 class="card-header">Información de Perfil</h1>
+                    <div class="card">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">URL de perfilamiento</th>
+                                    <th class="text-center" scope="col">Ver Perfil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"><a id="url-field" onclick="copyUrl(this)"
+                                            data-url="{{ request.user.url }}"><i class="far fa-copy fa-2x"></i></a>
+                                    </td>
+                                    <th class="text-center" scope="row"><a
+                                            href="{% url 'users_app:u-detail' request.user.id %}"><i
+                                                class="far fa-eye fa-2x"></i></a></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- ============================================================== -->
+                <!-- basic table -->
+                <!-- ============================================================== -->
+                {% if request.user.modalidad == 'Promotor' %}
+                <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <a class="card-header"><b>{{ request.user.username }}</b></a>
+                        <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -53,36 +82,7 @@
                             </table>
                         </div>
                     </div>
-                {% endif %}
-                <!-- ============================================================== -->
-                <!-- basic table -->
-                <!-- ============================================================== -->
-                {% if request.user.modalidad == 'Promotor' %}
-                    <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            <a class="card-header"><b>{{ request.user.username }}</b></a>
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" scope="col">URL de perfilamiento</th>
-                                            <th class="text-center" scope="col">Ver Perfil</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center"><a id="url-field" onclick="copyUrl(this)"
-                                                    data-url="{{ request.user.url }}"><i class="far fa-copy fa-2x"></i></a>
-                                            </td>
-                                            <th class="text-center" scope="row"><a
-                                                    href="{% url 'users_app:u-detail' request.user.id %}"><i
-                                                        class="far fa-eye fa-2x"></i></a></th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                </div>
                 {% else %}
                 <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="card">
@@ -97,12 +97,12 @@
                                 </thead>
                                 <tbody>
                                     {% for promotor in object_list %}
-                                        {% if promotor.modalidad == 'Promotor' %}
-                                            <tr>
-                                                <td><img src="{{ promotor.foto.url }}" class="foto-perfil"></td>
-                                                <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
-                                            </tr>
-                                        {% endif %}
+                                    {% if promotor.modalidad == 'Promotor' %}
+                                    <tr>
+                                        <td><img src="{{ promotor.foto.url }}" class="foto-perfil"></td>
+                                        <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
+                                    </tr>
+                                    {% endif %}
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -130,12 +130,12 @@
 
                                 <tbody>
                                     {% for cliente in object_list %}
-                                        {% if cliente.ingreso_mensual != null %}
-                                            <tr>
-                                                <th scope="row">{{ cliente.nombre }}</th>
-                                                <td>{{ cliente.banorte }}</td>
-                                            </tr>
-                                        {% endif %}
+                                    {% if cliente.ingreso_mensual != null %}
+                                    <tr>
+                                        <th scope="row">{{ cliente.nombre }}</th>
+                                        <td>{{ cliente.banorte }}</td>
+                                    </tr>
+                                    {% endif %}
                                     {% endfor %}
                                 </tbody>
                             </table>
