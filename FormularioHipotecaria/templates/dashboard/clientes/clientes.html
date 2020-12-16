@@ -32,48 +32,52 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         {% if request.user.is_superuser %}
-                            <h5 class="card-header">Todos los Clientes</h5>
+                        <h5 class="card-header">Todos los Clientes</h5>
                         {% else %}
-                            <h5 class="card-header">Todos tus Clientes</h5>
+                        <h5 class="card-header">Todos tus Clientes</h5>
                         {% endif %}
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Asesor</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Tramite</th>
-                                        <th scope="col">Alcance de Crédito</th>
+                                        <th scope="col" class="xs">Asesor/Promotor</th>
+                                        <th scope="col" class="xs">Telefono</th>
+                                        <th scope="col" class="sm">E-mail</th>
+                                        <th scope="col" class="smm">Tramite</th>
+                                        <th scope="col" class="md">Alcance de Crédito</th>
+                                        <th scope="col" class="mdd">Fecha de Creación</th>
                                         <th class="text-center" scope="col">Ver</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Asesor</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Tramite</th>
-                                        <th scope="col">Alcance de Crédito</th>
+                                        <th scope="col" class="xs">Asesor</th>
+                                        <th scope="col" class="xs">Telefono</th>
+                                        <th scope="col" class="sm">E-mail</th>
+                                        <th scope="col" class="smm">Tramite</th>
+                                        <th scope="col" class="md">Alcance de Crédito</th>
+                                        <th scope="col" class="mdd">Fecha de Creación</th>
                                         <th class="text-center" scope="col">Ver</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                {% for models in object_list %}
+                                    {% for models in object_list %}
                                     <tr>
                                         <th scope="row">{{ models.nombre }}</th>
-                                        <td>{{ models.promotor }}</td>
-                                        <td>{{ models.telefono }}</td>
-                                        <td>{{ models.email }}</td>
-                                        <td>{{ models.tramite }}</td>
-                                        <td>{{ models.banorte }}</td>
+                                        <td class="xs">{{ models.promotor }}</td>
+                                        <td class="xs">{{ models.telefono }}</td>
+                                        <td class="sm">{{ models.email }}</td>
+                                        <td class="smm">{{ models.tramite }}</td>
+                                        <td class="md">{{ models.banorte }}</td>
+                                        <td class="mdd">{{ models.fecha_creacion }}</td>
                                         <td class="text-center">
-                                            <a href="{% url 'clients_app:a-cliente' models.pk %}"><i class="far fa-eye fa-2x"></i></a>
+                                            <a href="{% url 'clients_app:a-cliente' models.pk %}"><i
+                                                    class="far fa-eye fa-2x"></i></a>
                                         </td>
                                     </tr>
-                                {% endfor %}
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -84,18 +88,15 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a href="?page=1"><<</a>
-                        |
-                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
-                    {% endif %}
-                    
-                    <span class="current">
-                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                    </span> 
-                    {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">></a> |
-                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a> 
-                    {% endif %}
+                    <a href="?page=1">
+                        <<</a> | <a href="?page={{ page_obj.previous_page_number }}">
+                            <</a> {% endif %} <span class="current">
+                                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">></a> |
+                <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
+                {% endif %}
                 </span>
             </div>
         </div>
