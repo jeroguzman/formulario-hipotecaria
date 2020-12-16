@@ -26,6 +26,10 @@
     .xs{
         display: none;
     }
+
+    .banco-img{
+        margin: 4% !important;
+    }
 }
 
 body {
@@ -65,13 +69,13 @@ button:focus {
 
 .logo-container {
     background-color: #dcdcdc;
-    width: 100%;
+    width: 100% !important;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2)
 }
 
 .logo-container img {
     max-width: 10%;
-    /* min-width: 200px; */
+    min-width: 150px;
     display: block;
     margin: auto;
 }
@@ -177,14 +181,20 @@ button:focus {
 .banco-img{
     margin: 20px; 
     align-self: center;
+    max-width: 200px;
+    width: 50%;
 }
 
 .button{
     background-color: #1b2c54;
     color: white;
     display: block;
-    margin: 80px auto;
-    padding: 10px 50px;
+    font-size: 80%;
+    height: auto;
+    margin: 7% auto;
+    padding: 1% 5%px;
+    text-align: center;
+    width: 150px;
 }
 
 .button:hover{
