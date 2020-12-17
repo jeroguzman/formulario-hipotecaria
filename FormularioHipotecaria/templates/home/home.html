@@ -28,7 +28,7 @@
                             {% if request.GET.first_name == null %}
                             Alberto Molina,
                             {% else %}
-                            {{ request.GET.first_name }} {{ request.GET.last_name}},
+                            {{ request.GET.first_name | title}} {{ request.GET.last_name | title}},
                             {% endif %}
                         </strong>
                         {% if request.GET.bienvenida == null %}
