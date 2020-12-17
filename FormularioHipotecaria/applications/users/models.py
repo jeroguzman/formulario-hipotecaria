@@ -62,9 +62,9 @@ class User(AbstractUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         profile_pic = str(self.foto).replace(' ', '_')
-        profile_pic = profile_pic.replace('staticfiles/', '')
+        profile_pic = profile_pic.replace('staticfiles/img/promotores/', '')
         logo_empresa = str(self.empresa.logo).replace(' ', '_')
-        logo_empresa = logo_empresa.replace('staticfiles/', '')
+        logo_empresa = logo_empresa.replace('staticfiles/img/promotores/logos/', '')
 
         self.url = 'http://perfilador.mshipotecaria.com/?id={}&first_name={}&last_name={}&profile_pic={}&bienvenida={}&despedida={}'\
             '&logo={}'.format(
