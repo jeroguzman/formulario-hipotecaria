@@ -8,10 +8,12 @@
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
+<link rel="stylesheet" type="text/css"
+    href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 
 <!-- Css Styling -->
-<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%}
+{% block body %}
 
 <div class="dashboard-main-wrapper">
 
@@ -43,13 +45,14 @@
                                 </tfoot>
                                 <tbody>
                                     {% for models in object_list %}
-                                        <tr>
-                                            <th scope="row">{{ models.nombre }}</th>
-                                            <td class="text-center">{{ models.factor_millar }}</td>
-                                            <td class="text-center">
-                                                <a href="{% url 'calc_app:c-edit-banks' models.pk %}"><i class="far fa-edit fa-2x"></i></a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">{{ models.nombre }}</th>
+                                        <td class="text-center">{{ models.factor_millar }}</td>
+                                        <td class="text-center">
+                                            <a href="{% url 'calc_app:c-edit-banks' models.pk %}"><i
+                                                    class="far fa-edit fa-2x"></i></a>
+                                        </td>
+                                    </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
@@ -61,25 +64,25 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a href="?page=1"><<</a>
-                        |
-                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
-                    {% endif %}
-                    
-                    <span class="current">
-                        Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
-                    </span> {% if page_obj.has_next %}
+                    <a href="?page=1">
+                        <<</a> | <a href="?page={{ page_obj.previous_page_number }}">
+                            <</a> {% endif %} <span class="current">
+                                Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span> {% if page_obj.has_next %}
                 <a href="?page={{ page_obj.next_page_number }}">></a> |
                 <a href="?page={{ page_obj.paginator.num_pages }}">>></a> {% endif %}
                 </span>
             </div>
 
+            <br>
+
             <form method="post">
                 {% csrf_token %}
-                <div class="row justify-content-md-center">
+                <div class="row d-flex justify-content-center">
                     <a href="{% url 'calc_app:c-activitys' %}">
                         <div class="d-flex">
-                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm" value="Porcentajes">
+                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                value="Porcentajes">
                         </div>
                     </a>
                 </div>

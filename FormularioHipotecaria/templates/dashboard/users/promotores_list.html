@@ -30,62 +30,63 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         {% if request.user.is_superuser %}
-                            <h5 class="card-header">Todos los Promotores</h5>                    
+                        <h5 class="card-header">Todos los Promotores</h5>
                         {% else %}
-                            <h5 class="card-header">Todos tus Promotores</h5>                    
+                        <h5 class="card-header">Todos tus Promotores</h5>
                         {% endif %}
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Foto</th>
+                                        <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
+                                        <th scope="col" class="xs">Usuario</th>
+                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="sm">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
-                                        <th scope="col">Asesor</th>
+                                        <th scope="col" class="sm">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                            <th class="text-center" scope="col">Acciones</th>
+                                        <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th scope="col">Foto</th>
+                                        <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Usuario</th>
-                                        <th scope="col">Telefono</th>
-                                        <th scope="col">E-mail</th>
+                                        <th scope="col" class="xs">Usuario</th>
+                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="sm">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
-                                        <th scope="col">Asesor</th>
+                                        <th scope="col" class="sm">Asesor</th>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                            <th class="text-center" scope="col">Acciones</th>
+                                        <th class="text-center" scope="col">Acciones</th>
                                         {% endif %}
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     {% for models in object_list %}
                                     <tr>
-                                        <td><img src="{{ models.foto.url }}" class="foto-perfil" width="64"></td>
+                                        <td class="xs"><img src="{{ models.foto.url }}" class="foto-perfil" width="64">
+                                        </td>
                                         <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
-                                        <td>{{ models.username }}</td>
-                                        <td>{{ models.telefono }}</td>
-                                        <td>{{ models.email }}</td>
+                                        <td class="xs">{{ models.username }}</td>
+                                        <td class="sm">{{ models.telefono }}</td>
+                                        <td class="sm">{{ models.email }}</td>
                                         <td class="text-center"><a id="url-field" onclick="copyUrl(this)"
                                                 data-url="{{ models.url }}"><i class="far fa-copy fa-2x"></i></a></td>
-                                        <td>{{ models.asesor }}</td>
+                                        <td class="sm">{{ models.asesor }}</td>
                                         {% if request.user.modalidad == 'Asesor' %}
-                                            <td class="text-center">
-                                                <a href="{% url 'users_app:u-detail' models.pk %}"><i
-                                                        class="far fa-eye fa-2x"></i></a>
-                                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                                <a href="{% url 'users_app:u-edit' models.pk %}"><i
-                                                        class="far fa-edit fa-2x"></i></a>
-                                                <i class="fas fa-grip-lines-vertical fa-2x"></i>
-                                                <a href="{% url 'users_app:u-delete' models.pk %}"><i
-                                                        class="far fa-trash-alt fa-2x"></i></a>
-                                            </td>
+                                        <td class="text-center">
+                                            <a href="{% url 'users_app:u-detail' models.pk %}"><i
+                                                    class="far fa-eye fa-2x"></i></a>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <a href="{% url 'users_app:u-edit' models.pk %}"><i
+                                                    class="far fa-edit fa-2x"></i></a>
+                                            <i class="fas fa-ellipsis-v"></i>
+                                            <a href="{% url 'users_app:u-delete' models.pk %}"><i
+                                                    class="far fa-trash-alt fa-2x"></i></a>
+                                        </td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}
@@ -109,21 +110,22 @@
                 <a href="?page={{ page_obj.paginator.num_pages }}">>></a> {% endif %}
                 </span>
             </div>
+            <br>
 
             {% if user.modalidad == 'Asesor' %}
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="row justify-content-md-center">
-                        <a href='{% url "users_app:u-register" %}'>
-                            <div class="d-flex">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row d-flex justify-content-center">
+                    <a href='{% url "users_app:u-register" %}'>
+                        <div class="d-flex">
 
-                                <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
-                                    value="Agregar nuevo">
+                            <input type="button" class="btn btn-teal btn-primary btn-lg rounded-pill lift lift-sm"
+                                value="Agregar nuevo">
 
-                            </div>
-                        </a>
-                    </div>
-                </form>
+                        </div>
+                    </a>
+                </div>
+            </form>
             {% endif %}
         </div>
     </div>

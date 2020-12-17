@@ -1,5 +1,5 @@
 .navbar-brand img {
-    width: 220px;
+    max-width: 115px;
     padding-left: 50px;
 }
 
@@ -75,4 +75,10 @@
     border-radius: 50%;
     width: 64px;
     height: 64px;
+}
+
+/*Clientes*/
+.card-bank{
+    padding: 15px 0;
+    width: 137px;
 }

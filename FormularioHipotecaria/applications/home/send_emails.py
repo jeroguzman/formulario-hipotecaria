@@ -20,6 +20,9 @@ class Messenger:
         if client.valor_inmueble is None:
             client.valor_inmueble = 0.0
 
+        tasa_endeudamiento = float(client.pago_credito) / (float(client.ingreso_mensual) + float(client.ingreso_mensual_co_acreditado))
+        tasa_endeudamiento = round(tasa_endeudamiento, 2)
+
         ctx = {
             'asesor': client.promotor.asesor,
             'promotor': client.promotor,
@@ -40,8 +43,16 @@ class Messenger:
             'pagando_credito_inmb_co_acreditado': client.pagando_credito_inmb_co_acreditado,
             'ingreso_mensual_co_acreditado': '{:,}'.format(float(client.ingreso_mensual_co_acreditado)),
             'suma_ingresos': '{:,}'.format(float(client.ingreso_mensual) + float(client.ingreso_mensual_co_acreditado)),
-            'pago_mensual': client.pago_mensual,
-            'cap_endeudamiento': '{:,}'.format(cap_endeudamiento)
+            'pago_credito': '{:,}'.format(float(client.pago_credito)),
+            'tasa_endeudamiento': '{:,}'.format(float(tasa_endeudamiento)),
+            'hsbc': client.hsbc,
+            'banorte': client.banorte,
+            'banamex': client.banamex,
+            'santander': client.santander,
+            'scotiabank': client.scotiabanck,
+            'banregio': client.banregio,
+            'afirme': client.afirme,
+            'bx': client.bx
         }
 
         html_mail = loader.render_to_string(template_mail, ctx)
@@ -74,7 +85,7 @@ class Messenger:
         client_subject = 'Mi Solución Hipotecaria'
         client_content = '¡¡Gracias por tu confienza!!'
 
-        if client.promotor.empresa.name == 'MS Hipotecaria':
+        if client.promotor.empresa.name == 'Mi Solución Hipotecaria':
             template_mail = 'client_mail_ms.html'
         else:
             template_mail = 'client_mail_other.html'

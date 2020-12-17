@@ -8,49 +8,56 @@
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/chartist-bundle/chartist.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/c3charts/c3.css' %}">
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/charts/morris-bundle/morris.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
+<link rel="stylesheet" type="text/css"
+    href="{% static 'dashboard-template/assets/vendor/daterangepicker/daterangepicker.css' %}" />
 
 
 <!-- Css Styling -->
-<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%} {% block body %}
+<link rel="stylesheet" href="{% static 'css/dashboard-styles.css' %}"> {% endblock librerias-adicionales%}
+{% block body %}
 
 <div class="dashboard-main-wrapper">
     {% include 'dashboard/shared/navbar.html' %} {% include 'dashboard/shared/sidebar.html' %}
     <div class="dashboard-wrapper">
         <div class="container-fluid  dashboard-content">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-1">
-                    <div class="card">
-                        <h1 class="card-header">
-                            Alcances de credito por banco
-                        </h1>
-                        <table class="table table-hover table-strip">
-                            <thead>
-                                <tr>
-                                    <th class="text-center" scope="col">BANORTE</th>
-                                    <th class="text-center" scope="col">HSBC</th>
-                                    <th class="text-center" scope="col">BANAMEX</th>
-                                    <th class="text-center" scope="col">SANTANDER</th>
-                                    <th class="text-center" scope="col">SCOTIABANK</th>
-                                    <th class="text-center" scope="col">BX+</th>
-                                    <th class="text-center" scope="col">AFIRME</th>
-                                    <th class="text-center" scope="col">BANREGIO</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">{{ object.banorte }}</td>
-                                    <td class="text-center">{{ object.hsbc }}</td>
-                                    <td class="text-center">{{ object.banamex }}</td>
-                                    <td class="text-center">{{ object.santander }}</td>
-                                    <td class="text-center">{{ object.scotiabanck }}</td>
-                                    <td class="text-center">{{ object.bx }}</td>
-                                    <td class="text-center">{{ object.afirme }}</td>
-                                    <td class="text-center">{{ object.banregio }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+            <h1 class="card-header">Alcances de crédito por banco</h1>
+            <div class="card" style="align-items: center;">
+                <div class="row">
+
+                    <div class="card-bank">
+                        <p class="text-center">BANORTE</p>
+                        <p class="text-center">{{object.banorte}}</p>
                     </div>
+                    <div class="card-bank">
+                        <p class="text-center">HSBC</p>
+                        <p class="text-center">{{object.hsbc}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">BANAMEX</p>
+                        <p class="text-center">{{object.banamex}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">SANTANDER</p>
+                        <p class="text-center">{{object.santander}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">SCOTIABANK</p>
+                        <p class="text-center">{{object.scotiabanck}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">BX+</p>
+                        <p class="text-center">{{object.bx}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">AFIRME</p>
+                        <p class="text-center">{{object.afirme}}</p>
+                    </div>
+                    <div class="card-bank">
+                        <p class="text-center">BANREGIO</p>
+                        <p class="text-center">{{object.banregio}}</p>
+                    </div>
+
                 </div>
             </div>
 
@@ -95,7 +102,7 @@
 
                                 <tr>
                                     <td>
-                                        Telefono
+                                        Teléfono
                                     </td>
                                     <td>
                                         {{ object.telefono }}
@@ -113,7 +120,7 @@
 
                                 <tr>
                                     <td>
-                                        Tramite
+                                        Trámite
                                     </td>
                                     <td>
                                         {{ object.tramite }}
@@ -165,47 +172,47 @@
                                     </td>
                                 </tr>
 
-                                {% if object.estado_civil != 'Soltero' %}
-                                    <tr>
-                                        <td>
-                                            Actividad del Co-Acreditado
-                                        </td>
-                                        <td>
-                                            {{ object.actividad_co_acreditado }}
-                                        </td>
-                                    </tr>
+                                {% if object.co_acreditado == 'Sí, quiero agregar un Co-Acreditado' %}
+                                <tr>
+                                    <td>
+                                        Actividad del Co-Acreditado
+                                    </td>
+                                    <td>
+                                        {{ object.actividad_co_acreditado }}
+                                    </td>
+                                </tr>
 
-                                    <tr>
-                                        <td>
-                                            Giro de Actividad del Co-Acreditado
-                                        </td>
-                                        <td>
-                                            {{ object.giro_actividad_co_acreditado }}
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        Giro de Actividad del Co-Acreditado
+                                    </td>
+                                    <td>
+                                        {{ object.giro_actividad_co_acreditado }}
+                                    </td>
+                                </tr>
 
-                                    <tr>
-                                        <td>
-                                            Ingreso Mensual del Co-Acreditado
-                                        </td>
-                                        <td>
-                                            {{ object.ingreso_mensual_co_acreditado }}
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        Ingreso Mensual del Co-Acreditado
+                                    </td>
+                                    <td>
+                                        {{ object.ingreso_mensual_co_acreditado }}
+                                    </td>
+                                </tr>
 
-                                    <tr>
-                                        <td>
-                                            Institucion del Co-Acreditado
-                                        </td>
-                                        <td>
-                                            {{ object.instituciones_co_acreditado }}
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        Institución del Co-Acreditado
+                                    </td>
+                                    <td>
+                                        {{ object.instituciones_co_acreditado }}
+                                    </td>
+                                </tr>
                                 {% endif %}
 
                                 <tr>
                                     <td>
-                                        Institucion del Perfilado
+                                        Institución del Perfilado
                                     </td>
                                     <td>
                                         {{ object.institucion }}
@@ -214,10 +221,19 @@
 
                                 <tr>
                                     <td>
-                                        Pago de Credito
+                                        Pago de Crédito
                                     </td>
                                     <td>
                                         {{ object.pago_credito }}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        Fecha de Creación
+                                    </td>
+                                    <td>
+                                        {{ object.fecha_creacion }}
                                     </td>
                                 </tr>
                             </tbody>

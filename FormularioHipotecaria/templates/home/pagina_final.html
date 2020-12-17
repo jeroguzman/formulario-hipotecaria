@@ -6,17 +6,13 @@
 <div>
     <div class="header">
         <div class="logo-container">
-            <img src="{% static 'img/logo-blanco.png'%}" alt="">
+            <img src="{% static 'img/logoMS.png'%}" alt="">
         </div>
     </div><!-- End header -->
 
-    <div class="container-fluid">
-        <h3 style="text-align: center;">
-            {% if despedida == null %}
+    <div class="container-fluid" style="align-items: center;">
+        <h3 style="text-align: center; font-size: 99%;">
             Gracias por contestar las preguntas para tu perfilamiento.
-            {% else %}
-            {{ despedida }}
-            {% endif %}
             <br> <br>
             Te enviamos el resultado de tu crédito a tu correo
             electrónico, si no lo encuentras revisa tu carpeta de spam.</h3>
@@ -25,8 +21,9 @@
         </form>
 
 
+
         <div class="container" style="align-items: center;">
-            <h3 style="text-align: center;">"TODOS LOS BANCOS EN UN SOLO LUGAR"</h3>
+            <h3 style="text-align: center; font-size: 99%;">"TODOS LOS BANCOS EN UN SOLO LUGAR"</h3>
             <div class="banco-div">
                 <img src="{%static 'img/logo-hsbc.png'%}" alt="logo hsbc" class="banco-img">
                 <img src="{%static 'img/logo-banorte.png'%}" alt="logo banorte" class="banco-img">

@@ -12,7 +12,6 @@ from .send_emails import Messenger
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
-
 class dashboardView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'dashboard/dashboard.html'
@@ -73,6 +72,7 @@ class FinalView(TemplateView):
         ingreso_mensual = request.POST.get('ingreso_mensual')
         giro_actividad = request.POST.get('giro_actividad')
         estado_civil = request.POST.get('estado_civil')
+        co_acreditado = request.POST.get('co_acreditado')
         giro_actividad_co_acreditado = request.POST.get('giro_actividad_co_acreditado')
         actividad_co_acreditado = request.POST.get('actividad_co_acreditado')
         instituciones_co_acreditado = request.POST.get('instituciones_co_acreditado')
@@ -120,7 +120,7 @@ class FinalView(TemplateView):
             ingreso_mensual = ingreso_mensual,
             giro_actividad = giro_actividad,
             estado_civil = estado_civil,
-            #mostrar_mayor_ingreso = mostrar_mayor_ingreso,
+            co_acreditado = co_acreditado,
             giro_actividad_co_acreditado = giro_actividad_co_acreditado,
             actividad_co_acreditado = actividad_co_acreditado,
             instituciones_co_acreditado = instituciones_co_acreditado,

@@ -1,5 +1,6 @@
 from django.db import models
 from applications.users.models import User
+import datetime
 
 # Create your models here.
 class Clientes(models.Model):
@@ -9,6 +10,7 @@ class Clientes(models.Model):
     promotor = models.ForeignKey(User, on_delete=models.PROTECT)
     telefono = models.CharField(max_length=140)
     tramite = models.CharField(max_length=140, blank=True, null=True)
+    fecha_creacion = models.DateTimeField(default=datetime.datetime.now, verbose_name='fecha de creacion')
     
     busqueda = models.CharField(max_length=140, blank=True, null=True) # Inicio
 
@@ -33,7 +35,7 @@ class Clientes(models.Model):
     ingreso_mensual = models.FloatField(blank=True, null=True)
     giro_actividad = models.CharField(max_length=40, blank=True, null=True)
     estado_civil = models.CharField(max_length=40, blank=True, null=True) 
-    # mostrar_mayor_ingreso = models.BooleanField(default=False, blank=True, null=True) ####
+    co_acreditado = models.CharField(max_length=40, blank=True, null=True)
     giro_actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     actividad_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 
     instituciones_co_acreditado = models.CharField(max_length=40, blank=True, null=True) 

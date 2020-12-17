@@ -106,11 +106,29 @@
                                 </tr>
 
                                 <tr>
-                                    <td>
+                                    <td class="mdd">
                                         URL de Perfilamiento
                                     </td>
-                                    <td>
+                                    <td class="mdd">
                                         {{ object.url }}
+                                    </td>
+                                </tr>
+
+                                <tr style="padding: 0;">
+                                    <td colspan="2" style="padding: 0; border: none;">
+
+                                        <div id="success-alert" class="alert alert-primary" role="alert"
+                                            style="margin: 0;">
+                                            Se copio la URL en el portapapeles exitosamente!
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Copiar URL</td>
+                                    <td><a id="url-field" onclick="copyUrl(this)" data-url="{{ object.url }}"><i
+                                                class="far fa-copy fa-2x"></i></a>
+
                                     </td>
                                 </tr>
 
@@ -134,12 +152,12 @@
                             </tbody>
                         </table>
                         {% if request.user.modalidad == 'Asesor' %}
-                        <div class="card d-flex justify-content-center flex-row">
+                        <div class="text-center">
                             <a href="{% url 'users_app:u-edit' object.pk %}"><i class="far fa-edit fa-2x"></i></a>
-                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                             <a href="{% url 'users_app:u-delete' object.pk %}"><i
                                     class="far fa-trash-alt fa-2x"></i></a>
-                            <i class="fas fa-grip-lines-vertical fa-2x"></i>
+                            <i class="fas fa-ellipsis-v"></i>
                             <a href="{% url 'users_app:u-updatePass' object.pk %}"><i
                                     class="fas fa-unlock-alt fa-2x"></i></a>
                         </div>

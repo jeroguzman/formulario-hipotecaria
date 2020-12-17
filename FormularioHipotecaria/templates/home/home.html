@@ -8,9 +8,9 @@
     <div class="header">
         <div class="logo-container">
             {% if request.GET.logo == null %}
-                <img src="{% static 'img/logo-blanco.png' %}" alt="">
+            <img src="{% static 'img/logoMS.png' %}" alt="">
             {% else %}
-                <img src="{% static request.GET.logo %}" alt="">
+            <img src="{% static request.GET.logo %}" alt="">
             {% endif %}
         </div>
     </div><!-- End header -->
@@ -26,17 +26,17 @@
                     <p>¡Hola! Soy
                         <strong>
                             {% if request.GET.first_name == null %}
-                                Alberto Molina,
+                            Alberto Molina,
                             {% else %}
-                                {{ request.GET.first_name }} {{ request.GET.last_name}},
+                            {{ request.GET.first_name }} {{ request.GET.last_name}},
                             {% endif %}
                         </strong>
                         {% if request.GET.bienvenida == null %}
-                            ejecutivo experto en Créditos
-                            Hipotecarios,
-                            déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
+                        ejecutivo experto en Créditos
+                        Hipotecarios,
+                        déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
                         {% else %}
-                            {{ request.GET.bienvenida }}
+                        {{ request.GET.bienvenida }}
                         {% endif %}
 
                     </p>
