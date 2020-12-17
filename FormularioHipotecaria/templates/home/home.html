@@ -47,7 +47,18 @@
             <div class="preguntas">
                 <div class="row">
                     <div class="col-lg-4 d-flex justify-content-center">
+                        <div style="color: darkgray;">
+                            <br>
+                            <br>
+                            <h3><strong>Calcula tu crédito fácil y sin enredos.</strong></h3>
+                            <br>
+                            <h4><strong>Te ayudamos con el crédito hipotecario ideal para ti,</strong></h4>
+                            <p>Conoce los beneficios.</p>
+                            <br>
+                            <h4><strong>Asesoría completamente</strong></h4>
+                            <h4 style="color: red;"><strong>¡¡SIN COSTO!!</strong></h4>
 
+                        </div>
                     </div>
                     <div class="col-lg-8 d-flex justify-content-center">
 
@@ -76,6 +87,30 @@
                             </div>
 
                             <input name="tramite" form="form-db" class="opcion-input" hidden>
+                            <input name="tramite" form="form-mejora" class="opcion-input" hidden>
+
+                            <div style="width: 300px; text-align: justify;">
+                                <br>
+                                <p><strong>Descubre tu capacidad de crédito</strong></p>
+                                <p>Cada banco tiene sus políticas de otorgamiento de crédito distintas.</p>
+                                <p>Calculamos una solución a tu medida con base a tus ingresos y los créditos actuales
+                                    vigentes.</p>
+                                <p>Conoce en 3 minutos la línea de crédito que te pueden autorizar los distintos bancos.
+                                </p>
+                                <br>
+                                <p><strong>Buscamos tu seguridad.</strong></p>
+                                <p>
+                                    Utilizamos tu información para ayudarte a
+                                    tomar las mejores decisiones y te garantizamos la seguridad y privacidad de tus
+                                    datos.
+                                </p>
+                                <p>Tu información está segura, consulta nuestro <b><a class="visible-link"
+                                            href="https://www.mshipotecaria.com/aviso-de-privacidad/"
+                                            target="__blank">Aviso de
+                                            Privacidad</a></b></p>
+                            </div>
+
+
                         </div>
 
                     </div>
@@ -87,7 +122,11 @@
         <form action="pagina_final/" method="post" id="form-db">
             {% csrf_token %}
             <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
-            <input type="text" name="despedida" value="{{ request.GET.despedida }}" hidden>
+        </form>
+
+        <form action="pagina_final_mejora/" method="post" id="form-mejora">
+            {% csrf_token %}
+            <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
         </form>
 
         {% include 'home/formularios/compra.html' %}

@@ -51,18 +51,6 @@ class FinalView(TemplateView):
             
             promotor = User.objects.get(is_superuser=1)
 
-        #Mejora
-        puntualidad_pagos = request.POST.get('puntualidad_pagos')
-        saldo_actual = request.POST.get('saldo_actual')
-        pago_mensual = request.POST.get('pago_mensual')
-        años_credito = request.POST.get('años_credito')
-        tiempo_pagando_años = request.POST.get('tiempo_pagando_años')
-        tiempo_pagando_meses = request.POST.get('tiempo_pagando_meses')
-        credito_cofinanciado = request.POST.get('credito_cofinanciado')
-        institucion_hipotecaria = request.POST.get('institucion_hipotecaria')
-        moneda_credito = request.POST.get('moneda_credito')
-        pagos_pactados = request.POST.get('pagos_pactados')
-
         #Compra
         inmueble_identificado = request.POST.get('inmueble_identificado')
         valor_inmueble = request.POST.get('valor_inmueble')
@@ -99,18 +87,6 @@ class FinalView(TemplateView):
             telefono=telefono,
             tramite=tramite,
 
-            #Mejora
-            puntualidad_pagos = puntualidad_pagos,
-            saldo_actual = saldo_actual,
-            pago_mensual = pago_mensual,
-            años_credito = años_credito,
-            tiempo_pagando_años = tiempo_pagando_años,
-            tiempo_pagando_meses = tiempo_pagando_meses,
-            credito_cofinanciado = credito_cofinanciado,
-            institucion_hipotecaria = institucion_hipotecaria,
-            moneda_credito = moneda_credito,
-            pagos_pactados = pagos_pactados,
-
             #Compra
             inmueble_identificado = inmueble_identificado,
             valor_inmueble = valor_inmueble,
@@ -130,27 +106,81 @@ class FinalView(TemplateView):
         )
         client.save()
 
-        if client.tramite != "Mejora de Hipoteca":
-            # Obteniendo los alcabces de credito por banco
-            alcances, cap_endeudamiento = get_all_estimates(client)
+        # Obteniendo los alcabces de credito por banco
+        alcances, cap_endeudamiento = get_all_estimates(client)
 
-            # Guardando alcances de credito en el modelo cliente
-            client.banorte = alcances['BANORTE']
-            client.hsbc = alcances['HSBC']
-            client.banamex = alcances['BANAMEX']
-            client.santander = alcances['SANTANDER']
-            client.scotiabanck = alcances['SCOTIABANK']
-            client.bx = alcances['BX+']
-            client.afirme = alcances['AFIRME']
-            client.banregio = alcances['BANREGIO']
-            client.save()
+        # Guardando alcances de credito en el modelo cliente
+        client.banorte = alcances['BANORTE']
+        client.hsbc = alcances['HSBC']
+        client.banamex = alcances['BANAMEX']
+        client.santander = alcances['SANTANDER']
+        client.scotiabanck = alcances['SCOTIABANK']
+        client.bx = alcances['BX+']
+        client.afirme = alcances['AFIRME']
+        client.banregio = alcances['BANREGIO']
+        client.save()
 
-            sender = Messenger()
-            sender.email_to_admin(client, cap_endeudamiento)
-            sender.email_to_client(client)
+        sender = Messenger()
+        sender.email_to_admin(client, cap_endeudamiento)
+        sender.email_to_client(client)
         # else:
         ## --| Envio de correos en el tramite de Mejora de Hipoteca |-- ##
         #     msg = 'Tramite de mejora de hipoteca'
+
+        context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo, 'despedida':despedida}
+
+        return render(request, self.template_name, context)
+
+class FinalViewMejora(TemplateView):
+    template_name = 'home/pagina_final_mejora.html'
+
+    def post(self, request):
+        tramite = request.POST.get('tramite')
+        nombre = request.POST.get('nombre')
+        telefono = request.POST.get('telefono')
+        correo = request.POST.get('correo')
+        despedida = request.POST.get('despedida')
+
+        try:
+            promotor = User.objects.get(id=request.POST.get('promotor'))
+        except:
+            print('EXCEPT: No se encontro el promotor/asesor en el sistema')
+            
+            promotor = User.objects.get(is_superuser=1)
+
+        #Mejora
+        puntualidad_pagos = request.POST.get('puntualidad_pagos')
+        saldo_actual = request.POST.get('saldo_actual')
+        pago_mensual = request.POST.get('pago_mensual')
+        años_credito = request.POST.get('años_credito')
+        tiempo_pagando_años = request.POST.get('tiempo_pagando_años')
+        tiempo_pagando_meses = request.POST.get('tiempo_pagando_meses')
+        credito_cofinanciado = request.POST.get('credito_cofinanciado')
+        institucion_hipotecaria = request.POST.get('institucion_hipotecaria')
+        moneda_credito = request.POST.get('moneda_credito')
+        pagos_pactados = request.POST.get('pagos_pactados')
+        
+        client = Clientes(
+            nombre=nombre,
+            email=correo,
+            promotor=promotor,
+            telefono=telefono,
+            tramite=tramite,
+
+            #Mejora
+            puntualidad_pagos = puntualidad_pagos,
+            saldo_actual = saldo_actual,
+            pago_mensual = pago_mensual,
+            años_credito = años_credito,
+            tiempo_pagando_años = tiempo_pagando_años,
+            tiempo_pagando_meses = tiempo_pagando_meses,
+            credito_cofinanciado = credito_cofinanciado,
+            institucion_hipotecaria = institucion_hipotecaria,
+            moneda_credito = moneda_credito,
+            pagos_pactados = pagos_pactados,
+
+        )
+        client.save()
 
         context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo, 'despedida':despedida}
 

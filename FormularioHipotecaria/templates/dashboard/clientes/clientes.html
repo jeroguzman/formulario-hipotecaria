@@ -1,5 +1,6 @@
 {% extends '../../base.html' %}
 {% load static %}
+{% load humanize %}
 {% block librerias-adicionales%}
 <link rel="stylesheet" href="{% static 'dashboard-template/assets/vendor/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'dashboard-template/assets/vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
@@ -42,9 +43,9 @@
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col" class="xs">Asesor/Promotor</th>
-                                        <th scope="col" class="xs">Telefono</th>
+                                        <th scope="col" class="xs">Teléfono</th>
                                         <th scope="col" class="sm">E-mail</th>
-                                        <th scope="col" class="smm">Tramite</th>
+                                        <th scope="col" class="smm">Trámite</th>
                                         <th scope="col" class="md">Alcance de Crédito</th>
                                         <th scope="col" class="mdd">Fecha de Creación</th>
                                         <th class="text-center" scope="col">Ver</th>
@@ -54,9 +55,9 @@
                                     <tr>
                                         <th scope="col">Nombre</th>
                                         <th scope="col" class="xs">Asesor</th>
-                                        <th scope="col" class="xs">Telefono</th>
+                                        <th scope="col" class="xs">Teléfono</th>
                                         <th scope="col" class="sm">E-mail</th>
-                                        <th scope="col" class="smm">Tramite</th>
+                                        <th scope="col" class="smm">Trámite</th>
                                         <th scope="col" class="md">Alcance de Crédito</th>
                                         <th scope="col" class="mdd">Fecha de Creación</th>
                                         <th class="text-center" scope="col">Ver</th>
@@ -65,13 +66,13 @@
                                 <tbody>
                                     {% for models in object_list %}
                                     <tr>
-                                        <th scope="row">{{ models.nombre }}</th>
+                                        <th scope="row">{{ models.nombre | title}}</th>
                                         <td class="xs">{{ models.promotor }}</td>
                                         <td class="xs">{{ models.telefono }}</td>
                                         <td class="sm">{{ models.email }}</td>
                                         <td class="smm">{{ models.tramite }}</td>
                                         <td class="md">{{ models.banorte }}</td>
-                                        <td class="mdd">{{ models.fecha_creacion }}</td>
+                                        <td class="mdd">{{ models.fecha_creacion}}</td>
                                         <td class="text-center">
                                             <a href="{% url 'clients_app:a-cliente' models.pk %}"><i
                                                     class="far fa-eye fa-2x"></i></a>

@@ -37,7 +37,7 @@
                                         <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col" class="xs">Usuario</th>
-                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="sm">Teléfono</th>
                                         <th scope="col" class="md">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
                                         {% if request.user.modalidad == 'Asesor' %}
@@ -50,7 +50,7 @@
                                         <th scope="col" class="xs">Foto</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col" class="xs">Usuario</th>
-                                        <th scope="col" class="sm">Telefono</th>
+                                        <th scope="col" class="sm">Teléfono</th>
                                         <th scope="col" class="md">E-mail</th>
                                         <th scope="col">URL de perfilamiento</th>
                                         {% if request.user.modalidad == 'Asesor' %}
@@ -63,7 +63,8 @@
                                     <tr>
                                         <td class="xs"><img src="{{ models.foto.url }}" class="foto-perfil">
                                         </td>
-                                        <th scope="row">{{ models.first_name }} {{ models.last_name }}</th>
+                                        <th scope="row">{{ models.first_name | title}} {{ models.last_name | title}}
+                                        </th>
                                         <td class="xs">{{ models.username }}</td>
                                         <td class="sm">{{ models.telefono }}</td>
                                         <td class="md">{{ models.email }}</td>

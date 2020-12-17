@@ -6,17 +6,17 @@
 {%include "./includes/opcion.html" with for="m3a" class="opcion not" texto="Me he atrasado 1 o 2 veces en el año pero estoy al día"%}
 {%include "./includes/opcion.html" with for="m3a" class="opcion not" texto="Me atrasé 3 o más meses pero ya estoy al día"%}
 {%include "./includes/opcion.html" with for="m3x" class="opcion not" texto="Actualmente voy atrasado en el pago de mi hipoteca"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="puntualidad_pagos"%}
+{%include "./includes/opcion-input.html" with form="form-mejora" name="puntualidad_pagos"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 3. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3" per=18 desc="¡Perfecto! ¡Eres muy buen candidato para mejorar las condiciones de tu hipoteca!" pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
-{%include "./includes/dinero.html" with name="saldo_actual" form="form-db" titulo="Saldo de tu hipoteca"%}
+{%include "./includes/dinero.html" with name="saldo_actual" form="form-mejora" titulo="Saldo de tu hipoteca"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3a. ¿Cuál es el monto aproximado del saldo actual? -->
 {%include "./includes/panel.html" with id="m3a" per=18 desc="Ok, veamos las condiciones de tu crédito actual." pregunta="¿Cuál es el monto aproximado del saldo actual?"%}
-{%include "./includes/dinero.html" with name="saldo_actual" form="form-db" titulo="Saldo de tu hipoteca"%}
+{%include "./includes/dinero.html" with name="saldo_actual" form="form-mejora" titulo="Saldo de tu hipoteca"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m4" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 3x. Lo sentimos -->
@@ -39,13 +39,13 @@
 
 <!-- 4. ¿Cuánto pagas de mensualidad? -->
 {%include "./includes/panel.html" with id="m4" per=27 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto pagas de mensualidad?"%}
-{%include "./includes/dinero.html" with name="pago_mensual" form="form-db"%}
+{%include "./includes/dinero.html" with name="pago_mensual" form="form-mejora"%}
 {%include "./includes/panel-botones-siguiente.html" with next="m5" emsg="El campo valor debe ser mayor a 0"%}
 
 <!-- 5. ¿A cuántos años fue tu crédito? -->
 {%include "./includes/panel.html" with id="m5" per=36 desc="Favor de responder la siguiente pregunta:" pregunta="¿A cuántos años fue tu crédito?"%}
 <div class="form-group">
-    <select class="form-control" form="form-db" name="años_credito" disabled>
+    <select class="form-control" form="form-mejora" name="años_credito" disabled>
         <option>5</option>
         <option>6</option>
         <option>7</option>
@@ -80,7 +80,7 @@
 {%include "./includes/panel.html" with id="m6" per=45 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuánto tiempo llevas pagando tu crédito?"%}
 <div class="form-group">
     <label for="exampleFormControlSelect1">Años</label>
-    <select class="form-control" form="form-db" name="tiempo_pagando_años" disabled>
+    <select class="form-control" form="form-mejora" name="tiempo_pagando_años" disabled>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -105,7 +105,7 @@
 </div>
 <div class="form-group">
     <label for="exampleFormControlSelect1">Meses</label>
-    <select class="form-control" form="form-db" name="tiempo_pagando_meses" disabled>
+    <select class="form-control" form="form-mejora" name="tiempo_pagando_meses" disabled>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -128,13 +128,13 @@
 {%include "./includes/opcion.html" with for="m8" class="opcion" texto="Sí, con Infonavit"%}
 {%include "./includes/opcion.html" with for="m8" class="opcion" texto="Sí, con Fovissste"%}
 {%include "./includes/opcion.html" with for="m8" class="opcion" texto="Otro"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="credito_cofinanciado"%}
+{%include "./includes/opcion-input.html" with form="form-mejora" name="credito_cofinanciado"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 8. Banco -->
 {%include "./includes/panel.html" with id="m8" per=63 desc="Favor de responder la siguiente pregunta:" pregunta="¿Cuál es la institución actual con la que tienes tu hipoteca?"%}
 <div class="form-group">
-    <select class="form-control" form="form-db" name="institucion_hipotecaria" disabled>
+    <select class="form-control" form="form-mejora" name="institucion_hipotecaria" disabled>
         <option>Afirme</option>
         <option>B x Más</option>
         <option>Banbajío</option>
@@ -157,17 +157,105 @@
 {%include "./includes/opcion.html" with for="m10" class="opcion" texto="Pesos"%}
 {%include "./includes/opcion.html" with for="m10" class="opcion" texto="UDIS"%}
 {%include "./includes/opcion.html" with for="m10" class="opcion" texto="VSM (Veces Salario Mínimo)"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="moneda_credito"%}
+{%include "./includes/opcion-input.html" with form="form-mejora" name="moneda_credito"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 10. Los pagos pactados de tu crédito son: -->
 {%include "./includes/panel.html" with id="m10" per=81 desc="Favor de responder la siguiente pregunta:" pregunta="Los pagos pactados de tu crédito son:"%}
 {%include "./includes/opcion.html" with for="m11" class="opcion" texto="Fijos"%}
 {%include "./includes/opcion.html" with for="m11" class="opcion" texto="Crecientes"%}
-{%include "./includes/opcion-input.html" with form="form-db" name="pagos_pactados"%}
+{%include "./includes/opcion-input.html" with form="form-mejora" name="pagos_pactados"%}
 {%include "./includes/panel-botones.html"%}
 
 <!-- 11. ¿Cuál es tu nombre y apellido? -->
 {%include "./includes/panel.html" with id="m11" per=90 desc="Por cierto, ¿Cuál es tu nombre? <br> Me gustaría personalizarte la información que te voy a entregar." pregunta="¿Cuál es tu nombre y apellido?"%}
-<input name="nombre" type="text" class="form-control" form="form-db" maxlength="50" disabled />
-{%include "./includes/panel-botones-siguiente.html" with next="correo" emsg="Ingrese un nombre y apellido válido. Ejemplo: Juan Pérez"%}
+<input name="nombre" type="text" class="form-control" form="form-mejora" maxlength="50" disabled />
+{%include "./includes/panel-botones-siguiente.html" with next="correo-mejora" emsg="Ingrese un nombre y apellido válido. Ejemplo: Juan Pérez"%}
+
+<div class="panel" id="correo-mejora">
+    <div class="presentacion row">
+        {% include 'home/formularios/includes/img-asesor.html' %}
+
+        <div class="col-lg-10 d-flex justify-content-left">
+            <p>
+                ¡Excelente! Tenemos todos los datos que ocupamos para buscar mejorar tu hipoteca actual. ¡¡Con esto
+                podrás dejar de pagar muchísimo dinero en intereses!! Captura tus datos, te enviaremos una propuesta y
+                explicaremos a detalle el proceso.
+            </p>
+        </div>
+
+
+    </div><!-- End presentacion -->
+    <div class="preguntas">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width:97%" aria-valuenow="97"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+
+
+        </div>
+        <div class="d-flex justify-content-center">
+
+            <div class="opciones">
+
+                <h4><strong>
+                        Mi número celular es:
+                    </strong></h4>
+
+                <p>Tu información está segura, consulta nuestro <b><a class="visible-link"
+                            href="https://www.mshipotecaria.com/aviso-de-privacidad/" target="__blank">Aviso de
+                            Privacidad</a></b></p>
+                <input name="telefono" type="text" placeholder="(662)000-0000" class="form-control celularInput"
+                    form="form-mejora" minlength="13" disabled />
+                <small id="emsg-telefono" class="emsg form-text text-muted hidden">El número debe ser de 10
+                    dígitos</small>
+
+                <br>
+
+                <h4><strong>
+                        Compártenos tu correo electrónico
+                    </strong></h4>
+
+                <p>(El que más utilizas)</p>
+                <input name="correo" type="email" class="form-control correoInput" aria-describedby="emailHelp"
+                    placeholder="Ejemplo: juan@gmail.com" form="form-mejora" disabled
+                    value='{% if submitButton == "submit" %} {{ correo }} {% endif %}' />
+                <small id="emsg-correo" class="emsg form-text text-muted hidden">Por favor, ingrese un correo
+                    valido</small>
+
+                <button type="submit" name="submit" value="submit" form="form-mejora" class="perfilamiento">
+                    Quiero recibir mi propuesta
+                </button>
+
+                <div class="d-flex justify-content-center">
+                    <button class="antPer">
+                        Anterior
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="align-items: center;">
+            <h3 style="text-align: center; font-size: 99%;">"TODOS LOS BANCOS EN UN SOLO LUGAR"</h3>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-hsbc.png'%}" alt="logo hsbc" class="banco-img">
+                <img src="{%static 'img/logo-banorte.png'%}" alt="logo banorte" class="banco-img">
+                <img src="{%static 'img/logo-santander.png'%}" alt="logo santander" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-banamex.png'%}" alt="logo citibanamex" class="banco-img">
+                <img src="{%static 'img/logo-scotia.png'%}" alt="logo scotiabank" class="banco-img">
+                <img src="{%static 'img/logo-banregio.png'%}" alt="logo banregio" class="banco-img">
+            </div>
+            <div class="banco-div">
+                <img src="{%static 'img/logo-bx+.png'%}" alt="logo bx+" class="banco-img">
+
+                <img src="{%static 'img/logo-afirme.png'%}" alt="logo afirme" class="banco-img">
+            </div>
+        </div>
+
+    </div><!-- End preguntas -->
+</div><!-- End panel -->

@@ -46,6 +46,8 @@ $('.opcionNext').each(function () {
 
 //Boton final para enviar el formulario
 $('.perfilamiento').each(function () {
+    const correo = $(this).parent().parent().find('input[name=correo]');
+    const telefono = $(this).parent().parent().find('input[name=telefono]');
     $(this).click(function (event) {
         if(!correo.val().match(regexEmail) && telefono.cleanVal().length !== 10 ){
             $(this).siblings('#emsg-correo').removeClass('hidden');

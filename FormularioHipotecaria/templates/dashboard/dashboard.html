@@ -100,7 +100,8 @@
                                     {% if promotor.modalidad == 'Promotor' %}
                                     <tr>
                                         <td><img src="{{ promotor.foto.url }}" class="foto-perfil"></td>
-                                        <th scope="row">{{ promotor.first_name }} {{ promotor.last_name }}</th>
+                                        <th scope="row">{{ promotor.first_name | title}} {{ promotor.last_name | title}}
+                                        </th>
                                     </tr>
                                     {% endif %}
                                     {% endfor %}
@@ -124,7 +125,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Alcance de Credito</th>
+                                        <th scope="col">Alcance de Crédito</th>
                                     </tr>
                                 </thead>
 
@@ -132,7 +133,7 @@
                                     {% for cliente in object_list %}
                                     {% if cliente.ingreso_mensual != null %}
                                     <tr>
-                                        <th scope="row">{{ cliente.nombre }}</th>
+                                        <th scope="row">{{ cliente.nombre | title}}</th>
                                         <td>{{ cliente.banorte }}</td>
                                     </tr>
                                     {% endif %}
