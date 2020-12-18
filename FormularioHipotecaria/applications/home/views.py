@@ -12,6 +12,21 @@ from .send_emails import Messenger
 class HomeView(TemplateView):
     template_name = 'home/home.html'
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        user_id = self.request.GET.get('id')
+        user = User.objects.get(id=user_id)
+        user.foto = user.foto.url.replace('static/', '').replace(' ', '_')
+        user.empresa.logo = user.empresa.logo.url.replace('static/', '').replace(' ', '_')
+
+        ctx['nombre'] = user.first_name + ' ' + user.last_name
+        ctx['foto'] = user.foto.url
+        ctx['logo'] = user.empresa.logo.url
+        ctx['bienvenida'] = user.bienvenida_txt
+
+        return ctx
+
+
 class dashboardView(LoginRequiredMixin, ListView):
     model = User
     template_name = 'dashboard/dashboard.html'
