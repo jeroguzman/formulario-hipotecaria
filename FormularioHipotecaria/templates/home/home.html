@@ -8,9 +8,9 @@
     <div class="header">
         <div class="logo-container">
             {% if request.GET.id == null %}
-                <img src="{% static 'img/logoMS.png' %}" alt="">
+            <img src="{% static 'img/logoMS.png' %}" alt="">
             {% else %}
-                <img src="{% static logo %}" alt="">
+            <img src="{% static logo %}" alt="">
             {% endif %}
         </div>
     </div><!-- End header -->
@@ -26,17 +26,17 @@
                     <p>¡Hola! Soy
                         <strong>
                             {% if request.GET.id == null %}
-                                Alberto Molina,
+                            Alberto Molina,
                             {% else %}
-                                {{ nombre | title}},
+                            {{ nombre | title}},
                             {% endif %}
                         </strong>
                         {% if request.GET.id == null %}
-                            ejecutivo experto en Créditos
-                            Hipotecarios,
-                            déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
+                        ejecutivo experto en Créditos
+                        Hipotecarios,
+                        déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
                         {% else %}
-                            {{ bienvenida }}
+                        {{ bienvenida }}
                         {% endif %}
                     </p>
                 </div>
@@ -87,33 +87,67 @@
                             <input name="tramite" form="form-db" class="opcion-input" hidden>
                             <input name="tramite" form="form-mejora" class="opcion-input" hidden>
 
-                            <div style="width: 300px; text-align: justify;">
-                                <br>
-                                <p><strong>Descubre tu capacidad de crédito</strong></p>
-                                <p>Cada banco tiene sus políticas de otorgamiento de crédito distintas.</p>
-                                <p>Calculamos una solución a tu medida con base a tus ingresos y los créditos actuales
-                                    vigentes.</p>
-                                <p>Conoce en 3 minutos la línea de crédito que te pueden autorizar los distintos bancos.
-                                </p>
-                                <br>
-                                <p><strong>Buscamos tu seguridad.</strong></p>
-                                <p>
-                                    Utilizamos tu información para ayudarte a
-                                    tomar las mejores decisiones y te garantizamos la seguridad y privacidad de tus
-                                    datos.
-                                </p>
-                                <p>Tu información está segura, consulta nuestro <b><a class="visible-link"
-                                            href="https://www.mshipotecaria.com/aviso-de-privacidad/"
-                                            target="__blank">Aviso de
-                                            Privacidad</a></b></p>
-                            </div>
-
 
                         </div>
 
                     </div>
 
                 </div>
+
+                <div class="row">
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="my-auto">
+
+                            <img src="{% static 'img/in01.jpeg' %}" alt="imagen uno">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-flex justify-content-center">
+                        <div style="width: 300px; text-align: justify;">
+                            <p>
+                                <br>
+                                <strong>Descubre tu capacidad de crédito</strong>
+                                <br>
+                                <br>
+                                Cada banco tiene sus políticas de otorgamiento de crédito distintas.
+                                <br>
+                                <br>
+                                Calculamos una solución a tu medida con base a tus ingresos y los créditos actuales
+                                vigentes.
+                                <br>
+                                <br>
+                                Conoce en 3 minutos la línea de crédito que te pueden autorizar los distintos bancos.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex justify-content-center">
+                        <div class="my-auto">
+                            <img src="{% static 'img/in02.jpeg' %}" alt="imagen dos">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-flex justify-content-center">
+                        <div style="width: 300px; text-align: justify;">
+                            <p>
+                                <br>
+                                <strong>Buscamos tu seguridad.</strong>
+                                <br>
+                                <br>
+                                Utilizamos tu información para ayudarte a tomar las mejores decisiones y te garantizamos
+                                la seguridad y privacidad de tus
+                                datos.
+                                <br>
+                                <br>
+                                Tu información está segura, consulta nuestro <b><a class="visible-link"
+                                        href="https://www.mshipotecaria.com/aviso-de-privacidad/" target="__blank">Aviso
+                                        de
+                                        Privacidad</a></b>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div><!-- End preguntas -->
         </div>
 
