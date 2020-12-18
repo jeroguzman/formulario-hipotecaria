@@ -1,6 +1,11 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import (
+    DetailView, 
+    ListView,
+    DeleteView
+)
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
 from itertools import chain
 from .models import Clientes
 from applications.users.models import User
@@ -40,3 +45,20 @@ class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Clientes
     template_name = 'dashboard/clientes/cliente_detalle.html'
     login_url = reverse_lazy('users_app:u-login')
+
+
+class ClientDeleteView(LoginRequiredMixin, DeleteView):
+    model = Clientes
+    template_name = 'dashboard/clientes/client_delete.html'
+    success_url = reverse_lazy('clients_app:a-clientes')
+    login_url = reverse_lazy('users_app:u-login')
+
+    def delete(self, *args, **kwargs):
+        current_user = self.request.user
+
+        if current_user.is_superuser:
+            return super(ClientDeleteView, self).delete(self, *args, **kwargs)
+        else:
+            return HttpResponseRedirect(
+                reverse('users_app:u-logout')
+            )

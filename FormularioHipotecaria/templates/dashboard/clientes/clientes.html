@@ -76,6 +76,11 @@
                                         <td class="text-center">
                                             <a href="{% url 'clients_app:a-cliente' models.pk %}"><i
                                                     class="far fa-eye fa-2x"></i></a>
+                                            {% if request.user.is_superuser %}
+                                                <i class="fas fa-ellipsis-v"></i>
+                                                <a href="{% url 'clients_app:a-eliminar-cliente' models.pk %}"><i
+                                                        class="far fa-trash-alt fa-2x"></i></a>
+                                            {% endif %}
                                         </td>
                                     </tr>
                                     {% endfor %}
