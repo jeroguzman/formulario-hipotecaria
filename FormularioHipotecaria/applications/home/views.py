@@ -15,10 +15,17 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         user_id = self.request.GET.get('id')
-        user = User.objects.get(id=user_id)
+        user = None
+
+        if user_id is None:
+            user = User.objects.get(is_superuser=1)
+        else:
+            user = User.objects.get(id=user_id)
+
         user.foto = user.foto.url.replace('static/', '').replace(' ', '_')
         user.empresa.logo = user.empresa.logo.url.replace('static/', '').replace(' ', '_')
 
+        ctx['id'] = user.id
         ctx['nombre'] = user.first_name + ' ' + user.last_name
         ctx['foto'] = user.foto.url
         ctx['logo'] = user.empresa.logo.url

@@ -1,20 +1,13 @@
 {% extends '../base.html'%}
 {% load static %}
 
-
 {% block body %}
 <div class="inicio">
-
     <div class="header">
         <div class="logo-container">
-            {% if request.GET.id == null %}
-            <img src="{% static 'img/logoMS.png' %}" alt="">
-            {% else %}
             <img src="{% static logo %}" alt="">
-            {% endif %}
         </div>
     </div><!-- End header -->
-
 
     <div class="container-fluid">
 
@@ -25,19 +18,9 @@
                 <div class="col-lg-10 d-flex">
                     <p>¡Hola! Soy
                         <strong>
-                            {% if request.GET.id == null %}
-                            Alberto Molina,
-                            {% else %}
                             {{ nombre | title}},
-                            {% endif %}
                         </strong>
-                        {% if request.GET.id == null %}
-                        ejecutivo experto en Créditos
-                        Hipotecarios,
-                        déjame ayudarte a calcular tu capacidad de crédito, no te llevará mas de 3 minutos.
-                        {% else %}
                         {{ bienvenida }}
-                        {% endif %}
                     </p>
                 </div>
             </div><!-- End presentacion -->
@@ -55,11 +38,9 @@
                             <br>
                             <h4><strong>Asesoría completamente</strong></h4>
                             <h4 style="color: red;"><strong>¡¡SIN COSTO!!</strong></h4>
-
                         </div>
                     </div>
                     <div class="col-lg-8 d-flex justify-content-center">
-
                         <div class="opciones">
                             <h4><strong>¿Qué estás buscando?</strong></h4>
                             <div class="opcion opcionNext" for="c2">
@@ -86,18 +67,13 @@
 
                             <input name="tramite" form="form-db" class="opcion-input" hidden>
                             <input name="tramite" form="form-mejora" class="opcion-input" hidden>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
                 <div class="row">
                     <div class="col-lg-4 d-flex justify-content-center">
                         <div class="my-auto">
-
                             <img src="{% static 'img/in01.jpeg' %}" alt="imagen uno">
                         </div>
                     </div>
@@ -117,7 +93,6 @@
                                 <br>
                                 Conoce en 3 minutos la línea de crédito que te pueden autorizar los distintos bancos.
                             </p>
-
                         </div>
                     </div>
                     <div class="col-lg-4 d-flex justify-content-center">
@@ -144,21 +119,18 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
-
-
             </div><!-- End preguntas -->
         </div>
 
         <form action="pagina_final/" method="post" id="form-db">
             {% csrf_token %}
-            <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
+            <input type="text" name="promotor" value="{{ id }}" hidden>
         </form>
 
         <form action="pagina_final_mejora/" method="post" id="form-mejora">
             {% csrf_token %}
-            <input type="text" name="promotor" value="{{ request.GET.id }}" hidden>
+            <input type="text" name="promotor" value="{{ id }}" hidden>
         </form>
 
         {% include 'home/formularios/compra.html' %}
@@ -168,10 +140,6 @@
         {% include 'home/formularios/compra-cons.html' %}
         {% include 'home/formularios/liquidez.html' %}
         {% include 'home/formularios/deudas.html' %}
-
     </div><!-- End container-fluid -->
-
-
 </div>
-
 {% endblock body %}
