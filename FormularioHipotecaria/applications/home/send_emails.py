@@ -59,7 +59,7 @@ class Messenger:
         to_send = []
 
         try:
-            email_as = User.objects.get(asesor=client.promotor.asesor).email
+            email_as = User.objects.get(username=client.promotor.asesor).email
             to_send = [
                 self.email_admin,
                 email_prom, 
@@ -108,3 +108,56 @@ class Messenger:
         html_mail = loader.render_to_string(template_mail, ctx)
 
         send_mail(client_subject, client_content, self.email_sender, [client.email], html_message=html_mail)
+
+    def email_to_admin_mejora(self, client):
+        email_prom = client.promotor.email
+
+        admin_subject = 'Perfilador web /{}/{}'.format(client.promotor, client.nombre)
+        admin_content = 'Un nuevo cliente se ha registrado en tu enlace de Perfilamiento de Crédito Hipotecario:'
+        template_mail = 'admin_mail_mejora.html'
+
+        ctx = {
+            'asesor': client.promotor.asesor,
+            'promotor': client.promotor,
+            'nombre_cliente': client.nombre,
+            'telefono': client.telefono,
+            'correo': client.email,
+            'tipo_credito': client.tramite,
+            'puntualidad_pagos': client.puntualidad_pagos,
+            'saldo_actual': client.saldo_actual,
+            'pago_mensual': client.pago_mensual,
+            'años_credito': client.años_credito,
+            'tiempo_pagando_años': client.tiempo_pagando_años,
+            'tiempo_pagando_meses': client.tiempo_pagando_meses,
+            'credito_cofinanciado': client.credito_cofinanciado,
+            'institucion_hipotecaria': client.institucion_hipotecaria,
+            'moneda_credito': client.moneda_credito,
+            'pagos_pactados': client.pagos_pactados,
+
+        }
+
+        html_mail = loader.render_to_string(template_mail, ctx)
+        to_send = []
+
+        try:
+            email_as = User.objects.get(username=client.promotor.asesor).email
+            to_send = [
+                self.email_admin,
+                email_prom, 
+                email_as,
+            ]
+        except:
+            print('EXCEPT: No existe un asesor asignado al usuario ' + str(client.promotor))
+            
+            to_send = [
+                self.email_admin, 
+                email_prom,
+            ]
+
+        send_mail(
+            admin_subject, 
+            admin_content, 
+            self.email_sender, 
+            to_send, 
+            html_message=html_mail
+        )

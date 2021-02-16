@@ -204,6 +204,9 @@ class FinalViewMejora(TemplateView):
         )
         client.save()
 
+        sender = Messenger()
+        sender.email_to_admin_mejora(client)
+
         context = {'tramite':tramite, 'nombre':nombre, 'telefono':telefono, 'correo':correo, 'despedida':despedida}
 
         return render(request, self.template_name, context)
