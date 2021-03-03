@@ -61,7 +61,7 @@ class User(AbstractUser, PermissionsMixin):
     objects = UserManager()
 
     def save(self, *args, **kwargs):
-        self.url = 'http://perfilador.mshipotecaria.com/?id={}'.format(self.pk)
+        self.url = 'http://perfiladormultibancario.com/?id={}'.format(self.pk)
         super(User, self).save(*args, **kwargs)
 
     def get_short_name(self):
