@@ -24,7 +24,7 @@ class HomeView(TemplateView):
 
         # user.foto = user.foto.url.replace('staticfiles/', '').replace(' ', '_')
         # user.empresa.logo = user.empresa.logo.url.replace('staticfiles/', '').replace(' ', '_')
-        
+
         ctx['id'] = user.id
         ctx['nombre'] = user.first_name + ' ' + user.last_name
         ctx['foto'] = user.foto.url
