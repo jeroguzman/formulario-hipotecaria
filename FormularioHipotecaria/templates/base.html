@@ -35,18 +35,6 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '292895465510699');
         fbq('track', 'PageView');
-
-        var banco = '{{ banorte }}';
-
-        if ((banco >= 800000)&&(banco <= 2000000)) {
-            return fbq('track', 'AddToCart');
-        } else if ((banco >= 2,000,001)&&(banco <= 4,000,000)) {
-            return fbq('track', 'Lead');
-        } else if (banco >= 4,000,001) {
-            return fbq('track', 'Purchase', {value: 0.00, currency: 'USD'});
-        } else {  
-            fbq('track', 'Contact');
-    }
     </script>
     
     <noscript>
