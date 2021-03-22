@@ -185,6 +185,13 @@ button:focus {
     width: 50%;
 }
 
+.banco-img2{
+    margin: 20px; 
+    align-self: center;
+    max-width: 139px;
+    width: 50%;
+}
+
 .button{
     background-color: #1b2c54;
     color: white;
