@@ -82,10 +82,10 @@ class Messenger:
         )
 
     def email_to_client(self, client):
-        client_subject = 'Mi Solución Hipotecaria'
+        client_subject = 'Perfilador Multibancario'
         client_content = '¡¡Gracias por tu confienza!!'
 
-        if client.promotor.empresa.name == 'Mi Solución Hipotecaria':
+        if client.promotor.empresa.name == 'Perfilador Multibancario':
             template_mail = 'client_mail_ms.html'
         else:
             template_mail = 'client_mail_other.html'
