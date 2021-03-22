@@ -31,6 +31,6 @@ STATICFILES_DIRS = [str(BASE_DIR / 'static')]
 # EMAIL SETTINGS
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'correomshipotecaria@gmail.com' 
-EMAIL_HOST_PASSWORD = 'Mshipotecaria20'
+EMAIL_HOST_USER = 'perfiladormultibancario@gmail.com' 
+EMAIL_HOST_PASSWORD = 'perfilador092018'
 EMAIL_PORT = 587

@@ -5,7 +5,7 @@ from applications.users.models import User
 
 class Messenger:
     email_admin = 'contacto@mshipotecaria.com'
-    email_sender = 'correomshipotecaria@gmail.com'
+    email_sender = 'perfiladormultibancario@gmail.com'
 
     def email_to_admin(self, client, cap_endeudamiento):
         email_prom = client.promotor.email
