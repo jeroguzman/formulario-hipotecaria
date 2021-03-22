@@ -185,6 +185,11 @@ button:focus {
     width: 50%;
 }
 
+.imgfinal{
+    max-width: 100%;
+    height: auto;
+}
+
 .banco-img2{
     margin: 20px; 
     align-self: center;
